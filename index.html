@@ -459,11 +459,21 @@ let isAdmin = false;
 
 async function loadData() {
   try {
-    const res = await fetch("items.json").catch(() => fetch("https://raw.githubusercontent.com/srfashoinned/srpsdlist/main/items.json"));
+    // Always use GitHub RAW (BEST & RELIABLE)
+    const url = "https://raw.githubusercontent.com/srfashoinned/srpsdlist/main/items.json?v=" + Date.now();
+
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch");
+    }
+
     data = await res.json();
     render(data);
-  } catch {
-    document.getElementById("list").innerHTML = "<p style='padding:20px;color:var(--text-muted)'>Error loading data</p>";
+
+  } catch (err) {
+    document.getElementById("list").innerHTML =
+      "<p style='padding:20px;color:red'>❌ Error loading data</p>";
   }
 }
 
