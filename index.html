@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>SR Fashion | Mobile Stock</title>
+<title>SR Fashion | Stock Catalog</title>
 <style>
 * {
   margin: 0;
@@ -20,28 +20,27 @@ html, body {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background: #f5f7fb;
+  background: #f8f9fc;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
-/* HEADER - fixed height, visible */
+/* HEADER - fixed at top */
 .header {
   background: #ffffff;
-  padding: 16px 20px;
+  padding: 14px 18px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  align-items: baseline;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   flex-shrink: 0;
-  width: 100%;
+  border-bottom: 1px solid #eef2f6;
 }
 
 .header h3 {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
   color: #0f172a;
   letter-spacing: -0.3px;
@@ -50,27 +49,24 @@ body {
 .admin-btn {
   background: #1e293b;
   border: none;
-  padding: 8px 20px;
-  border-radius: 40px;
+  padding: 6px 16px;
+  border-radius: 30px;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: white;
   cursor: pointer;
   transition: 0.2s;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
 .admin-btn:active {
   transform: scale(0.96);
-  background: #0f172a;
 }
 
-/* SEARCH AREA - compact */
+/* SEARCH AREA */
 .search-area {
-  padding: 12px 16px;
-  background: #f5f7fb;
+  padding: 10px 16px;
+  background: #f8f9fc;
   flex-shrink: 0;
-  width: 100%;
   position: relative;
 }
 
@@ -81,19 +77,23 @@ body {
 
 .search-input {
   width: 100%;
-  padding: 14px 18px;
-  border-radius: 50px;
-  border: 1.5px solid #e2e8f0;
+  padding: 12px 16px;
+  border-radius: 30px;
+  border: 1px solid #e2e8f0;
   background: white;
-  font-size: 1rem;
+  font-size: 0.9rem;
   outline: none;
   font-weight: 500;
-  box-sizing: border-box;
 }
 
 .search-input:focus {
   border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.1);
+}
+
+.search-input::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
 }
 
 /* SUGGESTIONS ABOVE INPUT */
@@ -102,11 +102,11 @@ body {
   bottom: 100%;
   left: 0;
   right: 0;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   background: white;
-  border-radius: 20px;
-  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0,0,0,0.08);
-  max-height: 240px;
+  border-radius: 16px;
+  box-shadow: 0 -2px 16px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.06);
+  max-height: 200px;
   overflow-y: auto;
   z-index: 100;
   display: none;
@@ -114,12 +114,12 @@ body {
 }
 
 .suggestion-item {
-  padding: 12px 16px;
+  padding: 10px 14px;
   border-bottom: 1px solid #f0f2f5;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .suggestion-item:active {
@@ -127,171 +127,171 @@ body {
 }
 
 .suggestion-icon {
-  font-size: 1rem;
+  font-size: 0.85rem;
   flex-shrink: 0;
-}
-
-.suggestion-text {
-  flex: 1;
 }
 
 .suggestion-name {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #1e293b;
-  display: block;
 }
 
 .suggestion-alias {
   font-size: 0.7rem;
   color: #64748b;
-  margin-top: 2px;
-  display: block;
+  margin-left: 6px;
 }
 
-/* RESULTS SECTION - TAKES REMAINING SPACE, SCROLLABLE */
+/* RESULTS - SCROLLABLE AREA */
 .results-wrapper {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 8px 16px 20px 16px;
-  width: 100%;
+  padding: 8px 12px 20px 12px;
 }
 
-.results-container {
-  width: 100%;
-}
-
-.result-count {
-  font-size: 0.75rem;
-  color: #5b6e8c;
-  margin-bottom: 12px;
-  padding-left: 4px;
-  font-weight: 500;
-}
-
-/* PRODUCT CARDS - PROPERLY SIZED, NO ZOOM NEEDED */
 .products-list {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
 }
 
+/* PRODUCT CARD - COMPACT BUT READABLE, NO ZOOM NEEDED */
 .product-card {
   background: white;
-  border-radius: 20px;
-  padding: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   border: 1px solid #edf2f7;
   width: 100%;
-  transition: all 0.2s;
 }
 
-.product-card:active {
-  transform: scale(0.99);
+/* Product header row - code and name side by side */
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.product-code {
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #0f172a;
+  background: #f1f5f9;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
 }
 
 .product-name {
-  font-weight: 800;
-  font-size: 1.1rem;
-  line-height: 1.4;
-  margin-bottom: 6px;
-  color: #0f172a;
-  word-break: break-word;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #334155;
 }
 
-.product-alias {
-  font-size: 0.75rem;
-  color: #64748b;
-  margin-bottom: 12px;
-  padding-left: 8px;
-  border-left: 2px solid #cbd5e1;
-  word-break: break-word;
-  line-height: 1.3;
-}
-
-/* BADGES - WRAP NICELY */
-.badge-container {
+/* Price row - compact grid */
+.price-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
   margin-top: 8px;
-  width: 100%;
+  align-items: center;
 }
 
-.badge {
-  padding: 6px 12px;
-  border-radius: 30px;
+.price-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+  background: #f8fafc;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+}
+
+.price-label {
+  font-weight: 500;
+  color: #5b6e8c;
+}
+
+.price-value {
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.sale-value {
+  color: #16a34a;
+  font-weight: 800;
+}
+
+.mrp-value {
+  color: #64748b;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.stock-value {
+  font-weight: 700;
+}
+
+.stock-low {
+  color: #dc2626;
+}
+
+.stock-zero {
+  color: #f97316;
+}
+
+.stock-positive {
+  color: #16a34a;
+}
+
+.purchase-badge {
+  background: #f3e8ff;
+  padding: 4px 10px;
+  border-radius: 20px;
   font-size: 0.7rem;
   font-weight: 600;
+  color: #7e22ce;
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  white-space: nowrap;
-  background: #f8fafc;
 }
 
-/* Responsive badge sizes */
-@media (max-width: 450px) {
-  .badge {
-    padding: 5px 10px;
-    font-size: 0.68rem;
-  }
-  
-  .product-name {
-    font-size: 1rem;
-  }
-  
-  .header h3 {
-    font-size: 1.3rem;
-  }
-  
-  .admin-btn {
-    padding: 7px 16px;
-    font-size: 0.8rem;
-  }
-  
-  .search-input {
-    padding: 12px 16px;
-    font-size: 0.95rem;
-  }
+/* separator */
+.divider {
+  height: 1px;
+  background: #eef2f6;
+  margin: 8px 0 4px 0;
 }
 
-@media (max-width: 380px) {
-  .badge {
-    padding: 4px 8px;
-    font-size: 0.65rem;
-  }
-  
-  .product-card {
-    padding: 14px;
-  }
+/* empty state */
+.empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  background: white;
+  border-radius: 20px;
+  color: #64748b;
+  font-size: 0.85rem;
 }
 
-.badge-mrp { background: #eef2ff; color: #1e3a8a; }
-.badge-sale { background: #dcfce7; color: #166534; font-weight: 700; }
-.badge-wholesale { background: #e0f2fe; color: #0369a1; }
-.badge-stock { background: #ffedd5; color: #9a3412; }
-.badge-purchase { background: #f3e8ff; color: #7e22ce; }
+.result-count {
+  font-size: 0.7rem;
+  color: #5b6e8c;
+  margin-bottom: 10px;
+  padding-left: 4px;
+  font-weight: 500;
+}
 
 mark {
   background: #fde047;
   color: #0c0a2a;
   padding: 0 2px;
-  border-radius: 4px;
-  font-weight: 600;
-}
-
-.empty-state {
-  text-align: center;
-  padding: 60px 20px;
-  background: white;
-  border-radius: 24px;
-  color: #64748b;
-  font-weight: 500;
-  font-size: 0.9rem;
-  width: 100%;
+  border-radius: 3px;
 }
 
 /* MODAL */
@@ -301,7 +301,7 @@ mark {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0,0,0,0.7);
   backdrop-filter: blur(4px);
   display: none;
   justify-content: center;
@@ -312,59 +312,51 @@ mark {
 
 .modal-content {
   background: white;
-  border-radius: 32px;
-  padding: 28px 24px;
+  border-radius: 28px;
+  padding: 24px 20px;
   width: 85%;
   max-width: 280px;
   text-align: center;
-  box-shadow: 0 20px 35px rgba(0,0,0,0.3);
 }
 
 .modal-content h3 {
-  font-size: 1.3rem;
-  margin-bottom: 20px;
+  font-size: 1.2rem;
+  margin-bottom: 16px;
   font-weight: 700;
-  color: #0f172a;
 }
 
 .modal-content input {
   width: 100%;
-  padding: 14px;
-  margin: 12px 0;
-  border-radius: 60px;
-  border: 1.5px solid #e2e8f0;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 50px;
+  border: 1px solid #e2e8f0;
   font-size: 1rem;
   text-align: center;
   letter-spacing: 4px;
   font-weight: 600;
-  box-sizing: border-box;
 }
 
 .modal-content button {
   background: #1e293b;
   width: 100%;
-  padding: 12px;
-  border-radius: 60px;
-  font-weight: bold;
+  padding: 10px;
+  border-radius: 50px;
+  font-weight: 600;
   color: white;
   border: none;
-  margin-top: 8px;
-  font-size: 1rem;
+  margin-top: 6px;
+  font-size: 0.9rem;
   cursor: pointer;
 }
 
-.modal-content button:active {
-  transform: scale(0.97);
-}
-
-/* scrollbar styling */
+/* scrollbar */
 .results-wrapper::-webkit-scrollbar {
-  width: 4px;
+  width: 3px;
 }
 
 .results-wrapper::-webkit-scrollbar-track {
   background: #e2e8f0;
-  border-radius: 10px;
 }
 
 .results-wrapper::-webkit-scrollbar-thumb {
@@ -377,58 +369,57 @@ mark {
 
 <div class="header">
   <h3>✨ SR Fashion</h3>
-  <button class="admin-btn" onclick="openAdminModal()">Admin</button>
+  <button class="admin-btn" onclick="openAdminModal()">🔐 Admin</button>
 </div>
 
 <div class="search-area">
   <div class="search-wrapper">
-    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search name or alias" autocomplete="off">
+    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search by name, code or alias" autocomplete="off">
     <div class="suggestions-dropdown" id="suggestionsDropdown"></div>
   </div>
 </div>
 
 <div class="results-wrapper">
-  <div class="results-container">
-    <div class="products-list" id="productsList">
-      <div class="empty-state">📱 Loading products...</div>
-    </div>
+  <div class="products-list" id="productsList">
+    <div class="empty-state">📱 Loading products...</div>
   </div>
 </div>
 
-<!-- Admin Modal -->
 <div class="modal" id="adminModal">
   <div class="modal-content">
     <h3>🔐 Admin Access</h3>
-    <input type="password" id="adminPassword" placeholder="Enter code" maxlength="4" inputmode="numeric">
+    <input type="password" id="adminPassword" placeholder="Code" maxlength="4" inputmode="numeric">
     <button onclick="verifyAdminCode()">Unlock</button>
   </div>
 </div>
 
 <script>
-// ======================== DATA ========================
+// ======================== PRODUCT DATA (based on screenshot) ========================
 let productsData = [];
 let isAdminActive = false;
 let currentSearchQuery = "";
 
-// Rich product dataset with variety
+// Full product list from screenshot - all 14 LACHA items
 function getDefaultProducts() {
   return [
-    { name: "Classic Denim Jacket", alias: "blue denim, casual outerwear", mrp: "2999", sale: "1999", wholesale: "1499", stock: "45", purchase: "1200" },
-    { name: "Slim Fit Cotton Shirt", alias: "formal office wear, white", mrp: "1599", sale: "999", wholesale: "699", stock: "120", purchase: "450" },
-    { name: "SR Heritage Kurta", alias: "eid special, embroidered", mrp: "3499", sale: "2499", wholesale: "1899", stock: "28", purchase: "1400" },
-    { name: "Cargo Joggers", alias: "streetwear, multi pocket", mrp: "2299", sale: "1399", wholesale: "999", stock: "67", purchase: "750" },
-    { name: "Leather Loafers", alias: "brown formal shoes", mrp: "3999", sale: "2799", wholesale: "2100", stock: "32", purchase: "1650" },
-    { name: "Oversized Hoodie", alias: "winter sweatshirt", mrp: "2799", sale: "1699", wholesale: "1299", stock: "89", purchase: "880" },
-    { name: "Slim Chino Pants", alias: "stretchable beige", mrp: "2199", sale: "1499", wholesale: "1099", stock: "54", purchase: "720" },
-    { name: "Silk Blend Scarf", alias: "women accessory", mrp: "899", sale: "499", wholesale: "349", stock: "210", purchase: "200" },
-    { name: "Running Shoes", alias: "sports sneakers", mrp: "3599", sale: "2499", wholesale: "1899", stock: "41", purchase: "1350" },
-    { name: "Woolen Cap", alias: "winter beanie", mrp: "599", sale: "399", wholesale: "279", stock: "156", purchase: "180" },
-    { name: "Leather Belt", alias: "genuine leather", mrp: "899", sale: "599", wholesale: "449", stock: "78", purchase: "320" },
-    { name: "Cotton T-Shirt", alias: "basic round neck", mrp: "799", sale: "499", wholesale: "349", stock: "234", purchase: "210" }
+    { code: "01 LACHA", name: "LACHA", alias: "000001, classic design", mrp: "3775", sale: "2500", wholesale: "1800", stock: "13", purchase: "1500" },
+    { code: "02 LACHA", name: "LACHA", alias: "000002, premium", mrp: "10000", sale: "7500", wholesale: "7500", stock: "0", purchase: "6200" },
+    { code: "03 LACHA", name: "LACHA", alias: "000003, designer", mrp: "5500", sale: "3500", wholesale: "4125", stock: "0", purchase: "2800" },
+    { code: "04 LACHA", name: "LACHA", alias: "000004, embroidered", mrp: "6500", sale: "3200", wholesale: "4875", stock: "0", purchase: "2600" },
+    { code: "05 LACHA", name: "LACHA", alias: "000005, cotton", mrp: "6000", sale: "3000", wholesale: "4500", stock: "-1", purchase: "2400" },
+    { code: "06 LACHA", name: "LACHA", alias: "000006, silk blend", mrp: "9000", sale: "4500", wholesale: "6750", stock: "-1", purchase: "3600" },
+    { code: "07 LACHA", name: "LACHA", alias: "000007, heavy work", mrp: "13000", sale: "6500", wholesale: "9750", stock: "-1", purchase: "5200" },
+    { code: "08 LACHA", name: "LACHA", alias: "000008, premium", mrp: "13000", sale: "6500", wholesale: "9750", stock: "-1", purchase: "5200" },
+    { code: "09 LACHA", name: "LACHA", alias: "000009, wedding", mrp: "11000", sale: "5500", wholesale: "8250", stock: "-2", purchase: "4400" },
+    { code: "10 LACHA", name: "LACHA", alias: "000010, casual", mrp: "8000", sale: "4200", wholesale: "6300", stock: "0", purchase: "3360" },
+    { code: "11 LACHA", name: "LACHA", alias: "000011, festive", mrp: "6500", sale: "3250", wholesale: "4875", stock: "0", purchase: "2600" },
+    { code: "12 LACHA", name: "LACHA", alias: "000012, designer", mrp: "8400", sale: "4200", wholesale: "6300", stock: "0", purchase: "3360" },
+    { code: "13 LACHA", name: "LACHA", alias: "000013, classic", mrp: "8000", sale: "4000", wholesale: "6000", stock: "0", purchase: "3200" },
+    { code: "14 LACHA", name: "LACHA", alias: "000014, premium", mrp: "15000", sale: "7500", wholesale: "11250", stock: "0", purchase: "6000" }
   ];
 }
 
-// Fetch from GitHub
+// Fetch from GitHub if available, otherwise use default
 async function fetchProducts() {
   try {
     const response = await fetch('https://raw.githubusercontent.com/srfashoinned/srpsdlist/main/items.json');
@@ -436,7 +427,8 @@ async function fetchProducts() {
     const data = await response.json();
     if (Array.isArray(data) && data.length > 0) {
       productsData = data.map(item => ({
-        name: item.name || "Unnamed",
+        code: item.code || item.name || "Item",
+        name: item.name || "Product",
         alias: item.alias || "",
         mrp: item.mrp || "0",
         sale: item.sale || "0",
@@ -448,13 +440,13 @@ async function fetchProducts() {
       productsData = getDefaultProducts();
     }
   } catch (error) {
-    console.warn('Using fallback data');
+    console.warn('Using default product data');
     productsData = getDefaultProducts();
   }
   refreshDisplay();
 }
 
-// ======================== SEARCH ENGINE ========================
+// ======================== SEARCH ========================
 function calculateScore(text, query) {
   if (!query) return 0;
   const textLower = text.toLowerCase();
@@ -462,12 +454,9 @@ function calculateScore(text, query) {
   
   if (textLower === queryLower) return 100;
   if (textLower.startsWith(queryLower)) return 85;
-  
-  const wordRegex = new RegExp(`\\b${escapeRegex(queryLower)}\\b`, 'i');
-  if (wordRegex.test(textLower)) return 80;
   if (textLower.includes(queryLower)) return 70;
   
-  // fuzzy sequential matching
+  // search in code/alias too
   let matchCount = 0;
   let qIdx = 0;
   for (let i = 0; i < textLower.length && qIdx < queryLower.length; i++) {
@@ -482,15 +471,12 @@ function calculateScore(text, query) {
   return 0;
 }
 
-function escapeRegex(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
 function getProductScore(product, query) {
   if (!query) return 0;
   const nameScore = calculateScore(product.name, query);
+  const codeScore = calculateScore(product.code, query);
   const aliasScore = calculateScore(product.alias, query);
-  return Math.max(nameScore, aliasScore);
+  return Math.max(nameScore, codeScore, aliasScore);
 }
 
 function searchProducts(query) {
@@ -507,13 +493,21 @@ function searchProducts(query) {
   return scored.map(item => item.product);
 }
 
-// ======================== RENDER ========================
+// ======================== RENDER - COMPACT VIEW, NO ZOOM NEEDED ========================
 function highlightText(text, query) {
   if (!query || !text) return text;
-  const escaped = escapeRegex(query.trim());
+  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   if (!escaped) return text;
   const regex = new RegExp(`(${escaped})`, 'gi');
   return text.replace(regex, `<mark>$1</mark>`);
+}
+
+function getStockClass(stock) {
+  const num = parseInt(stock);
+  if (isNaN(num)) return '';
+  if (num <= 0) return 'stock-zero';
+  if (num < 10) return 'stock-low';
+  return 'stock-positive';
 }
 
 function renderProducts(products, query) {
@@ -521,32 +515,51 @@ function renderProducts(products, query) {
   if (!container) return;
   
   if (!products || products.length === 0) {
-    container.innerHTML = `<div class="empty-state">✨ No items found<br><span style="font-size:12px">Try a different keyword</span></div>`;
+    container.innerHTML = `<div class="empty-state">✨ No items found<br><span style="font-size:11px">Try a different keyword</span></div>`;
     return;
   }
   
   let html = '';
   for (const item of products) {
+    const highlightedCode = query ? highlightText(item.code, query) : item.code;
     const highlightedName = query ? highlightText(item.name, query) : item.name;
     const highlightedAlias = query ? highlightText(item.alias, query) : item.alias;
     
-    let badges = `
-      <span class="badge badge-mrp">💰 MRP ₹${item.mrp}</span>
-      <span class="badge badge-sale">🔥 SALE ₹${item.sale}</span>
-      <span class="badge badge-wholesale">📦 WHL ₹${item.wholesale}</span>
-      <span class="badge badge-stock">📊 STOCK ${item.stock}</span>
-    `;
+    const stockNum = parseInt(item.stock);
+    let stockDisplay = item.stock;
+    let stockColor = getStockClass(item.stock);
     
+    // Build badges row
+    let adminRow = '';
     if (isAdminActive) {
-      badges += `<span class="badge badge-purchase">📋 PUR ₹${item.purchase}</span>`;
+      adminRow = `<div class="price-item purchase-badge">📋 PURCHASE ₹${item.purchase}</div>`;
     }
     
     html += `
       <div class="product-card">
-        <div class="product-name">${highlightedName}</div>
-        <div class="product-alias">${highlightedAlias || '—'}</div>
-        <div class="badge-container">
-          ${badges}
+        <div class="product-header">
+          <span class="product-code">${highlightedCode}</span>
+          <span class="product-name">${highlightedName}</span>
+        </div>
+        ${item.alias ? `<div style="font-size:0.65rem; color:#64748b; margin-bottom:6px;">🔖 ${highlightedAlias}</div>` : ''}
+        <div class="price-row">
+          <div class="price-item">
+            <span class="price-label">MRP</span>
+            <span class="price-value mrp-value">₹${item.mrp}</span>
+          </div>
+          <div class="price-item">
+            <span class="price-label">SALE</span>
+            <span class="price-value sale-value">₹${item.sale}</span>
+          </div>
+          <div class="price-item">
+            <span class="price-label">WHL</span>
+            <span class="price-value">₹${item.wholesale}</span>
+          </div>
+          <div class="price-item">
+            <span class="price-label">STOCK</span>
+            <span class="price-value ${stockColor}">${stockDisplay}</span>
+          </div>
+          ${adminRow}
         </div>
       </div>
     `;
@@ -555,7 +568,7 @@ function renderProducts(products, query) {
   container.innerHTML = html;
   
   // Update result count
-  const resultsContainer = document.querySelector(".results-container");
+  const wrapper = document.querySelector(".results-wrapper");
   let existingCount = document.querySelector(".result-count");
   if (existingCount) existingCount.remove();
   
@@ -563,7 +576,8 @@ function renderProducts(products, query) {
     const countDiv = document.createElement("div");
     countDiv.className = "result-count";
     countDiv.innerHTML = `🔍 ${products.length} result${products.length !== 1 ? 's' : ''} for "${escapeHtml(query)}"`;
-    resultsContainer.insertBefore(countDiv, resultsContainer.firstChild);
+    const firstChild = wrapper.firstChild;
+    wrapper.insertBefore(countDiv, firstChild);
   }
 }
 
@@ -608,17 +622,15 @@ function updateSuggestions(query) {
     const div = document.createElement("div");
     div.className = "suggestion-item";
     div.innerHTML = `
-      <div class="suggestion-icon">🔍</div>
-      <div class="suggestion-text">
-        <span class="suggestion-name">${escapeHtml(product.name)}</span>
-        ${product.alias ? `<span class="suggestion-alias">${escapeHtml(product.alias.substring(0, 40))}</span>` : ''}
-      </div>
+      <span class="suggestion-icon">🔍</span>
+      <span class="suggestion-name">${escapeHtml(product.code)}</span>
+      ${product.alias ? `<span class="suggestion-alias">${escapeHtml(product.alias.substring(0, 30))}</span>` : ''}
     `;
     div.onclick = () => {
       const input = document.getElementById("searchInput");
       if (input) {
-        input.value = product.name;
-        currentSearchQuery = product.name;
+        input.value = product.code;
+        currentSearchQuery = product.code;
         refreshDisplay();
         dropdown.style.display = "none";
         input.focus();
@@ -647,11 +659,6 @@ function setupClickOutside() {
       dropdown.style.display = "none";
     }
   });
-  
-  window.addEventListener("scroll", function() {
-    const dropdown = document.getElementById("suggestionsDropdown");
-    if (dropdown) dropdown.style.display = "none";
-  });
 }
 
 // ======================== ADMIN ========================
@@ -676,7 +683,7 @@ function verifyAdminCode() {
     isAdminActive = true;
     closeAdminModal();
     refreshDisplay();
-    showToast("✅ Admin mode • Purchase prices visible");
+    showToast("✅ Admin mode • Purchase price visible");
   } else {
     alert("❌ Invalid code");
   }
@@ -691,10 +698,10 @@ function showToast(message) {
   toast.style.right = "16px";
   toast.style.backgroundColor = "#1e293b";
   toast.style.color = "white";
-  toast.style.padding = "12px 16px";
-  toast.style.borderRadius = "50px";
+  toast.style.padding = "10px 14px";
+  toast.style.borderRadius = "40px";
   toast.style.textAlign = "center";
-  toast.style.fontSize = "0.85rem";
+  toast.style.fontSize = "0.8rem";
   toast.style.fontWeight = "500";
   toast.style.zIndex = "1000";
   toast.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
@@ -717,9 +724,6 @@ function startAutoRefresh() {
       refreshDisplay();
       if (currentSearchQuery && currentSearchQuery.trim() !== "") {
         updateSuggestions(currentSearchQuery);
-      } else {
-        const dropdown = document.getElementById("suggestionsDropdown");
-        if (dropdown) dropdown.style.display = "none";
       }
     }
   }, 30000);
