@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,144 +6,156 @@
 <title>SR Fashion Stock</title>
 
 <style>
-body {
-  font-family: Arial;
-  margin: 0;
-  background: #f4f6f9;
-}
-
-header {
-  background: linear-gradient(135deg,#000,#444);
-  color: white;
-  padding: 15px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-#search {
-  width: 95%;
-  margin: 15px;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  font-size:16px;
-}
-
-.card {
-  background:white;
-  margin:10px;
-  padding:15px;
-  border-radius:15px;
-  box-shadow:0 3px 10px rgba(0,0,0,0.1);
-}
-
-.badge {
-  display:inline-block;
-  padding:6px 10px;
-  margin:3px;
-  border-radius:8px;
-  font-size:14px;
-  font-weight:bold;
-}
-
-.mrp { background:#ddd; }
-.sale { background:#b8e6c3; }
-.wholesale { background:#a7c7e7; }
-.stock { background:#f8b4a6; }
-.purchase { background:#d8b4f8; }
-
-.hidden { display:none; }
-
-button {
-  padding:8px 15px;
-  border:none;
-  border-radius:8px;
-  background:black;
+body{
+  margin:0;
+  font-family:Arial;
+  background:#0e0c0a;
   color:white;
 }
-</style>
 
+.header{
+  display:flex;
+  justify-content:space-between;
+  padding:15px;
+  background:#181410;
+}
+
+button{
+  padding:8px 12px;
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+}
+
+.search{
+  padding:10px;
+}
+
+#search{
+  width:100%;
+  padding:12px;
+  border-radius:25px;
+  border:none;
+  outline:none;
+}
+
+.card{
+  background:#181410;
+  margin:10px;
+  padding:10px;
+  border-radius:12px;
+}
+
+.tag{
+  display:inline-block;
+  margin:3px;
+  padding:5px 10px;
+  border-radius:10px;
+  font-size:12px;
+}
+
+.mrp{background:#333}
+.sale{background:green}
+.wholesale{background:#2c6ef2}
+.stock{background:#e05252}
+.purchase{background:#a07bd6}
+</style>
 </head>
 
 <body>
 
-<header>
+<div class="header">
   <h2>SR Fashion</h2>
   <button onclick="adminLogin()">Admin</button>
-</header>
+</div>
 
-<input type="text" id="search" placeholder="Search name or alias..." onkeyup="searchItems()">
+<div class="search">
+  <input id="search" placeholder="Search name or alias...">
+</div>
 
-<div id="items"></div>
+<div id="list">Loading...</div>
 
 <script>
 let data = [];
 let isAdmin = false;
 
-// 🔥 LOAD DATA
-fetch('./items.json')
-.then(res => res.json())
-.then(json => {
-  data = json;
-  render(data);
-});
+// 🔥 FINAL WORKING LOAD (NO ERROR EVER)
+async function loadData() {
+  try {
+    const url = "https://raw.githubusercontent.com/srfashoinned/srpsdlist/main/items.json?v=" + Date.now();
 
-// 🔥 RENDER ITEMS
-function render(list){
-  const container = document.getElementById("items");
-  container.innerHTML = "";
+    const res = await fetch(url);
+    const text = await res.text();   // important
 
-  list.forEach(item=>{
-    const div = document.createElement("div");
-    div.className="card";
+    data = JSON.parse(text);         // safe parse
+    render(data);
 
-    div.innerHTML = `
-      <b>${item.name}</b><br>
-      Alias: ${item.alias}<br><br>
-
-      <span class="badge mrp">MRP: ${item.mrp}</span>
-      <span class="badge sale">Sale: ${item.sale}</span>
-      <span class="badge wholesale">Wholesale: ${item.wholesale}</span>
-      <span class="badge stock">Stock: ${item.stock}</span>
-      <span class="badge purchase ${isAdmin ? '' : 'hidden'}">Purchase: ${item.purchase}</span>
-    `;
-
-    container.appendChild(div);
-  });
+  } catch (e) {
+    document.getElementById("list").innerHTML =
+      "<p style='color:red;padding:20px'>❌ Error loading data</p>";
+  }
 }
 
-// 🔥 SMART SEARCH (FIXED)
-function searchItems(){
-  const val = document.getElementById("search").value.toLowerCase().trim();
+// SEARCH
+function match(text,q){
+  text=(text||"").toLowerCase();
+  q=q.toLowerCase();
+  if(text.includes(q)) return true;
+  let i=0;
+  for(let c of text){
+    if(c===q[i]) i++;
+    if(i===q.length) return true;
+  }
+  return false;
+}
 
-  if(val===""){
-    render(data);
+function search(q){
+  if(!q) return data;
+  return data.filter(i=>match(i.name,q)||match(i.alias,q));
+}
+
+// RENDER
+function render(list){
+  if(list.length===0){
+    document.getElementById("list").innerHTML="No items";
     return;
   }
 
-  const filtered = data.filter(item=>{
-    return (
-      item.name.toLowerCase().includes(val) ||   // 🔥 main fix
-      item.alias.toLowerCase().includes(val)
-    );
-  });
+  document.getElementById("list").innerHTML =
+    list.map(i=>`
+      <div class="card">
+        <b>${i.name}</b><br>
+        <small>${i.alias}</small><br><br>
 
-  render(filtered);
+        <span class="tag mrp">MRP: ${i.mrp}</span>
+        <span class="tag sale">Sale: ${i.sale}</span>
+        <span class="tag wholesale">Wholesale: ${i.wholesale}</span>
+        <span class="tag stock">Stock: ${i.stock}</span>
+
+        ${isAdmin ? `<div><span class="tag purchase">Purchase: ${i.purchase}</span></div>` : ""}
+      </div>
+    `).join("");
 }
 
-// 🔐 ADMIN LOGIN
-function adminLogin(){
-  const pass = prompt("Enter Admin Password");
+// SEARCH EVENT
+document.getElementById("search").addEventListener("input",e=>{
+  render(search(e.target.value));
+});
 
-  if(pass === "7865"){
-    isAdmin = true;
-    alert("Admin Mode ON");
-    render(data);
-  } else {
-    alert("Wrong Password");
+// ADMIN
+function adminLogin(){
+  let pass = prompt("Enter password");
+  if(pass==="7865"){
+    isAdmin=true;
+    render(search(document.getElementById("search").value));
+    alert("Admin unlocked");
+  }else{
+    alert("Wrong password");
   }
 }
+
+// INIT
+loadData();
 </script>
 
 </body>
