@@ -228,7 +228,7 @@ function getDefaultProducts() {
 
 async function fetchProducts() {
   try {
-    const r = await fetch('https://raw.githubusercontent.com/srfashoinned/srpsdlist/main/items.json');
+    const r = await fetch('https://raw.githubusercontent.com/srfashoinned/srpsdlist/main/items.json?v=' + Date.now());
     if (!r.ok) throw 0;
     const d = await r.json();
     if (Array.isArray(d) && d.length > 0) {
