@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>SR Fashion | Mobile Stock</title>
 <style>
 * {
@@ -14,47 +14,52 @@
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background: #f5f7fb;
-  overflow-x: hidden;
+  background: #f8fafc;
   width: 100%;
-  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
 }
 
-/* no horizontal scroll */
-.container, .search-wrapper, .header, .results-area {
+/* ensure everything stays within viewport */
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* main containers - no overflow */
+.header, .search-area, .results-wrapper {
+  width: 100%;
   max-width: 100%;
   overflow-x: hidden;
 }
 
-/* HEADER - compact for mobile */
+/* HEADER - perfect fit */
 .header {
-  position: sticky;
-  top: 0;
   background: #ffffff;
-  padding: 12px 16px;
+  padding: 14px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-  z-index: 20;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
   width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 
 .header h3 {
   font-size: 1.35rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #0f172a;
   letter-spacing: -0.3px;
 }
 
 .admin-btn {
   background: #1e293b;
   border: none;
-  padding: 8px 18px;
-  border-radius: 40px;
+  padding: 8px 20px;
+  border-radius: 30px;
   font-weight: 600;
   font-size: 0.85rem;
   color: white;
@@ -68,12 +73,12 @@ body {
   background: #0f172a;
 }
 
-/* SEARCH SECTION - integrated dropdown ABOVE the field (mobile style) */
-.search-section {
+/* SEARCH AREA */
+.search-area {
   padding: 12px 16px;
-  background: #f5f7fb;
-  position: relative;
+  background: #f8fafc;
   width: 100%;
+  position: relative;
 }
 
 .search-wrapper {
@@ -81,92 +86,116 @@ body {
   width: 100%;
 }
 
-/* suggestions appear ABOVE the input field */
-.suggestions-container {
+/* search input - full width, no overflow */
+.search-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 50px;
+  border: 1.5px solid #e2e8f0;
+  background: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+  font-weight: 500;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+}
+
+/* suggestions dropdown - appears above input, fits screen width */
+.suggestions-dropdown {
   position: absolute;
   bottom: 100%;
   left: 0;
   right: 0;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   background: white;
   border-radius: 20px;
-  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0,0,0,0.08);
   max-height: 280px;
   overflow-y: auto;
   z-index: 100;
   display: none;
   border: 1px solid #eef2f6;
-  backdrop-filter: blur(0);
+  width: 100%;
 }
 
-.suggestions-container::-webkit-scrollbar {
-  width: 4px;
+.suggestions-dropdown::-webkit-scrollbar {
+  width: 3px;
 }
 
 .suggestion-item {
-  padding: 14px 16px;
+  padding: 12px 16px;
   border-bottom: 1px solid #f0f2f5;
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: #1e293b;
   transition: background 0.12s;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  width: 100%;
+  word-break: break-word;
 }
 
 .suggestion-item:active {
   background: #f1f5f9;
 }
 
-.suggestion-item:last-child {
-  border-bottom: none;
-}
-
 .suggestion-icon {
   font-size: 1rem;
-  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.suggestion-text {
+  flex: 1;
+  overflow: hidden;
+  word-break: break-word;
 }
 
 .suggestion-name {
-  flex: 1;
+  font-weight: 600;
+  display: block;
+  font-size: 0.9rem;
 }
 
-.suggestion-hint {
+.suggestion-alias {
   font-size: 0.7rem;
   color: #64748b;
+  margin-top: 2px;
+  display: block;
 }
 
-/* search input */
-.search-input {
+/* RESULTS SECTION */
+.results-wrapper {
+  padding: 8px 16px 20px 16px;
   width: 100%;
-  padding: 14px 18px;
-  border-radius: 60px;
-  border: 1.5px solid #e2e8f0;
-  background: white;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.2s;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+  overflow-x: hidden;
+}
+
+.results-container {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.result-count {
+  font-size: 0.7rem;
+  color: #5b6e8c;
+  margin-bottom: 12px;
+  padding-left: 4px;
   font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
-.search-input:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
-}
-
-/* results container - cards */
-.results-area {
-  padding: 8px 16px 24px 16px;
-  width: 100%;
-}
-
-.card-list {
+/* PRODUCT CARDS - NO HORIZONTAL SCROLL */
+.products-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
   width: 100%;
 }
 
@@ -174,134 +203,156 @@ body {
   background: white;
   border-radius: 20px;
   padding: 16px;
-  transition: all 0.2s;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0,0,0,0.03);
+  border: 1px solid #edf2f7;
   width: 100%;
-  word-break: break-word;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.product-card:active {
+  transform: scale(0.99);
 }
 
 .product-name {
   font-weight: 800;
-  font-size: 1.1rem;
-  line-height: 1.35;
-  margin-bottom: 5px;
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 6px;
   color: #0f172a;
-  letter-spacing: -0.2px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .product-alias {
   font-size: 0.7rem;
-  color: #5b6e8c;
+  color: #64748b;
   margin-bottom: 12px;
-  padding-left: 6px;
+  padding-left: 8px;
   border-left: 2px solid #cbd5e1;
   word-break: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.3;
 }
 
-.badge-strip {
+/* BADGES - FLEXIBLE WRAPPING */
+.badge-container {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 8px;
-  align-items: center;
+  width: 100%;
 }
 
 .badge {
   padding: 5px 12px;
-  border-radius: 40px;
+  border-radius: 30px;
   font-size: 0.7rem;
   font-weight: 600;
-  background: #f8fafc;
-  color: #1e293b;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
-/* responsive badges - wrap nicely on small screens */
-@media (max-width: 480px) {
+/* responsive badges - on very small screens, allow wrap with no overflow */
+@media (max-width: 400px) {
   .badge {
     padding: 4px 10px;
     font-size: 0.65rem;
-    white-space: normal;
-    word-break: keep-all;
+    white-space: nowrap;
   }
+  
   .product-name {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .admin-btn {
+    padding: 6px 16px;
+    font-size: 0.8rem;
   }
 }
 
-.mrp-badge { background: #eef2ff; color: #1e3a8a; }
-.sale-badge { background: #dcfce7; color: #166534; font-weight: 700; }
-.wholesale-badge { background: #e0f2fe; color: #0369a1; }
-.stock-badge { background: #ffedd5; color: #9a3412; }
-.purchase-badge { background: #f3e8ff; color: #7e22ce; }
+.badge-mrp { background: #eef2ff; color: #1e3a8a; }
+.badge-sale { background: #dcfce7; color: #166534; font-weight: 700; }
+.badge-wholesale { background: #e0f2fe; color: #0369a1; }
+.badge-stock { background: #ffedd5; color: #9a3412; }
+.badge-purchase { background: #f3e8ff; color: #7e22ce; }
 
 mark {
   background: #fde047;
   color: #0c0a2a;
   padding: 0 2px;
-  border-radius: 6px;
+  border-radius: 4px;
   font-weight: 600;
 }
 
-.empty-message {
+.empty-state {
   text-align: center;
   padding: 48px 20px;
   background: white;
-  border-radius: 28px;
+  border-radius: 24px;
   color: #64748b;
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* modal admin - mobile friendly */
-.modal-overlay {
+/* MODAL - FITS PERFECTLY */
+.modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
   display: none;
   justify-content: center;
   align-items: center;
   z-index: 200;
   padding: 20px;
+  box-sizing: border-box;
 }
 
-.modal-card {
+.modal-content {
   background: white;
   border-radius: 32px;
   padding: 28px 24px;
   width: 100%;
-  max-width: 300px;
+  max-width: 280px;
   text-align: center;
-  box-shadow: 0 25px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 35px rgba(0,0,0,0.3);
+  box-sizing: border-box;
 }
 
-.modal-card h3 {
-  font-size: 1.4rem;
+.modal-content h3 {
+  font-size: 1.3rem;
   margin-bottom: 20px;
   font-weight: 700;
+  color: #0f172a;
 }
 
-.modal-card input {
+.modal-content input {
   width: 100%;
   padding: 14px;
   margin: 12px 0;
   border-radius: 60px;
-  border: 1px solid #cbd5e1;
-  font-size: 1.1rem;
+  border: 1.5px solid #e2e8f0;
+  font-size: 1rem;
   text-align: center;
   letter-spacing: 4px;
   font-weight: 600;
+  box-sizing: border-box;
 }
 
-.modal-card button {
+.modal-content button {
   background: #1e293b;
   width: 100%;
   padding: 12px;
@@ -314,21 +365,20 @@ mark {
   cursor: pointer;
 }
 
-.modal-card button:active {
+.modal-content button:active {
   transform: scale(0.97);
 }
 
-/* tiny helper */
-.hide-scroll {
-  overflow-x: hidden;
+/* loading state */
+.loading {
+  text-align: center;
+  padding: 48px 20px;
+  color: #64748b;
 }
 
-.result-stats {
-  font-size: 0.7rem;
-  color: #5b6e8c;
-  margin-bottom: 8px;
-  padding-left: 4px;
-  font-weight: 500;
+/* ensure no overflow on any element */
+img, div, span, p, h1, h2, h3, h4 {
+  max-width: 100%;
 }
 </style>
 </head>
@@ -336,62 +386,63 @@ mark {
 
 <div class="header">
   <h3>✨ SR Fashion</h3>
-  <button class="admin-btn" onclick="openAdminModal()">Admin</button>
+  <button class="admin-btn" onclick="openAdminModal()">🔐 Admin</button>
 </div>
 
-<div class="search-section">
+<div class="search-area">
   <div class="search-wrapper">
-    <!-- suggestions appear ABOVE the input (bottom:100%) -->
-    <div class="suggestions-container" id="suggestionsContainer"></div>
-    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search name or alias..." autocomplete="off">
+    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Search by name or alias" autocomplete="off">
+    <div class="suggestions-dropdown" id="suggestionsDropdown"></div>
   </div>
 </div>
 
-<div class="results-area" id="resultsArea">
-  <div class="card-list" id="cardList">
-    <div class="empty-message">📱 Loading inventory...</div>
+<div class="results-wrapper">
+  <div class="results-container" id="resultsContainer">
+    <div class="products-list" id="productsList">
+      <div class="empty-state">📱 Loading inventory...</div>
+    </div>
   </div>
 </div>
 
-<!-- ADMIN MODAL -->
-<div class="modal-overlay" id="adminModal">
-  <div class="modal-card">
-    <h3>🔐 Admin</h3>
-    <input type="password" id="adminPassword" placeholder="Code" maxlength="4" inputmode="numeric">
-    <button onclick="verifyAdmin()">Unlock</button>
+<!-- Admin Modal -->
+<div class="modal" id="adminModal">
+  <div class="modal-content">
+    <h3>🔐 Admin Access</h3>
+    <input type="password" id="adminPassword" placeholder="Enter code" maxlength="4" inputmode="numeric">
+    <button onclick="verifyAdminCode()">Unlock</button>
   </div>
 </div>
 
 <script>
-// ---------- GLOBAL ----------
-let inventoryItems = [];        // full dataset
-let isAdmin = false;
-let currentSearchKeyword = "";
+// ======================== DATA MANAGEMENT ========================
+let productsData = [];
+let isAdminActive = false;
+let currentSearchQuery = "";
 
-// ---------- FALLBACK / DEMO DATA (rich product set) ----------
-function getFallbackStock() {
+// Fallback product dataset (mobile optimized, varied items)
+function getDefaultProducts() {
   return [
-    { name: "Premium Cotton Kurta", alias: "kurta men, eid special", mrp: "2499", sale: "1799", wholesale: "1399", stock: "52", purchase: "950" },
-    { name: "Slim Fit Jeans", alias: "stretch denim, blue jeans", mrp: "1999", sale: "1299", wholesale: "999", stock: "87", purchase: "680" },
-    { name: "Oversized T-shirt", alias: "streetwear, cotton tee", mrp: "999", sale: "599", wholesale: "449", stock: "143", purchase: "320" },
-    { name: "Leather Sneakers", alias: "white sneakers, casual shoes", mrp: "3299", sale: "2299", wholesale: "1799", stock: "38", purchase: "1250" },
-    { name: "Silk Saree", alias: "wedding saree, banarasi", mrp: "5999", sale: "4499", wholesale: "3899", stock: "19", purchase: "2800" },
-    { name: "Hooded Sweatshirt", alias: "winter hoodie, fleece", mrp: "2599", sale: "1699", wholesale: "1299", stock: "64", purchase: "890" },
-    { name: "Cargo Pants", alias: "army cargo, multi pocket", mrp: "2199", sale: "1499", wholesale: "1099", stock: "73", purchase: "780" },
-    { name: "Formal Shirt", alias: "office wear, white shirt", mrp: "1699", sale: "1099", wholesale: "799", stock: "112", purchase: "540" },
-    { name: "Track Pants", alias: "joggers, sports pants", mrp: "1299", sale: "899", wholesale: "649", stock: "205", purchase: "430" },
-    { name: "Denim Jacket", alias: "blue denim, outerwear", mrp: "3499", sale: "2499", wholesale: "1899", stock: "27", purchase: "1350" }
+    { name: "Classic Denim Jacket", alias: "blue denim, casual wear", mrp: "2999", sale: "1999", wholesale: "1499", stock: "45", purchase: "1200" },
+    { name: "Slim Fit Cotton Shirt", alias: "formal office wear", mrp: "1599", sale: "999", wholesale: "699", stock: "120", purchase: "450" },
+    { name: "SR Heritage Kurta", alias: "eid special, embroidered", mrp: "3499", sale: "2499", wholesale: "1899", stock: "28", purchase: "1400" },
+    { name: "Cargo Joggers", alias: "streetwear, multi pocket", mrp: "2299", sale: "1399", wholesale: "999", stock: "67", purchase: "750" },
+    { name: "Leather Loafers", alias: "brown formal shoes", mrp: "3999", sale: "2799", wholesale: "2100", stock: "32", purchase: "1650" },
+    { name: "Oversized Hoodie", alias: "winter sweatshirt", mrp: "2799", sale: "1699", wholesale: "1299", stock: "89", purchase: "880" },
+    { name: "Slim Chino Pants", alias: "stretchable beige", mrp: "2199", sale: "1499", wholesale: "1099", stock: "54", purchase: "720" },
+    { name: "Silk Blend Scarf", alias: "women accessory", mrp: "899", sale: "499", wholesale: "349", stock: "210", purchase: "200" },
+    { name: "Running Shoes", alias: "sports sneakers", mrp: "3599", sale: "2499", wholesale: "1899", stock: "41", purchase: "1350" },
+    { name: "Woolen Cap", alias: "winter beanie", mrp: "599", sale: "399", wholesale: "279", stock: "156", purchase: "180" }
   ];
 }
 
-// ---------- FETCH FROM GITHUB (with fallback) ----------
-async function loadRemoteData() {
+// Fetch from GitHub with fallback
+async function fetchProducts() {
   try {
     const response = await fetch('https://raw.githubusercontent.com/srfashoinned/srpsdlist/main/items.json');
-    if (!response.ok) throw new Error("Network error");
-    const jsonData = await response.json();
-    if (Array.isArray(jsonData) && jsonData.length > 0) {
-      inventoryItems = jsonData.map(item => ({
+    if (!response.ok) throw new Error('Network failed');
+    const data = await response.json();
+    if (Array.isArray(data) && data.length > 0) {
+      productsData = data.map(item => ({
         name: item.name || "Unnamed",
         alias: item.alias || "",
         mrp: item.mrp || "0",
@@ -401,45 +452,43 @@ async function loadRemoteData() {
         purchase: item.purchase || "0"
       }));
     } else {
-      inventoryItems = getFallbackStock();
+      productsData = getDefaultProducts();
     }
-  } catch (err) {
-    console.warn("Using fallback data");
-    inventoryItems = getFallbackStock();
+  } catch (error) {
+    console.warn('Using fallback data');
+    productsData = getDefaultProducts();
   }
-  // after load, refresh UI
-  performSearchAndRender(currentSearchKeyword);
+  refreshDisplay();
 }
 
-// ---------- SMART SEARCH SCORE (name + alias) ----------
-function getItemScore(item, queryRaw) {
-  if (!queryRaw) return 0;
-  const query = queryRaw.toLowerCase().trim();
-  const nameLower = item.name.toLowerCase();
-  const aliasLower = item.alias.toLowerCase();
+// ======================== SMART SEARCH ENGINE ========================
+function calculateRelevance(text, query) {
+  if (!query) return 0;
+  const textLower = text.toLowerCase();
+  const queryLower = query.toLowerCase();
   
-  // exact match on name or alias
-  if (nameLower === query || aliasLower === query) return 100;
+  // exact match
+  if (textLower === queryLower) return 100;
   // starts with
-  if (nameLower.startsWith(query) || aliasLower.startsWith(query)) return 90;
-  // includes full word (word boundary)
-  const wordRegex = new RegExp(`\\b${escapeRegex(query)}\\b`, 'i');
-  if (wordRegex.test(nameLower) || wordRegex.test(aliasLower)) return 85;
-  // simple includes
-  if (nameLower.includes(query) || aliasLower.includes(query)) return 70;
+  if (textLower.startsWith(queryLower)) return 85;
+  // contains as whole word
+  const wordBoundary = new RegExp(`\\b${escapeRegex(queryLower)}\\b`).test(textLower);
+  if (wordBoundary) return 80;
+  // simple contains
+  if (textLower.includes(queryLower)) return 70;
   
-  // sequential character matching (good for typos / partial)
-  let seqScore = 0;
-  let qPos = 0;
-  const textToCheck = nameLower + " " + aliasLower;
-  for (let i = 0; i < textToCheck.length && qPos < query.length; i++) {
-    if (textToCheck[i] === query[qPos]) {
-      seqScore += 4;
-      qPos++;
+  // character sequence matching (fuzzy)
+  let matchCount = 0;
+  let queryIndex = 0;
+  for (let i = 0; i < textLower.length && queryIndex < queryLower.length; i++) {
+    if (textLower[i] === queryLower[queryIndex]) {
+      matchCount++;
+      queryIndex++;
     }
   }
-  const ratio = qPos / query.length;
-  if (ratio >= 0.55) return Math.min(60, 25 + seqScore);
+  const matchRatio = queryIndex / queryLower.length;
+  if (matchRatio >= 0.6) return 45 + (matchCount * 2);
+  if (matchRatio >= 0.4) return 25;
   return 0;
 }
 
@@ -447,85 +496,84 @@ function escapeRegex(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-// filter and sort items based on keyword
-function filterItemsBySearch(items, keyword) {
-  if (!keyword || keyword.trim() === "") {
-    return [...items];
-  }
-  const kw = keyword.trim();
-  const scored = items.map(item => ({
-    item,
-    score: getItemScore(item, kw)
-  })).filter(entry => entry.score > 0);
-  
-  scored.sort((a, b) => b.score - a.score);
-  return scored.map(entry => entry.item);
+function getProductScore(product, query) {
+  if (!query) return 0;
+  const nameScore = calculateRelevance(product.name, query);
+  const aliasScore = calculateRelevance(product.alias, query);
+  return Math.max(nameScore, aliasScore);
 }
 
-// highlight matching text
-function highlightMatch(text, keyword) {
-  if (!keyword || !text) return text;
-  const kwEscaped = escapeRegex(keyword.trim());
-  if (!kwEscaped) return text;
-  const regex = new RegExp(`(${kwEscaped})`, 'gi');
+function searchProducts(query) {
+  if (!query || query.trim() === "") {
+    return [...productsData];
+  }
+  const cleanQuery = query.trim().toLowerCase();
+  const scored = productsData.map(product => ({
+    product: product,
+    score: getProductScore(product, cleanQuery)
+  })).filter(item => item.score > 0);
+  
+  scored.sort((a, b) => b.score - a.score);
+  return scored.map(item => item.product);
+}
+
+// ======================== RENDER UI (NO HORIZONTAL SCROLL) ========================
+function highlightText(text, query) {
+  if (!query || !text) return text;
+  const escapedQuery = escapeRegex(query.trim());
+  if (!escapedQuery) return text;
+  const regex = new RegExp(`(${escapedQuery})`, 'gi');
   return text.replace(regex, `<mark>$1</mark>`);
 }
 
-// render product cards
-function renderProducts(productsToShow, searchTerm) {
-  const cardContainer = document.getElementById("cardList");
-  if (!cardContainer) return;
+function renderProducts(products, query) {
+  const container = document.getElementById("productsList");
+  if (!container) return;
   
-  if (!productsToShow || productsToShow.length === 0) {
-    cardContainer.innerHTML = `<div class="empty-message">✨ No matching items. Try different keyword ✨</div>`;
+  if (!products || products.length === 0) {
+    container.innerHTML = `<div class="empty-state">✨ No items found ✨<br><span style="font-size:12px">Try a different keyword</span></div>`;
     return;
   }
   
   let html = '';
-  for (const prod of productsToShow) {
-    const highlightedName = searchTerm ? highlightMatch(prod.name, searchTerm) : prod.name;
-    const highlightedAlias = searchTerm ? highlightMatch(prod.alias, searchTerm) : prod.alias;
+  for (const item of products) {
+    const highlightedName = query ? highlightText(item.name, query) : item.name;
+    const highlightedAlias = query ? highlightText(item.alias, query) : item.alias;
     
     let badges = `
-      <span class="badge mrp-badge">💰 MRP ₹${prod.mrp}</span>
-      <span class="badge sale-badge">🔥 SALE ₹${prod.sale}</span>
-      <span class="badge wholesale-badge">📦 WHOLESALE ₹${prod.wholesale}</span>
-      <span class="badge stock-badge">📊 STOCK ${prod.stock}</span>
+      <span class="badge badge-mrp">💰 MRP ₹${item.mrp}</span>
+      <span class="badge badge-sale">🔥 SALE ₹${item.sale}</span>
+      <span class="badge badge-wholesale">📦 WHL ₹${item.wholesale}</span>
+      <span class="badge badge-stock">📊 STOCK ${item.stock}</span>
     `;
-    if (isAdmin) {
-      badges += `<span class="badge purchase-badge">📋 PURCHASE ₹${prod.purchase}</span>`;
+    
+    if (isAdminActive) {
+      badges += `<span class="badge badge-purchase">📋 PUR ₹${item.purchase}</span>`;
     }
     
     html += `
       <div class="product-card">
         <div class="product-name">${highlightedName}</div>
-        <div class="product-alias">${highlightedAlias || "—"}</div>
-        <div class="badge-strip">
+        <div class="product-alias">${highlightedAlias || '—'}</div>
+        <div class="badge-container">
           ${badges}
         </div>
       </div>
     `;
   }
-  cardContainer.innerHTML = html;
-}
-
-// main search & render flow
-function performSearchAndRender(keyword) {
-  const filtered = filterItemsBySearch(inventoryItems, keyword);
-  renderProducts(filtered, keyword);
   
-  // show result count (optional)
-  const resultArea = document.getElementById("resultsArea");
-  let existingStats = document.querySelector(".result-stats");
-  if (existingStats) existingStats.remove();
-  if (keyword && keyword.trim() !== "") {
-    const statsSpan = document.createElement("div");
-    statsSpan.className = "result-stats";
-    statsSpan.innerHTML = `🔍 ${filtered.length} result${filtered.length !== 1 ? 's' : ''} for “${escapeHtml(keyword)}”`;
-    const firstChild = document.getElementById("cardList");
-    if (firstChild && resultArea) {
-      resultArea.insertBefore(statsSpan, firstChild);
-    }
+  container.innerHTML = html;
+  
+  // add result count if searching
+  const resultsWrapper = document.querySelector(".results-container");
+  let existingCount = document.querySelector(".result-count");
+  if (existingCount) existingCount.remove();
+  
+  if (query && query.trim() !== "") {
+    const countDiv = document.createElement("div");
+    countDiv.className = "result-count";
+    countDiv.innerHTML = `🔍 ${products.length} result${products.length !== 1 ? 's' : ''} for "${escapeHtml(query)}"`;
+    resultsWrapper.insertBefore(countDiv, resultsWrapper.firstChild);
   }
 }
 
@@ -539,86 +587,91 @@ function escapeHtml(str) {
   });
 }
 
-// ---------- SUGGESTIONS (appear ABOVE the search field) ----------
-function updateSuggestionsAbove(keyword) {
-  const suggestionsContainer = document.getElementById("suggestionsContainer");
-  if (!suggestionsContainer) return;
+function refreshDisplay() {
+  const filtered = searchProducts(currentSearchQuery);
+  renderProducts(filtered, currentSearchQuery);
+}
+
+// ======================== SUGGESTIONS DROPDOWN (ABOVE INPUT) ========================
+function updateSuggestions(query) {
+  const dropdown = document.getElementById("suggestionsDropdown");
+  if (!dropdown) return;
   
-  const trimmedKw = keyword.trim().toLowerCase();
-  if (!trimmedKw) {
-    suggestionsContainer.style.display = "none";
+  if (!query || query.trim() === "") {
+    dropdown.style.display = "none";
     return;
   }
   
-  // get top 5 relevant suggestions based on score
-  const scoredForSuggest = inventoryItems.map(item => ({
-    item,
-    score: getItemScore(item, trimmedKw)
-  })).filter(s => s.score > 0).sort((a,b) => b.score - a.score).slice(0, 6);
+  const cleanQuery = query.trim().toLowerCase();
+  const scoredSuggestions = productsData.map(product => ({
+    product: product,
+    score: getProductScore(product, cleanQuery)
+  })).filter(s => s.score > 0).sort((a, b) => b.score - a.score).slice(0, 5);
   
-  if (scoredForSuggest.length === 0) {
-    suggestionsContainer.style.display = "none";
+  if (scoredSuggestions.length === 0) {
+    dropdown.style.display = "none";
     return;
   }
   
-  suggestionsContainer.innerHTML = "";
-  for (const {item} of scoredForSuggest) {
+  dropdown.innerHTML = "";
+  for (const { product } of scoredSuggestions) {
     const suggestionDiv = document.createElement("div");
     suggestionDiv.className = "suggestion-item";
     suggestionDiv.innerHTML = `
-      <span class="suggestion-icon">🔎</span>
-      <span class="suggestion-name">${escapeHtml(item.name)}</span>
-      ${item.alias ? `<span class="suggestion-hint">${escapeHtml(item.alias.substring(0, 28))}</span>` : ''}
+      <div class="suggestion-icon">🔍</div>
+      <div class="suggestion-text">
+        <span class="suggestion-name">${escapeHtml(product.name)}</span>
+        ${product.alias ? `<span class="suggestion-alias">${escapeHtml(product.alias.substring(0, 35))}</span>` : ''}
+      </div>
     `;
-    suggestionDiv.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const inputEl = document.getElementById("searchInput");
-      if (inputEl) {
-        inputEl.value = item.name;
-        currentSearchKeyword = item.name;
-        performSearchAndRender(currentSearchKeyword);
-        suggestionsContainer.style.display = "none";
-        inputEl.focus();
+    suggestionDiv.onclick = () => {
+      const input = document.getElementById("searchInput");
+      if (input) {
+        input.value = product.name;
+        currentSearchQuery = product.name;
+        refreshDisplay();
+        dropdown.style.display = "none";
+        input.focus();
       }
-    });
-    suggestionsContainer.appendChild(suggestionDiv);
+    };
+    dropdown.appendChild(suggestionDiv);
   }
-  suggestionsContainer.style.display = "block";
+  dropdown.style.display = "block";
 }
 
-// main input handler
-function onSearchInput() {
-  const inputElem = document.getElementById("searchInput");
-  const rawValue = inputElem.value;
-  currentSearchKeyword = rawValue;
-  performSearchAndRender(currentSearchKeyword);
-  // show suggestions above
-  updateSuggestionsAbove(rawValue);
+// ======================== SEARCH HANDLER ========================
+function handleSearchInput() {
+  const input = document.getElementById("searchInput");
+  if (!input) return;
+  currentSearchQuery = input.value;
+  refreshDisplay();
+  updateSuggestions(currentSearchQuery);
 }
 
-// close suggestions when tapping outside (mobile friendly)
-function setupGlobalClickToCloseSuggestions() {
+// Close suggestions when clicking outside
+function setupClickOutside() {
   document.addEventListener("click", function(e) {
-    const suggestionsDiv = document.getElementById("suggestionsContainer");
+    const dropdown = document.getElementById("suggestionsDropdown");
     const searchWrapper = document.querySelector(".search-wrapper");
-    if (suggestionsDiv && searchWrapper && !searchWrapper.contains(e.target)) {
-      suggestionsDiv.style.display = "none";
+    if (dropdown && searchWrapper && !searchWrapper.contains(e.target)) {
+      dropdown.style.display = "none";
     }
   });
-  // also on scroll we can close (optional)
+  
+  // also close on scroll
   window.addEventListener("scroll", function() {
-    const suggestionsDiv = document.getElementById("suggestionsContainer");
-    if (suggestionsDiv) suggestionsDiv.style.display = "none";
+    const dropdown = document.getElementById("suggestionsDropdown");
+    if (dropdown) dropdown.style.display = "none";
   });
 }
 
-// ADMIN MODAL
+// ======================== ADMIN FUNCTIONS ========================
 function openAdminModal() {
   const modal = document.getElementById("adminModal");
   if (modal) {
     modal.style.display = "flex";
-    const pwdField = document.getElementById("adminPassword");
-    if (pwdField) pwdField.value = "";
+    const pwdInput = document.getElementById("adminPassword");
+    if (pwdInput) pwdInput.value = "";
   }
 }
 
@@ -627,24 +680,22 @@ function closeAdminModal() {
   if (modal) modal.style.display = "none";
 }
 
-function verifyAdmin() {
-  const passwordInput = document.getElementById("adminPassword");
-  const entered = passwordInput?.value;
-  if (entered === "7865") {
-    isAdmin = true;
+function verifyAdminCode() {
+  const pwdField = document.getElementById("adminPassword");
+  const code = pwdField ? pwdField.value : "";
+  if (code === "7865") {
+    isAdminActive = true;
     closeAdminModal();
-    // re-render with purchase price
-    performSearchAndRender(currentSearchKeyword);
-    // tiny toast feedback (mobile friendly)
-    showTempToast("✅ Admin mode ON • Purchase prices visible");
+    refreshDisplay();
+    showToast("✅ Admin mode activated • Purchase prices visible");
   } else {
-    alert("Wrong passcode");
+    alert("❌ Invalid passcode");
   }
 }
 
-function showTempToast(msg) {
-  let toast = document.createElement("div");
-  toast.innerText = msg;
+function showToast(message) {
+  const toast = document.createElement("div");
+  toast.textContent = message;
   toast.style.position = "fixed";
   toast.style.bottom = "20px";
   toast.style.left = "16px";
@@ -652,7 +703,7 @@ function showTempToast(msg) {
   toast.style.backgroundColor = "#1e293b";
   toast.style.color = "white";
   toast.style.padding = "12px 16px";
-  toast.style.borderRadius = "60px";
+  toast.style.borderRadius = "50px";
   toast.style.textAlign = "center";
   toast.style.fontSize = "0.85rem";
   toast.style.fontWeight = "500";
@@ -660,49 +711,43 @@ function showTempToast(msg) {
   toast.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
   document.body.appendChild(toast);
   setTimeout(() => {
-    if (toast) toast.remove();
-  }, 2200);
+    if (toast && toast.remove) toast.remove();
+  }, 2000);
 }
 
-// Auto refresh every 30 seconds
-let autoRefreshInterval;
+// ======================== AUTO REFRESH ========================
+let refreshInterval = null;
 
 function startAutoRefresh() {
-  if (autoRefreshInterval) clearInterval(autoRefreshInterval);
-  autoRefreshInterval = setInterval(async () => {
-    await loadRemoteData();
-    // keep search consistency
-    const inputField = document.getElementById("searchInput");
-    if (inputField) {
-      currentSearchKeyword = inputField.value;
-      performSearchAndRender(currentSearchKeyword);
-      if (currentSearchKeyword && currentSearchKeyword.trim() !== "") {
-        updateSuggestionsAbove(currentSearchKeyword);
+  if (refreshInterval) clearInterval(refreshInterval);
+  refreshInterval = setInterval(async () => {
+    await fetchProducts();
+    const searchInput = document.getElementById("searchInput");
+    if (searchInput) {
+      currentSearchQuery = searchInput.value;
+      refreshDisplay();
+      if (currentSearchQuery && currentSearchQuery.trim() !== "") {
+        updateSuggestions(currentSearchQuery);
       } else {
-        const suggBox = document.getElementById("suggestionsContainer");
-        if (suggBox) suggBox.style.display = "none";
+        const dropdown = document.getElementById("suggestionsDropdown");
+        if (dropdown) dropdown.style.display = "none";
       }
     }
   }, 30000);
 }
 
-// ---------- INITIALIZE ----------
-async function initApp() {
-  await loadRemoteData();
-  const searchInputDom = document.getElementById("searchInput");
-  if (searchInputDom) {
-    searchInputDom.addEventListener("input", onSearchInput);
-    // also on focus we could keep suggestions, but input handles it
+// ======================== INITIALIZATION ========================
+async function init() {
+  await fetchProducts();
+  const searchInput = document.getElementById("searchInput");
+  if (searchInput) {
+    searchInput.addEventListener("input", handleSearchInput);
   }
-  setupGlobalClickToCloseSuggestions();
+  setupClickOutside();
   startAutoRefresh();
-  // initial search empty
-  currentSearchKeyword = "";
-  performSearchAndRender("");
 }
 
-// run app
-initApp();
+init();
 </script>
 </body>
 </html>
