@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SR Fashion Stock</title>
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f4f6f9;
+}
+
+header {
+  background: linear-gradient(135deg,#000,#444);
+  color: white;
+  padding: 15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+#search {
+  width: 95%;
+  margin: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size:16px;
+}
+
+.card {
+  background:white;
+  margin:10px;
+  padding:15px;
+  border-radius:15px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.badge {
+  display:inline-block;
+  padding:6px 10px;
+  margin:3px;
+  border-radius:8px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.mrp { background:#ddd; }
+.sale { background:#b8e6c3; }
+.wholesale { background:#a7c7e7; }
+.stock { background:#f8b4a6; }
+.purchase { background:#d8b4f8; }
+
+.hidden { display:none; }
+
+button {
+  padding:8px 15px;
+  border:none;
+  border-radius:8px;
+  background:black;
+  color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <h2>SR Fashion</h2>
+  <button onclick="adminLogin()">Admin</button>
+</header>
+
+<input type="text" id="search" placeholder="Search name or alias..." onkeyup="searchItems()">
+
+<div id="items"></div>
+
+<script>
+let data = [];
+let isAdmin = false;
+
+// 🔥 LOAD DATA
+fetch('./items.json')
+.then(res => res.json())
+.then(json => {
+  data = json;
+  render(data);
+});
+
+// 🔥 RENDER ITEMS
+function render(list){
+  const container = document.getElementById("items");
+  container.innerHTML = "";
+
+  list.forEach(item=>{
+    const div = document.createElement("div");
+    div.className="card";
+
+    div.innerHTML = `
+      <b>${item.name}</b><br>
+      Alias: ${item.alias}<br><br>
+
+      <span class="badge mrp">MRP: ${item.mrp}</span>
+      <span class="badge sale">Sale: ${item.sale}</span>
+      <span class="badge wholesale">Wholesale: ${item.wholesale}</span>
+      <span class="badge stock">Stock: ${item.stock}</span>
+      <span class="badge purchase ${isAdmin ? '' : 'hidden'}">Purchase: ${item.purchase}</span>
+    `;
+
+    container.appendChild(div);
+  });
+}
+
+// 🔥 SMART SEARCH (FIXED)
+function searchItems(){
+  const val = document.getElementById("search").value.toLowerCase().trim();
+
+  if(val===""){
+    render(data);
+    return;
+  }
+
+  const filtered = data.filter(item=>{
+    return (
+      item.name.toLowerCase().includes(val) ||   // 🔥 main fix
+      item.alias.toLowerCase().includes(val)
+    );
+  });
+
+  render(filtered);
+}
+
+// 🔐 ADMIN LOGIN
+function adminLogin(){
+  const pass = prompt("Enter Admin Password");
+
+  if(pass === "7865"){
+    isAdmin = true;
+    alert("Admin Mode ON");
+    render(data);
+  } else {
+    alert("Wrong Password");
+  }
+}
+</script>
+
+</body>
+</html>
