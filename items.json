@@ -1,25 +1,5 @@
 [
   {
-    "name": "Name",
-    "alias": "Alias",
-    "group": "GroupName",
-    "mrp": null,
-    "sale": null,
-    "purchase": null,
-    "wholesale": null,
-    "stock": null
-  },
-  {
-    "name": "----",
-    "alias": "-----",
-    "group": "---------",
-    "mrp": null,
-    "sale": null,
-    "purchase": null,
-    "wholesale": null,
-    "stock": null
-  },
-  {
     "name": "01 LACHA",
     "alias": "000001",
     "group": "F",

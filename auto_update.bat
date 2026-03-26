@@ -8,12 +8,12 @@ cd /d C:\Users\SR\Desktop\demmo
 echo.
 echo 🔄 Exporting stock from Busy...
 
-sqlcmd -S DESKTOP-U5GLEE7 -U SA -P busy@123 -i query.sql -o stock.csv -s "," -W
+sqlcmd -S DESKTOP-U5GLEE7 -U SA -P busy@123 -i query.sql -o stock.csv -s "," -W -h -1
 
 IF %ERRORLEVEL% NEQ 0 (
-    echo ❌ SQL ERROR - EXPORT FAILED
-    pause
-    exit /b
+echo ❌ SQL ERROR - EXPORT FAILED
+pause
+exit /b
 )
 
 echo.
@@ -22,9 +22,9 @@ echo 🔄 Converting CSV to JSON...
 node convert.js
 
 IF %ERRORLEVEL% NEQ 0 (
-    echo ❌ CONVERSION FAILED
-    pause
-    exit /b
+echo ❌ CONVERSION FAILED
+pause
+exit /b
 )
 
 echo.
