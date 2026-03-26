@@ -6,10 +6,10 @@ echo ===================================
 cd /d C:\Users\SR\Desktop\demmo
 
 echo.
-echo 🔄 Exporting stock from Busy...
+echo Exporting stock from Busy...
 
 sqlcmd -S DESKTOP-U5GLEE7 -U SA -P busy@123 -s "," -W -Q "
-SELECT 
+SELECT
 I.Name,
 I.Alias,
 G.Name,
@@ -38,7 +38,7 @@ WHERE I.MasterType=6
 
 UNION
 
-SELECT 
+SELECT
 I.Name,
 I.Alias,
 G.Name,
@@ -50,23 +50,28 @@ ISNULL(I.D9,0),
 FROM BusyComp0002_db12025.dbo.Master1 I
 LEFT JOIN BusyComp0002_db12025.dbo.Master1 G ON I.ParentGrp=G.Code AND G.MasterType=5
 WHERE I.MasterType=6
+AND I.Code NOT IN (
+SELECT Code FROM BusyComp0002_db12026.dbo.Master1 WHERE MasterType=6
+)
 
 ORDER BY I.Name
 " -o "stock.csv"
 
 echo.
-echo 🔄 Converting CSV to JSON...
+echo Converting CSV to JSON...
 node convert.js
 
 echo.
-echo 🔄 Pushing to GitHub...
+echo Syncing with GitHub...
 
+git pull origin main --rebase
 git add .
 git commit -m "Auto stock update"
 git push
 
 echo.
 echo ===================================
-echo   ✅ UPDATE COMPLETED SUCCESSFULLY
+echo   UPDATE COMPLETED SUCCESSFULLY
 echo ===================================
+
 pause

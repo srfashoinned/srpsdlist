@@ -1,1 +1,0 @@
-sqlcmd -S DESKTOP-U5GLEE7 -U SA -P busy@123 -d BusyComp0002_db12026 -s "," -W -h 1 -Q "YOUR_QUERY" -o "C:\Users\SR\Desktop\demmo\stock.csv"
