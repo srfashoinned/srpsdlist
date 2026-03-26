@@ -2,17 +2,17 @@
   {
     "name": "Name",
     "alias": "Alias",
-    "group": "Name",
-    "mrp": 0,
-    "sale": 0,
-    "purchase": 0,
-    "wholesale": 0,
-    "stock": 0
+    "group": "GroupName",
+    "mrp": null,
+    "sale": null,
+    "purchase": null,
+    "wholesale": null,
+    "stock": null
   },
   {
     "name": "----",
     "alias": "-----",
-    "group": "----",
+    "group": "---------",
     "mrp": null,
     "sale": null,
     "purchase": null,

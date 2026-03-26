@@ -3,12 +3,12 @@ SET NOCOUNT ON;
 SELECT
 I.Name,
 I.Alias,
-G.Name,
-ISNULL(I.D2,0),
-ISNULL(I.D3,0),
-ISNULL(I.D4,0),
-ISNULL(I.D9,0),
-ISNULL(SQ.StockQty,0)+ISNULL(OV.OpenQty,0)
+G.Name AS GroupName,
+ISNULL(I.D2,0) AS MRP,
+ISNULL(I.D3,0) AS SalePrice,
+ISNULL(I.D4,0) AS PurchasePrice,
+ISNULL(I.D9,0) AS WholesalePrice,
+ISNULL(SQ.StockQty,0)+ISNULL(OV.OpenQty,0) AS Stock
 FROM BusyComp0002_db12026.dbo.Master1 I
 LEFT JOIN BusyComp0002_db12026.dbo.Master1 G
 ON I.ParentGrp=G.Code AND G.MasterType=5
@@ -21,7 +21,10 @@ GROUP BY T4.MasterCode1
 
 LEFT JOIN (
 SELECT T2.MasterCode1,
-SUM(CASE WHEN T2.TranType IN (0,1,3,4,5) THEN T2.D1 ELSE -T2.D1 END) AS StockQty
+SUM(CASE
+WHEN T2.TranType IN (0,1,3,4,5) THEN T2.D1
+ELSE -T2.D1
+END) AS StockQty
 FROM BusyComp0002_db12026.dbo.Tran2 T2
 GROUP BY T2.MasterCode1
 ) SQ ON SQ.MasterCode1=I.Code
@@ -29,18 +32,19 @@ GROUP BY T2.MasterCode1
 WHERE I.MasterType=6
 AND I.Name IS NOT NULL
 AND LTRIM(RTRIM(I.Name)) <> ''
+AND I.Name NOT LIKE '%---%'
 
 UNION
 
 SELECT
 I.Name,
 I.Alias,
-G.Name,
-ISNULL(I.D2,0),
-ISNULL(I.D3,0),
-ISNULL(I.D4,0),
-ISNULL(I.D9,0),
-0
+G.Name AS GroupName,
+ISNULL(I.D2,0) AS MRP,
+ISNULL(I.D3,0) AS SalePrice,
+ISNULL(I.D4,0) AS PurchasePrice,
+ISNULL(I.D9,0) AS WholesalePrice,
+0 AS Stock
 FROM BusyComp0002_db12025.dbo.Master1 I
 LEFT JOIN BusyComp0002_db12025.dbo.Master1 G
 ON I.ParentGrp=G.Code AND G.MasterType=5
@@ -48,8 +52,11 @@ ON I.ParentGrp=G.Code AND G.MasterType=5
 WHERE I.MasterType=6
 AND I.Name IS NOT NULL
 AND LTRIM(RTRIM(I.Name)) <> ''
+AND I.Name NOT LIKE '%---%'
 AND I.Code NOT IN (
-SELECT Code FROM BusyComp0002_db12026.dbo.Master1 WHERE MasterType=6
+SELECT Code
+FROM BusyComp0002_db12026.dbo.Master1
+WHERE MasterType=6
 )
 
-ORDER BY I.Name;
+ORDER BY Name;
