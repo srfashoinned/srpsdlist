@@ -32888,21 +32888,5 @@
     "purchase": 780,
     "wholesale": 877.5,
     "stock": 0
-  },
-  {
-    "name": "\r",
-    "mrp": null,
-    "sale": null,
-    "purchase": null,
-    "wholesale": null,
-    "stock": null
-  },
-  {
-    "name": "(3287 rows affected)",
-    "mrp": null,
-    "sale": null,
-    "purchase": null,
-    "wholesale": null,
-    "stock": null
   }
 ]

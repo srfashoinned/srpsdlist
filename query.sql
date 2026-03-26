@@ -1,3 +1,5 @@
+SET NOCOUNT ON;
+
 SELECT
 I.Name,
 I.Alias,
@@ -8,7 +10,8 @@ ISNULL(I.D4,0),
 ISNULL(I.D9,0),
 ISNULL(SQ.StockQty,0)+ISNULL(OV.OpenQty,0)
 FROM BusyComp0002_db12026.dbo.Master1 I
-LEFT JOIN BusyComp0002_db12026.dbo.Master1 G ON I.ParentGrp=G.Code AND G.MasterType=5
+LEFT JOIN BusyComp0002_db12026.dbo.Master1 G
+ON I.ParentGrp=G.Code AND G.MasterType=5
 
 LEFT JOIN (
 SELECT T4.MasterCode1,SUM(T4.D1) AS OpenQty
@@ -24,6 +27,8 @@ GROUP BY T2.MasterCode1
 ) SQ ON SQ.MasterCode1=I.Code
 
 WHERE I.MasterType=6
+AND I.Name IS NOT NULL
+AND LTRIM(RTRIM(I.Name)) <> ''
 
 UNION
 
@@ -37,8 +42,12 @@ ISNULL(I.D4,0),
 ISNULL(I.D9,0),
 0
 FROM BusyComp0002_db12025.dbo.Master1 I
-LEFT JOIN BusyComp0002_db12025.dbo.Master1 G ON I.ParentGrp=G.Code AND G.MasterType=5
+LEFT JOIN BusyComp0002_db12025.dbo.Master1 G
+ON I.ParentGrp=G.Code AND G.MasterType=5
+
 WHERE I.MasterType=6
+AND I.Name IS NOT NULL
+AND LTRIM(RTRIM(I.Name)) <> ''
 AND I.Code NOT IN (
 SELECT Code FROM BusyComp0002_db12026.dbo.Master1 WHERE MasterType=6
 )
