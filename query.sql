@@ -32,7 +32,6 @@ GROUP BY T2.MasterCode1
 WHERE I.MasterType=6
 AND I.Name IS NOT NULL
 AND LTRIM(RTRIM(I.Name)) <> ''
-AND I.Name NOT LIKE '%---%'
 
 UNION
 
