@@ -32,6 +32,8 @@ GROUP BY T2.MasterCode1
 WHERE I.MasterType=6
 AND I.Name IS NOT NULL
 AND LTRIM(RTRIM(I.Name)) <> ''
+AND PATINDEX('%[A-Za-z0-9]%', I.Name) > 0
+AND I.Name NOT LIKE '%---%'
 
 UNION
 
@@ -51,6 +53,7 @@ ON I.ParentGrp=G.Code AND G.MasterType=5
 WHERE I.MasterType=6
 AND I.Name IS NOT NULL
 AND LTRIM(RTRIM(I.Name)) <> ''
+AND PATINDEX('%[A-Za-z0-9]%', I.Name) > 0
 AND I.Name NOT LIKE '%---%'
 AND I.Code NOT IN (
 SELECT Code
