@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -160,3 +161,781 @@ loadData();
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>SR Fashion Stock</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jsQR/1.4.0/jsQR.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+<style>
+:root{
+  --bg:#0e0c0a;
+  --surface:#181410;
+  --surface2:#201c18;
+  --border:#2c2720;
+  --gold:#c9a84c;
+  --gold-light:#e8cc7e;
+  --gold-dim:rgba(201,168,76,0.13);
+  --gold-border:rgba(201,168,76,0.22);
+  --text:#f0ebe2;
+  --text-muted:#7a7268;
+  --text-dim:#3e3830;
+  --green:#4caf7d;
+  --red:#e05252;
+  --orange:#e0874c;
+  --purple:#a07bd6;
+  --blue:#5b9cf6;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+html,body{width:100%;height:100%;overflow:hidden;max-width:100vw}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;
+  flex-direction:column;
+  height:100dvh;
+  height:100vh;
+  overflow:hidden;
+}
+
+/* ─ HEADER ─ */
+.header{
+  flex-shrink:0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:13px 16px 10px;
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+}
+
+.brand-title{
+  font-family:'DM Serif Display',serif;
+  font-size:1.3rem;
+  color:var(--gold);
+  line-height:1;
+}
+
+.brand-sub{
+  font-size:0.57rem;
+  color:var(--text-muted);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:600;
+  margin-top:2px;
+}
+
+.header-right{display:flex;gap:8px;align-items:center}
+
+button{
+  font-family:'DM Sans',sans-serif;
+  border:none;
+  cursor:pointer;
+  transition:all .2s;
+  border-radius:50px;
+  font-weight:700;
+  font-size:0.72rem;
+  padding:8px 15px;
+  white-space:nowrap;
+}
+
+button:active{transform:scale(.95)}
+
+.scan-btn{
+  background:var(--blue);
+  color:white;
+}
+
+.admin-btn{
+  background:var(--gold-dim);
+  border:1px solid var(--gold-border);
+  color:var(--gold);
+}
+
+/* ─ SEARCH ─ */
+.search{
+  flex-shrink:0;
+  padding:10px 13px 8px;
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+}
+
+.search-wrapper{position:relative}
+
+#search{
+  width:100%;
+  padding:11px 36px 11px 40px;
+  border-radius:50px;
+  border:1px solid var(--border);
+  background:var(--bg);
+  font-size:0.87rem;
+  outline:none;
+  font-weight:500;
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  transition:border-color .2s;
+}
+
+#search:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px var(--gold-dim);
+}
+
+#search::placeholder{color:var(--text-dim);font-weight:400}
+
+.s-icon{
+  position:absolute;left:14px;top:50%;
+  transform:translateY(-50%);font-size:.85rem;pointer-events:none;
+}
+
+.clear-btn{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  background:rgba(255,255,255,.08);border-radius:50%;
+  width:20px;height:20px;font-size:.65rem;
+  color:var(--text-muted);display:none;
+  align-items:center;justify-content:center;padding:0;
+}
+
+/* ─ LIST ─ */
+#list-wrapper{
+  flex:1;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding:10px 11px 24px;
+  -webkit-overflow-scrolling:touch;
+}
+
+#list-wrapper::-webkit-scrollbar{width:2px}
+#list-wrapper::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}
+
+.result-count{
+  font-size:0.67rem;color:var(--text-muted);
+  margin-bottom:7px;padding-left:3px;
+}
+
+/* ─ CARD ─ */
+.card{
+  background:var(--surface);
+  border-radius:16px;
+  padding:11px 13px;
+  border:1px solid var(--border);
+  margin-bottom:8px;
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before{
+  content:'';position:absolute;top:0;left:0;
+  width:3px;height:100%;background:var(--gold);
+  opacity:.35;border-radius:2px 0 0 2px;
+}
+
+.card.top-match{
+  border-color:var(--gold-border);
+  box-shadow:0 0 0 1px var(--gold-dim);
+}
+
+.card-header{
+  display:flex;align-items:center;gap:7px;
+  margin-bottom:5px;overflow:hidden;
+}
+
+.card-name{
+  font-weight:800;font-size:0.82rem;color:var(--text);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+.card-alias{
+  font-size:0.61rem;color:var(--text-muted);
+  margin-bottom:7px;white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;padding-left:1px;
+}
+
+/* ─ PRICE GRID ─ */
+.price-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:5px;
+}
+
+.price-cell{
+  background:var(--surface2);
+  border-radius:9px;
+  padding:7px 4px;
+  display:flex;flex-direction:column;
+  align-items:center;gap:2px;
+  border:1px solid var(--border);
+}
+
+.pcl{font-size:0.52rem;font-weight:700;letter-spacing:.8px;color:var(--text-dim);text-transform:uppercase}
+.pcv{font-size:0.76rem;font-weight:700;color:var(--text);white-space:nowrap}
+.pcv.sale{color:var(--green)}
+.pcv.stock-pos{color:var(--green)}
+.pcv.stock-low{color:var(--orange)}
+.pcv.stock-zero{color:var(--red)}
+
+.purchase-row{
+  margin-top:6px;
+  background:rgba(160,123,214,.1);
+  border:1px solid rgba(160,123,214,.25);
+  border-radius:9px;padding:6px 10px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+
+.purchase-label{font-size:0.56rem;font-weight:700;letter-spacing:.9px;text-transform:uppercase;color:var(--purple)}
+.purchase-value{font-size:0.79rem;font-weight:800;color:var(--purple)}
+
+mark{background:rgba(201,168,76,.28);color:var(--gold-light);padding:0 1px;border-radius:3px}
+
+.empty-state{text-align:center;padding:52px 20px;color:var(--text-muted);font-size:.82rem}
+.empty-icon{font-size:2.2rem;display:block;margin-bottom:10px;opacity:.45}
+
+/* ─ SCANNER OVERLAY ─ */
+.scanner-overlay{
+  position:fixed;inset:0;background:#000;
+  z-index:300;display:none;flex-direction:column;overflow:hidden;
+}
+.scanner-overlay.active{display:flex}
+
+#scannerVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#scannerCanvas{display:none}
+
+.scanner-top-bar{
+  position:absolute;top:0;left:0;right:0;
+  padding:max(env(safe-area-inset-top),16px) 16px 12px;
+  background:linear-gradient(rgba(0,0,0,.7),transparent);
+  display:flex;justify-content:space-between;align-items:center;z-index:10;
+}
+
+.scanner-title{font-family:'DM Serif Display',serif;font-size:1.05rem;color:var(--gold)}
+
+.scanner-close{
+  background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.2);
+  width:34px;height:34px;border-radius:50%;color:white;font-size:.9rem;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;padding:0;font-weight:400;
+}
+
+.scan-viewfinder{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-60%);
+  width:min(68vw,250px);height:min(68vw,250px);
+  z-index:5;pointer-events:none;
+}
+
+.corner{position:absolute;width:24px;height:24px;border-color:var(--gold);border-style:solid}
+.c-tl{top:-1px;left:-1px;border-width:3px 0 0 3px;border-radius:3px 0 0 0}
+.c-tr{top:-1px;right:-1px;border-width:3px 3px 0 0;border-radius:0 3px 0 0}
+.c-bl{bottom:-1px;left:-1px;border-width:0 0 3px 3px;border-radius:0 0 0 3px}
+.c-br{bottom:-1px;right:-1px;border-width:0 3px 3px 0;border-radius:0 0 3px 0}
+
+.scan-line{
+  position:absolute;left:4px;right:4px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold) 40%,var(--gold-light) 50%,var(--gold) 60%,transparent);
+  border-radius:2px;animation:scanline 2s ease-in-out infinite;
+  box-shadow:0 0 6px var(--gold);
+}
+@keyframes scanline{0%{top:6px}100%{top:calc(100% - 8px)}}
+
+.scan-vf-border{position:absolute;inset:0;border:1px solid rgba(255,255,255,.15);border-radius:10px}
+
+.scanner-status-bar{
+  position:absolute;top:50%;left:0;right:0;
+  margin-top:min(38vw,135px);
+  text-align:center;z-index:6;pointer-events:none;padding:0 20px;
+}
+.scanner-status-bar span{
+  background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.75);font-size:.72rem;padding:5px 14px;
+  border-radius:50px;display:inline-block;
+}
+
+.scanner-bottom{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:16px 20px max(env(safe-area-inset-bottom),28px);
+  background:linear-gradient(transparent,rgba(0,0,0,.85));
+  text-align:center;z-index:6;
+}
+.scanner-hint-text{font-size:.73rem;color:rgba(255,255,255,.55);margin-bottom:14px}
+.scanner-controls{display:flex;justify-content:center;gap:10px}
+
+.sc-ctrl-btn{
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25) !important;
+  padding:9px 18px !important;color:white !important;font-size:.75rem;
+  border-radius:50px !important;font-weight:600;
+}
+.sc-ctrl-btn.torch-active{
+  background:rgba(255,220,50,.25) !important;
+  border-color:rgba(255,220,50,.5) !important;color:#ffd932 !important;
+}
+
+.scan-flash{
+  position:absolute;inset:0;background:rgba(76,175,125,.3);
+  z-index:8;pointer-events:none;opacity:0;transition:opacity .1s;
+}
+.scan-flash.on{opacity:1}
+
+/* ─ ADMIN MODAL ─ */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.8);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:none;justify-content:center;align-items:flex-end;z-index:500;
+}
+.modal-sheet{
+  background:var(--surface2);border-radius:28px 28px 0 0;
+  padding:24px 22px max(env(safe-area-inset-bottom),44px);
+  width:100%;border-top:1px solid var(--border);text-align:center;
+}
+.modal-handle{width:38px;height:4px;background:var(--border);border-radius:4px;margin:0 auto 18px}
+.modal-sheet h3{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--gold);margin-bottom:6px}
+.modal-sub{font-size:.73rem;color:var(--text-muted);margin-bottom:18px}
+
+.modal-input{
+  width:100%;padding:13px;border-radius:50px;border:1px solid var(--border);
+  background:var(--bg);font-size:1.4rem;text-align:center;letter-spacing:8px;
+  font-weight:700;color:var(--text);font-family:'DM Sans',sans-serif;outline:none;
+  transition:border-color .2s;
+}
+.modal-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-dim)}
+
+.modal-btn{
+  background:var(--gold);width:100%;padding:13px;
+  color:#0e0c0a;margin-top:11px;font-size:.88rem;border-radius:50px;
+}
+.modal-close{
+  margin-top:10px;background:transparent;
+  border:1px solid var(--border) !important;width:100%;padding:11px;
+  color:var(--text-muted);font-size:.83rem;border-radius:50px;
+}
+
+.admin-badge{
+  display:none;position:fixed;bottom:16px;right:14px;
+  background:var(--purple);color:white;font-size:.62rem;font-weight:700;
+  padding:5px 11px;border-radius:50px;box-shadow:0 4px 12px rgba(0,0,0,.4);
+  z-index:100;text-transform:uppercase;letter-spacing:.5px;
+}
+
+/* ─ TOAST ─ */
+.toast{
+  position:fixed;bottom:20px;left:14px;right:14px;
+  background:var(--surface2);border:1px solid var(--gold);color:var(--gold-light);
+  padding:11px 16px;border-radius:50px;text-align:center;font-size:.78rem;font-weight:600;
+  z-index:1000;box-shadow:0 8px 24px rgba(0,0,0,.5);
+  transform:translateY(80px);opacity:0;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);pointer-events:none;
+}
+.toast.show{transform:translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div>
+    <div class="brand-title">SR Fashion</div>
+    <div class="brand-sub">Stock Catalog</div>
+  </div>
+  <div class="header-right">
+    <button class="scan-btn" onclick="openScanner()">📷 Scan</button>
+    <button class="admin-btn" onclick="adminLogin()">🔐 Admin</button>
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div class="search">
+  <div class="search-wrapper">
+    <span class="s-icon">🔍</span>
+    <input id="search" placeholder="Search name or alias…"
+      autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+    <button class="clear-btn" id="clearBtn" onclick="clearSearch()">✕</button>
+  </div>
+</div>
+
+<!-- LIST -->
+<div id="list-wrapper">
+  <div id="list"><div class="empty-state"><span class="empty-icon">✨</span>Loading…</div></div>
+</div>
+
+<div class="admin-badge" id="adminBadge">🔓 Admin On</div>
+
+<!-- SCANNER OVERLAY -->
+<div class="scanner-overlay" id="scannerOverlay">
+  <video id="scannerVideo" playsinline muted autoplay></video>
+  <canvas id="scannerCanvas"></canvas>
+
+  <div class="scanner-top-bar">
+    <span class="scanner-title">📷 Scan Code</span>
+    <button class="scanner-close" onclick="closeScanner()">✕</button>
+  </div>
+
+  <div class="scan-viewfinder">
+    <div class="scan-vf-border"></div>
+    <div class="corner c-tl"></div>
+    <div class="corner c-tr"></div>
+    <div class="corner c-bl"></div>
+    <div class="corner c-br"></div>
+    <div class="scan-line"></div>
+  </div>
+
+  <div class="scanner-status-bar">
+    <span id="scannerStatusText">Initializing…</span>
+  </div>
+
+  <div class="scan-flash" id="scanFlash"></div>
+
+  <div class="scanner-bottom">
+    <div class="scanner-hint-text">Point at QR code or barcode on product label</div>
+    <div class="scanner-controls">
+      <button class="sc-ctrl-btn" onclick="switchCamera()">🔄 Flip</button>
+      <button class="sc-ctrl-btn" id="torchBtn" onclick="toggleTorch()">🔦 Torch</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN MODAL -->
+<div class="modal-overlay" id="adminModal">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <h3>Admin Access</h3>
+    <p class="modal-sub">Enter 4-digit code to unlock purchase prices</p>
+    <input type="password" id="adminPassword" class="modal-input"
+      placeholder="····" maxlength="4" inputmode="numeric">
+    <button class="modal-btn" onclick="verifyAdmin()">Unlock</button>
+    <button class="modal-close" onclick="closeAdminModal()">Cancel</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ════════════════════════════════
+//  CORE (original logic preserved)
+// ════════════════════════════════
+let data = [];
+let isAdmin = false;
+
+async function loadData() {
+  try {
+    // Always use GitHub RAW (BEST & RELIABLE)
+    const url = "https://raw.githubusercontent.com/srfashoinned/srpsdlist/main/items.json?v=" + Date.now();
+
+    const res = await fetch(url);
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch");
+    }
+
+    data = await res.json();
+    render(data);
+
+  } catch (err) {
+    document.getElementById("list").innerHTML =
+      "<p style='padding:20px;color:red'>❌ Error loading data</p>";
+  }
+}
+
+// SMART MATCH (original)
+function match(text, q) {
+  text = (text || "").toLowerCase();
+  q = q.toLowerCase();
+  if (text.includes(q)) return true;
+  let i = 0;
+  for (let c of text) {
+    if (c === q[i]) i++;
+    if (i === q.length) return true;
+  }
+  return false;
+}
+
+function search(q) {
+  if (!q) return data;
+  return data.filter(i => match(i.name, q) || match(i.alias, q));
+}
+
+// RENDER (original logic, new UI)
+function escHtml(s) {
+  return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function hl(text, q) {
+  if (!q || !text) return escHtml(text || '');
+  const e = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return escHtml(text).replace(new RegExp('(' + e + ')', 'gi'), '<mark>$1</mark>');
+}
+
+function stockClass(v) {
+  const n = parseInt(v);
+  return isNaN(n) || n <= 0 ? 'stock-zero' : n < 10 ? 'stock-low' : 'stock-pos';
+}
+
+function render(list) {
+  const el = document.getElementById("list");
+  const wrapper = document.getElementById("list-wrapper");
+  const old = wrapper.querySelector('.result-count');
+  if (old) old.remove();
+
+  if (!list || list.length === 0) {
+    el.innerHTML = "<div class='empty-state'><span class='empty-icon'>🔍</span>No results</div>";
+    return;
+  }
+
+  const q = document.getElementById("search").value;
+
+  if (q && q.trim()) {
+    const cd = document.createElement('div');
+    cd.className = 'result-count';
+    cd.textContent = list.length + ' result' + (list.length !== 1 ? 's' : '') + ' for "' + q + '"';
+    wrapper.insertBefore(cd, el);
+  }
+
+  el.innerHTML = list.map(item => {
+    const sc = stockClass(item.stock);
+    const purchase = isAdmin
+      ? `<div class="purchase-row"><span class="purchase-label">Purchase</span><span class="purchase-value">₹${escHtml(item.purchase)}</span></div>`
+      : '';
+    return `
+    <div class="card">
+      <div class="card-header">
+        <span class="card-name">${hl(item.name, q)}</span>
+      </div>
+      ${item.alias ? `<div class="card-alias">🏷 ${hl(item.alias, q)}</div>` : ''}
+      <div class="price-grid">
+        <div class="price-cell"><div class="pcl">MRP</div><div class="pcv">₹${escHtml(item.mrp)}</div></div>
+        <div class="price-cell"><div class="pcl">Sale</div><div class="pcv sale">₹${escHtml(item.sale)}</div></div>
+        <div class="price-cell"><div class="pcl">Whl</div><div class="pcv">₹${escHtml(item.wholesale)}</div></div>
+        <div class="price-cell"><div class="pcl">Stock</div><div class="pcv ${sc}">${escHtml(item.stock)}</div></div>
+      </div>
+      ${purchase}
+    </div>`;
+  }).join("");
+}
+
+// SEARCH EVENT (original)
+document.getElementById("search").addEventListener("input", e => {
+  render(search(e.target.value));
+  document.getElementById("clearBtn").style.display = e.target.value ? "flex" : "none";
+});
+
+function clearSearch() {
+  document.getElementById("search").value = "";
+  render(data);
+  document.getElementById("clearBtn").style.display = "none";
+  document.getElementById("search").focus();
+}
+
+// ADMIN LOGIN — now opens modal instead of prompt
+function adminLogin() {
+  document.getElementById("adminModal").style.display = "flex";
+  document.getElementById("adminPassword").value = "";
+  setTimeout(() => document.getElementById("adminPassword").focus(), 150);
+}
+
+function closeAdminModal() {
+  document.getElementById("adminModal").style.display = "none";
+}
+
+function verifyAdmin() {
+  const pass = document.getElementById("adminPassword").value;
+  if (pass === "7865") {
+    isAdmin = true;
+    closeAdminModal();
+    render(search(document.getElementById("search").value));
+    document.getElementById("adminBadge").style.display = "block";
+    showToast("✅ Admin unlocked · Purchase prices visible");
+  } else {
+    showToast("❌ Wrong password");
+  }
+}
+
+document.getElementById("adminModal").addEventListener("click", e => {
+  if (e.target === document.getElementById("adminModal")) closeAdminModal();
+});
+document.getElementById("adminPassword").addEventListener("keydown", e => {
+  if (e.key === "Enter") verifyAdmin();
+});
+
+// ════════════════════════════════
+//  SCANNER (new feature)
+// ════════════════════════════════
+let scanStream = null;
+let scanRAF = null;
+let scannerOpen = false;
+let facingMode = "environment";
+let torchOn = false;
+let lastScan = 0;
+const COOLDOWN = 2000;
+
+function openScanner() {
+  document.getElementById("scannerOverlay").classList.add("active");
+  scannerOpen = true;
+  torchOn = false;
+  document.getElementById("torchBtn").classList.remove("torch-active");
+  startCamera();
+}
+
+function closeScanner() {
+  scannerOpen = false;
+  document.getElementById("scannerOverlay").classList.remove("active");
+  if (scanRAF) { cancelAnimationFrame(scanRAF); scanRAF = null; }
+  stopCamera();
+}
+
+function stopCamera() {
+  if (scanStream) { scanStream.getTracks().forEach(t => t.stop()); scanStream = null; }
+  const v = document.getElementById("scannerVideo");
+  if (v) v.srcObject = null;
+}
+
+async function startCamera() {
+  stopCamera();
+  setScanStatus("Starting camera…");
+  const attempt = async (constraints) => {
+    scanStream = await navigator.mediaDevices.getUserMedia(constraints);
+    const v = document.getElementById("scannerVideo");
+    v.srcObject = scanStream;
+    await v.play();
+  };
+  try { await attempt({ video: { facingMode: { ideal: facingMode }, width: { ideal: 1920 }, height: { ideal: 1080 } }, audio: false }); }
+  catch (e1) {
+    try { await attempt({ video: { facingMode: facingMode }, audio: false }); }
+    catch (e2) {
+      try { await attempt({ video: true, audio: false }); }
+      catch (e3) { setScanStatus("Camera access denied"); showToast("📷 Allow camera access and try again"); return; }
+    }
+  }
+  setScanStatus("Ready — aim at code");
+  scanLoop();
+}
+
+function scanLoop() {
+  const video = document.getElementById("scannerVideo");
+  const canvas = document.getElementById("scannerCanvas");
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+
+  function tick() {
+    if (!scannerOpen) return;
+    if (video.readyState >= video.HAVE_ENOUGH_DATA && video.videoWidth > 0) {
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      ctx.drawImage(video, 0, 0);
+      const now = Date.now();
+      if (now - lastScan > COOLDOWN) {
+        // QR
+        try {
+          const qr = jsQR(ctx.getImageData(0, 0, canvas.width, canvas.height).data, canvas.width, canvas.height, { inversionAttempts: "dontInvert" });
+          if (qr && qr.data && qr.data.trim()) { lastScan = now; onScanResult(qr.data.trim()); scanRAF = requestAnimationFrame(tick); return; }
+        } catch (e) {}
+        // Barcode
+        const dataURL = canvas.toDataURL("image/jpeg", 0.85);
+        Quagga.decodeSingle({
+          decoder: { readers: ["code_128_reader","ean_reader","ean_8_reader","code_39_reader","upc_reader","upc_e_reader","i2of5_reader","codabar_reader"] },
+          locate: true, src: dataURL
+        }, res => {
+          if (res && res.codeResult && res.codeResult.code && Date.now() - lastScan > COOLDOWN) {
+            lastScan = Date.now();
+            onScanResult(res.codeResult.code.trim());
+          }
+        });
+      }
+    }
+    scanRAF = requestAnimationFrame(tick);
+  }
+  scanRAF = requestAnimationFrame(tick);
+}
+
+function onScanResult(text) {
+  if (!text) return;
+  const flash = document.getElementById("scanFlash");
+  flash.classList.add("on");
+  setTimeout(() => flash.classList.remove("on"), 250);
+  if (navigator.vibrate) navigator.vibrate([60, 30, 60]);
+
+  closeScanner();
+
+  document.getElementById("search").value = text;
+  document.getElementById("clearBtn").style.display = "flex";
+  const results = search(text);
+  render(results);
+  showToast(results.length > 0 ? "✅ Found: " + results[0].name : "🔍 Scanned: " + text.slice(0, 28));
+}
+
+async function switchCamera() {
+  facingMode = facingMode === "environment" ? "user" : "environment";
+  torchOn = false;
+  document.getElementById("torchBtn").classList.remove("torch-active");
+  if (scanRAF) { cancelAnimationFrame(scanRAF); scanRAF = null; }
+  await startCamera();
+}
+
+async function toggleTorch() {
+  if (!scanStream) return;
+  const track = scanStream.getVideoTracks()[0];
+  if (!track) return;
+  try {
+    const caps = track.getCapabilities();
+    if (caps && caps.torch) {
+      torchOn = !torchOn;
+      await track.applyConstraints({ advanced: [{ torch: torchOn }] });
+      document.getElementById("torchBtn").classList.toggle("torch-active", torchOn);
+      showToast(torchOn ? "🔦 Torch on" : "🔦 Torch off");
+    } else { showToast("Torch not available on this device"); }
+  } catch { showToast("Torch not supported"); }
+}
+
+function setScanStatus(msg) {
+  const el = document.getElementById("scannerStatusText");
+  if (el) el.textContent = msg;
+}
+
+// Hardware scanner (USB/Bluetooth barcode gun)
+(function () {
+  let buf = "", bufTimer = null;
+  document.addEventListener("keydown", e => {
+    if (document.getElementById("scannerOverlay").classList.contains("active")) return;
+    const active = document.activeElement;
+    const isInput = active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA");
+    if (e.key === "Enter") {
+      if (buf.length >= 3 && !isInput) {
+        document.getElementById("search").value = buf.trim();
+        document.getElementById("clearBtn").style.display = "flex";
+        const results = search(buf.trim());
+        render(results);
+        showToast("🔌 Scanned: " + buf.trim().slice(0, 28));
+      }
+      buf = ""; clearTimeout(bufTimer);
+    } else if (e.key.length === 1 && !isInput) {
+      buf += e.key;
+      clearTimeout(bufTimer);
+      bufTimer = setTimeout(() => buf = "", 120);
+    }
+  });
+})();
+
+// ════════════════════════════════
+//  TOAST
+// ════════════════════════════════
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 2800);
+}
+
+// ════════════════════════════════
+//  INIT (original)
+// ════════════════════════════════
+loadData();
+setInterval(loadData, 30000);
+</script>
+</body>
+</html>
+>>>>>>> ab1e945994ce0077cd232e87c779aa6667a370f5
