@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>SR Psd</title>
 <style>
-/* Zero external fonts — system stack is instant */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#09090b;--surf:#111113;--card:#18181b;
@@ -16,22 +15,24 @@
 html,body{height:100%;overflow:hidden}
 body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;display:flex;flex-direction:column}
 
-/* HEADER */
+/* ── HEADER ── */
 #hdr{
-  flex-shrink:0;
-  height:52px;padding:0 14px;
+  flex-shrink:0;height:52px;padding:0 14px;
   display:flex;align-items:center;gap:10px;
-  background:rgba(9,9,11,0.95);
-  border-bottom:1px solid var(--bord);
-  position:relative;z-index:50;
+  background:rgba(9,9,11,0.97);border-bottom:1px solid var(--bord);z-index:50;
 }
-#logo{font-size:20px;font-weight:800;letter-spacing:2px;color:var(--gold);white-space:nowrap}
+#logo{
+  font-size:20px;font-weight:900;letter-spacing:2px;color:var(--gold);
+  white-space:nowrap;cursor:pointer;user-select:none;
+  -webkit-tap-highlight-color:transparent;
+}
+#logo:active{opacity:.7}
 #hdr-right{margin-left:auto;display:flex;gap:8px;align-items:center}
 #badge{font-size:11px;color:var(--muted);background:var(--surf);border:1px solid var(--bord);padding:2px 8px;border-radius:20px;font-variant-numeric:tabular-nums}
-#admin-btn{font-size:12px;font-weight:700;background:transparent;color:var(--gold);border:1.5px solid var(--gold);padding:5px 12px;border-radius:7px;cursor:pointer}
+#admin-btn{font-size:12px;font-weight:700;background:transparent;color:var(--gold);border:1.5px solid var(--gold);padding:5px 12px;border-radius:7px;cursor:pointer;font-family:inherit}
 #admin-btn.on{background:var(--gold);color:#000}
 
-/* CONTROLS */
+/* ── CONTROLS ── */
 #ctrl{flex-shrink:0;padding:10px 14px 6px;display:flex;flex-direction:column;gap:7px}
 #search-row{display:flex;gap:8px;align-items:center}
 #search{
@@ -48,100 +49,178 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 }
 #scan-btn.on{border-color:var(--gold);color:var(--gold)}
 
-/* CHIPS */
-#chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
-#chips::-webkit-scrollbar{display:none}
+/* ── CHIPS (sort row only) ── */
 .chip{
   white-space:nowrap;font-size:12px;font-weight:600;
-  padding:4px 11px;border-radius:20px;
+  padding:4px 12px;border-radius:20px;
   border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);
-  cursor:pointer;flex-shrink:0;
+  cursor:pointer;flex-shrink:0;font-family:inherit;
+  -webkit-tap-highlight-color:transparent;
 }
 .chip.on{background:var(--gold);border-color:var(--gold);color:#000}
 
-/* PRICE FILTER */
-#pf{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-#pf label{font-size:11px;color:var(--muted)}
-.pi{width:68px;background:var(--surf);border:1.5px solid var(--bord);border-radius:7px;padding:5px 8px;font-size:12px;color:var(--txt);outline:none;font-family:inherit;font-variant-numeric:tabular-nums}
+/* ── GROUP PICKER BUTTON ── */
+#grp-btn{
+  display:flex;align-items:center;gap:8px;
+  background:var(--surf);border:1.5px solid var(--bord);
+  border-radius:10px;padding:8px 14px;cursor:pointer;
+  font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);
+  width:100%;text-align:left;transition:border-color .15s;
+}
+#grp-btn:active{background:#222}
+#grp-btn.active{border-color:var(--gold);color:var(--gold)}
+#grp-btn .grp-arrow{margin-left:auto;font-size:11px;opacity:.5}
+#grp-btn .grp-tag{
+  background:var(--gold);color:#000;font-size:10px;font-weight:700;
+  padding:2px 7px;border-radius:20px;letter-spacing:.3px;
+}
+
+/* ── GROUP MODAL ── */
+#grp-modal-bg{
+  position:fixed;inset:0;z-index:180;background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(4px);
+  display:none;align-items:flex-end;justify-content:center;
+}
+#grp-modal-bg.show{display:flex}
+#grp-modal{
+  background:var(--card);border:1px solid var(--bord);
+  border-radius:20px 20px 0 0;
+  width:100%;max-width:520px;
+  max-height:75vh;display:flex;flex-direction:column;
+  transform:translateY(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);
+}
+#grp-modal-bg.show #grp-modal{transform:translateY(0)}
+#grp-modal-hdr{
+  padding:16px 16px 10px;border-bottom:1px solid var(--bord);
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
+}
+#grp-modal-title{font-size:15px;font-weight:800;color:var(--txt)}
+#grp-modal-close{
+  background:var(--surf);border:1px solid var(--bord);color:var(--muted);
+  width:28px;height:28px;border-radius:50%;font-size:13px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-family:inherit;
+}
+#grp-search-wrap{padding:10px 16px 6px;flex-shrink:0}
+#grp-search{
+  width:100%;background:var(--surf);border:1.5px solid var(--bord);
+  border-radius:8px;padding:8px 12px;font-size:14px;color:var(--txt);
+  outline:none;font-family:inherit;
+}
+#grp-search:focus{border-color:var(--gold)}
+#grp-search::placeholder{color:var(--muted)}
+#grp-list{overflow-y:auto;padding:6px 10px 20px;flex:1}
+.grp-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 10px;border-radius:10px;cursor:pointer;
+  font-size:14px;font-weight:500;color:var(--txt);
+  border-bottom:1px solid var(--bord);
+  -webkit-tap-highlight-color:transparent;
+}
+.grp-item:last-child{border-bottom:none}
+.grp-item:active{background:var(--surf)}
+.grp-item.selected{color:var(--gold);font-weight:700}
+.grp-item .grp-count{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.grp-item.selected .grp-count{color:rgba(245,197,66,0.6)}
+.grp-tick{color:var(--gold);font-size:14px;margin-left:8px;opacity:0}
+.grp-item.selected .grp-tick{opacity:1}
+
+/* ── SORT ROW ── */
+#sort-row{
+  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;
+}
+#sort-row::-webkit-scrollbar{display:none}
+
+/* ── PRICE FILTER ── */
+#pf{display:flex;align-items:center;gap:6px;flex-wrap:nowrap}
+#pf label{font-size:11px;color:var(--muted);white-space:nowrap}
+.pi{
+  width:68px;background:var(--surf);border:1.5px solid var(--bord);
+  border-radius:7px;padding:5px 8px;font-size:12px;color:var(--txt);
+  outline:none;font-family:inherit;font-variant-numeric:tabular-nums;
+}
 .pi:focus{border-color:var(--gold)}
-#pf-go{padding:5px 10px;border-radius:7px;background:var(--gold);border:none;color:#000;font-size:12px;font-weight:700;cursor:pointer}
-#pf-clr{padding:5px 9px;border-radius:7px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:12px;cursor:pointer}
+#pf-go{padding:5px 10px;border-radius:7px;background:var(--gold);border:none;color:#000;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+#pf-clr{padding:5px 9px;border-radius:7px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:12px;cursor:pointer;font-family:inherit}
 
-/* STATUS LINE */
-#status{flex-shrink:0;padding:3px 14px 5px;font-size:11px;color:var(--muted)}
+/* ── STATUS ── */
+#status{flex-shrink:0;padding:2px 14px 4px;font-size:11px;color:var(--muted)}
 
-/* VIRTUAL SCROLL CONTAINER */
+/* ── VIRTUAL SCROLL ── */
 #scroll{flex:1;overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
 #scroll::-webkit-scrollbar{width:3px}
 #scroll::-webkit-scrollbar-thumb{background:var(--bord);border-radius:3px}
-/* spacer so scrollbar is correct height */
-#spacer{width:1px}
-/* visible cards layer */
-#stage{position:absolute;top:0;left:0;right:0;padding:0 14px 80px}
+#spacer{width:1px;pointer-events:none}
+#stage{position:absolute;top:0;left:0;right:0}
 
-/* CARD */
+/* ── CARD ──
+   Cards are absolute-positioned by virtual scroll.
+   padding on stage prevents edge clipping.
+   No margin-bottom needed — gap handled by ROW_H constant.
+*/
 .c{
+  position:absolute;left:14px;right:14px;
   background:var(--card);border:1px solid var(--bord);
-  border-radius:12px;padding:12px;margin-bottom:8px;
-  cursor:pointer;position:relative;
+  border-radius:12px;padding:12px;cursor:pointer;
+  /* NO transform, NO animation — pure paint speed */
 }
-.c:active{background:#222}
 .c.exp{border-color:rgba(245,197,66,0.3)}
-.c-name{font-size:17px;font-weight:700;line-height:1.1;color:var(--txt)}
+.c-name{font-size:17px;font-weight:700;line-height:1.15;color:var(--txt)}
 .c-alias{font-size:11px;color:var(--muted);margin-top:2px;font-variant-numeric:tabular-nums}
+
+/* ── PRICE BLOCKS ── */
 .prices{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .pb{border-radius:8px;padding:7px 10px}
-.pb.m{background:rgba(245,197,66,0.1);border:1px solid rgba(245,197,66,0.22)}
-.pb.s{background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.22)}
-.pb.w{background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.22)}
+.pb.m{background:rgba(245,197,66,0.1); border:1px solid rgba(245,197,66,0.22)}
+.pb.s{background:rgba(34,197,94,0.1);  border:1px solid rgba(34,197,94,0.22)}
+.pb.w{background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.22)}
 .pb.k{background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.18)}
 .pb.p{background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.22)}
 .pl{font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;opacity:.65}
-.pb.m .pl{color:var(--gold)} .pb.s .pl{color:var(--green)} .pb.w .pl{color:var(--blue)} .pb.k .pl{color:var(--red)} .pb.p .pl{color:var(--purple)}
-.pv{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}
-.pb.m .pv{color:var(--gold)} .pb.s .pv{color:var(--green)} .pb.w .pv{color:var(--blue)} .pb.k .pv{color:var(--red)} .pb.p .pv{color:var(--purple)}
+.pb.m .pl{color:var(--gold)} .pb.s .pl{color:var(--green)}
+.pb.w .pl{color:var(--blue)} .pb.k .pl{color:var(--red)} .pb.p .pl{color:var(--purple)}
+.pv{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2;margin-top:1px}
+.pb.m .pv{color:var(--gold)} .pb.s .pv{color:var(--green)}
+.pb.w .pv{color:var(--blue)} .pb.k .pv{color:var(--red)} .pb.p .pv{color:var(--purple)}
 
-/* EXPANDED DETAIL */
+/* ── EXPANDED DETAIL ── */
 .det{display:none;border-top:1px solid var(--bord);margin-top:10px;padding-top:10px}
 .c.exp .det{display:block}
-.drow{display:flex;justify-content:space-between;font-size:12px;padding:2px 0}
+.drow{display:flex;justify-content:space-between;font-size:12px;padding:3px 0}
 .drow span:first-child{color:var(--muted)}
-.drow span:last-child{font-weight:600;font-variant-numeric:tabular-nums}
-.act{display:flex;gap:7px;margin-top:9px}
+.drow span:last-child{font-weight:600;font-variant-numeric:tabular-nums;text-align:right;max-width:60%}
+.act{display:flex;gap:7px;margin-top:10px}
 .ab{flex:1;padding:7px 4px;border-radius:7px;font-size:12px;font-weight:600;border:none;cursor:pointer;font-family:inherit}
 .ab.cp{background:rgba(96,165,250,0.12);color:var(--blue);border:1px solid rgba(96,165,250,0.25)}
-.ab.sh{background:rgba(34,197,94,0.1);color:var(--green);border:1px solid rgba(34,197,94,0.2)}
+.ab.sh{background:rgba(34,197,94,0.10);color:var(--green);border:1px solid rgba(34,197,94,0.20)}
 .ab.ed{background:rgba(245,197,66,0.12);color:var(--gold);border:1px solid rgba(245,197,66,0.25)}
 
-/* EMPTY */
-.empty{text-align:center;padding:50px 20px;color:var(--muted);font-size:14px}
-
-/* SCANNER OVERLAY */
-#scan-ov{
-  position:fixed;inset:0;z-index:200;background:#000;
-  display:none;flex-direction:column;align-items:center;justify-content:center;
+/* ── WELCOME SCREEN ── */
+#welcome{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:60px 24px;text-align:center;gap:14px;
 }
+#welcome .w-logo{font-size:52px;font-weight:900;letter-spacing:5px;color:var(--gold);line-height:1}
+#welcome .w-sub{font-size:18px;font-weight:800;letter-spacing:3px;color:var(--txt)}
+#welcome .w-line{width:40px;height:2px;background:var(--gold);border-radius:2px;opacity:.5}
+#welcome .w-hint{font-size:13px;color:var(--muted);line-height:1.7;max-width:220px}
+
+/* ── SCANNER ── */
+#scan-ov{position:fixed;inset:0;z-index:200;background:#000;display:none;flex-direction:column;align-items:center;justify-content:center}
 #scan-ov.show{display:flex}
 #scan-vid{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 #scan-ui{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
-#scan-frame{
-  width:260px;height:130px;border:2px solid var(--gold);border-radius:10px;
-  box-shadow:0 0 0 9999px rgba(0,0,0,0.6);position:relative;overflow:hidden;
-}
-#scan-line{
-  position:absolute;left:0;right:0;height:2px;background:var(--gold);
-  box-shadow:0 0 6px var(--gold);animation:sl 1.8s ease-in-out infinite;
-}
+#scan-frame{width:260px;height:130px;border:2px solid var(--gold);border-radius:10px;box-shadow:0 0 0 9999px rgba(0,0,0,0.6);position:relative;overflow:hidden}
+#scan-line{position:absolute;left:0;right:0;height:2px;background:var(--gold);box-shadow:0 0 6px var(--gold);animation:sl 1.8s ease-in-out infinite}
 @keyframes sl{0%,100%{top:2px}50%{top:calc(100% - 4px)}}
 #scan-hint{margin-top:22px;color:rgba(255,255,255,0.7);font-size:14px;text-align:center}
-#scan-code{margin-top:8px;color:var(--gold);font-size:13px;min-height:18px;font-variant-numeric:tabular-nums;letter-spacing:.5px}
-#scan-close{margin-top:22px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:10px 26px;border-radius:30px;font-size:14px;cursor:pointer}
+#scan-code{margin-top:8px;color:var(--gold);font-size:13px;min-height:18px;font-variant-numeric:tabular-nums}
+#scan-close{margin-top:22px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:10px 26px;border-radius:30px;font-size:14px;cursor:pointer;font-family:inherit}
 
-/* ADMIN MODAL */
+/* ── ADMIN MODAL ── */
 #adm-ov{position:fixed;inset:0;z-index:150;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center}
 #adm-ov.show{display:flex}
 #adm-box{background:var(--card);border:1px solid var(--bord);border-radius:16px;padding:24px;width:88%;max-width:320px}
-#adm-title{font-size:22px;font-weight:800;color:var(--gold);margin-bottom:4px}
+#adm-title{font-size:22px;font-weight:900;color:var(--gold);margin-bottom:4px}
 #adm-sub{font-size:12px;color:var(--muted);margin-bottom:16px}
 #adm-pw{width:100%;background:var(--surf);border:1.5px solid var(--bord);border-radius:9px;padding:12px;font-size:20px;color:var(--txt);letter-spacing:8px;text-align:center;outline:none;font-family:inherit}
 #adm-pw:focus{border-color:var(--gold)}
@@ -159,7 +238,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #adm-cancel{flex:1;padding:10px;border-radius:9px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
 #adm-login{flex:2;padding:10px;border-radius:9px;background:var(--gold);border:none;color:#000;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
 
-/* EDIT MODAL */
+/* ── EDIT MODAL ── */
 #edit-ov{position:fixed;inset:0;z-index:160;background:rgba(0,0,0,0.85);display:none;align-items:flex-end;justify-content:center}
 #edit-ov.show{display:flex}
 #edit-box{background:var(--card);border:1px solid var(--bord);border-radius:16px 16px 0 0;padding:20px;width:100%;max-width:480px;max-height:78vh;overflow-y:auto}
@@ -172,31 +251,33 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #edit-save{flex:2;padding:11px;border-radius:9px;background:var(--gold);border:none;color:#000;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit}
 #edit-cancel{flex:1;padding:11px;border-radius:9px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
 
-/* TOAST */
-#toast{
-  position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(70px);
-  background:#27272a;border:1px solid var(--bord);border-radius:30px;
-  padding:9px 18px;font-size:13px;white-space:nowrap;z-index:300;
-  transition:transform .25s,opacity .25s;opacity:0;pointer-events:none;
-}
+/* ── TOAST ── */
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(70px);background:#27272a;border:1px solid var(--bord);border-radius:30px;padding:9px 18px;font-size:13px;white-space:nowrap;z-index:300;transition:transform .25s,opacity .25s;opacity:0;pointer-events:none}
 #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 
 mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;padding:0 1px}
+.grp-hdr{
+  position:absolute;left:14px;right:14px;
+  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--gold);padding:4px 0 3px;
+  border-bottom:1px solid rgba(245,197,66,0.2);
+}
 </style>
 </head>
 <body>
 
 <!-- HEADER -->
 <div id="hdr">
-  <div id="logo">SR PSD</div>
+  <div id="logo" onclick="goHome()">SR PSD</div>
   <div id="hdr-right">
-    <div id="badge">0 items</div>
+    <div id="badge">—</div>
     <button id="admin-btn" onclick="openAdm()">⚡ Admin</button>
   </div>
 </div>
 
 <!-- CONTROLS -->
 <div id="ctrl">
+  <!-- Search + Scan -->
   <div id="search-row">
     <input id="search" type="search" placeholder="🔍  Name, alias, barcode…" autocomplete="off" spellcheck="false" inputmode="search">
     <button id="scan-btn" onclick="openScanner()" title="Scan barcode">
@@ -208,14 +289,24 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
       </svg>
     </button>
   </div>
-  <div id="chips">
-    <div class="chip on" data-s="df">All</div>
-    <div class="chip" data-s="na">A–Z</div>
-    <div class="chip" data-s="ma">MRP ↑</div>
-    <div class="chip" data-s="md">MRP ↓</div>
-    <div class="chip" data-s="sa">Sale ↑</div>
-    <div class="chip" data-s="sd">Sale ↓</div>
+
+  <!-- Sort chips -->
+  <div id="sort-row">
+    <div class="chip on" data-sort="df">Default</div>
+    <div class="chip" data-sort="grp">By Group</div>
+    <div class="chip" data-sort="na">A – Z</div>
+    <div class="chip" data-sort="sa">Price ↑</div>
+    <div class="chip" data-sort="sd">Price ↓</div>
   </div>
+
+  <!-- Group picker button -->
+  <button id="grp-btn" onclick="openGrpModal()">
+    <span>🗂️</span>
+    <span id="grp-btn-label">All Groups</span>
+    <span class="grp-arrow">▼</span>
+  </button>
+
+  <!-- Price range -->
   <div id="pf">
     <label>₹ Sale:</label>
     <input class="pi" id="pmin" type="number" placeholder="Min" inputmode="numeric">
@@ -225,6 +316,7 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
     <button id="pf-clr" onclick="clearPF()">✕</button>
   </div>
 </div>
+
 <div id="status"></div>
 
 <!-- VIRTUAL SCROLL -->
@@ -251,7 +343,10 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
     <div id="adm-sub">4-digit PIN • hidden as you type</div>
     <input id="adm-pw" type="password" maxlength="4" placeholder="• • • •" autocomplete="off"
       oninput="onPwInput(this)" onkeydown="if(event.key==='Enter')doLogin()">
-    <div id="dots"><div class="dot" id="d0"></div><div class="dot" id="d1"></div><div class="dot" id="d2"></div><div class="dot" id="d3"></div></div>
+    <div id="dots">
+      <div class="dot" id="d0"></div><div class="dot" id="d1"></div>
+      <div class="dot" id="d2"></div><div class="dot" id="d3"></div>
+    </div>
     <div id="adm-msg"></div>
     <div id="adm-btns">
       <button id="adm-cancel" onclick="closeAdm()">Cancel</button>
@@ -272,36 +367,57 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   </div>
 </div>
 
+<!-- GROUP PICKER MODAL -->
+<div id="grp-modal-bg">
+  <div id="grp-modal">
+    <div id="grp-modal-hdr">
+      <div id="grp-modal-title">Select Group</div>
+      <button id="grp-modal-close" onclick="closeGrpModal()">✕</button>
+    </div>
+    <div id="grp-search-wrap">
+      <input id="grp-search" type="search" placeholder="Search groups…" autocomplete="off" spellcheck="false">
+    </div>
+    <div id="grp-list"></div>
+  </div>
+</div>
+
 <!-- TOAST -->
 <div id="toast"></div>
 
 <script>
 /* ═══════════════════════════════════════════
-   CONSTANTS & STATE
+   CONFIG
 ═══════════════════════════════════════════ */
-const PASS   = "7865";
-const ROW_H  = 148;   // px — approximate height of one collapsed card + gap
-const BUFFER = 5;     // extra rows above/below viewport
+const PASS  = "7865";
+const GAP   = 10;   // px gap between cards
+const CARD_COLLAPSED_H = 138; // px — collapsed card height (name+alias+4 price blocks)
+const CARD_EXPANDED_H  = 300; // px — rough expanded height
+const BUFFER = 4;   // extra rows to render above/below viewport
+const GRP_HDR_H = 26; // px height of group header divider
 
-let raw      = [];   // original data from items.json
-let pool     = [];   // filtered+sorted working set (indices into raw)
+/* ═══════════════════════════════════════════
+   STATE
+═══════════════════════════════════════════ */
+let raw      = [];
+let pool     = [];   // filtered indices into raw[]
+let heights  = [];   // per-pool-index actual heights (updated when cards expand)
+let offsets  = [];   // cumulative top offset per pool index
 let isAdmin  = false;
-let sort     = 'df';
+let activeGroup = '';
 let pMin     = null;
 let pMax     = null;
 let query    = '';
-let brand    = '';
-let group    = '';
 let editIdx  = -1;
-let expanded = new Set();  // indices of expanded cards
+let activeSort = 'df';
+let expanded = new Set();
+let vsStart  = 0;
+let vsEnd    = 0;
+let totalH   = 0;
 
-// Virtual scroll state
-let vsStart  = 0;    // first rendered row index in pool
-let vsEnd    = 0;    // last rendered row index
 let scrollEl, spacer, stage;
 
 /* ═══════════════════════════════════════════
-   LOAD DATA  — same fetch("items.json") pipeline
+   LOAD DATA
 ═══════════════════════════════════════════ */
 async function loadData(){
   try{
@@ -309,149 +425,270 @@ async function loadData(){
     if(!r.ok) throw new Error("HTTP "+r.status);
     raw = await r.json();
     document.getElementById("badge").textContent = raw.length.toLocaleString()+" items";
-    buildChipsFromData();
-    showWelcome();
+    buildGroupChips();
   }catch(e){
-    showWelcome();
+    // Still show welcome — data may load on GitHub Pages
   }
-}
-
-function showWelcome(){
-  spacer.style.height='0px';
-  stage.innerHTML=`
-    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;gap:14px">
-      <div style="font-size:48px;font-weight:900;letter-spacing:4px;color:var(--gold);line-height:1">SR</div>
-      <div style="font-size:20px;font-weight:800;letter-spacing:3px;color:var(--txt)">FASHION PUSAD</div>
-      <div style="width:40px;height:2px;background:var(--gold);border-radius:2px;opacity:.5"></div>
-      <div style="font-size:13px;color:var(--muted);line-height:1.7;max-width:220px">Search or scan a product above to find items instantly</div>
-    </div>`;
-  document.getElementById("status").textContent='';
+  showWelcome();
 }
 
 /* ═══════════════════════════════════════════
-   DYNAMIC BRAND / GROUP CHIPS
+   WELCOME SCREEN
 ═══════════════════════════════════════════ */
-function buildChipsFromData(){
-  const brands = [...new Set(raw.map(i=>i.brand).filter(Boolean))].sort();
-  const groups = [...new Set(raw.map(i=>i.group).filter(Boolean))].sort();
-  const chips  = document.getElementById("chips");
-  if(brands.length){
-    const sep = document.createElement("span");
-    sep.style.cssText="width:1px;background:var(--bord);flex-shrink:0;height:20px;align-self:center";
-    chips.appendChild(sep);
-    addChipGroup(chips, brands, "brand");
-  }
-  if(groups.length){
-    const sep2 = document.createElement("span");
-    sep2.style.cssText="width:1px;background:var(--bord);flex-shrink:0;height:20px;align-self:center";
-    chips.appendChild(sep2);
-    addChipGroup(chips, groups, "group");
-  }
+function showWelcome(){
+  spacer.style.height = '0px';
+  stage.innerHTML = `
+    <div id="welcome">
+      <div class="w-logo">SR</div>
+      <div class="w-sub">FASHION PUSAD</div>
+      <div class="w-line"></div>
+      <div class="w-hint">Search or scan a product above to find items instantly</div>
+    </div>`;
+  document.getElementById("status").textContent = '';
 }
-function addChipGroup(container, items, type){
-  const all = Object.assign(document.createElement("div"),{className:"chip",textContent:"All",dataset:{[type]:""}});
-  all.classList.add("on");
-  all.addEventListener("click",()=>setFilter(type,"",container.querySelectorAll("[data-"+type+"]")));
-  container.appendChild(all);
-  items.forEach(val=>{
-    const c = Object.assign(document.createElement("div"),{className:"chip",textContent:val,dataset:{[type]:val}});
-    c.addEventListener("click",()=>setFilter(type,val,container.querySelectorAll("[data-"+type+"]")));
-    container.appendChild(c);
-  });
+
+function goHome(){
+  document.getElementById("search").value = '';
+  query = ''; pMin = null; pMax = null; activeGroup = '';
+  document.getElementById("pmin").value = '';
+  document.getElementById("pmax").value = '';
+  activeSort='df';
+  document.querySelectorAll("#sort-row .chip").forEach(c=>c.classList.remove("on"));
+  const defChip=document.querySelector("#sort-row .chip[data-sort='df']");
+  if(defChip)defChip.classList.add("on");
+  // Reset group button
+  document.getElementById("grp-btn-label").textContent = "All Groups";
+  document.getElementById("grp-btn").classList.remove("active");
+  showWelcome();
 }
-function setFilter(type,val,chips){
-  chips.forEach(c=>c.classList.remove("on"));
-  // find and activate correct chip
-  chips.forEach(c=>{ if((c.dataset[type]||"")===(val||"")) c.classList.add("on"); });
-  if(type==="brand") brand=val;
-  else group=val;
+
+/* ═══════════════════════════════════════════
+   GROUP MODAL
+═══════════════════════════════════════════ */
+let allGroups = [];
+
+function buildGroupChips(){
+  // Build group list with item counts
+  const countMap = {};
+  raw.forEach(it=>{ const g=it.group||''; countMap[g]=(countMap[g]||0)+1; });
+  allGroups = Object.keys(countMap).filter(Boolean).sort();
+}
+
+function openGrpModal(){
+  renderGrpList('');
+  document.getElementById("grp-modal-bg").classList.add("show");
+  setTimeout(()=>document.getElementById("grp-search").focus(), 200);
+}
+function closeGrpModal(){
+  document.getElementById("grp-modal-bg").classList.remove("show");
+  document.getElementById("grp-search").value='';
+}
+
+function renderGrpList(filter){
+  const f = filter.trim().toLowerCase();
+  const countMap = {};
+  raw.forEach(it=>{ const g=it.group||''; countMap[g]=(countMap[g]||0)+1; });
+
+  let groups = allGroups;
+  if(f) groups = groups.filter(g=>g.toLowerCase().includes(f));
+
+  let html = `<div class="grp-item${activeGroup===''?' selected':''}" onclick="selectGroup('')">
+    <span>All Groups</span>
+    <span style="display:flex;align-items:center;gap:6px">
+      <span class="grp-count">${raw.length.toLocaleString()}</span>
+      <span class="grp-tick">✓</span>
+    </span>
+  </div>`;
+
+  if(!groups.length){
+    html += `<div style="text-align:center;padding:30px;font-size:13px;color:var(--muted)">No groups found</div>`;
+  } else {
+    groups.forEach(g=>{
+      const cnt = countMap[g]||0;
+      const sel = activeGroup===g;
+      html += `<div class="grp-item${sel?' selected':''}" onclick="selectGroup('${g.replace(/'/g,"\\'")}')">
+        <span>${g}</span>
+        <span style="display:flex;align-items:center;gap:6px">
+          <span class="grp-count">${cnt.toLocaleString()}</span>
+          <span class="grp-tick">✓</span>
+        </span>
+      </div>`;
+    });
+  }
+  document.getElementById("grp-list").innerHTML = html;
+}
+
+function selectGroup(g){
+  activeGroup = g;
+  // Update button label
+  const btn = document.getElementById("grp-btn");
+  const label = document.getElementById("grp-btn-label");
+  if(g){
+    label.innerHTML = `<span class="grp-tag">${g}</span>`;
+    btn.classList.add("active");
+  } else {
+    label.textContent = "All Groups";
+    btn.classList.remove("active");
+  }
+  closeGrpModal();
   applyAll();
 }
 
+// Live search inside group modal
+document.getElementById("grp-search").addEventListener("input", function(){
+  renderGrpList(this.value);
+});
+// Close on background tap
+document.getElementById("grp-modal-bg").addEventListener("click", function(e){
+  if(e.target===this) closeGrpModal();
+});
+
 /* ═══════════════════════════════════════════
-   FILTER + SORT  (runs on JS main thread — fast)
+   SORT CHIPS
+═══════════════════════════════════════════ */
+document.getElementById("sort-row").addEventListener("click",function(e){
+  const c=e.target.closest(".chip[data-sort]");
+  if(!c) return;
+  document.querySelectorAll("#sort-row .chip").forEach(x=>x.classList.remove("on"));
+  c.classList.add("on");
+  activeSort=c.dataset.sort;
+  applyAll();
+});
+
+/* ═══════════════════════════════════════════
+   FILTER + SORT
 ═══════════════════════════════════════════ */
 function pn(v){ return v==null||v===''?0:parseFloat(String(v).replace(/[^0-9.]/g,''))||0; }
 
 function applyAll(){
   const q = query.trim().toLowerCase();
-  if(!q && pMin===null && pMax===null && !brand && !group){ showWelcome(); return; }
-  expanded.clear();
+  const hasFilter = q || pMin!==null || pMax!==null || activeGroup || activeSort!=='df';
+  if(!hasFilter){ showWelcome(); return; }
 
+  expanded.clear();
   let out = [];
   for(let i=0;i<raw.length;i++){
     const it = raw[i];
-    if(brand && it.brand!==brand) continue;
-    if(group && it.group!==group) continue;
+    if(activeGroup && it.group!==activeGroup) continue;
     if(pMin!==null && pn(it.sale)<pMin) continue;
     if(pMax!==null && pn(it.sale)>pMax) continue;
     if(q){
       const n=(it.name||'').toLowerCase();
       const a=(it.alias||'').toLowerCase();
       const b=(it.barcode||'').toLowerCase();
-      if(!n.includes(q)&&!a.includes(q)&&!b.includes(q)) continue;
+      const g=(it.group||'').toLowerCase();
+      if(!n.includes(q)&&!a.includes(q)&&!b.includes(q)&&!g.includes(q)) continue;
     }
     out.push(i);
   }
 
-  // sort
-  if(sort==='na') out.sort((a,b)=>(raw[a].name||'').localeCompare(raw[b].name||''));
-  else if(sort==='ma') out.sort((a,b)=>pn(raw[a].mrp)-pn(raw[b].mrp));
-  else if(sort==='md') out.sort((a,b)=>pn(raw[b].mrp)-pn(raw[a].mrp));
-  else if(sort==='sa') out.sort((a,b)=>pn(raw[a].sale)-pn(raw[b].sale));
-  else if(sort==='sd') out.sort((a,b)=>pn(raw[b].sale)-pn(raw[a].sale));
+  // Sort
+  if(activeSort==='grp')  out.sort((a,b)=>((raw[a].group||'').localeCompare(raw[b].group||'')) || (raw[a].name||'').localeCompare(raw[b].name||''));
+  else if(activeSort==='na') out.sort((a,b)=>(raw[a].name||'').localeCompare(raw[b].name||''));
+  else if(activeSort==='sa') out.sort((a,b)=>pn(raw[a].sale)-pn(raw[b].sale));
+  else if(activeSort==='sd') out.sort((a,b)=>pn(raw[b].sale)-pn(raw[a].sale));
 
   pool = out;
-  document.getElementById("status").textContent =
-    pool.length===raw.length ? `${raw.length.toLocaleString()} items`
-    : `${pool.length.toLocaleString()} of ${raw.length.toLocaleString()} items`;
 
-  // reset virtual scroll
+  // Build heights & offsets arrays (all collapsed initially)
+  rebuildOffsets();
+
+  const sortLabel = activeSort==='grp'?' · sorted by group':activeSort==='na'?' · A–Z':activeSort==='sa'?' · price ↑':activeSort==='sd'?' · price ↓':'';
+  document.getElementById("status").textContent =
+    (pool.length===raw.length
+      ? raw.length.toLocaleString()+" items"
+      : pool.length.toLocaleString()+" of "+raw.length.toLocaleString()+" items")
+    + sortLabel;
+
   scrollEl.scrollTop = 0;
   vsRender(true);
 }
 
 /* ═══════════════════════════════════════════
-   VIRTUAL SCROLL ENGINE
-   Only renders ~30 cards at a time no matter how many items.
+   OFFSET TABLE — needed for correct card placement
+   so cards never overlap
+═══════════════════════════════════════════ */
+function rebuildOffsets(){
+  heights  = new Array(pool.length).fill(CARD_COLLAPSED_H);
+  offsets  = new Array(pool.length);
+  let top  = 14; // top padding
+  for(let i=0;i<pool.length;i++){
+    // Add group header space when sorted by group
+    if(activeSort==='grp'){
+      const grp = raw[pool[i]].group||'';
+      const prevGrp = i>0?(raw[pool[i-1]].group||''):'__NONE__';
+      if(grp!==prevGrp) top += GRP_HDR_H;
+    }
+    offsets[i] = top;
+    top += (expanded.has(pool[i]) ? CARD_EXPANDED_H : CARD_COLLAPSED_H) + GAP;
+  }
+  totalH = top + 60; // bottom padding
+  spacer.style.height = totalH + 'px';
+}
+
+/* ═══════════════════════════════════════════
+   VIRTUAL SCROLL RENDERER
 ═══════════════════════════════════════════ */
 function vsRender(force){
   if(!pool.length){
     spacer.style.height='0px';
-    stage.innerHTML='<div class="empty">No items found</div>';
+    stage.innerHTML='<div style="text-align:center;padding:50px 20px;font-size:14px;color:var(--muted)">No items found</div>';
     return;
   }
 
   const scrollTop = scrollEl.scrollTop;
   const viewH     = scrollEl.clientHeight;
-  const totalH    = pool.length * ROW_H;
-  spacer.style.height = totalH + 'px';
 
-  let first = Math.max(0, Math.floor(scrollTop/ROW_H) - BUFFER);
-  let last  = Math.min(pool.length-1, Math.ceil((scrollTop+viewH)/ROW_H) + BUFFER);
+  // Binary-search for first visible index
+  let first = bsearchFirst(scrollTop - BUFFER * CARD_COLLAPSED_H);
+  let last  = bsearchLast(scrollTop + viewH + BUFFER * CARD_COLLAPSED_H);
+  first = Math.max(0, first);
+  last  = Math.min(pool.length-1, last);
 
   if(!force && first===vsStart && last===vsEnd) return;
   vsStart = first; vsEnd = last;
 
   const q = query.trim().toLowerCase();
   let html = '';
-  for(let vi=first; vi<=last; vi++){
-    const ri  = pool[vi];
-    const it  = raw[ri];
-    const top = vi * ROW_H;
-    html += cardHTML(it, ri, top, q);
+  for(let vi=first;vi<=last;vi++){
+    // Group header divider
+    if(activeSort==='grp'){
+      const grp = raw[pool[vi]].group||'';
+      const prevGrp = vi>0?(raw[pool[vi-1]].group||''):'__NONE__';
+      if(grp!==prevGrp){
+        const hdrTop = offsets[vi] - GRP_HDR_H;
+        html += `<div class="grp-hdr" style="top:${hdrTop}px">${grp||'No Group'}</div>`;
+      }
+    }
+    html += cardHTML(raw[pool[vi]], pool[vi], offsets[vi], q);
   }
   stage.innerHTML = html;
 }
 
+function bsearchFirst(targetTop){
+  let lo=0, hi=offsets.length-1;
+  while(lo<hi){
+    const mid=(lo+hi)>>1;
+    if(offsets[mid]<targetTop) lo=mid+1; else hi=mid;
+  }
+  return lo;
+}
+function bsearchLast(targetBottom){
+  let lo=0, hi=offsets.length-1;
+  while(lo<hi){
+    const mid=(lo+hi+1)>>1;
+    if(offsets[mid]<=targetBottom) lo=mid; else hi=mid-1;
+  }
+  return lo;
+}
+
 /* ═══════════════════════════════════════════
-   CARD HTML BUILDER
+   CARD HTML
 ═══════════════════════════════════════════ */
 function fmt(v){
   if(v==null||v==='') return '–';
   const n=parseFloat(String(v).replace(/[^0-9.]/g,''));
-  if(isNaN(n)) return String(v);
-  return '₹'+n.toLocaleString('en-IN');
+  return isNaN(n)?String(v):'₹'+n.toLocaleString('en-IN');
 }
 function hl(t,q){
   if(!q||!t) return t||'';
@@ -459,31 +696,31 @@ function hl(t,q){
   if(i<0) return t;
   return t.slice(0,i)+'<mark>'+t.slice(i,i+q.length)+'</mark>'+t.slice(i+q.length);
 }
-function margin(it){
+function marginStr(it){
   const s=pn(it.sale),p=pn(it.purchase);
   if(!s||!p) return '';
   return ' <span style="font-size:10px;color:var(--green);font-weight:600">('+Math.round((s-p)/s*100)+'%)</span>';
 }
 
-function cardHTML(it, ri, top, q){
+function cardHTML(it, ri, topPx, q){
   const exp = expanded.has(ri);
   const purchBlock = isAdmin
-    ? `<div class="pb p"><div class="pl">Purchase</div><div class="pv">${fmt(it.purchase)}${isAdmin?margin(it):''}</div></div>` : '';
-  const detailHTML = exp ? `
+    ?`<div class="pb p"><div class="pl">Purchase</div><div class="pv">${fmt(it.purchase)}${marginStr(it)}</div></div>`:'';
+  const detHTML = exp?`
     <div class="det">
       <div class="drow"><span>Name</span><span>${it.name||'–'}</span></div>
       <div class="drow"><span>Alias</span><span>${it.alias||'–'}</span></div>
       ${it.barcode?`<div class="drow"><span>Barcode</span><span>${it.barcode}</span></div>`:''}
-      ${it.brand?`<div class="drow"><span>Brand</span><span>${it.brand}</span></div>`:''}
       ${it.group?`<div class="drow"><span>Group</span><span>${it.group}</span></div>`:''}
+      ${it.brand?`<div class="drow"><span>Brand</span><span>${it.brand}</span></div>`:''}
       ${isAdmin&&it.purchase?`<div class="drow"><span>Purchase</span><span style="color:var(--purple)">${fmt(it.purchase)}</span></div>`:''}
       <div class="act">
         <button class="ab cp" onclick="copyItem(${ri},event)">📋 Copy</button>
         <button class="ab sh" onclick="shareItem(${ri},event)">📤 Share</button>
         ${isAdmin?`<button class="ab ed" onclick="openEdit(${ri},event)">✏️ Edit</button>`:''}
       </div>
-    </div>` : '';
-  return `<div class="c${exp?' exp':''}" style="position:absolute;top:${top}px;left:14px;right:14px" onclick="toggleCard(${ri})">
+    </div>`:'';
+  return `<div class="c${exp?' exp':''}" style="top:${topPx}px" onclick="toggleCard(${ri})">
     <div class="c-name">${hl(it.name||'',q)}</div>
     <div class="c-alias">⌗ ${hl(it.alias||'',q)}</div>
     <div class="prices">
@@ -493,31 +730,33 @@ function cardHTML(it, ri, top, q){
       <div class="pb k"><div class="pl">Stock</div><div class="pv">${it.stock??'–'}</div></div>
       ${purchBlock}
     </div>
-    ${detailHTML}
+    ${detHTML}
   </div>`;
 }
 
+/* ═══════════════════════════════════════════
+   TOGGLE EXPAND — rebuilds offsets so no overlap
+═══════════════════════════════════════════ */
 function toggleCard(ri){
   if(expanded.has(ri)) expanded.delete(ri);
   else expanded.add(ri);
-  // Find position in pool
+  rebuildOffsets();
+  spacer.style.height = totalH + 'px';
+  vsRender(true);
+  // Keep scroll position sane
   const vi = pool.indexOf(ri);
-  if(vi<0) return;
-  const top = vi * ROW_H;
-  // Rebuild just this card in place
-  const el = stage.querySelector(`[onclick="toggleCard(${ri})"]`);
-  if(el){
-    const q = query.trim().toLowerCase();
-    const tmp = document.createElement('div');
-    tmp.innerHTML = cardHTML(raw[ri], ri, top, q);
-    el.replaceWith(tmp.firstElementChild);
+  if(vi>=0){
+    const cardTop = offsets[vi];
+    const scrollTop = scrollEl.scrollTop;
+    const viewH = scrollEl.clientHeight;
+    if(cardTop < scrollTop) scrollEl.scrollTop = cardTop - 14;
   }
 }
 
 /* ═══════════════════════════════════════════
-   SCROLL HANDLER — throttled with rAF
+   SCROLL — throttled with rAF
 ═══════════════════════════════════════════ */
-let rafPending = false;
+let rafPending=false;
 function onScroll(){
   if(rafPending) return;
   rafPending=true;
@@ -525,23 +764,13 @@ function onScroll(){
 }
 
 /* ═══════════════════════════════════════════
-   SEARCH — debounced 120ms
+   SEARCH — debounced 100ms
 ═══════════════════════════════════════════ */
 let searchTimer;
 document.getElementById("search").addEventListener("input",function(){
   query=this.value;
   clearTimeout(searchTimer);
-  searchTimer=setTimeout(applyAll, 120);
-});
-
-/* ═══════════════════════════════════════════
-   SORT CHIPS
-═══════════════════════════════════════════ */
-document.getElementById("chips").addEventListener("click",function(e){
-  const c=e.target.closest(".chip[data-s]");
-  if(!c) return;
-  document.querySelectorAll(".chip[data-s]").forEach(x=>x.classList.remove("on"));
-  c.classList.add("on"); sort=c.dataset.s; applyAll();
+  searchTimer=setTimeout(applyAll,100);
 });
 
 /* ═══════════════════════════════════════════
@@ -552,75 +781,66 @@ function applyPF(){
   const mx=document.getElementById("pmax").value;
   pMin=mn!==''?parseFloat(mn):null;
   pMax=mx!==''?parseFloat(mx):null;
-  applyAll(); toast(`₹${mn||'0'} – ₹${mx||'∞'}`);
+  applyAll();
+  toast(`₹${mn||'0'} – ₹${mx||'∞'}`);
 }
 function clearPF(){
   document.getElementById("pmin").value='';
   document.getElementById("pmax").value='';
   pMin=null; pMax=null; applyAll(); toast("Price filter cleared");
 }
+// Also trigger Go on Enter in price fields
+['pmin','pmax'].forEach(id=>{
+  document.getElementById(id).addEventListener("keydown",e=>{ if(e.key==='Enter') applyPF(); });
+});
 
 /* ═══════════════════════════════════════════
-   BARCODE SCANNER — native BarcodeDetector API first,
-   fallback to ZXing loaded on-demand (only when scanner opens)
+   SCANNER — native BarcodeDetector first, ZXing fallback
 ═══════════════════════════════════════════ */
-let scanStream = null;
-let scanLoop   = null;
-let zxingReady = false;
-let codeReader = null;
+let scanStream=null, scanLoop=null, codeReader=null, zxingReady=false;
 
 async function openScanner(){
   document.getElementById("scan-ov").classList.add("show");
   document.getElementById("scan-btn").classList.add("on");
   document.getElementById("scan-code").textContent='';
   try{
-    const constraints={video:{facingMode:"environment",width:{ideal:1280},height:{ideal:720}}};
-    scanStream = await navigator.mediaDevices.getUserMedia(constraints);
-    const vid = document.getElementById("scan-vid");
-    vid.srcObject = scanStream;
-    await vid.play();
+    const stream = await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment",width:{ideal:1280},height:{ideal:720}}});
+    scanStream=stream;
+    const vid=document.getElementById("scan-vid");
+    vid.srcObject=stream; await vid.play();
 
-    // Try native BarcodeDetector (Chrome/Android, fast & no library needed)
     if('BarcodeDetector' in window){
-      const bd = new BarcodeDetector({formats:['qr_code','code_128','code_39','ean_13','ean_8','upc_a','upc_e','itf','data_matrix','aztec','pdf417']});
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      scanLoop = setInterval(async()=>{
+      const bd=new BarcodeDetector({formats:['qr_code','code_128','code_39','ean_13','ean_8','upc_a','upc_e','itf','data_matrix','pdf417']});
+      const canvas=document.createElement('canvas');
+      const ctx=canvas.getContext('2d');
+      scanLoop=setInterval(async()=>{
         if(!vid.readyState||vid.readyState<2) return;
         canvas.width=vid.videoWidth; canvas.height=vid.videoHeight;
         ctx.drawImage(vid,0,0);
-        try{
-          const codes = await bd.detect(canvas);
-          if(codes.length){ onScanResult(codes[0].rawValue); }
-        }catch(_){}
+        try{ const c=await bd.detect(canvas); if(c.length) onScanResult(c[0].rawValue); }catch(_){}
       },300);
     } else {
-      // Fallback: load ZXing dynamically only now
       if(!zxingReady){
         document.getElementById("scan-code").textContent='Loading scanner…';
-        await loadScript("https://unpkg.com/@zxing/library@0.19.1/umd/index.min.js");
+        await new Promise((res,rej)=>{ const s=document.createElement('script'); s.src='https://unpkg.com/@zxing/library@0.19.1/umd/index.min.js'; s.onload=res; s.onerror=rej; document.head.appendChild(s); });
         zxingReady=true;
         document.getElementById("scan-code").textContent='';
       }
-      codeReader = new ZXing.BrowserMultiFormatReader();
-      const devices = await codeReader.listVideoInputDevices();
-      const devId = devices.length>1?devices[devices.length-1].deviceId:devices[0]?.deviceId;
-      // ZXing takes over the video element
-      scanStream.getTracks().forEach(t=>t.stop()); scanStream=null;
-      await codeReader.decodeFromVideoDevice(devId,'scan-vid',(res)=>{
-        if(res) onScanResult(res.getText());
-      });
+      stream.getTracks().forEach(t=>t.stop()); scanStream=null;
+      codeReader=new ZXing.BrowserMultiFormatReader();
+      const devices=await codeReader.listVideoInputDevices();
+      const devId=devices.length>1?devices[devices.length-1].deviceId:devices[0]?.deviceId;
+      await codeReader.decodeFromVideoDevice(devId,'scan-vid',r=>{ if(r) onScanResult(r.getText()); });
     }
   }catch(e){ toast("Camera: "+e.message); closeScanner(); }
 }
-function loadScript(src){ return new Promise((res,rej)=>{ const s=document.createElement('script'); s.src=src; s.onload=res; s.onerror=rej; document.head.appendChild(s); }); }
+
 function onScanResult(code){
   document.getElementById("scan-code").textContent='✓ '+code;
   setTimeout(()=>{
     closeScanner();
     document.getElementById("search").value=code;
-    query=code; applyAll();
-    toast("📷 "+code);
+    query=code; applyAll(); toast("📷 "+code);
   },400);
 }
 function closeScanner(){
@@ -639,7 +859,7 @@ function closeScanner(){
 function copyItem(ri,e){
   e&&e.stopPropagation();
   const it=raw[ri];
-  const t=[`📦 ${it.name} (${it.alias})`,`MRP: ${fmt(it.mrp)}`,`Sale: ${fmt(it.sale)}`,`Wholesale: ${fmt(it.wholesale)}`,`Stock: ${it.stock??'–'}`,isAdmin&&it.purchase?`Purchase: ${fmt(it.purchase)}`:'' ].filter(Boolean).join('\n');
+  const t=[`📦 ${it.name} (${it.alias})`,`MRP: ${fmt(it.mrp)}`,`Sale: ${fmt(it.sale)}`,`Wholesale: ${fmt(it.wholesale)}`,`Stock: ${it.stock??'–'}`,isAdmin&&it.purchase?`Purchase: ${fmt(it.purchase)}`:''  ].filter(Boolean).join('\n');
   navigator.clipboard.writeText(t).then(()=>toast("📋 Copied"));
 }
 function shareItem(ri,e){
@@ -678,16 +898,15 @@ function logout(){ isAdmin=false; document.getElementById("admin-btn").textConte
 ═══════════════════════════════════════════ */
 function openEdit(ri,e){
   e&&e.stopPropagation(); if(!isAdmin) return;
-  editIdx=ri;
-  const it=raw[ri];
-  const fields=[['name','Name'],['alias','Alias'],['mrp','MRP (₹)'],['sale','Sale (₹)'],['wholesale','Wholesale (₹)'],['stock','Stock'],['purchase','Purchase (₹)'],['brand','Brand'],['group','Group'],['barcode','Barcode']];
-  document.getElementById("edit-fields").innerHTML=fields.map(([k,l])=>`<div class="ef-wrap"><div class="ef-lbl">${l}</div><input class="ef-in" id="ef-${k}" value="${it[k]||''}"></div>`).join('');
+  editIdx=ri; const it=raw[ri];
+  const fields=[['name','Name'],['alias','Alias'],['mrp','MRP (₹)'],['sale','Sale (₹)'],['wholesale','Wholesale (₹)'],['stock','Stock'],['purchase','Purchase (₹)'],['group','Group'],['brand','Brand'],['barcode','Barcode']];
+  document.getElementById("edit-fields").innerHTML=fields.map(([k,l])=>`<div class="ef-wrap"><div class="ef-lbl">${l}</div><input class="ef-in" id="ef-${k}" value="${(it[k]||'').toString().replace(/"/g,'&quot;')}"></div>`).join('');
   document.getElementById("edit-ov").classList.add("show");
 }
 function closeEdit(){ document.getElementById("edit-ov").classList.remove("show"); editIdx=-1; }
 function saveEdit(){
   if(editIdx<0) return;
-  ['name','alias','mrp','sale','wholesale','stock','purchase','brand','group','barcode'].forEach(k=>{ const el=document.getElementById("ef-"+k); if(el) raw[editIdx][k]=el.value; });
+  ['name','alias','mrp','sale','wholesale','stock','purchase','group','brand','barcode'].forEach(k=>{ const el=document.getElementById("ef-"+k); if(el) raw[editIdx][k]=el.value; });
   closeEdit(); applyAll(); toast("✅ Saved (session)");
 }
 
@@ -698,10 +917,10 @@ let toastTm;
 function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toastTm); toastTm=setTimeout(()=>t.classList.remove("show"),2500); }
 
 /* ═══════════════════════════════════════════
-   KEYBOARD
+   KEYBOARD / DISMISS
 ═══════════════════════════════════════════ */
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){ closeAdm(); closeEdit(); closeScanner(); }
+  if(e.key==="Escape"){ closeAdm(); closeEdit(); closeScanner(); closeGrpModal(); }
   if((e.ctrlKey||e.metaKey)&&e.key==="f"){ e.preventDefault(); document.getElementById("search").focus(); }
 });
 document.getElementById("adm-ov").addEventListener("click",e=>{ if(e.target.id==="adm-ov")closeAdm(); });
@@ -714,7 +933,7 @@ scrollEl = document.getElementById("scroll");
 spacer   = document.getElementById("spacer");
 stage    = document.getElementById("stage");
 scrollEl.addEventListener("scroll", onScroll, {passive:true});
-window.addEventListener("resize",()=>vsRender(true));
+window.addEventListener("resize",()=>{ rebuildOffsets(); vsRender(true); });
 loadData();
 </script>
 </body>
