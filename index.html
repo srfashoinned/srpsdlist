@@ -2,584 +2,707 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>SR PSD • Lightning Fast</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/@zxing/library@0.19.1/umd/index.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SR Psd</title>
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-  --bg: #080809; --surface: #101012; --card: #141418;
-  --border: rgba(255,255,255,0.07); --gold: #F5C542;
-  --green: #22c55e; --blue: #3b82f6; --purple: #a855f7; --red: #ef4444;
-  --text: #e8e8f0; --muted: #666680;
-  --font-head: 'Bebas Neue', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+/* Zero external fonts — system stack is instant */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#09090b;--surf:#111113;--card:#18181b;
+  --bord:rgba(255,255,255,0.08);
+  --gold:#f5c542;--green:#22c55e;--blue:#60a5fa;--purple:#c084fc;--red:#f87171;
+  --txt:#e4e4e7;--muted:#71717a;
 }
-body { background: var(--bg); color: var(--text); font-family: var(--font-body); overflow-x: hidden; }
-.header {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(8,8,9,0.98); backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  height: 50px; padding: 0 12px;
-  display: flex; align-items: center; gap: 8px;
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;display:flex;flex-direction:column}
+
+/* HEADER */
+#hdr{
+  flex-shrink:0;
+  height:52px;padding:0 14px;
+  display:flex;align-items:center;gap:10px;
+  background:rgba(9,9,11,0.95);
+  border-bottom:1px solid var(--bord);
+  position:relative;z-index:50;
 }
-.logo { font-family: var(--font-head); font-size: 24px; letter-spacing: 2px; color: var(--gold); }
-.header-right { margin-left: auto; display: flex; gap: 8px; align-items: center; }
-.count-badge { font-family: var(--font-mono); font-size: 10px; background: var(--surface); border: 1px solid var(--border); padding: 3px 8px; border-radius: 20px; }
-.admin-btn { font-size: 12px; font-weight: 600; background: transparent; color: var(--gold); border: 1.5px solid var(--gold); padding: 4px 12px; border-radius: 8px; cursor: pointer; transition: 0.1s; }
-.admin-btn.active { background: var(--gold); color: #000; }
-.search-wrap { padding: 8px 12px; }
-.search-inner { position: relative; display: flex; gap: 6px; }
-#search {
-  flex: 1; background: var(--surface); border: 1px solid var(--border);
-  border-radius: 10px; padding: 10px 35px 10px 35px;
-  font-size: 14px; color: var(--text); outline: none;
+#logo{font-size:20px;font-weight:800;letter-spacing:2px;color:var(--gold);white-space:nowrap}
+#hdr-right{margin-left:auto;display:flex;gap:8px;align-items:center}
+#badge{font-size:11px;color:var(--muted);background:var(--surf);border:1px solid var(--bord);padding:2px 8px;border-radius:20px;font-variant-numeric:tabular-nums}
+#admin-btn{font-size:12px;font-weight:700;background:transparent;color:var(--gold);border:1.5px solid var(--gold);padding:5px 12px;border-radius:7px;cursor:pointer}
+#admin-btn.on{background:var(--gold);color:#000}
+
+/* CONTROLS */
+#ctrl{flex-shrink:0;padding:10px 14px 6px;display:flex;flex-direction:column;gap:7px}
+#search-row{display:flex;gap:8px;align-items:center}
+#search{
+  flex:1;background:var(--surf);border:1.5px solid var(--bord);
+  border-radius:10px;padding:10px 14px;font-size:15px;color:var(--txt);
+  outline:none;font-family:inherit;
 }
-.search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); opacity: 0.5; font-size: 14px; }
-.clear-btn {
-  position: absolute; right: 55px; top: 50%; transform: translateY(-50%);
-  background: none; border: none; color: var(--muted); cursor: pointer; font-size: 16px;
-  display: none; width: 20px; height: 20px;
+#search:focus{border-color:var(--gold)}
+#search::placeholder{color:var(--muted)}
+#scan-btn{
+  width:42px;height:42px;flex-shrink:0;border-radius:10px;
+  background:var(--surf);border:1.5px solid var(--bord);
+  color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:center;
 }
-.scan-btn {
-  width: 42px; height: 42px; flex-shrink: 0; border-radius: 10px;
-  background: var(--surface); border: 1px solid var(--border);
-  color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: center;
+#scan-btn.on{border-color:var(--gold);color:var(--gold)}
+
+/* CHIPS */
+#chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+#chips::-webkit-scrollbar{display:none}
+.chip{
+  white-space:nowrap;font-size:12px;font-weight:600;
+  padding:4px 11px;border-radius:20px;
+  border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);
+  cursor:pointer;flex-shrink:0;
 }
-.scan-btn:active { background: rgba(245,197,66,0.1); }
-.chip-row { padding: 0 12px 6px; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
-.chip-row::-webkit-scrollbar { display: none; }
-.chip {
-  white-space: nowrap; font-size: 11px; font-weight: 500;
-  padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border);
-  background: var(--surface); color: var(--muted); cursor: pointer;
+.chip.on{background:var(--gold);border-color:var(--gold);color:#000}
+
+/* PRICE FILTER */
+#pf{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+#pf label{font-size:11px;color:var(--muted)}
+.pi{width:68px;background:var(--surf);border:1.5px solid var(--bord);border-radius:7px;padding:5px 8px;font-size:12px;color:var(--txt);outline:none;font-family:inherit;font-variant-numeric:tabular-nums}
+.pi:focus{border-color:var(--gold)}
+#pf-go{padding:5px 10px;border-radius:7px;background:var(--gold);border:none;color:#000;font-size:12px;font-weight:700;cursor:pointer}
+#pf-clr{padding:5px 9px;border-radius:7px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:12px;cursor:pointer}
+
+/* STATUS LINE */
+#status{flex-shrink:0;padding:3px 14px 5px;font-size:11px;color:var(--muted)}
+
+/* VIRTUAL SCROLL CONTAINER */
+#scroll{flex:1;overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
+#scroll::-webkit-scrollbar{width:3px}
+#scroll::-webkit-scrollbar-thumb{background:var(--bord);border-radius:3px}
+/* spacer so scrollbar is correct height */
+#spacer{width:1px}
+/* visible cards layer */
+#stage{position:absolute;top:0;left:0;right:0;padding:0 14px 80px}
+
+/* CARD */
+.c{
+  background:var(--card);border:1px solid var(--bord);
+  border-radius:12px;padding:12px;margin-bottom:8px;
+  cursor:pointer;position:relative;
 }
-.chip.active { background: var(--gold); border-color: var(--gold); color: #000; }
-.price-bar { padding: 0 12px 8px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
-.price-input { width: 65px; background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 4px 6px; font-size: 11px; font-family: var(--font-mono); color: var(--text); }
-.price-btn { padding: 4px 8px; border-radius: 6px; border: none; font-size: 11px; font-weight: 600; cursor: pointer; }
-.price-go { background: var(--gold); color: #000; }
-.price-clr { background: var(--surface); border: 1px solid var(--border); color: var(--muted); }
-.result-line { padding: 0 12px 6px; font-size: 11px; color: var(--muted); }
-#list { padding: 0 12px 80px; display: flex; flex-direction: column; gap: 8px; }
-.card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 12px; padding: 10px; cursor: pointer;
-  transition: 0.1s;
+.c:active{background:#222}
+.c.exp{border-color:rgba(245,197,66,0.3)}
+.c-name{font-size:17px;font-weight:700;line-height:1.1;color:var(--txt)}
+.c-alias{font-size:11px;color:var(--muted);margin-top:2px;font-variant-numeric:tabular-nums}
+.prices{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pb{border-radius:8px;padding:7px 10px}
+.pb.m{background:rgba(245,197,66,0.1);border:1px solid rgba(245,197,66,0.22)}
+.pb.s{background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.22)}
+.pb.w{background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.22)}
+.pb.k{background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.18)}
+.pb.p{background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.22)}
+.pl{font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;opacity:.65}
+.pb.m .pl{color:var(--gold)} .pb.s .pl{color:var(--green)} .pb.w .pl{color:var(--blue)} .pb.k .pl{color:var(--red)} .pb.p .pl{color:var(--purple)}
+.pv{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}
+.pb.m .pv{color:var(--gold)} .pb.s .pv{color:var(--green)} .pb.w .pv{color:var(--blue)} .pb.k .pv{color:var(--red)} .pb.p .pv{color:var(--purple)}
+
+/* EXPANDED DETAIL */
+.det{display:none;border-top:1px solid var(--bord);margin-top:10px;padding-top:10px}
+.c.exp .det{display:block}
+.drow{display:flex;justify-content:space-between;font-size:12px;padding:2px 0}
+.drow span:first-child{color:var(--muted)}
+.drow span:last-child{font-weight:600;font-variant-numeric:tabular-nums}
+.act{display:flex;gap:7px;margin-top:9px}
+.ab{flex:1;padding:7px 4px;border-radius:7px;font-size:12px;font-weight:600;border:none;cursor:pointer;font-family:inherit}
+.ab.cp{background:rgba(96,165,250,0.12);color:var(--blue);border:1px solid rgba(96,165,250,0.25)}
+.ab.sh{background:rgba(34,197,94,0.1);color:var(--green);border:1px solid rgba(34,197,94,0.2)}
+.ab.ed{background:rgba(245,197,66,0.12);color:var(--gold);border:1px solid rgba(245,197,66,0.25)}
+
+/* EMPTY */
+.empty{text-align:center;padding:50px 20px;color:var(--muted);font-size:14px}
+
+/* SCANNER OVERLAY */
+#scan-ov{
+  position:fixed;inset:0;z-index:200;background:#000;
+  display:none;flex-direction:column;align-items:center;justify-content:center;
 }
-.card:active { transform: scale(0.99); }
-.card-top { display: flex; justify-content: space-between; align-items: center; }
-.c-name { font-family: var(--font-head); font-size: 18px; line-height: 1.2; }
-.c-alias { font-size: 10px; color: var(--muted); font-family: var(--font-mono); margin-top: 2px; }
-.expand-icon { font-size: 14px; color: var(--muted); transition: 0.1s; }
-.card.expanded .expand-icon { transform: rotate(180deg); color: var(--gold); }
-.prices { margin-top: 8px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
-.pb { border-radius: 8px; padding: 6px 8px; display: flex; flex-direction: column; }
-.pb.mrp { background: rgba(245,197,66,0.12); border-left: 2px solid var(--gold); }
-.pb.sale { background: rgba(34,197,94,0.12); border-left: 2px solid var(--green); }
-.pb.whole { background: rgba(59,130,246,0.12); border-left: 2px solid var(--blue); }
-.pb.stock { background: rgba(239,68,68,0.1); border-left: 2px solid var(--red); }
-.pl { font-size: 9px; font-weight: 600; text-transform: uppercase; opacity: 0.7; }
-.pv { font-family: var(--font-mono); font-size: 14px; font-weight: 600; }
-.card-details { max-height: 0; overflow: hidden; transition: max-height 0.2s ease; }
-.card.expanded .card-details { max-height: 200px; }
-.cdi { padding-top: 8px; border-top: 1px solid var(--border); margin-top: 8px; display: flex; flex-direction: column; gap: 5px; }
-.dr { display: flex; justify-content: space-between; font-size: 11px; }
-.dr span:first-child { color: var(--muted); }
-.act-row { display: flex; gap: 6px; margin-top: 6px; }
-.ab { flex: 1; padding: 6px; border-radius: 6px; font-size: 10px; font-weight: 600; border: none; cursor: pointer; }
-.ab.copy { background: rgba(59,130,246,0.15); color: var(--blue); }
-.ab.share { background: rgba(34,197,94,0.12); color: var(--green); }
-.ab.edit { background: rgba(245,197,66,0.15); color: var(--gold); }
-.empty, .loading { text-align: center; padding: 40px 20px; color: var(--muted); }
-.spinner { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--border); border-top-color: var(--gold); animation: spin 0.6s linear infinite; margin: 0 auto 10px; }
-@keyframes spin { to { transform: rotate(360deg); } }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-.card { animation: fadeIn 0.12s ease; }
-mark { background: rgba(245,197,66,0.4); color: var(--gold); border-radius: 2px; padding: 0 1px; }
-.toast {
-  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(60px);
-  background: var(--surface); border: 1px solid var(--border); border-radius: 30px;
-  padding: 6px 16px; font-size: 12px; z-index: 300; transition: 0.15s; opacity: 0;
+#scan-ov.show{display:flex}
+#scan-vid{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+#scan-ui{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
+#scan-frame{
+  width:260px;height:130px;border:2px solid var(--gold);border-radius:10px;
+  box-shadow:0 0 0 9999px rgba(0,0,0,0.6);position:relative;overflow:hidden;
 }
-.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-.fab {
-  position: fixed; bottom: 20px; right: 16px; width: 44px; height: 44px;
-  background: var(--gold); border-radius: 50%; border: none; cursor: pointer;
-  font-size: 18px; display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 2px 12px rgba(245,197,66,0.3); z-index: 150;
+#scan-line{
+  position:absolute;left:0;right:0;height:2px;background:var(--gold);
+  box-shadow:0 0 6px var(--gold);animation:sl 1.8s ease-in-out infinite;
 }
-.scanner-overlay {
-  position: fixed; inset: 0; z-index: 400; background: #000;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none; transition: 0.15s;
+@keyframes sl{0%,100%{top:2px}50%{top:calc(100% - 4px)}}
+#scan-hint{margin-top:22px;color:rgba(255,255,255,0.7);font-size:14px;text-align:center}
+#scan-code{margin-top:8px;color:var(--gold);font-size:13px;min-height:18px;font-variant-numeric:tabular-nums;letter-spacing:.5px}
+#scan-close{margin-top:22px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:10px 26px;border-radius:30px;font-size:14px;cursor:pointer}
+
+/* ADMIN MODAL */
+#adm-ov{position:fixed;inset:0;z-index:150;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center}
+#adm-ov.show{display:flex}
+#adm-box{background:var(--card);border:1px solid var(--bord);border-radius:16px;padding:24px;width:88%;max-width:320px}
+#adm-title{font-size:22px;font-weight:800;color:var(--gold);margin-bottom:4px}
+#adm-sub{font-size:12px;color:var(--muted);margin-bottom:16px}
+#adm-pw{width:100%;background:var(--surf);border:1.5px solid var(--bord);border-radius:9px;padding:12px;font-size:20px;color:var(--txt);letter-spacing:8px;text-align:center;outline:none;font-family:inherit}
+#adm-pw:focus{border-color:var(--gold)}
+#adm-pw.err{border-color:var(--red);animation:sh .3s}
+#adm-pw.ok{border-color:var(--green)}
+@keyframes sh{0%,100%{transform:translateX(0)}25%,75%{transform:translateX(-5px)}50%{transform:translateX(5px)}}
+#dots{display:flex;justify-content:center;gap:10px;margin-top:12px}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--bord);border:1.5px solid var(--muted);transition:all .15s}
+.dot.f{background:var(--gold);border-color:var(--gold)}
+.dot.e{background:var(--red);border-color:var(--red)}
+.dot.g{background:var(--green);border-color:var(--green)}
+#adm-msg{font-size:12px;text-align:center;margin-top:8px;height:16px;color:var(--muted)}
+#adm-msg.e{color:var(--red)} #adm-msg.g{color:var(--green)}
+#adm-btns{display:flex;gap:8px;margin-top:16px}
+#adm-cancel{flex:1;padding:10px;border-radius:9px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
+#adm-login{flex:2;padding:10px;border-radius:9px;background:var(--gold);border:none;color:#000;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
+
+/* EDIT MODAL */
+#edit-ov{position:fixed;inset:0;z-index:160;background:rgba(0,0,0,0.85);display:none;align-items:flex-end;justify-content:center}
+#edit-ov.show{display:flex}
+#edit-box{background:var(--card);border:1px solid var(--bord);border-radius:16px 16px 0 0;padding:20px;width:100%;max-width:480px;max-height:78vh;overflow-y:auto}
+#edit-title{font-size:18px;font-weight:800;color:var(--gold);margin-bottom:14px}
+.ef-wrap{margin-bottom:10px}
+.ef-lbl{font-size:10px;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;margin-bottom:3px}
+.ef-in{width:100%;background:var(--surf);border:1.5px solid var(--bord);border-radius:7px;padding:9px 10px;font-size:13px;color:var(--txt);outline:none;font-family:inherit;font-variant-numeric:tabular-nums}
+.ef-in:focus{border-color:var(--gold)}
+#edit-btns{display:flex;gap:8px;margin-top:14px}
+#edit-save{flex:2;padding:11px;border-radius:9px;background:var(--gold);border:none;color:#000;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit}
+#edit-cancel{flex:1;padding:11px;border-radius:9px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
+
+/* TOAST */
+#toast{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(70px);
+  background:#27272a;border:1px solid var(--bord);border-radius:30px;
+  padding:9px 18px;font-size:13px;white-space:nowrap;z-index:300;
+  transition:transform .25s,opacity .25s;opacity:0;pointer-events:none;
 }
-.scanner-overlay.show { opacity: 1; pointer-events: all; }
-#scanner-video { width: 100%; max-width: 100%; height: 100%; object-fit: cover; }
-.scanner-ui { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
-.scan-frame {
-  width: 280px; height: 200px; border: 2px solid var(--gold); border-radius: 16px;
-  box-shadow: 0 0 0 9999px rgba(0,0,0,0.7); position: relative;
-}
-.scan-line {
-  position: absolute; left: 0; right: 0; height: 2px;
-  background: var(--gold); box-shadow: 0 0 8px var(--gold);
-  animation: scanMove 1.5s ease-in-out infinite; top: 0;
-}
-@keyframes scanMove { 0% { top: 5px; } 50% { top: calc(100% - 5px); } 100% { top: 5px; } }
-.scan-hint { margin-top: 20px; color: rgba(255,255,255,0.8); font-size: 13px; background: rgba(0,0,0,0.6); padding: 6px 16px; border-radius: 30px; }
-.scan-close-btn {
-  pointer-events: all; margin-top: 20px; background: rgba(255,255,255,0.2);
-  border: none; color: #fff; padding: 8px 24px; border-radius: 30px;
-  font-size: 14px; cursor: pointer; font-weight: 600;
-}
-.mbg {
-  position: fixed; inset: 0; z-index: 350; background: rgba(0,0,0,0.9);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none; transition: 0.1s;
-}
-.mbg.show { opacity: 1; pointer-events: all; }
-.mbox { background: var(--card); border-radius: 20px; padding: 20px; width: 280px; text-align: center; }
-.mtitle { font-family: var(--font-head); font-size: 26px; color: var(--gold); }
-#admin-pw { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 10px; font-size: 20px; font-family: var(--font-mono); text-align: center; letter-spacing: 4px; margin: 12px 0; outline: none; color: var(--text); }
-.mbtns { display: flex; gap: 8px; margin-top: 12px; }
-.ml { flex: 2; padding: 8px; background: var(--gold); border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
-.mc { flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; color: var(--muted); }
-.embg {
-  position: fixed; inset: 0; z-index: 400; background: rgba(0,0,0,0.9);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none; transition: 0.1s;
-}
-.embg.show { opacity: 1; pointer-events: all; }
-.embox { background: var(--card); border-radius: 20px; padding: 20px; width: 90%; max-width: 400px; max-height: 80vh; overflow-y: auto; }
-.etitle { font-family: var(--font-head); font-size: 22px; color: var(--gold); margin-bottom: 12px; }
-.fg { display: flex; flex-direction: column; gap: 8px; }
-.flbl { font-size: 10px; color: var(--muted); text-transform: uppercase; margin-bottom: 2px; }
-.finput { width: 100%; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 13px; font-family: var(--font-mono); color: var(--text); outline: none; }
-.ebtns { display: flex; gap: 8px; margin-top: 16px; }
-.bsave { flex: 2; padding: 10px; background: var(--gold); border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
-.bcancel { flex: 1; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; }
+#toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
+mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;padding:0 1px}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="logo">SR PSD</div>
-  <div class="header-right">
-    <div class="count-badge" id="count">—</div>
-    <button class="admin-btn" id="adminBtn" onclick="toggleAdmin()">⚡ Admin</button>
+<!-- HEADER -->
+<div id="hdr">
+  <div id="logo">SR PSD</div>
+  <div id="hdr-right">
+    <div id="badge">0 items</div>
+    <button id="admin-btn" onclick="openAdm()">⚡ Admin</button>
   </div>
 </div>
 
-<div class="search-wrap">
-  <div class="search-inner">
-    <span class="search-icon">🔍</span>
-    <input type="text" id="search" placeholder="Search name, barcode..." autocomplete="off">
-    <button class="clear-btn" id="clearBtn" onclick="clearSearch()">✕</button>
-    <button class="scan-btn" id="scanBtn" onclick="startScanner()">📷</button>
+<!-- CONTROLS -->
+<div id="ctrl">
+  <div id="search-row">
+    <input id="search" type="search" placeholder="🔍  Name, alias, barcode…" autocomplete="off" spellcheck="false" inputmode="search">
+    <button id="scan-btn" onclick="openScanner()" title="Scan barcode">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/>
+        <line x1="7" y1="8" x2="7" y2="16"/><line x1="10" y1="8" x2="10" y2="16"/>
+        <line x1="13" y1="8" x2="13" y2="11"/><line x1="16" y1="8" x2="16" y2="16"/>
+        <line x1="13" y1="14" x2="13" y2="16"/>
+      </svg>
+    </button>
+  </div>
+  <div id="chips">
+    <div class="chip on" data-s="df">All</div>
+    <div class="chip" data-s="na">A–Z</div>
+    <div class="chip" data-s="ma">MRP ↑</div>
+    <div class="chip" data-s="md">MRP ↓</div>
+    <div class="chip" data-s="sa">Sale ↑</div>
+    <div class="chip" data-s="sd">Sale ↓</div>
+  </div>
+  <div id="pf">
+    <label>₹ Sale:</label>
+    <input class="pi" id="pmin" type="number" placeholder="Min" inputmode="numeric">
+    <span style="color:var(--muted);font-size:12px">–</span>
+    <input class="pi" id="pmax" type="number" placeholder="Max" inputmode="numeric">
+    <button id="pf-go" onclick="applyPF()">Go</button>
+    <button id="pf-clr" onclick="clearPF()">✕</button>
+  </div>
+</div>
+<div id="status"></div>
+
+<!-- VIRTUAL SCROLL -->
+<div id="scroll">
+  <div id="spacer"></div>
+  <div id="stage"></div>
+</div>
+
+<!-- SCANNER -->
+<div id="scan-ov">
+  <video id="scan-vid" autoplay muted playsinline></video>
+  <div id="scan-ui">
+    <div id="scan-frame"><div id="scan-line"></div></div>
+    <div id="scan-hint">Point at any barcode or QR code</div>
+    <div id="scan-code"></div>
+    <button id="scan-close" onclick="closeScanner()">✕ Close</button>
   </div>
 </div>
 
-<div class="chip-row" id="sortRow">
-  <div class="chip active" data-sort="default">All</div>
-  <div class="chip" data-sort="name">A-Z</div>
-  <div class="chip" data-sort="mrp">MRP ↓</div>
-  <div class="chip" data-sort="sale">Sale ↓</div>
-</div>
-
-<div class="price-bar">
-  <input type="number" class="price-input" id="minPrice" placeholder="Min ₹">
-  <span style="font-size:11px">–</span>
-  <input type="number" class="price-input" id="maxPrice" placeholder="Max ₹">
-  <button class="price-btn price-go" onclick="filterPrice()">Go</button>
-  <button class="price-btn price-clr" onclick="clearPrice()">Clear</button>
-</div>
-
-<div class="result-line" id="resultInfo"></div>
-<div id="list"><div class="loading"><div class="spinner"></div>Loading...</div></div>
-<button class="fab" id="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="display:none">↑</button>
-
-<div class="scanner-overlay" id="scannerOverlay">
-  <video id="scannerVideo" autoplay muted playsinline></video>
-  <div class="scanner-ui">
-    <div class="scan-frame"><div class="scan-line"></div></div>
-    <div class="scan-hint">📸 Position barcode in frame</div>
-    <button class="scan-close-btn" onclick="stopScanner()">Close</button>
+<!-- ADMIN MODAL -->
+<div id="adm-ov">
+  <div id="adm-box">
+    <div id="adm-title">ADMIN</div>
+    <div id="adm-sub">4-digit PIN • hidden as you type</div>
+    <input id="adm-pw" type="password" maxlength="4" placeholder="• • • •" autocomplete="off"
+      oninput="onPwInput(this)" onkeydown="if(event.key==='Enter')doLogin()">
+    <div id="dots"><div class="dot" id="d0"></div><div class="dot" id="d1"></div><div class="dot" id="d2"></div><div class="dot" id="d3"></div></div>
+    <div id="adm-msg"></div>
+    <div id="adm-btns">
+      <button id="adm-cancel" onclick="closeAdm()">Cancel</button>
+      <button id="adm-login" onclick="doLogin()">Unlock</button>
+    </div>
   </div>
 </div>
 
-<div class="mbg" id="adminModal"><div class="mbox"><div class="mtitle">ADMIN</div><input type="password" id="adminPass" maxlength="4" placeholder="****" autocomplete="off"><div class="mbtns"><button class="mc" onclick="closeAdmin()">Cancel</button><button class="ml" onclick="loginAdmin()">Unlock</button></div></div></div>
-<div class="embg" id="editModal"><div class="embox"><div class="etitle">✏️ Edit Item</div><div id="editFields"></div><div class="ebtns"><button class="bcancel" onclick="closeEdit()">Cancel</button><button class="bsave" onclick="saveEdit()">Save</button></div></div></div>
-<div class="toast" id="toast"></div>
+<!-- EDIT MODAL -->
+<div id="edit-ov">
+  <div id="edit-box">
+    <div id="edit-title">EDIT ITEM</div>
+    <div id="edit-fields"></div>
+    <div id="edit-btns">
+      <button id="edit-cancel" onclick="closeEdit()">Cancel</button>
+      <button id="edit-save" onclick="saveEdit()">💾 Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
 
 <script>
-// ========== ULTRA FAST CORE ==========
-let items = [];           // original data
-let filtered = [];        // current filtered list
-let isAdmin = false;
-let sortType = 'default';
-let minSale = null, maxSale = null;
-let searchText = '';
-let editIdx = -1;
-let scanner = null;
-let scanActive = false;
+/* ═══════════════════════════════════════════
+   CONSTANTS & STATE
+═══════════════════════════════════════════ */
+const PASS   = "7865";
+const ROW_H  = 148;   // px — approximate height of one collapsed card + gap
+const BUFFER = 5;     // extra rows above/below viewport
 
-// Helper: parse number
-const toNum = v => parseFloat(String(v).replace(/[^0-9.-]/g, '')) || 0;
+let raw      = [];   // original data from items.json
+let pool     = [];   // filtered+sorted working set (indices into raw)
+let isAdmin  = false;
+let sort     = 'df';
+let pMin     = null;
+let pMax     = null;
+let query    = '';
+let brand    = '';
+let group    = '';
+let editIdx  = -1;
+let expanded = new Set();  // indices of expanded cards
 
-// Load data once
-async function load() {
-  try {
-    const res = await fetch(`items.json?t=${Date.now()}`);
-    if (!res.ok) throw new Error();
-    items = await res.json();
-    // Normalize numbers
-    for (let i = 0; i < items.length; i++) {
-      const it = items[i];
-      it.mrp = toNum(it.mrp);
-      it.sale = toNum(it.sale);
-      it.wholesale = toNum(it.wholesale);
-      it.purchase = toNum(it.purchase);
-      it.stock = it.stock ?? 0;
-    }
-    filterAndRender();
-  } catch(e) {
-    document.getElementById('list').innerHTML = '<div class="empty">⚠️ Failed to load items.json<br><span style="font-size:11px">Make sure file exists in same folder</span></div>';
+// Virtual scroll state
+let vsStart  = 0;    // first rendered row index in pool
+let vsEnd    = 0;    // last rendered row index
+let scrollEl, spacer, stage;
+
+/* ═══════════════════════════════════════════
+   LOAD DATA  — same fetch("items.json") pipeline
+═══════════════════════════════════════════ */
+async function loadData(){
+  try{
+    const r = await fetch("items.json?t="+Date.now());
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    raw = await r.json();
+    document.getElementById("badge").textContent = raw.length.toLocaleString()+" items";
+    buildChipsFromData();
+    applyAll();
+  }catch(e){
+    stage.innerHTML = `<div class="empty">⚠️ Cannot load items.json<br><small style="font-size:11px;color:var(--muted)">${e.message}</small><br><small style="font-size:10px;color:var(--muted);margin-top:6px;display:block">Use GitHub Pages or a local server — not file://</small></div>`;
   }
 }
 
-// Main filter + sort (extremely fast, no DOM thrashing)
-function filterAndRender() {
-  const q = searchText.trim().toLowerCase();
-  let result = [];
-  
-  // Single pass filter
-  for (let i = 0; i < items.length; i++) {
-    const it = items[i];
-    if (minSale !== null && it.sale < minSale) continue;
-    if (maxSale !== null && it.sale > maxSale) continue;
-    if (q) {
-      const nameMatch = it.name?.toLowerCase().includes(q);
-      const aliasMatch = it.alias?.toLowerCase().includes(q);
-      const barcodeMatch = it.barcode?.toLowerCase().includes(q);
-      if (!nameMatch && !aliasMatch && !barcodeMatch) continue;
-    }
-    result.push(it);
+/* ═══════════════════════════════════════════
+   DYNAMIC BRAND / GROUP CHIPS
+═══════════════════════════════════════════ */
+function buildChipsFromData(){
+  const brands = [...new Set(raw.map(i=>i.brand).filter(Boolean))].sort();
+  const groups = [...new Set(raw.map(i=>i.group).filter(Boolean))].sort();
+  const chips  = document.getElementById("chips");
+  if(brands.length){
+    const sep = document.createElement("span");
+    sep.style.cssText="width:1px;background:var(--bord);flex-shrink:0;height:20px;align-self:center";
+    chips.appendChild(sep);
+    addChipGroup(chips, brands, "brand");
   }
-  
-  // Sort (direct)
-  if (sortType === 'name') {
-    result.sort((a,b) => (a.name || '').localeCompare(b.name || ''));
-  } else if (sortType === 'mrp') {
-    result.sort((a,b) => b.mrp - a.mrp);
-  } else if (sortType === 'sale') {
-    result.sort((a,b) => b.sale - a.sale);
-  } else {
-    result.sort((a,b) => (a.name || '').localeCompare(b.name || ''));
+  if(groups.length){
+    const sep2 = document.createElement("span");
+    sep2.style.cssText="width:1px;background:var(--bord);flex-shrink:0;height:20px;align-self:center";
+    chips.appendChild(sep2);
+    addChipGroup(chips, groups, "group");
   }
-  
-  filtered = result;
-  renderList();
-  updateUI();
+}
+function addChipGroup(container, items, type){
+  const all = Object.assign(document.createElement("div"),{className:"chip",textContent:"All",dataset:{[type]:""}});
+  all.classList.add("on");
+  all.addEventListener("click",()=>setFilter(type,"",container.querySelectorAll("[data-"+type+"]")));
+  container.appendChild(all);
+  items.forEach(val=>{
+    const c = Object.assign(document.createElement("div"),{className:"chip",textContent:val,dataset:{[type]:val}});
+    c.addEventListener("click",()=>setFilter(type,val,container.querySelectorAll("[data-"+type+"]")));
+    container.appendChild(c);
+  });
+}
+function setFilter(type,val,chips){
+  chips.forEach(c=>c.classList.remove("on"));
+  // find and activate correct chip
+  chips.forEach(c=>{ if((c.dataset[type]||"")===(val||"")) c.classList.add("on"); });
+  if(type==="brand") brand=val;
+  else group=val;
+  applyAll();
 }
 
-// Render only whats needed (virtual style)
-function renderList() {
-  const container = document.getElementById('list');
-  if (!filtered.length) {
-    container.innerHTML = '<div class="empty">🔍 No items found</div>';
+/* ═══════════════════════════════════════════
+   FILTER + SORT  (runs on JS main thread — fast)
+═══════════════════════════════════════════ */
+function pn(v){ return v==null||v===''?0:parseFloat(String(v).replace(/[^0-9.]/g,''))||0; }
+
+function applyAll(){
+  const q = query.trim().toLowerCase();
+  expanded.clear();
+
+  let out = [];
+  for(let i=0;i<raw.length;i++){
+    const it = raw[i];
+    if(brand && it.brand!==brand) continue;
+    if(group && it.group!==group) continue;
+    if(pMin!==null && pn(it.sale)<pMin) continue;
+    if(pMax!==null && pn(it.sale)>pMax) continue;
+    if(q){
+      const n=(it.name||'').toLowerCase();
+      const a=(it.alias||'').toLowerCase();
+      const b=(it.barcode||'').toLowerCase();
+      if(!n.includes(q)&&!a.includes(q)&&!b.includes(q)) continue;
+    }
+    out.push(i);
+  }
+
+  // sort
+  if(sort==='na') out.sort((a,b)=>(raw[a].name||'').localeCompare(raw[b].name||''));
+  else if(sort==='ma') out.sort((a,b)=>pn(raw[a].mrp)-pn(raw[b].mrp));
+  else if(sort==='md') out.sort((a,b)=>pn(raw[b].mrp)-pn(raw[a].mrp));
+  else if(sort==='sa') out.sort((a,b)=>pn(raw[a].sale)-pn(raw[b].sale));
+  else if(sort==='sd') out.sort((a,b)=>pn(raw[b].sale)-pn(raw[a].sale));
+
+  pool = out;
+  document.getElementById("status").textContent =
+    pool.length===raw.length ? `${raw.length.toLocaleString()} items`
+    : `${pool.length.toLocaleString()} of ${raw.length.toLocaleString()} items`;
+
+  // reset virtual scroll
+  scrollEl.scrollTop = 0;
+  vsRender(true);
+}
+
+/* ═══════════════════════════════════════════
+   VIRTUAL SCROLL ENGINE
+   Only renders ~30 cards at a time no matter how many items.
+═══════════════════════════════════════════ */
+function vsRender(force){
+  if(!pool.length){
+    spacer.style.height='0px';
+    stage.innerHTML='<div class="empty">No items found</div>';
     return;
   }
-  
-  let html = [];
-  const q = searchText.trim().toLowerCase();
-  
-  for (let idx = 0; idx < filtered.length; idx++) {
-    const it = filtered[idx];
-    const globalIdx = items.indexOf(it);
-    const nameHigh = q ? highlight(it.name || '', q) : (it.name || '-');
-    const aliasHigh = q ? highlight(it.alias || '', q) : (it.alias || '-');
-    
-    const purchBlock = isAdmin ? `<div class="pb stock" style="border-left-color:var(--purple)"><div class="pl">PURCHASE</div><div class="pv">${formatPrice(it.purchase)}</div></div>` : '';
-    const adminDetails = isAdmin ? `<div class="dr"><span>Purchase</span><span>${formatPrice(it.purchase)}</span></div><div class="dr"><span>Margin</span><span>${Math.round(((it.sale - it.purchase)/it.sale)*100) || 0}%</span></div>` : '';
-    const editBtn = isAdmin ? `<button class="ab edit" onclick="event.stopPropagation();openEdit(${globalIdx})">✏️</button>` : '';
-    let extra = '';
-    if (it.barcode) extra += `<div class="dr"><span>Barcode</span><span>${it.barcode}</span></div>`;
-    if (it.brand) extra += `<div class="dr"><span>Brand</span><span>${it.brand}</span></div>`;
-    
-    html.push(`<div class="card" data-idx="${globalIdx}" onclick="toggleCard(this, ${globalIdx})">
-      <div class="card-top">
-        <div><div class="c-name">${nameHigh}</div><div class="c-alias"># ${aliasHigh}</div></div>
-        <div class="expand-icon">▼</div>
-      </div>
-      <div class="prices">
-        <div class="pb mrp"><div class="pl">MRP</div><div class="pv">${formatPrice(it.mrp)}</div></div>
-        <div class="pb sale"><div class="pl">SALE</div><div class="pv">${formatPrice(it.sale)}</div></div>
-        <div class="pb whole"><div class="pl">WHOLESALE</div><div class="pv">${formatPrice(it.wholesale)}</div></div>
-        <div class="pb stock"><div class="pl">STOCK</div><div class="pv">${it.stock !== undefined ? it.stock : '-'}</div></div>
-        ${purchBlock}
-      </div>
-      <div class="card-details"><div class="cdi">
-        <div class="dr"><span>Name</span><span>${it.name || '-'}</span></div>
-        <div class="dr"><span>Alias</span><span>${it.alias || '-'}</span></div>
-        ${extra}${adminDetails}
-        <div class="act-row">
-          <button class="ab copy" onclick="event.stopPropagation();copyItem(${globalIdx})">📋 Copy</button>
-          <button class="ab share" onclick="event.stopPropagation();shareItem(${globalIdx})">📤 Share</button>
-          ${editBtn}
-        </div>
-      </div></div>
-    </div>`);
-  }
-  container.innerHTML = html.join('');
-}
 
-function highlight(text, q) {
-  if (!q || !text) return text;
-  const idx = text.toLowerCase().indexOf(q);
-  if (idx === -1) return text;
-  return text.substring(0, idx) + '<mark>' + text.substring(idx, idx + q.length) + '</mark>' + text.substring(idx + q.length);
-}
+  const scrollTop = scrollEl.scrollTop;
+  const viewH     = scrollEl.clientHeight;
+  const totalH    = pool.length * ROW_H;
+  spacer.style.height = totalH + 'px';
 
-function formatPrice(v) {
-  if (v === undefined || v === null || v === '') return '-';
-  return '₹' + Number(v).toLocaleString('en-IN');
-}
+  let first = Math.max(0, Math.floor(scrollTop/ROW_H) - BUFFER);
+  let last  = Math.min(pool.length-1, Math.ceil((scrollTop+viewH)/ROW_H) + BUFFER);
 
-function updateUI() {
-  document.getElementById('count').textContent = `${items.length} items`;
-  const showing = filtered.length === items.length ? `All ${items.length}` : `${filtered.length} of ${items.length}`;
-  document.getElementById('resultInfo').textContent = showing;
-}
+  if(!force && first===vsStart && last===vsEnd) return;
+  vsStart = first; vsEnd = last;
 
-function toggleCard(el, idx) {
-  el.classList.toggle('expanded');
-}
-
-// Search with instant feedback
-let searchTimeout;
-const searchInput = document.getElementById('search');
-searchInput.addEventListener('input', (e) => {
-  searchText = e.target.value;
-  document.getElementById('clearBtn').style.display = searchText ? 'flex' : 'none';
-  if (searchTimeout) clearTimeout(searchTimeout);
-  searchTimeout = setTimeout(() => filterAndRender(), 15);
-});
-
-function clearSearch() {
-  searchInput.value = '';
-  searchText = '';
-  document.getElementById('clearBtn').style.display = 'none';
-  filterAndRender();
-  searchInput.focus();
-}
-
-// Sort chips
-document.getElementById('sortRow').addEventListener('click', (e) => {
-  const chip = e.target.closest('.chip');
-  if (!chip) return;
-  document.querySelectorAll('#sortRow .chip').forEach(c => c.classList.remove('active'));
-  chip.classList.add('active');
-  sortType = chip.dataset.sort;
-  filterAndRender();
-});
-
-// Price filter
-function filterPrice() {
-  const min = document.getElementById('minPrice').value;
-  const max = document.getElementById('maxPrice').value;
-  minSale = min !== '' ? parseFloat(min) : null;
-  maxSale = max !== '' ? parseFloat(max) : null;
-  filterAndRender();
-  showToast(`💰 ${minSale || '0'} - ${maxSale || '∞'}`);
-}
-
-function clearPrice() {
-  document.getElementById('minPrice').value = '';
-  document.getElementById('maxPrice').value = '';
-  minSale = null;
-  maxSale = null;
-  filterAndRender();
-  showToast('Price filter cleared');
-}
-
-// Copy & Share
-function copyItem(idx) {
-  const it = items[idx];
-  const text = `${it.name} (${it.alias})\nMRP: ${formatPrice(it.mrp)} | Sale: ${formatPrice(it.sale)} | Stock: ${it.stock || '-'}`;
-  navigator.clipboard.writeText(text);
-  showToast('📋 Copied');
-}
-
-function shareItem(idx) {
-  const it = items[idx];
-  const text = `${it.name} - ${formatPrice(it.sale)}`;
-  if (navigator.share) navigator.share({ title: it.name, text });
-  else navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard'));
-}
-
-// ========== POWERFUL SCANNER ==========
-async function startScanner() {
-  if (scanActive) return;
-  const overlay = document.getElementById('scannerOverlay');
-  overlay.classList.add('show');
-  scanActive = true;
-  const video = document.getElementById('scannerVideo');
-  
-  try {
-    if (typeof ZXing === 'undefined') throw new Error('Library not loaded');
-    scanner = new ZXing.BrowserMultiFormatReader();
-    const devices = await scanner.listVideoInputDevices();
-    if (!devices.length) throw new Error('No camera');
-    
-    // Select back camera (prefer environment)
-    const cam = devices.find(d => d.label.toLowerCase().includes('back') || d.label.toLowerCase().includes('environment')) || devices[0];
-    
-    await scanner.decodeFromVideoDevice(cam.deviceId, video, (result, err) => {
-      if (result) {
-        const code = result.getText();
-        stopScanner();
-        searchInput.value = code;
-        searchText = code;
-        document.getElementById('clearBtn').style.display = 'flex';
-        filterAndRender();
-        showToast(`✅ Scanned: ${code}`);
-      }
-    });
-  } catch (err) {
-    console.error(err);
-    showToast('Camera error: ' + err.message);
-    stopScanner();
-  }
-}
-
-function stopScanner() {
-  scanActive = false;
-  document.getElementById('scannerOverlay').classList.remove('show');
-  if (scanner) {
-    try { scanner.reset(); } catch(e) {}
-    scanner = null;
-  }
-  const video = document.getElementById('scannerVideo');
-  if (video.srcObject) {
-    video.srcObject.getTracks().forEach(t => t.stop());
-    video.srcObject = null;
-  }
-}
-
-// ========== ADMIN ==========
-function toggleAdmin() {
-  if (isAdmin) logoutAdmin();
-  else openAdmin();
-}
-
-function openAdmin() {
-  document.getElementById('adminModal').classList.add('show');
-  document.getElementById('adminPass').focus();
-}
-
-function closeAdmin() {
-  document.getElementById('adminModal').classList.remove('show');
-  document.getElementById('adminPass').value = '';
-}
-
-function loginAdmin() {
-  const pass = document.getElementById('adminPass').value;
-  if (pass === '7865') {
-    isAdmin = true;
-    closeAdmin();
-    document.getElementById('adminBtn').textContent = '🔓 Logout';
-    document.getElementById('adminBtn').classList.add('active');
-    filterAndRender();
-    showToast('Admin mode ON');
-  } else {
-    showToast('Wrong PIN');
-    document.getElementById('adminPass').value = '';
-    document.getElementById('adminPass').focus();
-  }
-}
-
-function logoutAdmin() {
-  isAdmin = false;
-  document.getElementById('adminBtn').textContent = '⚡ Admin';
-  document.getElementById('adminBtn').classList.remove('active');
-  filterAndRender();
-  showToast('Logged out');
-}
-
-// Edit
-function openEdit(idx) {
-  if (!isAdmin) return;
-  editIdx = idx;
-  const it = items[idx];
-  const fields = ['name', 'alias', 'mrp', 'sale', 'wholesale', 'stock', 'purchase', 'brand', 'group', 'barcode'];
-  const labels = { name:'Name', alias:'Alias', mrp:'MRP (₹)', sale:'Sale (₹)', wholesale:'Wholesale (₹)', stock:'Stock', purchase:'Purchase (₹)', brand:'Brand', group:'Group', barcode:'Barcode' };
+  const q = query.trim().toLowerCase();
   let html = '';
-  for (let f of fields) {
-    html += `<div><div class="flbl">${labels[f]}</div><input class="finput" id="edit_${f}" value="${it[f] !== undefined ? it[f] : ''}" placeholder="${labels[f]}"></div>`;
+  for(let vi=first; vi<=last; vi++){
+    const ri  = pool[vi];
+    const it  = raw[ri];
+    const top = vi * ROW_H;
+    html += cardHTML(it, ri, top, q);
   }
-  document.getElementById('editFields').innerHTML = html;
-  document.getElementById('editModal').classList.add('show');
+  stage.innerHTML = html;
 }
 
-function closeEdit() {
-  document.getElementById('editModal').classList.remove('show');
-  editIdx = -1;
+/* ═══════════════════════════════════════════
+   CARD HTML BUILDER
+═══════════════════════════════════════════ */
+function fmt(v){
+  if(v==null||v==='') return '–';
+  const n=parseFloat(String(v).replace(/[^0-9.]/g,''));
+  if(isNaN(n)) return String(v);
+  return '₹'+n.toLocaleString('en-IN');
+}
+function hl(t,q){
+  if(!q||!t) return t||'';
+  const i=t.toLowerCase().indexOf(q);
+  if(i<0) return t;
+  return t.slice(0,i)+'<mark>'+t.slice(i,i+q.length)+'</mark>'+t.slice(i+q.length);
+}
+function margin(it){
+  const s=pn(it.sale),p=pn(it.purchase);
+  if(!s||!p) return '';
+  return ' <span style="font-size:10px;color:var(--green);font-weight:600">('+Math.round((s-p)/s*100)+'%)</span>';
 }
 
-function saveEdit() {
-  if (editIdx === -1) return;
-  const it = items[editIdx];
-  const fields = ['name', 'alias', 'mrp', 'sale', 'wholesale', 'stock', 'purchase', 'brand', 'group', 'barcode'];
-  for (let f of fields) {
-    const el = document.getElementById(`edit_${f}`);
-    if (el) it[f] = el.value;
+function cardHTML(it, ri, top, q){
+  const exp = expanded.has(ri);
+  const purchBlock = isAdmin
+    ? `<div class="pb p"><div class="pl">Purchase</div><div class="pv">${fmt(it.purchase)}${isAdmin?margin(it):''}</div></div>` : '';
+  const detailHTML = exp ? `
+    <div class="det">
+      <div class="drow"><span>Name</span><span>${it.name||'–'}</span></div>
+      <div class="drow"><span>Alias</span><span>${it.alias||'–'}</span></div>
+      ${it.barcode?`<div class="drow"><span>Barcode</span><span>${it.barcode}</span></div>`:''}
+      ${it.brand?`<div class="drow"><span>Brand</span><span>${it.brand}</span></div>`:''}
+      ${it.group?`<div class="drow"><span>Group</span><span>${it.group}</span></div>`:''}
+      ${isAdmin&&it.purchase?`<div class="drow"><span>Purchase</span><span style="color:var(--purple)">${fmt(it.purchase)}</span></div>`:''}
+      <div class="act">
+        <button class="ab cp" onclick="copyItem(${ri},event)">📋 Copy</button>
+        <button class="ab sh" onclick="shareItem(${ri},event)">📤 Share</button>
+        ${isAdmin?`<button class="ab ed" onclick="openEdit(${ri},event)">✏️ Edit</button>`:''}
+      </div>
+    </div>` : '';
+  return `<div class="c${exp?' exp':''}" style="position:absolute;top:${top}px;left:14px;right:14px" onclick="toggleCard(${ri})">
+    <div class="c-name">${hl(it.name||'',q)}</div>
+    <div class="c-alias">⌗ ${hl(it.alias||'',q)}</div>
+    <div class="prices">
+      <div class="pb m"><div class="pl">MRP</div><div class="pv">${fmt(it.mrp)}</div></div>
+      <div class="pb s"><div class="pl">Sale</div><div class="pv">${fmt(it.sale)}</div></div>
+      <div class="pb w"><div class="pl">Wholesale</div><div class="pv">${fmt(it.wholesale)}</div></div>
+      <div class="pb k"><div class="pl">Stock</div><div class="pv">${it.stock??'–'}</div></div>
+      ${purchBlock}
+    </div>
+    ${detailHTML}
+  </div>`;
+}
+
+function toggleCard(ri){
+  if(expanded.has(ri)) expanded.delete(ri);
+  else expanded.add(ri);
+  // Find position in pool
+  const vi = pool.indexOf(ri);
+  if(vi<0) return;
+  const top = vi * ROW_H;
+  // Rebuild just this card in place
+  const el = stage.querySelector(`[onclick="toggleCard(${ri})"]`);
+  if(el){
+    const q = query.trim().toLowerCase();
+    const tmp = document.createElement('div');
+    tmp.innerHTML = cardHTML(raw[ri], ri, top, q);
+    el.replaceWith(tmp.firstElementChild);
   }
-  it.mrp = toNum(it.mrp);
-  it.sale = toNum(it.sale);
-  it.wholesale = toNum(it.wholesale);
-  it.purchase = toNum(it.purchase);
-  closeEdit();
-  filterAndRender();
-  showToast('✅ Updated');
 }
 
-// Toast
-let toastTimer;
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 1800);
+/* ═══════════════════════════════════════════
+   SCROLL HANDLER — throttled with rAF
+═══════════════════════════════════════════ */
+let rafPending = false;
+function onScroll(){
+  if(rafPending) return;
+  rafPending=true;
+  requestAnimationFrame(()=>{ vsRender(false); rafPending=false; });
 }
 
-// Scroll to top
-window.addEventListener('scroll', () => {
-  document.getElementById('fab').style.display = window.scrollY > 200 ? 'flex' : 'none';
+/* ═══════════════════════════════════════════
+   SEARCH — debounced 120ms
+═══════════════════════════════════════════ */
+let searchTimer;
+document.getElementById("search").addEventListener("input",function(){
+  query=this.value;
+  clearTimeout(searchTimer);
+  searchTimer=setTimeout(applyAll, 120);
 });
 
-// Close modals on escape
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    stopScanner();
-    closeAdmin();
-    closeEdit();
+/* ═══════════════════════════════════════════
+   SORT CHIPS
+═══════════════════════════════════════════ */
+document.getElementById("chips").addEventListener("click",function(e){
+  const c=e.target.closest(".chip[data-s]");
+  if(!c) return;
+  document.querySelectorAll(".chip[data-s]").forEach(x=>x.classList.remove("on"));
+  c.classList.add("on"); sort=c.dataset.s; applyAll();
+});
+
+/* ═══════════════════════════════════════════
+   PRICE FILTER
+═══════════════════════════════════════════ */
+function applyPF(){
+  const mn=document.getElementById("pmin").value;
+  const mx=document.getElementById("pmax").value;
+  pMin=mn!==''?parseFloat(mn):null;
+  pMax=mx!==''?parseFloat(mx):null;
+  applyAll(); toast(`₹${mn||'0'} – ₹${mx||'∞'}`);
+}
+function clearPF(){
+  document.getElementById("pmin").value='';
+  document.getElementById("pmax").value='';
+  pMin=null; pMax=null; applyAll(); toast("Price filter cleared");
+}
+
+/* ═══════════════════════════════════════════
+   BARCODE SCANNER — native BarcodeDetector API first,
+   fallback to ZXing loaded on-demand (only when scanner opens)
+═══════════════════════════════════════════ */
+let scanStream = null;
+let scanLoop   = null;
+let zxingReady = false;
+let codeReader = null;
+
+async function openScanner(){
+  document.getElementById("scan-ov").classList.add("show");
+  document.getElementById("scan-btn").classList.add("on");
+  document.getElementById("scan-code").textContent='';
+  try{
+    const constraints={video:{facingMode:"environment",width:{ideal:1280},height:{ideal:720}}};
+    scanStream = await navigator.mediaDevices.getUserMedia(constraints);
+    const vid = document.getElementById("scan-vid");
+    vid.srcObject = scanStream;
+    await vid.play();
+
+    // Try native BarcodeDetector (Chrome/Android, fast & no library needed)
+    if('BarcodeDetector' in window){
+      const bd = new BarcodeDetector({formats:['qr_code','code_128','code_39','ean_13','ean_8','upc_a','upc_e','itf','data_matrix','aztec','pdf417']});
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      scanLoop = setInterval(async()=>{
+        if(!vid.readyState||vid.readyState<2) return;
+        canvas.width=vid.videoWidth; canvas.height=vid.videoHeight;
+        ctx.drawImage(vid,0,0);
+        try{
+          const codes = await bd.detect(canvas);
+          if(codes.length){ onScanResult(codes[0].rawValue); }
+        }catch(_){}
+      },300);
+    } else {
+      // Fallback: load ZXing dynamically only now
+      if(!zxingReady){
+        document.getElementById("scan-code").textContent='Loading scanner…';
+        await loadScript("https://unpkg.com/@zxing/library@0.19.1/umd/index.min.js");
+        zxingReady=true;
+        document.getElementById("scan-code").textContent='';
+      }
+      codeReader = new ZXing.BrowserMultiFormatReader();
+      const devices = await codeReader.listVideoInputDevices();
+      const devId = devices.length>1?devices[devices.length-1].deviceId:devices[0]?.deviceId;
+      // ZXing takes over the video element
+      scanStream.getTracks().forEach(t=>t.stop()); scanStream=null;
+      await codeReader.decodeFromVideoDevice(devId,'scan-vid',(res)=>{
+        if(res) onScanResult(res.getText());
+      });
+    }
+  }catch(e){ toast("Camera: "+e.message); closeScanner(); }
+}
+function loadScript(src){ return new Promise((res,rej)=>{ const s=document.createElement('script'); s.src=src; s.onload=res; s.onerror=rej; document.head.appendChild(s); }); }
+function onScanResult(code){
+  document.getElementById("scan-code").textContent='✓ '+code;
+  setTimeout(()=>{
+    closeScanner();
+    document.getElementById("search").value=code;
+    query=code; applyAll();
+    toast("📷 "+code);
+  },400);
+}
+function closeScanner(){
+  document.getElementById("scan-ov").classList.remove("show");
+  document.getElementById("scan-btn").classList.remove("on");
+  if(scanLoop){ clearInterval(scanLoop); scanLoop=null; }
+  if(scanStream){ scanStream.getTracks().forEach(t=>t.stop()); scanStream=null; }
+  if(codeReader){ try{codeReader.reset();}catch(_){} codeReader=null; }
+  const v=document.getElementById("scan-vid");
+  if(v.srcObject){ v.srcObject.getTracks().forEach(t=>t.stop()); v.srcObject=null; }
+}
+
+/* ═══════════════════════════════════════════
+   COPY / SHARE
+═══════════════════════════════════════════ */
+function copyItem(ri,e){
+  e&&e.stopPropagation();
+  const it=raw[ri];
+  const t=[`📦 ${it.name} (${it.alias})`,`MRP: ${fmt(it.mrp)}`,`Sale: ${fmt(it.sale)}`,`Wholesale: ${fmt(it.wholesale)}`,`Stock: ${it.stock??'–'}`,isAdmin&&it.purchase?`Purchase: ${fmt(it.purchase)}`:'' ].filter(Boolean).join('\n');
+  navigator.clipboard.writeText(t).then(()=>toast("📋 Copied"));
+}
+function shareItem(ri,e){
+  e&&e.stopPropagation();
+  const it=raw[ri];
+  const t=`${it.name} (${it.alias})\nMRP: ${fmt(it.mrp)} | Sale: ${fmt(it.sale)} | Wholesale: ${fmt(it.wholesale)}`;
+  if(navigator.share) navigator.share({title:it.name,text:t}).catch(()=>{});
+  else navigator.clipboard.writeText(t).then(()=>toast("📤 Copied"));
+}
+
+/* ═══════════════════════════════════════════
+   ADMIN
+═══════════════════════════════════════════ */
+function openAdm(){ if(isAdmin){logout();return;} document.getElementById("adm-ov").classList.add("show"); setTimeout(()=>document.getElementById("adm-pw").focus(),150); }
+function closeAdm(){ document.getElementById("adm-ov").classList.remove("show"); resetPw(); }
+function resetPw(){ const p=document.getElementById("adm-pw"); p.value=''; p.className=''; document.getElementById("adm-msg").textContent=''; document.getElementById("adm-msg").className=''; [0,1,2,3].forEach(i=>dot(i,'')); }
+function onPwInput(el){ const v=el.value; [0,1,2,3].forEach(i=>dot(i,i<v.length?'f':'')); if(v.length===4)setTimeout(doLogin,100); }
+function dot(i,c){ const d=document.getElementById("d"+i); d.className='dot'; if(c)d.classList.add(c); }
+function doLogin(){
+  const pw=document.getElementById("adm-pw");
+  if(pw.value===PASS){
+    [0,1,2,3].forEach(i=>dot(i,'g')); pw.classList.add('ok');
+    const m=document.getElementById("adm-msg"); m.textContent='✓ Granted'; m.className='g';
+    isAdmin=true;
+    setTimeout(()=>{ closeAdm(); document.getElementById("admin-btn").textContent='🔓 Logout'; document.getElementById("admin-btn").classList.add("on"); vsRender(true); toast("🔓 Admin on"); },550);
+  }else{
+    pw.classList.add('err'); [0,1,2,3].forEach(i=>dot(i,'e'));
+    const m=document.getElementById("adm-msg"); m.textContent='✗ Wrong PIN'; m.className='e';
+    setTimeout(()=>{ pw.value=''; pw.className=''; m.textContent=''; [0,1,2,3].forEach(i=>dot(i,'')); },900);
   }
-});
+}
+function logout(){ isAdmin=false; document.getElementById("admin-btn").textContent='⚡ Admin'; document.getElementById("admin-btn").classList.remove("on"); vsRender(true); toast("🔒 Logged out"); }
 
-// Click outside close
-document.getElementById('adminModal').addEventListener('click', (e) => {
-  if (e.target.classList.contains('mbg')) closeAdmin();
-});
-document.getElementById('editModal').addEventListener('click', (e) => {
-  if (e.target.classList.contains('embg')) closeEdit();
-});
+/* ═══════════════════════════════════════════
+   EDIT
+═══════════════════════════════════════════ */
+function openEdit(ri,e){
+  e&&e.stopPropagation(); if(!isAdmin) return;
+  editIdx=ri;
+  const it=raw[ri];
+  const fields=[['name','Name'],['alias','Alias'],['mrp','MRP (₹)'],['sale','Sale (₹)'],['wholesale','Wholesale (₹)'],['stock','Stock'],['purchase','Purchase (₹)'],['brand','Brand'],['group','Group'],['barcode','Barcode']];
+  document.getElementById("edit-fields").innerHTML=fields.map(([k,l])=>`<div class="ef-wrap"><div class="ef-lbl">${l}</div><input class="ef-in" id="ef-${k}" value="${it[k]||''}"></div>`).join('');
+  document.getElementById("edit-ov").classList.add("show");
+}
+function closeEdit(){ document.getElementById("edit-ov").classList.remove("show"); editIdx=-1; }
+function saveEdit(){
+  if(editIdx<0) return;
+  ['name','alias','mrp','sale','wholesale','stock','purchase','brand','group','barcode'].forEach(k=>{ const el=document.getElementById("ef-"+k); if(el) raw[editIdx][k]=el.value; });
+  closeEdit(); applyAll(); toast("✅ Saved (session)");
+}
 
-// Initialize
-load();
+/* ═══════════════════════════════════════════
+   TOAST
+═══════════════════════════════════════════ */
+let toastTm;
+function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toastTm); toastTm=setTimeout(()=>t.classList.remove("show"),2500); }
+
+/* ═══════════════════════════════════════════
+   KEYBOARD
+═══════════════════════════════════════════ */
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){ closeAdm(); closeEdit(); closeScanner(); }
+  if((e.ctrlKey||e.metaKey)&&e.key==="f"){ e.preventDefault(); document.getElementById("search").focus(); }
+});
+document.getElementById("adm-ov").addEventListener("click",e=>{ if(e.target.id==="adm-ov")closeAdm(); });
+document.getElementById("edit-ov").addEventListener("click",e=>{ if(e.target.id==="edit-ov")closeEdit(); });
+
+/* ═══════════════════════════════════════════
+   BOOT
+═══════════════════════════════════════════ */
+scrollEl = document.getElementById("scroll");
+spacer   = document.getElementById("spacer");
+stage    = document.getElementById("stage");
+scrollEl.addEventListener("scroll", onScroll, {passive:true});
+window.addEventListener("resize",()=>vsRender(true));
+loadData();
 </script>
 </body>
 </html>
