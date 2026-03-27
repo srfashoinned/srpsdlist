@@ -310,10 +310,22 @@ async function loadData(){
     raw = await r.json();
     document.getElementById("badge").textContent = raw.length.toLocaleString()+" items";
     buildChipsFromData();
-    applyAll();
+    showWelcome();
   }catch(e){
-    stage.innerHTML = `<div class="empty">⚠️ Cannot load items.json<br><small style="font-size:11px;color:var(--muted)">${e.message}</small><br><small style="font-size:10px;color:var(--muted);margin-top:6px;display:block">Use GitHub Pages or a local server — not file://</small></div>`;
+    showWelcome();
   }
+}
+
+function showWelcome(){
+  spacer.style.height='0px';
+  stage.innerHTML=`
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;gap:14px">
+      <div style="font-size:48px;font-weight:900;letter-spacing:4px;color:var(--gold);line-height:1">SR</div>
+      <div style="font-size:20px;font-weight:800;letter-spacing:3px;color:var(--txt)">FASHION PUSAD</div>
+      <div style="width:40px;height:2px;background:var(--gold);border-radius:2px;opacity:.5"></div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;max-width:220px">Search or scan a product above to find items instantly</div>
+    </div>`;
+  document.getElementById("status").textContent='';
 }
 
 /* ═══════════════════════════════════════════
@@ -363,6 +375,7 @@ function pn(v){ return v==null||v===''?0:parseFloat(String(v).replace(/[^0-9.]/g
 
 function applyAll(){
   const q = query.trim().toLowerCase();
+  if(!q && pMin===null && pMax===null && !brand && !group){ showWelcome(); return; }
   expanded.clear();
 
   let out = [];
