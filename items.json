@@ -2590,6 +2590,16 @@
     "stock": 48
   },
   {
+    "name": "GF DANCER",
+    "alias": "0003331",
+    "group": "S",
+    "mrp": 1050,
+    "sale": 850,
+    "purchase": 700,
+    "wholesale": 750,
+    "stock": 0
+  },
+  {
     "name": "GF Darshana",
     "alias": "000158",
     "group": "S",
@@ -2920,6 +2930,16 @@
     "stock": 0
   },
   {
+    "name": "Gf Jungal Book Rogi",
+    "alias": "0003330",
+    "group": "S",
+    "mrp": 1050,
+    "sale": 850,
+    "purchase": 700,
+    "wholesale": 750,
+    "stock": 0
+  },
+  {
     "name": "GF kaju",
     "alias": "000186",
     "group": "S",
@@ -2976,7 +2996,7 @@
     "mrp": 1140,
     "sale": 850,
     "purchase": 760,
-    "wholesale": 795,
+    "wholesale": 800,
     "stock": 0
   },
   {
@@ -3187,6 +3207,16 @@
     "sale": 700,
     "purchase": 504.6666667,
     "wholesale": 567.75,
+    "stock": 0
+  },
+  {
+    "name": "GF PALAK",
+    "alias": "0003332",
+    "group": "S",
+    "mrp": 945,
+    "sale": 750,
+    "purchase": 630,
+    "wholesale": 675,
     "stock": 0
   },
   {
@@ -9740,6 +9770,26 @@
     "stock": 4
   },
   {
+    "name": "KC EID MUBARAK",
+    "alias": "0003341",
+    "group": "T",
+    "mrp": 2242.5,
+    "sale": 1700,
+    "purchase": 1495,
+    "wholesale": 1595,
+    "stock": 0
+  },
+  {
+    "name": "KC EID OUTFIT",
+    "alias": "0003344",
+    "group": "P",
+    "mrp": 2542.5,
+    "sale": 2000,
+    "purchase": 1695,
+    "wholesale": 1795,
+    "stock": 0
+  },
+  {
     "name": "KC Eimaan",
     "alias": "000479",
     "group": "S",
@@ -11018,6 +11068,16 @@
     "purchase": 2195,
     "wholesale": 2400,
     "stock": 4
+  },
+  {
+    "name": "KC HARD ROCK",
+    "alias": "0003342",
+    "group": "SHADED PLAZO",
+    "mrp": 2692.5,
+    "sale": 2150,
+    "purchase": 1795,
+    "wholesale": 1895,
+    "stock": 0
   },
   {
     "name": "KC Harlyn",
@@ -13547,6 +13607,16 @@
     "sale": 1950,
     "purchase": 1750,
     "wholesale": 1968.75,
+    "stock": 0
+  },
+  {
+    "name": "KC OLDEST CAVES",
+    "alias": "0003343",
+    "group": "SHADED PLAZO",
+    "mrp": 2542.5,
+    "sale": 1950,
+    "purchase": 1695,
+    "wholesale": 1795,
     "stock": 0
   },
   {
@@ -16527,6 +16597,16 @@
     "sale": 1300,
     "purchase": 966.6666667,
     "wholesale": 1087.5,
+    "stock": 0
+  },
+  {
+    "name": "KC TEMPORARY",
+    "alias": "0003345",
+    "group": "T",
+    "mrp": 2242.5,
+    "sale": 1750,
+    "purchase": 1495,
+    "wholesale": 1595,
     "stock": 0
   },
   {
@@ -30030,6 +30110,16 @@
     "stock": 0
   },
   {
+    "name": "SPARI 0829",
+    "alias": "0003339",
+    "group": "P",
+    "mrp": 1912.5,
+    "sale": 1550,
+    "purchase": 1275,
+    "wholesale": 1400,
+    "stock": 0
+  },
+  {
     "name": "Spari 1240D",
     "alias": "001797",
     "group": "K",
@@ -30037,6 +30127,16 @@
     "sale": 1500,
     "purchase": 1130,
     "wholesale": 1271.25,
+    "stock": 0
+  },
+  {
+    "name": "SPARI 1621",
+    "alias": "0003340",
+    "group": "P",
+    "mrp": 1762.5,
+    "sale": 1400,
+    "purchase": 1175,
+    "wholesale": 1300,
     "stock": 0
   },
   {
@@ -32510,6 +32610,16 @@
     "stock": 0
   },
   {
+    "name": "WELCOME CHANDANI",
+    "alias": "0003336",
+    "group": "S",
+    "mrp": 637.5,
+    "sale": 550,
+    "purchase": 425,
+    "wholesale": 480,
+    "stock": 0
+  },
+  {
     "name": "WELCOME CHANDNI",
     "alias": "0003297",
     "group": "S",
@@ -32568,6 +32678,16 @@
     "purchase": 570,
     "wholesale": 641.25,
     "stock": 4
+  },
+  {
+    "name": "WELCOME FULWARI",
+    "alias": "0003335",
+    "group": "S",
+    "mrp": 637.5,
+    "sale": 550,
+    "purchase": 425,
+    "wholesale": 480,
+    "stock": 0
   },
   {
     "name": "Welcome Ganga Jamuna",
@@ -32665,7 +32785,7 @@
     "group": "S",
     "mrp": 750,
     "sale": 600,
-    "purchase": 500,
+    "purchase": 490,
     "wholesale": 540,
     "stock": 0
   },
@@ -32690,6 +32810,16 @@
     "stock": 13
   },
   {
+    "name": "WELCOME KULSUM",
+    "alias": "0003334",
+    "group": "S",
+    "mrp": 637.5,
+    "sale": 550,
+    "purchase": 425,
+    "wholesale": 480,
+    "stock": 0
+  },
+  {
     "name": "Welcome Lotus",
     "alias": "001780",
     "group": "S",
@@ -32698,6 +32828,16 @@
     "purchase": 555,
     "wholesale": 624.375,
     "stock": 5
+  },
+  {
+    "name": "WELCOME LOVELY",
+    "alias": "0003338",
+    "group": "S",
+    "mrp": 892.5,
+    "sale": 700,
+    "purchase": 595,
+    "wholesale": 635,
+    "stock": 0
   },
   {
     "name": "WELCOME MANISHA",
@@ -32725,8 +32865,18 @@
     "group": "S",
     "mrp": 675,
     "sale": 540,
-    "purchase": 450,
+    "purchase": 445,
     "wholesale": 490,
+    "stock": 0
+  },
+  {
+    "name": "WELCOME MUSKAN",
+    "alias": "0003333",
+    "group": "S",
+    "mrp": 637.5,
+    "sale": 550,
+    "purchase": 425,
+    "wholesale": 480,
     "stock": 0
   },
   {
@@ -32780,12 +32930,22 @@
     "stock": 12
   },
   {
+    "name": "WELCOME SAHIBA",
+    "alias": "0003337",
+    "group": "S",
+    "mrp": 637.5,
+    "sale": 550,
+    "purchase": 425,
+    "wholesale": 480,
+    "stock": 0
+  },
+  {
     "name": "WELCOME SAJNI",
     "alias": "0003191",
     "group": "S",
     "mrp": 675,
     "sale": 540,
-    "purchase": 450,
+    "purchase": 445,
     "wholesale": 485,
     "stock": 0
   },
