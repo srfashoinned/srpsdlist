@@ -2054,7 +2054,7 @@
     "alias": "0003136",
     "group": "CS",
     "mrp": 697.5,
-    "sale": 600,
+    "sale": 550,
     "purchase": 465,
     "wholesale": 515,
     "stock": 0
@@ -7890,6 +7890,16 @@
     "stock": 2
   },
   {
+    "name": "KC BALLE BALLE",
+    "alias": "0003321",
+    "group": "SHADED PLAZO",
+    "mrp": 2512.5,
+    "sale": 1900,
+    "purchase": 1675,
+    "wholesale": 1775,
+    "stock": 0
+  },
+  {
     "name": "KC Band Baaja",
     "alias": "001709",
     "group": "S",
@@ -8110,6 +8120,16 @@
     "stock": 0
   },
   {
+    "name": "KC BEST SELLER",
+    "alias": "0003319",
+    "group": "C",
+    "mrp": 2542.5,
+    "sale": 1900,
+    "purchase": 1695,
+    "wholesale": 1795,
+    "stock": 0
+  },
+  {
     "name": "KC BEST VOICE",
     "alias": "002210",
     "group": "S",
@@ -8167,6 +8187,16 @@
     "sale": 850,
     "purchase": 635,
     "wholesale": 715,
+    "stock": 0
+  },
+  {
+    "name": "Kc Bijli",
+    "alias": "0003308",
+    "group": "CRUNCHY SUIT",
+    "mrp": 1050,
+    "sale": 850,
+    "purchase": 700,
+    "wholesale": 750,
     "stock": 0
   },
   {
@@ -8830,6 +8860,16 @@
     "stock": 2
   },
   {
+    "name": "KC CHUNKY CHAAT",
+    "alias": "0003303",
+    "group": "S",
+    "mrp": 1687.5,
+    "sale": 1350,
+    "purchase": 1125,
+    "wholesale": 1225,
+    "stock": 0
+  },
+  {
     "name": "KC Chunnari Chamke",
     "alias": "002365",
     "group": "CS",
@@ -8868,6 +8908,16 @@
     "purchase": 510,
     "wholesale": 570,
     "stock": 3
+  },
+  {
+    "name": "Kc Classic Photo",
+    "alias": "0003300",
+    "group": "S",
+    "mrp": 1687.5,
+    "sale": 1350,
+    "purchase": 1125,
+    "wholesale": 1225,
+    "stock": 0
   },
   {
     "name": "KC CLASSIC TREND",
@@ -9120,6 +9170,16 @@
     "stock": 4
   },
   {
+    "name": "KC CRYSTAL CAPTURE",
+    "alias": "0003301",
+    "group": "S",
+    "mrp": 1687.5,
+    "sale": 1350,
+    "purchase": 1125,
+    "wholesale": 1225,
+    "stock": 0
+  },
+  {
     "name": "KC CRYSTAL WEAVE",
     "alias": "0002782",
     "group": "CS",
@@ -9320,6 +9380,16 @@
     "stock": 0
   },
   {
+    "name": "Kc Dhamaaal Ride",
+    "alias": "0003320",
+    "group": "SHADED PLAZO",
+    "mrp": 2512.5,
+    "sale": 1900,
+    "purchase": 1675,
+    "wholesale": 1775,
+    "stock": 0
+  },
+  {
     "name": "KC DHANA DHAN",
     "alias": "000463",
     "group": "S",
@@ -9370,6 +9440,16 @@
     "stock": 0
   },
   {
+    "name": "Kc Dil Afreen",
+    "alias": "0003327",
+    "group": "S",
+    "mrp": 1132.5,
+    "sale": 900,
+    "purchase": 755,
+    "wholesale": 855,
+    "stock": 0
+  },
+  {
     "name": "KC Dil Befikre",
     "alias": "001716",
     "group": "P",
@@ -9377,6 +9457,16 @@
     "sale": 2900,
     "purchase": 2160,
     "wholesale": 2430,
+    "stock": 0
+  },
+  {
+    "name": "Kc Dil Connection",
+    "alias": "0003329",
+    "group": "S",
+    "mrp": 1132.5,
+    "sale": 900,
+    "purchase": 755,
+    "wholesale": 855,
     "stock": 0
   },
   {
@@ -10200,6 +10290,16 @@
     "stock": 2
   },
   {
+    "name": "KC FLY FIGHTER",
+    "alias": "0003306",
+    "group": "S",
+    "mrp": 1642.5,
+    "sale": 1300,
+    "purchase": 1095,
+    "wholesale": 1195,
+    "stock": 0
+  },
+  {
     "name": "KC FLY ZONE",
     "alias": "0003082",
     "group": "P",
@@ -10237,6 +10337,16 @@
     "sale": 1550,
     "purchase": 1295,
     "wholesale": 1450,
+    "stock": 0
+  },
+  {
+    "name": "Kc Foodie GirL",
+    "alias": "0003315",
+    "group": "SHARARA",
+    "mrp": 2467.5,
+    "sale": 1850,
+    "purchase": 1645,
+    "wholesale": 1750,
     "stock": 0
   },
   {
@@ -10477,6 +10587,16 @@
     "sale": 1450,
     "purchase": 1075.333333,
     "wholesale": 1209.75,
+    "stock": 0
+  },
+  {
+    "name": "Kc Gift Card",
+    "alias": "0003311",
+    "group": "T",
+    "mrp": 1972.5,
+    "sale": 1500,
+    "purchase": 1315,
+    "wholesale": 1415,
     "stock": 0
   },
   {
@@ -10858,6 +10978,16 @@
     "purchase": 795,
     "wholesale": 900,
     "stock": 4
+  },
+  {
+    "name": "KC HAPPY GANG",
+    "alias": "0003316",
+    "group": "SHARARA",
+    "mrp": 2467.5,
+    "sale": 1850,
+    "purchase": 1645,
+    "wholesale": 1750,
+    "stock": 0
   },
   {
     "name": "KC HAPPY LIFE",
@@ -11250,6 +11380,16 @@
     "stock": 3
   },
   {
+    "name": "Kc Ied Ki Mehndi",
+    "alias": "0003317",
+    "group": "SHADED PLAZO",
+    "mrp": 2385,
+    "sale": 1870,
+    "purchase": 1590,
+    "wholesale": 1690,
+    "stock": 0
+  },
+  {
     "name": "KC IMAGICA",
     "alias": "000534",
     "group": "S",
@@ -11288,6 +11428,16 @@
     "purchase": 2095,
     "wholesale": 2250,
     "stock": 4
+  },
+  {
+    "name": "Kc Ipl History",
+    "alias": "0003326",
+    "group": "T",
+    "mrp": 2625,
+    "sale": 2100,
+    "purchase": 1750,
+    "wholesale": 1850,
+    "stock": 0
   },
   {
     "name": "KC Ishq Deewangi",
@@ -11950,6 +12100,16 @@
     "stock": 2
   },
   {
+    "name": "KC LIMBU JALJEERA",
+    "alias": "0003304",
+    "group": "S",
+    "mrp": 1642.5,
+    "sale": 1300,
+    "purchase": 1095,
+    "wholesale": 1195,
+    "stock": 0
+  },
+  {
     "name": "KC Lime Juice",
     "alias": "000568",
     "group": "G",
@@ -12580,6 +12740,16 @@
     "stock": 0
   },
   {
+    "name": "KC MEGASTAR",
+    "alias": "0003312",
+    "group": "T",
+    "mrp": 1972.5,
+    "sale": 1500,
+    "purchase": 1315,
+    "wholesale": 1415,
+    "stock": 0
+  },
+  {
     "name": "KC MEHAR LOOK",
     "alias": "0003063",
     "group": "P",
@@ -12908,6 +13078,16 @@
     "purchase": 890,
     "wholesale": 950,
     "stock": 4
+  },
+  {
+    "name": "KC MOUNTAIN FERRY",
+    "alias": "0003302",
+    "group": "S",
+    "mrp": 1687.5,
+    "sale": 1350,
+    "purchase": 1125,
+    "wholesale": 1225,
+    "stock": 0
   },
   {
     "name": "KC MUBASHERA",
@@ -13537,6 +13717,16 @@
     "sale": 2350,
     "purchase": 1750,
     "wholesale": 1968.75,
+    "stock": 0
+  },
+  {
+    "name": "KC PATANG POINT",
+    "alias": "0003305",
+    "group": "S",
+    "mrp": 1642.5,
+    "sale": 1300,
+    "purchase": 1095,
+    "wholesale": 1195,
     "stock": 0
   },
   {
@@ -14238,6 +14428,16 @@
     "purchase": 585,
     "wholesale": 615,
     "stock": 3
+  },
+  {
+    "name": "KC REAL STORY",
+    "alias": "0003313",
+    "group": "T",
+    "mrp": 1972.5,
+    "sale": 1500,
+    "purchase": 1315,
+    "wholesale": 1415,
+    "stock": 0
   },
   {
     "name": "Kc Red Bull",
@@ -15630,6 +15830,16 @@
     "stock": 4
   },
   {
+    "name": "KC SPIRCE MASTER",
+    "alias": "0003309",
+    "group": "SHARARA",
+    "mrp": 2370,
+    "sale": 1800,
+    "purchase": 1580,
+    "wholesale": 1700,
+    "stock": 0
+  },
+  {
     "name": "KC SPRICE CROWN",
     "alias": "0003232",
     "group": "S",
@@ -15657,6 +15867,16 @@
     "sale": 800,
     "purchase": 593.3333333,
     "wholesale": 667.5,
+    "stock": 0
+  },
+  {
+    "name": "Kc Star Beat",
+    "alias": "0003318",
+    "group": "SHADED PLAZO",
+    "mrp": 2437.5,
+    "sale": 1900,
+    "purchase": 1625,
+    "wholesale": 1725,
     "stock": 0
   },
   {
@@ -15900,6 +16120,16 @@
     "stock": 0
   },
   {
+    "name": "KC SUPER KING",
+    "alias": "0003323",
+    "group": "P",
+    "mrp": 2130,
+    "sale": 1650,
+    "purchase": 1420,
+    "wholesale": 1520,
+    "stock": 0
+  },
+  {
     "name": "KC SUPER MASALA",
     "alias": "0003046",
     "group": "G",
@@ -16088,6 +16318,16 @@
     "purchase": 795,
     "wholesale": 900,
     "stock": 4
+  },
+  {
+    "name": "KC SWEET WISH",
+    "alias": "0003310",
+    "group": "FLUTE PLAZO",
+    "mrp": 2370,
+    "sale": 1800,
+    "purchase": 1580,
+    "wholesale": 1680,
+    "stock": 0
   },
   {
     "name": "KC SWEETORA",
@@ -16520,6 +16760,16 @@
     "stock": 3
   },
   {
+    "name": "KC UBER",
+    "alias": "0003324",
+    "group": "P",
+    "mrp": 2100,
+    "sale": 1600,
+    "purchase": 1400,
+    "wholesale": 1500,
+    "stock": 0
+  },
+  {
     "name": "KC ULFAT",
     "alias": "0002999",
     "group": "S",
@@ -16640,6 +16890,16 @@
     "stock": 0
   },
   {
+    "name": "KC WEDDING LOOK",
+    "alias": "0003314",
+    "group": "T",
+    "mrp": 1972.5,
+    "sale": 1500,
+    "purchase": 1315,
+    "wholesale": 1415,
+    "stock": 0
+  },
+  {
     "name": "KC White Mogra",
     "alias": "000720",
     "group": "S",
@@ -16647,6 +16907,16 @@
     "sale": 1750,
     "purchase": 1374.666667,
     "wholesale": 1546.5,
+    "stock": 0
+  },
+  {
+    "name": "Kc Windows 2",
+    "alias": "0003325",
+    "group": "T",
+    "mrp": 2385,
+    "sale": 1900,
+    "purchase": 1590,
+    "wholesale": 1690,
     "stock": 0
   },
   {
@@ -16667,6 +16937,16 @@
     "sale": 1800,
     "purchase": 1440,
     "wholesale": 1620,
+    "stock": 0
+  },
+  {
+    "name": "Kc Wonder Wing 4",
+    "alias": "0003307",
+    "group": "CS",
+    "mrp": 1255.5,
+    "sale": 1000,
+    "purchase": 837,
+    "wholesale": 940,
     "stock": 0
   },
   {
@@ -17067,6 +17347,16 @@
     "sale": 1650,
     "purchase": 1240,
     "wholesale": 1395,
+    "stock": 0
+  },
+  {
+    "name": "Kc zunaira jahan",
+    "alias": "0003328",
+    "group": "S",
+    "mrp": 1132.5,
+    "sale": 900,
+    "purchase": 755,
+    "wholesale": 855,
     "stock": 0
   },
   {
@@ -22550,6 +22840,16 @@
     "stock": 1
   },
   {
+    "name": "PC KAJU KATLI",
+    "alias": "0003322",
+    "group": "S",
+    "mrp": 772.5,
+    "sale": 620,
+    "purchase": 515,
+    "wholesale": 550,
+    "stock": 0
+  },
+  {
     "name": "PC ROMANCE",
     "alias": "0002397",
     "group": "S",
@@ -23470,6 +23770,16 @@
     "stock": 0
   },
   {
+    "name": "RR APRITA",
+    "alias": "0003298",
+    "group": "CS",
+    "mrp": 340.5,
+    "sale": 300,
+    "purchase": 227,
+    "wholesale": 265,
+    "stock": 0
+  },
+  {
     "name": "Rr Bablu",
     "alias": "002059",
     "group": "CS",
@@ -23497,6 +23807,16 @@
     "sale": 400,
     "purchase": 295,
     "wholesale": 325,
+    "stock": 0
+  },
+  {
+    "name": "RR BITCOIN",
+    "alias": "0003295",
+    "group": "CS",
+    "mrp": 357,
+    "sale": 300,
+    "purchase": 238,
+    "wholesale": 275,
     "stock": 0
   },
   {
@@ -23700,6 +24020,16 @@
     "stock": 0
   },
   {
+    "name": "RR LOVE GURU",
+    "alias": "0003292",
+    "group": "CS",
+    "mrp": 357,
+    "sale": 300,
+    "purchase": 238,
+    "wholesale": 270,
+    "stock": 0
+  },
+  {
     "name": "RR Meghdoot",
     "alias": "001052",
     "group": "S",
@@ -23800,6 +24130,16 @@
     "stock": 0
   },
   {
+    "name": "RR PREM",
+    "alias": "0003294",
+    "group": "CS",
+    "mrp": 333,
+    "sale": 300,
+    "purchase": 222,
+    "wholesale": 260,
+    "stock": 0
+  },
+  {
     "name": "RR RAFTAR",
     "alias": "0003263",
     "group": "CS",
@@ -23847,6 +24187,16 @@
     "sale": 300,
     "purchase": 253.3333333,
     "wholesale": 285,
+    "stock": 0
+  },
+  {
+    "name": "RR SAKHI",
+    "alias": "0003293",
+    "group": "CS",
+    "mrp": 357,
+    "sale": 300,
+    "purchase": 238,
+    "wholesale": 270,
     "stock": 0
   },
   {
@@ -23907,6 +24257,16 @@
     "sale": 350,
     "purchase": 280,
     "wholesale": 315,
+    "stock": 0
+  },
+  {
+    "name": "RR SURKSHA",
+    "alias": "0003296",
+    "group": "CS",
+    "mrp": 357,
+    "sale": 350,
+    "purchase": 238,
+    "wholesale": 270,
     "stock": 0
   },
   {
@@ -30440,6 +30800,16 @@
     "stock": 0
   },
   {
+    "name": "SUNNY SUIT 4192",
+    "alias": "0003299",
+    "group": "S",
+    "mrp": 532.5,
+    "sale": 500,
+    "purchase": 355,
+    "wholesale": 400,
+    "stock": 0
+  },
+  {
     "name": "SUPER DUPER SVT",
     "alias": "001399",
     "group": "S",
@@ -31020,7 +31390,7 @@
     "stock": 0
   },
   {
-    "name": "VARI JAMSINE VS",
+    "name": "VARI JASMINE VS",
     "alias": "0003144",
     "group": "S",
     "mrp": 607.5,
@@ -32137,6 +32507,16 @@
     "sale": 590,
     "purchase": 490,
     "wholesale": 530,
+    "stock": 0
+  },
+  {
+    "name": "WELCOME CHANDNI",
+    "alias": "0003297",
+    "group": "S",
+    "mrp": 0,
+    "sale": 0,
+    "purchase": 0,
+    "wholesale": 0,
     "stock": 0
   },
   {

@@ -30,10 +30,9 @@ exit /b
 echo.
 echo 🔄 Syncing with GitHub...
 
-git pull origin main --rebase
 git add .
 git commit -m "Auto stock update"
-git push
+git push origin main
 
 echo.
 echo ===================================
