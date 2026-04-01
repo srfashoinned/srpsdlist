@@ -5477,7 +5477,7 @@
     "sale": 80,
     "purchase": 63,
     "wholesale": 70,
-    "stock": 1022
+    "stock": 1021
   },
   {
     "name": "GT Noorie",
@@ -7617,7 +7617,7 @@
     "sale": 1500,
     "purchase": 1125,
     "wholesale": 1225,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "KC Ancher",
@@ -16957,7 +16957,7 @@
     "sale": 1450,
     "purchase": 1125,
     "wholesale": 1200,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "KC Watermelon juice",
@@ -21627,7 +21627,7 @@
     "sale": 600,
     "purchase": 565,
     "wholesale": 587.5,
-    "stock": 122
+    "stock": 121
   },
   {
     "name": "OM DARLING",
@@ -31367,7 +31367,7 @@
     "sale": 35,
     "purchase": 25,
     "wholesale": 30,
-    "stock": 856
+    "stock": 854
   },
   {
     "name": "Trouser",
