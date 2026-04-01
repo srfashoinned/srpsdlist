@@ -247,7 +247,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 0
+    "stock": 4317
   },
   {
     "name": "AF DURANDHAR",
@@ -397,7 +397,7 @@
     "sale": 40,
     "purchase": 31.5,
     "wholesale": 36,
-    "stock": 0
+    "stock": 1221
   },
   {
     "name": "Airtel Pari Fab",
@@ -1047,7 +1047,7 @@
     "sale": 30,
     "purchase": 21.5,
     "wholesale": 24,
-    "stock": 0
+    "stock": 3193.15
   },
   {
     "name": "Bobby Jasoos",
@@ -1527,7 +1527,7 @@
     "sale": 260,
     "purchase": 215.33,
     "wholesale": 242.25,
-    "stock": 0
+    "stock": 1
   },
   {
     "name": "Desai Rasgulla",
@@ -2567,7 +2567,7 @@
     "sale": 650,
     "purchase": 585.33,
     "wholesale": 658.5,
-    "stock": 0
+    "stock": 1
   },
   {
     "name": "GF Cobra",
@@ -2757,7 +2757,7 @@
     "sale": 550,
     "purchase": 455,
     "wholesale": 490,
-    "stock": 0
+    "stock": 6
   },
   {
     "name": "GF Gungun",
@@ -5527,7 +5527,7 @@
     "sale": 10,
     "purchase": 9,
     "wholesale": 10,
-    "stock": 0
+    "stock": -167
   },
   {
     "name": "HASINA",
@@ -7817,7 +7817,7 @@
     "sale": 650,
     "purchase": 510,
     "wholesale": 540,
-    "stock": 0
+    "stock": 1
   },
   {
     "name": "KC BAARISH BEATS",
@@ -11907,7 +11907,7 @@
     "sale": 900,
     "purchase": 865.33,
     "wholesale": 973.5,
-    "stock": 0
+    "stock": 1
   },
   {
     "name": "KC Kastiyan",
@@ -14357,7 +14357,7 @@
     "sale": 600,
     "purchase": 530,
     "wholesale": 596.25,
-    "stock": 0
+    "stock": 1
   },
   {
     "name": "KC RAJWADI STYLE",
@@ -16577,7 +16577,7 @@
     "sale": 1400,
     "purchase": 1325.33,
     "wholesale": 1350,
-    "stock": 0
+    "stock": 1
   },
   {
     "name": "KC Tehreem",
@@ -17587,7 +17587,7 @@
     "sale": 80,
     "purchase": 60,
     "wholesale": 67.5,
-    "stock": 0
+    "stock": 61
   },
   {
     "name": "KK Kohinoor",
@@ -18197,7 +18197,7 @@
     "sale": 30,
     "purchase": 23,
     "wholesale": 25.875,
-    "stock": 0
+    "stock": -20
   },
   {
     "name": "Large Towel",
@@ -18207,7 +18207,7 @@
     "sale": 80,
     "purchase": 54,
     "wholesale": 60.75,
-    "stock": 0
+    "stock": 176
   },
   {
     "name": "LAST TIME",
@@ -18897,7 +18897,7 @@
     "sale": 350,
     "purchase": 320,
     "wholesale": 335,
-    "stock": 0
+    "stock": 123
   },
   {
     "name": "Masti Kalki",
@@ -20457,7 +20457,7 @@
     "sale": 600,
     "purchase": 500,
     "wholesale": 562.5,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "MT Safa",
@@ -20767,7 +20767,7 @@
     "sale": 1650,
     "purchase": 1476.67,
     "wholesale": 1661.25,
-    "stock": 0
+    "stock": 2
   },
   {
     "name": "Music Fashion",
@@ -20797,7 +20797,7 @@
     "sale": 850,
     "purchase": 626.67,
     "wholesale": 705,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "Music Gunjan",
@@ -23067,7 +23067,7 @@
     "sale": 30,
     "purchase": 13,
     "wholesale": 14.625,
-    "stock": 0
+    "stock": -388
   },
   {
     "name": "PLAZA PRINT PAPLON",
@@ -24387,7 +24387,7 @@
     "sale": 350,
     "purchase": 250,
     "wholesale": 280,
-    "stock": 0
+    "stock": 243
   },
   {
     "name": "Rrt High",
@@ -24847,7 +24847,7 @@
     "sale": 550,
     "purchase": 410,
     "wholesale": 461.25,
-    "stock": 0
+    "stock": -4
   },
   {
     "name": "Rum Zum kala ghoda",
@@ -26457,7 +26457,7 @@
     "sale": 50,
     "purchase": 34.51,
     "wholesale": 41.25,
-    "stock": 0
+    "stock": 2275
   },
   {
     "name": "Shawl Priya",
@@ -26707,7 +26707,7 @@
     "sale": 800,
     "purchase": 610,
     "wholesale": 686.25,
-    "stock": 0
+    "stock": 8
   },
   {
     "name": "SNT Afsana",
@@ -26757,7 +26757,7 @@
     "sale": 550,
     "purchase": 435,
     "wholesale": 500,
-    "stock": 0
+    "stock": 2
   },
   {
     "name": "SNT Anika",
@@ -27057,7 +27057,7 @@
     "sale": 499,
     "purchase": 484.67,
     "wholesale": 545.25,
-    "stock": 0
+    "stock": -4
   },
   {
     "name": "SNT COPPER",
@@ -27437,7 +27437,7 @@
     "sale": 900,
     "purchase": 675,
     "wholesale": 700,
-    "stock": 0
+    "stock": 6
   },
   {
     "name": "Snt Janu",
@@ -27457,7 +27457,7 @@
     "sale": 600,
     "purchase": 565.33,
     "wholesale": 636,
-    "stock": 0
+    "stock": 9
   },
   {
     "name": "SNT JARKAN SUIT",
@@ -27527,7 +27527,7 @@
     "sale": 650,
     "purchase": 484.67,
     "wholesale": 545.25,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "SNT KACHI KALI",
@@ -27697,7 +27697,7 @@
     "sale": 600,
     "purchase": 545.33,
     "wholesale": 613.5,
-    "stock": 0
+    "stock": 6
   },
   {
     "name": "SNT LATA",
@@ -27727,7 +27727,7 @@
     "sale": 580,
     "purchase": 525.33,
     "wholesale": 591,
-    "stock": 0
+    "stock": 5
   },
   {
     "name": "SNT Limca",
@@ -27777,7 +27777,7 @@
     "sale": 850,
     "purchase": 625,
     "wholesale": 675,
-    "stock": 0
+    "stock": 5
   },
   {
     "name": "SNT MAHI",
@@ -27937,7 +27937,7 @@
     "sale": 650,
     "purchase": 464.67,
     "wholesale": 522.75,
-    "stock": 0
+    "stock": 3
   },
   {
     "name": "SNT MONALISA",
@@ -27967,7 +27967,7 @@
     "sale": 650,
     "purchase": 475,
     "wholesale": 515,
-    "stock": 0
+    "stock": 9
   },
   {
     "name": "SNT NAMRATA",
@@ -28157,7 +28157,7 @@
     "sale": 550,
     "purchase": 435.3333333,
     "wholesale": 489.75,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "SNT RANI",
@@ -28387,7 +28387,7 @@
     "sale": 610,
     "purchase": 570,
     "wholesale": 641.25,
-    "stock": 0
+    "stock": 1
   },
   {
     "name": "SNT Sheetal",
@@ -28487,7 +28487,7 @@
     "sale": 500,
     "purchase": 423.33,
     "wholesale": 476.25,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "SNT Star",
@@ -28577,7 +28577,7 @@
     "sale": 600,
     "purchase": 546.67,
     "wholesale": 615,
-    "stock": 0
+    "stock": 2
   },
   {
     "name": "SNT Urmila",
@@ -29267,7 +29267,7 @@
     "sale": 2550,
     "purchase": 1766.67,
     "wholesale": 1987.5,
-    "stock": 0
+    "stock": -3
   },
   {
     "name": "Sony Coding Garara New Design",
@@ -29287,7 +29287,7 @@
     "sale": 2450,
     "purchase": 1815,
     "wholesale": 2050,
-    "stock": 0
+    "stock": 3
   },
   {
     "name": "Sony Coding Suite",
@@ -30887,7 +30887,7 @@
     "sale": 50,
     "purchase": 40,
     "wholesale": 45,
-    "stock": 0
+    "stock": 1524
   },
   {
     "name": "Suman Pari Fab",
@@ -31347,7 +31347,7 @@
     "sale": 40,
     "purchase": 31,
     "wholesale": 34.88,
-    "stock": 0
+    "stock": 71
   },
   {
     "name": "Towel Small",
@@ -31397,7 +31397,7 @@
     "sale": 80,
     "purchase": 58,
     "wholesale": 65.25,
-    "stock": 0
+    "stock": -2
   },
   {
     "name": "Tycoon KC",
@@ -32407,7 +32407,7 @@
     "sale": 100,
     "purchase": 78,
     "wholesale": 87.75,
-    "stock": 0
+    "stock": -12
   },
   {
     "name": "Vistara KC",
