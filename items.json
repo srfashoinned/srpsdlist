@@ -7617,7 +7617,7 @@
     "sale": 1500,
     "purchase": 1125,
     "wholesale": 1225,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "KC Ancher",
@@ -30527,7 +30527,7 @@
     "sale": 0,
     "purchase": 0,
     "wholesale": 0,
-    "stock": -361
+    "stock": -362
   },
   {
     "name": "Suite Disha IPL",
