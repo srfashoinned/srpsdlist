@@ -10287,7 +10287,7 @@
     "sale": 1450,
     "purchase": 1125,
     "wholesale": 1200,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "KC FLAMINGO",
@@ -30527,7 +30527,7 @@
     "sale": 0,
     "purchase": 0,
     "wholesale": 0,
-    "stock": -362
+    "stock": -361
   },
   {
     "name": "Suite Disha IPL",
