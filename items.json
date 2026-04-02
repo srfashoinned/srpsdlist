@@ -23557,7 +23557,7 @@
     "sale": 500,
     "purchase": 410,
     "wholesale": 435,
-    "stock": 6
+    "stock": 5
   },
   {
     "name": "Rice GK",
@@ -28537,7 +28537,7 @@
     "sale": 550,
     "purchase": 400,
     "wholesale": 430,
-    "stock": -4
+    "stock": -5
   },
   {
     "name": "SNT Tarana",
