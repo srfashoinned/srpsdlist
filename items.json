@@ -247,7 +247,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 4315
+    "stock": 4313
   },
   {
     "name": "AF DURANDHAR",
@@ -10417,7 +10417,7 @@
     "sale": 1600,
     "purchase": 1200,
     "wholesale": 1350,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC FREE START",
@@ -20465,9 +20465,9 @@
     "group": "S",
     "mrp": 742,
     "sale": 550,
-    "purchase": 540,
+    "purchase": 495,
     "wholesale": 556.5,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "MT Safina",
@@ -30487,7 +30487,7 @@
     "sale": 380,
     "purchase": 340,
     "wholesale": 355,
-    "stock": 295
+    "stock": 294
   },
   {
     "name": "SST zCTN SUITE",
