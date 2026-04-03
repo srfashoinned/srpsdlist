@@ -23897,7 +23897,7 @@
     "sale": 300,
     "purchase": 238,
     "wholesale": 275,
-    "stock": 24
+    "stock": 20
   },
   {
     "name": "RR BLACK BUNNY",
@@ -24277,7 +24277,7 @@
     "sale": 300,
     "purchase": 238,
     "wholesale": 270,
-    "stock": 8
+    "stock": 4
   },
   {
     "name": "RR SANJU",
@@ -24927,7 +24927,7 @@
     "sale": 300,
     "purchase": 227,
     "wholesale": 250,
-    "stock": 12
+    "stock": 4
   },
   {
     "name": "RV Charminar",
@@ -24957,7 +24957,7 @@
     "sale": 350,
     "purchase": 237,
     "wholesale": 285,
-    "stock": 8
+    "stock": 0
   },
   {
     "name": "RV Future India",
@@ -26467,7 +26467,7 @@
     "sale": 80,
     "purchase": 55,
     "wholesale": 65,
-    "stock": 187
+    "stock": 186
   },
   {
     "name": "Shee Girl SG",
@@ -26627,7 +26627,7 @@
     "sale": 200,
     "purchase": 170,
     "wholesale": 190,
-    "stock": 24
+    "stock": 8
   },
   {
     "name": "SNT 3 Patti",
@@ -31357,7 +31357,7 @@
     "sale": 25,
     "purchase": 18,
     "wholesale": 20,
-    "stock": 700
+    "stock": 664
   },
   {
     "name": "Towel Winner",
