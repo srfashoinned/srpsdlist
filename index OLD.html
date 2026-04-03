@@ -29,19 +29,6 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #logo:active{opacity:.7}
 #hdr-right{margin-left:auto;display:flex;gap:8px;align-items:center}
 #badge{font-size:11px;color:var(--muted);background:var(--surf);border:1px solid var(--bord);padding:2px 8px;border-radius:20px;font-variant-numeric:tabular-nums}
-
-/* ── REFRESH BUTTON ── */
-#refresh-btn{
-  width:34px;height:34px;flex-shrink:0;border-radius:9px;
-  background:var(--surf);border:1.5px solid var(--bord);
-  color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;
-  -webkit-tap-highlight-color:transparent;transition:border-color .15s,color .15s;
-}
-#refresh-btn:active{opacity:.7}
-#refresh-btn.spinning svg{animation:spin .7s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-#refresh-btn:hover{border-color:var(--gold);color:var(--gold)}
-
 #admin-btn{font-size:12px;font-weight:700;background:transparent;color:var(--gold);border:1.5px solid var(--gold);padding:5px 12px;border-radius:7px;cursor:pointer;font-family:inherit}
 #admin-btn.on{background:var(--gold);color:#000}
 
@@ -71,23 +58,6 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
   -webkit-tap-highlight-color:transparent;
 }
 .chip.on{background:var(--gold);border-color:var(--gold);color:#000}
-
-/* ── STOCK FILTER CHIPS ── */
-#stock-row{
-  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;
-}
-#stock-row::-webkit-scrollbar{display:none}
-.stock-chip{
-  white-space:nowrap;font-size:12px;font-weight:600;
-  padding:4px 12px;border-radius:20px;
-  border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);
-  cursor:pointer;flex-shrink:0;font-family:inherit;
-  -webkit-tap-highlight-color:transparent;transition:all .15s;
-}
-.stock-chip[data-stock="all"].on{background:var(--gold);border-color:var(--gold);color:#000}
-.stock-chip[data-stock="in"].on{background:rgba(34,197,94,0.18);border-color:var(--green);color:var(--green)}
-.stock-chip[data-stock="low"].on{background:rgba(245,197,66,0.18);border-color:var(--gold);color:var(--gold)}
-.stock-chip[data-stock="out"].on{background:rgba(248,113,113,0.18);border-color:var(--red);color:var(--red)}
 
 /* ── GROUP PICKER BUTTON ── */
 #grp-btn{
@@ -182,11 +152,16 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #spacer{width:1px;pointer-events:none}
 #stage{position:absolute;top:0;left:0;right:0}
 
-/* ── CARD ── */
+/* ── CARD ──
+   Cards are absolute-positioned by virtual scroll.
+   padding on stage prevents edge clipping.
+   No margin-bottom needed — gap handled by ROW_H constant.
+*/
 .c{
   position:absolute;left:14px;right:14px;
   background:var(--card);border:1px solid var(--bord);
   border-radius:12px;padding:12px;cursor:pointer;
+  /* NO transform, NO animation — pure paint speed */
 }
 .c.exp{border-color:rgba(245,197,66,0.3)}
 .c-name{font-size:17px;font-weight:700;line-height:1.15;color:var(--txt)}
@@ -296,12 +271,6 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   <div id="logo" onclick="goHome()">SR PSD</div>
   <div id="hdr-right">
     <div id="badge">—</div>
-    <button id="refresh-btn" onclick="refreshData()" title="Refresh data">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="23 4 23 10 17 10"/>
-        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
-      </svg>
-    </button>
     <button id="admin-btn" onclick="openAdm()">⚡ Admin</button>
   </div>
 </div>
@@ -328,14 +297,6 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
     <div class="chip" data-sort="na">A – Z</div>
     <div class="chip" data-sort="sa">Price ↑</div>
     <div class="chip" data-sort="sd">Price ↓</div>
-  </div>
-
-  <!-- Stock filter chips -->
-  <div id="stock-row">
-    <div class="stock-chip on" data-stock="all">📦 All Stock</div>
-    <div class="stock-chip" data-stock="in">✅ In Stock</div>
-    <div class="stock-chip" data-stock="low">⚠️ Low Stock (≤5)</div>
-    <div class="stock-chip" data-stock="out">❌ Out of Stock</div>
   </div>
 
   <!-- Group picker button -->
@@ -380,8 +341,7 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   <div id="adm-box">
     <div id="adm-title">ADMIN</div>
     <div id="adm-sub">4-digit PIN • hidden as you type</div>
-    <!-- inputmode="numeric" + pattern="[0-9]*" forces numeric keyboard on iOS & Android -->
-    <input id="adm-pw" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="• • • •" autocomplete="off"
+    <input id="adm-pw" type="password" maxlength="4" placeholder="• • • •" autocomplete="off"
       oninput="onPwInput(this)" onkeydown="if(event.key==='Enter')doLogin()">
     <div id="dots">
       <div class="dot" id="d0"></div><div class="dot" id="d1"></div>
@@ -429,20 +389,19 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
    CONFIG
 ═══════════════════════════════════════════ */
 const PASS  = "7865";
-const GAP   = 10;
-const CARD_COLLAPSED_H = 138;
-const CARD_EXPANDED_H  = 300;
-const BUFFER = 4;
-const GRP_HDR_H = 26;
-const LOW_STOCK_THRESHOLD = 5; // items with stock <= this are "low stock"
+const GAP   = 10;   // px gap between cards
+const CARD_COLLAPSED_H = 138; // px — collapsed card height (name+alias+4 price blocks)
+const CARD_EXPANDED_H  = 300; // px — rough expanded height
+const BUFFER = 4;   // extra rows to render above/below viewport
+const GRP_HDR_H = 26; // px height of group header divider
 
 /* ═══════════════════════════════════════════
    STATE
 ═══════════════════════════════════════════ */
 let raw      = [];
-let pool     = [];
-let heights  = [];
-let offsets  = [];
+let pool     = [];   // filtered indices into raw[]
+let heights  = [];   // per-pool-index actual heights (updated when cards expand)
+let offsets  = [];   // cumulative top offset per pool index
 let isAdmin  = false;
 let activeGroup = '';
 let pMin     = null;
@@ -450,7 +409,6 @@ let pMax     = null;
 let query    = '';
 let editIdx  = -1;
 let activeSort = 'df';
-let activeStock = 'all'; // 'all' | 'in' | 'low' | 'out'
 let expanded = new Set();
 let vsStart  = 0;
 let vsEnd    = 0;
@@ -474,25 +432,6 @@ async function loadData(){
   showWelcome();
 }
 
-/* ── REFRESH ── */
-async function refreshData(){
-  const btn = document.getElementById("refresh-btn");
-  btn.classList.add("spinning");
-  try{
-    const r = await fetch("items.json?t="+Date.now());
-    if(!r.ok) throw new Error("HTTP "+r.status);
-    raw = await r.json();
-    document.getElementById("badge").textContent = raw.length.toLocaleString()+" items";
-    buildGroupChips();
-    applyAll();
-    toast("🔄 Refreshed — "+raw.length.toLocaleString()+" items");
-  }catch(e){
-    toast("❌ Refresh failed: "+e.message);
-  }finally{
-    setTimeout(()=>btn.classList.remove("spinning"), 600);
-  }
-}
-
 /* ═══════════════════════════════════════════
    WELCOME SCREEN
 ═══════════════════════════════════════════ */
@@ -510,48 +449,17 @@ function showWelcome(){
 
 function goHome(){
   document.getElementById("search").value = '';
-  query = ''; pMin = null; pMax = null; activeGroup = ''; activeStock = 'all';
+  query = ''; pMin = null; pMax = null; activeGroup = '';
   document.getElementById("pmin").value = '';
   document.getElementById("pmax").value = '';
   activeSort='df';
   document.querySelectorAll("#sort-row .chip").forEach(c=>c.classList.remove("on"));
   const defChip=document.querySelector("#sort-row .chip[data-sort='df']");
   if(defChip)defChip.classList.add("on");
-  // Reset stock chips
-  document.querySelectorAll("#stock-row .stock-chip").forEach(c=>c.classList.remove("on"));
-  document.querySelector("#stock-row .stock-chip[data-stock='all']").classList.add("on");
   // Reset group button
   document.getElementById("grp-btn-label").textContent = "All Groups";
   document.getElementById("grp-btn").classList.remove("active");
   showWelcome();
-}
-
-/* ═══════════════════════════════════════════
-   STOCK FILTER CHIPS
-═══════════════════════════════════════════ */
-document.getElementById("stock-row").addEventListener("click", function(e){
-  const c = e.target.closest(".stock-chip[data-stock]");
-  if(!c) return;
-  document.querySelectorAll("#stock-row .stock-chip").forEach(x=>x.classList.remove("on"));
-  c.classList.add("on");
-  activeStock = c.dataset.stock;
-  applyAll();
-});
-
-function stockMatches(it){
-  if(activeStock === 'all') return true;
-  const s = it.stock;
-  // Treat null/undefined/''/'-' as out of stock
-  if(s === null || s === undefined || s === '' || s === '–' || s === '-'){
-    return activeStock === 'out';
-  }
-  const n = parseFloat(String(s));
-  if(isNaN(n)){
-    return activeStock === 'out';
-  }
-  if(n <= 0)  return activeStock === 'out';
-  if(n <= LOW_STOCK_THRESHOLD) return activeStock === 'low';
-  return activeStock === 'in';
 }
 
 /* ═══════════════════════════════════════════
@@ -560,6 +468,7 @@ function stockMatches(it){
 let allGroups = [];
 
 function buildGroupChips(){
+  // Build group list with item counts
   const countMap = {};
   raw.forEach(it=>{ const g=it.group||''; countMap[g]=(countMap[g]||0)+1; });
   allGroups = Object.keys(countMap).filter(Boolean).sort();
@@ -611,6 +520,7 @@ function renderGrpList(filter){
 
 function selectGroup(g){
   activeGroup = g;
+  // Update button label
   const btn = document.getElementById("grp-btn");
   const label = document.getElementById("grp-btn-label");
   if(g){
@@ -624,9 +534,11 @@ function selectGroup(g){
   applyAll();
 }
 
+// Live search inside group modal
 document.getElementById("grp-search").addEventListener("input", function(){
   renderGrpList(this.value);
 });
+// Close on background tap
 document.getElementById("grp-modal-bg").addEventListener("click", function(e){
   if(e.target===this) closeGrpModal();
 });
@@ -650,7 +562,7 @@ function pn(v){ return v==null||v===''?0:parseFloat(String(v).replace(/[^0-9.]/g
 
 function applyAll(){
   const q = query.trim().toLowerCase();
-  const hasFilter = q || pMin!==null || pMax!==null || activeGroup || activeSort!=='df' || activeStock!=='all';
+  const hasFilter = q || pMin!==null || pMax!==null || activeGroup || activeSort!=='df';
   if(!hasFilter){ showWelcome(); return; }
 
   expanded.clear();
@@ -660,7 +572,6 @@ function applyAll(){
     if(activeGroup && it.group!==activeGroup) continue;
     if(pMin!==null && pn(it.sale)<pMin) continue;
     if(pMax!==null && pn(it.sale)>pMax) continue;
-    if(!stockMatches(it)) continue;
     if(q){
       const n=(it.name||'').toLowerCase();
       const a=(it.alias||'').toLowerCase();
@@ -678,28 +589,31 @@ function applyAll(){
   else if(activeSort==='sd') out.sort((a,b)=>pn(raw[b].sale)-pn(raw[a].sale));
 
   pool = out;
+
+  // Build heights & offsets arrays (all collapsed initially)
   rebuildOffsets();
 
   const sortLabel = activeSort==='grp'?' · sorted by group':activeSort==='na'?' · A–Z':activeSort==='sa'?' · price ↑':activeSort==='sd'?' · price ↓':'';
-  const stockLabel = activeStock==='in'?' · in stock':activeStock==='low'?' · low stock':activeStock==='out'?' · out of stock':'';
   document.getElementById("status").textContent =
     (pool.length===raw.length
       ? raw.length.toLocaleString()+" items"
       : pool.length.toLocaleString()+" of "+raw.length.toLocaleString()+" items")
-    + sortLabel + stockLabel;
+    + sortLabel;
 
   scrollEl.scrollTop = 0;
   vsRender(true);
 }
 
 /* ═══════════════════════════════════════════
-   OFFSET TABLE
+   OFFSET TABLE — needed for correct card placement
+   so cards never overlap
 ═══════════════════════════════════════════ */
 function rebuildOffsets(){
   heights  = new Array(pool.length).fill(CARD_COLLAPSED_H);
   offsets  = new Array(pool.length);
-  let top  = 14;
+  let top  = 14; // top padding
   for(let i=0;i<pool.length;i++){
+    // Add group header space when sorted by group
     if(activeSort==='grp'){
       const grp = raw[pool[i]].group||'';
       const prevGrp = i>0?(raw[pool[i-1]].group||''):'__NONE__';
@@ -708,7 +622,7 @@ function rebuildOffsets(){
     offsets[i] = top;
     top += (expanded.has(pool[i]) ? CARD_EXPANDED_H : CARD_COLLAPSED_H) + GAP;
   }
-  totalH = top + 60;
+  totalH = top + 60; // bottom padding
   spacer.style.height = totalH + 'px';
 }
 
@@ -725,6 +639,7 @@ function vsRender(force){
   const scrollTop = scrollEl.scrollTop;
   const viewH     = scrollEl.clientHeight;
 
+  // Binary-search for first visible index
   let first = bsearchFirst(scrollTop - BUFFER * CARD_COLLAPSED_H);
   let last  = bsearchLast(scrollTop + viewH + BUFFER * CARD_COLLAPSED_H);
   first = Math.max(0, first);
@@ -736,6 +651,7 @@ function vsRender(force){
   const q = query.trim().toLowerCase();
   let html = '';
   for(let vi=first;vi<=last;vi++){
+    // Group header divider
     if(activeSort==='grp'){
       const grp = raw[pool[vi]].group||'';
       const prevGrp = vi>0?(raw[pool[vi-1]].group||''):'__NONE__';
@@ -819,7 +735,7 @@ function cardHTML(it, ri, topPx, q){
 }
 
 /* ═══════════════════════════════════════════
-   TOGGLE EXPAND
+   TOGGLE EXPAND — rebuilds offsets so no overlap
 ═══════════════════════════════════════════ */
 function toggleCard(ri){
   if(expanded.has(ri)) expanded.delete(ri);
@@ -827,16 +743,18 @@ function toggleCard(ri){
   rebuildOffsets();
   spacer.style.height = totalH + 'px';
   vsRender(true);
+  // Keep scroll position sane
   const vi = pool.indexOf(ri);
   if(vi>=0){
     const cardTop = offsets[vi];
     const scrollTop = scrollEl.scrollTop;
+    const viewH = scrollEl.clientHeight;
     if(cardTop < scrollTop) scrollEl.scrollTop = cardTop - 14;
   }
 }
 
 /* ═══════════════════════════════════════════
-   SCROLL
+   SCROLL — throttled with rAF
 ═══════════════════════════════════════════ */
 let rafPending=false;
 function onScroll(){
@@ -846,7 +764,7 @@ function onScroll(){
 }
 
 /* ═══════════════════════════════════════════
-   SEARCH
+   SEARCH — debounced 100ms
 ═══════════════════════════════════════════ */
 let searchTimer;
 document.getElementById("search").addEventListener("input",function(){
@@ -871,12 +789,13 @@ function clearPF(){
   document.getElementById("pmax").value='';
   pMin=null; pMax=null; applyAll(); toast("Price filter cleared");
 }
+// Also trigger Go on Enter in price fields
 ['pmin','pmax'].forEach(id=>{
   document.getElementById(id).addEventListener("keydown",e=>{ if(e.key==='Enter') applyPF(); });
 });
 
 /* ═══════════════════════════════════════════
-   SCANNER
+   SCANNER — native BarcodeDetector first, ZXing fallback
 ═══════════════════════════════════════════ */
 let scanStream=null, scanLoop=null, codeReader=null, zxingReady=false;
 
