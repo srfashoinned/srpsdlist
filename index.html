@@ -431,24 +431,30 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
 const PASS  = "7865";
 const GAP   = 10;
 let CARD_COLLAPSED_H = 160; // updated dynamically after first measure
-const CARD_EXPANDED_H  = 320;
 const BUFFER = 4;
 const GRP_HDR_H = 26;
 const LOW_STOCK_THRESHOLD = 5;
 
-/* Measure real collapsed card height once data is ready */
+// Stores measured expanded height per raw-item index
+let expandedHeights = {};
+
+/* Measure real collapsed card height by probing the DOM */
 function measureCardHeight(){
-  // Render a probe card off-screen, measure, then discard
   const probe = document.createElement('div');
   probe.style.cssText = 'position:fixed;top:-9999px;left:14px;right:14px;visibility:hidden;pointer-events:none;z-index:-1';
   probe.innerHTML = cardHTML({name:'Probe Item',alias:'PRB001',mrp:999,sale:799,wholesale:699,stock:10}, -1, 0, '');
-  // Make it position:relative so it flows and we get natural height
   const inner = probe.firstElementChild;
   if(inner){ inner.style.position='relative'; inner.style.top='auto'; inner.style.left='auto'; inner.style.right='auto'; }
   document.body.appendChild(probe);
   const h = probe.firstElementChild ? probe.firstElementChild.offsetHeight : 160;
   document.body.removeChild(probe);
-  CARD_COLLAPSED_H = h + 2; // +2px safety margin
+  CARD_COLLAPSED_H = h + 2;
+}
+
+/* Read actual rendered height of an expanded card straight from the live DOM */
+function measureExpandedCard(ri){
+  const el = stage.querySelector('.c[onclick="toggleCard(' + ri + ')"]');
+  if(el) expandedHeights[ri] = el.offsetHeight + 4;
 }
 
 /* ═══════════════════════════════════════════
@@ -669,6 +675,7 @@ function applyAll(){
   if(!hasFilter){ showWelcome(); return; }
 
   expanded.clear();
+  expandedHeights = {};
   let out = [];
   for(let i=0;i<raw.length;i++){
     const it = raw[i];
@@ -722,7 +729,9 @@ function rebuildOffsets(){
       if(grp!==prevGrp) top += GRP_HDR_H;
     }
     offsets[i] = top;
-    top += (expanded.has(pool[i]) ? CARD_EXPANDED_H : CARD_COLLAPSED_H) + GAP;
+    const ri = pool[i];
+    const h = expanded.has(ri) ? (expandedHeights[ri] || CARD_COLLAPSED_H * 2) : CARD_COLLAPSED_H;
+    top += h + GAP;
   }
   totalH = top + 60;
   spacer.style.height = totalH + 'px';
@@ -838,12 +847,26 @@ function cardHTML(it, ri, topPx, q){
    TOGGLE EXPAND
 ═══════════════════════════════════════════ */
 function toggleCard(ri){
-  if(expanded.has(ri)) expanded.delete(ri);
-  else expanded.add(ri);
-  measureCardHeight();
-  rebuildOffsets();
-  spacer.style.height = totalH + 'px';
-  vsRender(true);
+  const wasExpanded = expanded.has(ri);
+  if(wasExpanded){
+    expanded.delete(ri);
+    delete expandedHeights[ri];
+    rebuildOffsets();
+    spacer.style.height = totalH + 'px';
+    vsRender(true);
+  } else {
+    expanded.add(ri);
+    // First render with a generous placeholder height so card is in DOM
+    if(!expandedHeights[ri]) expandedHeights[ri] = CARD_COLLAPSED_H * 3;
+    rebuildOffsets();
+    spacer.style.height = totalH + 'px';
+    vsRender(true);
+    // Now measure the real rendered height and rebuild offsets correctly
+    measureExpandedCard(ri);
+    rebuildOffsets();
+    spacer.style.height = totalH + 'px';
+    vsRender(true);
+  }
   const vi = pool.indexOf(ri);
   if(vi>=0){
     const cardTop = offsets[vi];
