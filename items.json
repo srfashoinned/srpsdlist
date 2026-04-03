@@ -247,7 +247,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 4291
+    "stock": 4289
   },
   {
     "name": "AF DURANDHAR",
@@ -757,7 +757,7 @@
     "sale": 1500,
     "purchase": 1170,
     "wholesale": 0,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "AVNEE 253",
@@ -1417,7 +1417,7 @@
     "sale": 570,
     "purchase": 475,
     "wholesale": 515,
-    "stock": 7
+    "stock": 6
   },
   {
     "name": "CTN CLOTH",
@@ -1767,7 +1767,7 @@
     "sale": 1700,
     "purchase": 1430,
     "wholesale": 1520,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "Elios",
@@ -2737,7 +2737,7 @@
     "sale": 2400,
     "purchase": 1790,
     "wholesale": 2000,
-    "stock": 5
+    "stock": 4
   },
   {
     "name": "GF Green city",
@@ -5147,7 +5147,7 @@
     "sale": 650,
     "purchase": 540,
     "wholesale": 580,
-    "stock": 5
+    "stock": 2
   },
   {
     "name": "GNA GORJET",
@@ -7877,7 +7877,7 @@
     "sale": 1250,
     "purchase": 1050,
     "wholesale": 1150,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC BADSHAHI STYLE",
@@ -8127,7 +8127,7 @@
     "sale": 1950,
     "purchase": 1625,
     "wholesale": 1750,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC BEST CHOICE",
@@ -8467,7 +8467,7 @@
     "sale": 1200,
     "purchase": 1050,
     "wholesale": 1150,
-    "stock": 2
+    "stock": 0
   },
   {
     "name": "KC BOOM BOX",
@@ -8658,6 +8658,16 @@
     "purchase": 1120,
     "wholesale": 1260,
     "stock": 0
+  },
+  {
+    "name": "KC CHAI BREAK",
+    "alias": "0003347",
+    "group": "S",
+    "mrp": 0,
+    "sale": 1850,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": -1
   },
   {
     "name": "KC Chaiya Chaiya",
@@ -9197,7 +9207,7 @@
     "sale": 2550,
     "purchase": 2195,
     "wholesale": 2300,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC CRYSTAL CAPTURE",
@@ -9417,7 +9427,7 @@
     "sale": 1900,
     "purchase": 1675,
     "wholesale": 1775,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "KC DHANA DHAN",
@@ -10777,7 +10787,7 @@
     "sale": 650,
     "purchase": 475,
     "wholesale": 534.38,
-    "stock": 6
+    "stock": 5
   },
   {
     "name": "KC GOODNESS",
@@ -16807,7 +16817,7 @@
     "sale": 1000,
     "purchase": 820,
     "wholesale": 870,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "KC TRENDY STYLE",
@@ -18237,7 +18247,7 @@
     "sale": 750,
     "purchase": 575,
     "wholesale": 625,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "Lc Heer Mahal",
@@ -18947,7 +18957,7 @@
     "sale": 370,
     "purchase": 325,
     "wholesale": 340,
-    "stock": 79
+    "stock": 78
   },
   {
     "name": "MASTI RANGAT",
@@ -21627,7 +21637,7 @@
     "sale": 600,
     "purchase": 565,
     "wholesale": 587.5,
-    "stock": 107
+    "stock": 106
   },
   {
     "name": "OM DARLING",
@@ -22927,7 +22937,7 @@
     "sale": 620,
     "purchase": 515,
     "wholesale": 550,
-    "stock": 7
+    "stock": 6
   },
   {
     "name": "PC ROMANCE",
@@ -26297,7 +26307,7 @@
     "sale": 700,
     "purchase": 600,
     "wholesale": 675,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "SG THE SECRET",
@@ -26627,7 +26637,7 @@
     "sale": 200,
     "purchase": 170,
     "wholesale": 190,
-    "stock": 8
+    "stock": 6
   },
   {
     "name": "SNT 3 Patti",
@@ -28137,7 +28147,7 @@
     "sale": 700,
     "purchase": 595,
     "wholesale": 669.38,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "SNT Rajwadi",
@@ -28557,7 +28567,7 @@
     "sale": 700,
     "purchase": 635,
     "wholesale": 714.38,
-    "stock": -2
+    "stock": -3
   },
   {
     "name": "SNT Twinkle",
@@ -29227,7 +29237,7 @@
     "sale": 2000,
     "purchase": 1695,
     "wholesale": 1750,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "Sony B19 Readymade (6)",
@@ -30137,7 +30147,7 @@
     "sale": 1400,
     "purchase": 1175,
     "wholesale": 1300,
-    "stock": 6
+    "stock": 5
   },
   {
     "name": "Spari 4148B",
@@ -32178,6 +32188,16 @@
     "purchase": 1890,
     "wholesale": 2000,
     "stock": 4
+  },
+  {
+    "name": "VF HIT KIT",
+    "alias": "0003346",
+    "group": "P",
+    "mrp": 0,
+    "sale": 0,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": -2
   },
   {
     "name": "VF I LOVE YOU",
