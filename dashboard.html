@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SR Stock Dashboard</title>
+    <meta http-equiv="refresh" content="10">
+    <style>
+        body {
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+            padding: 20px;
+        }
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        h1 { color: #38bdf8; }
+    </style>
+</head>
+<body>
+
+<h1>📊 SR LIVE STOCK DASHBOARD</h1>
+
+<div class="card">
+    <h2>🟢 System Status: RUNNING</h2>
+</div>
+
+<div class="card">
+    <h2>⏱ Last Update:</h2>
+    <p id="time"></p>
+</div>
+
+<div class="card">
+    <h2>📦 Total Items:</h2>
+    <p id="count"></p>
+</div>
+
+<script>
+fetch('items.json')
+.then(res => res.json())
+.then(data => {
+    document.getElementById("count").innerText = data.length;
+    document.getElementById("time").innerText = new Date().toLocaleString();
+});
+</script>
+
+</body>
+</html>
