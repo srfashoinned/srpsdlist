@@ -430,11 +430,26 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
 ═══════════════════════════════════════════ */
 const PASS  = "7865";
 const GAP   = 10;
-const CARD_COLLAPSED_H = 138;
-const CARD_EXPANDED_H  = 300;
+let CARD_COLLAPSED_H = 160; // updated dynamically after first measure
+const CARD_EXPANDED_H  = 320;
 const BUFFER = 4;
 const GRP_HDR_H = 26;
-const LOW_STOCK_THRESHOLD = 5; // items with stock <= this are "low stock"
+const LOW_STOCK_THRESHOLD = 5;
+
+/* Measure real collapsed card height once data is ready */
+function measureCardHeight(){
+  // Render a probe card off-screen, measure, then discard
+  const probe = document.createElement('div');
+  probe.style.cssText = 'position:fixed;top:-9999px;left:14px;right:14px;visibility:hidden;pointer-events:none;z-index:-1';
+  probe.innerHTML = cardHTML({name:'Probe Item',alias:'PRB001',mrp:999,sale:799,wholesale:699,stock:10}, -1, 0, '');
+  // Make it position:relative so it flows and we get natural height
+  const inner = probe.firstElementChild;
+  if(inner){ inner.style.position='relative'; inner.style.top='auto'; inner.style.left='auto'; inner.style.right='auto'; }
+  document.body.appendChild(probe);
+  const h = probe.firstElementChild ? probe.firstElementChild.offsetHeight : 160;
+  document.body.removeChild(probe);
+  CARD_COLLAPSED_H = h + 2; // +2px safety margin
+}
 
 /* ═══════════════════════════════════════════
    STATE
@@ -678,6 +693,7 @@ function applyAll(){
   else if(activeSort==='sd') out.sort((a,b)=>pn(raw[b].sale)-pn(raw[a].sale));
 
   pool = out;
+  measureCardHeight();
   rebuildOffsets();
 
   const sortLabel = activeSort==='grp'?' · sorted by group':activeSort==='na'?' · A–Z':activeSort==='sa'?' · price ↑':activeSort==='sd'?' · price ↓':'';
@@ -824,6 +840,7 @@ function cardHTML(it, ri, topPx, q){
 function toggleCard(ri){
   if(expanded.has(ri)) expanded.delete(ri);
   else expanded.add(ri);
+  measureCardHeight();
   rebuildOffsets();
   spacer.style.height = totalH + 'px';
   vsRender(true);
@@ -1014,7 +1031,7 @@ scrollEl = document.getElementById("scroll");
 spacer   = document.getElementById("spacer");
 stage    = document.getElementById("stage");
 scrollEl.addEventListener("scroll", onScroll, {passive:true});
-window.addEventListener("resize",()=>{ rebuildOffsets(); vsRender(true); });
+window.addEventListener("resize",()=>{ measureCardHeight(); rebuildOffsets(); vsRender(true); });
 loadData();
 </script>
 </body>
