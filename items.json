@@ -1487,7 +1487,7 @@
     "sale": 500,
     "purchase": 380,
     "wholesale": 405,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "Deposit",
@@ -22637,7 +22637,7 @@
     "sale": 500,
     "purchase": 375,
     "wholesale": 400,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "OM Yes Boss",
@@ -24287,7 +24287,7 @@
     "sale": 300,
     "purchase": 238,
     "wholesale": 270,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "RR SANJU",
@@ -28127,7 +28127,7 @@
     "sale": 500,
     "purchase": 345,
     "wholesale": 380,
-    "stock": 9
+    "stock": 8
   },
   {
     "name": "SNT Preeti",
