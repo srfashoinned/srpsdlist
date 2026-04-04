@@ -387,7 +387,7 @@
     "sale": 550,
     "purchase": 395,
     "wholesale": 430,
-    "stock": -3
+    "stock": -4
   },
   {
     "name": "Aheri Dupatta",
@@ -18867,7 +18867,7 @@
     "sale": 500,
     "purchase": 455,
     "wholesale": 470,
-    "stock": 66
+    "stock": 65
   },
   {
     "name": "Masti Bulbul",
@@ -20227,7 +20227,7 @@
     "sale": 550,
     "purchase": 421,
     "wholesale": 450,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "MT FIROZA",
