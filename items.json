@@ -17117,7 +17117,7 @@
     "sale": 1550,
     "purchase": 1195,
     "wholesale": 1300,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC Zahabia",
@@ -18957,7 +18957,7 @@
     "sale": 370,
     "purchase": 325,
     "wholesale": 340,
-    "stock": 74
+    "stock": 73
   },
   {
     "name": "MASTI RANGAT",
@@ -27127,7 +27127,7 @@
     "sale": 550,
     "purchase": 410,
     "wholesale": 450,
-    "stock": 11
+    "stock": 10
   },
   {
     "name": "SNT Dolphin",
@@ -28807,7 +28807,7 @@
     "sale": 200,
     "purchase": 170,
     "wholesale": 190,
-    "stock": 306
+    "stock": 305
   },
   {
     "name": "Sonet Plazo",
@@ -32777,7 +32777,7 @@
     "sale": 650,
     "purchase": 555,
     "wholesale": 624.38,
-    "stock": 9
+    "stock": 8
   },
   {
     "name": "WELCOME IMLI",
