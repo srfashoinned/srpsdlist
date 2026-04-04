@@ -2997,7 +2997,7 @@
     "sale": 850,
     "purchase": 760,
     "wholesale": 800,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "GF KING",
@@ -12237,7 +12237,7 @@
     "sale": 1400,
     "purchase": 1030,
     "wholesale": 1150,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC Love Mashup",
@@ -21407,7 +21407,7 @@
     "sale": 500,
     "purchase": 360,
     "wholesale": 400,
-    "stock": 6
+    "stock": 5
   },
   {
     "name": "OM Aaj Tak",
@@ -22497,7 +22497,7 @@
     "sale": 500,
     "purchase": 360,
     "wholesale": 400,
-    "stock": 5
+    "stock": 2
   },
   {
     "name": "OM Tara Sitara",
@@ -28497,7 +28497,7 @@
     "sale": 500,
     "purchase": 423.33,
     "wholesale": 476.25,
-    "stock": -1
+    "stock": -5
   },
   {
     "name": "SNT Star",
@@ -32707,7 +32707,7 @@
     "sale": 550,
     "purchase": 425,
     "wholesale": 480,
-    "stock": 12
+    "stock": 8
   },
   {
     "name": "Welcome Ganga Jamuna",
@@ -32847,7 +32847,7 @@
     "sale": 750,
     "purchase": 555,
     "wholesale": 624.375,
-    "stock": 3
+    "stock": -1
   },
   {
     "name": "WELCOME LOVELY",
