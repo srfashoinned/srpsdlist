@@ -21397,7 +21397,7 @@
     "sale": 550,
     "purchase": 550,
     "wholesale": 500,
-    "stock": -2
+    "stock": -3
   },
   {
     "name": "Om 786",
@@ -28487,7 +28487,7 @@
     "sale": 500,
     "purchase": 410,
     "wholesale": 435,
-    "stock": 11
+    "stock": 10
   },
   {
     "name": "SNT Soniya",
