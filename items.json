@@ -9777,7 +9777,7 @@
     "sale": 2400,
     "purchase": 2090,
     "wholesale": 2350,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "KC EID MUBARAK",
@@ -10897,7 +10897,7 @@
     "sale": 2650,
     "purchase": 2345,
     "wholesale": 2550,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "Kc Gulbahar Grace",
