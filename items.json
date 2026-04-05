@@ -13827,7 +13827,7 @@
     "sale": 2850,
     "purchase": 2650,
     "wholesale": 2850,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "KC Pawri",
@@ -27007,7 +27007,7 @@
     "sale": 630,
     "purchase": 595,
     "wholesale": 630,
-    "stock": 5
+    "stock": 4
   },
   {
     "name": "SNT brezza",
@@ -32747,7 +32747,7 @@
     "sale": 700,
     "purchase": 515,
     "wholesale": 579.375,
-    "stock": -4
+    "stock": -5
   },
   {
     "name": "Welcome Gulshan",
