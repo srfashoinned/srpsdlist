@@ -22937,7 +22937,7 @@
     "sale": 620,
     "purchase": 515,
     "wholesale": 550,
-    "stock": 6
+    "stock": 5
   },
   {
     "name": "PC ROMANCE",
@@ -26717,7 +26717,7 @@
     "sale": 800,
     "purchase": 610,
     "wholesale": 686.25,
-    "stock": 8
+    "stock": 6
   },
   {
     "name": "SNT Afsana",
@@ -28567,7 +28567,7 @@
     "sale": 700,
     "purchase": 635,
     "wholesale": 714.38,
-    "stock": -3
+    "stock": -4
   },
   {
     "name": "SNT Twinkle",
