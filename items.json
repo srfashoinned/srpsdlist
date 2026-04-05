@@ -10890,6 +10890,16 @@
     "stock": 2
   },
   {
+    "name": "KC GULABI SMILE",
+    "alias": "0003348",
+    "group": "SHADED PLAZO",
+    "mrp": 3517.5,
+    "sale": 2650,
+    "purchase": 2345,
+    "wholesale": 2550,
+    "stock": 0
+  },
+  {
     "name": "Kc Gulbahar Grace",
     "alias": "0003228",
     "group": "P",
