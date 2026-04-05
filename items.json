@@ -26987,7 +26987,7 @@
     "sale": 850,
     "purchase": 650,
     "wholesale": 731.25,
-    "stock": -2
+    "stock": -3
   },
   {
     "name": "SNT BLUE WHALE",
@@ -27207,7 +27207,7 @@
     "sale": 650,
     "purchase": 570,
     "wholesale": 641.25,
-    "stock": 10
+    "stock": 9
   },
   {
     "name": "SNT Fida",
@@ -30327,7 +30327,7 @@
     "sale": 500,
     "purchase": 330,
     "wholesale": 380,
-    "stock": 16
+    "stock": 15
   },
   {
     "name": "Ss Melody",
