@@ -4050,6 +4050,16 @@
     "stock": 4
   },
   {
+    "name": "GK CRYPTON",
+    "alias": "0003355",
+    "group": "T",
+    "mrp": 1687.5,
+    "sale": 1350,
+    "purchase": 1125,
+    "wholesale": 1225,
+    "stock": 0
+  },
+  {
     "name": "GK Curve",
     "alias": "002033",
     "group": "CS",
