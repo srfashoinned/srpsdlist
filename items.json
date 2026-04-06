@@ -10780,6 +10780,16 @@
     "stock": 0
   },
   {
+    "name": "KC GOLDEN SUNSET",
+    "alias": "0003351",
+    "group": "S",
+    "mrp": 1642.5,
+    "sale": 1400,
+    "purchase": 1095,
+    "wholesale": 1200,
+    "stock": 0
+  },
+  {
     "name": "KC GOLDEN VOICE",
     "alias": "0002529",
     "group": "S",
@@ -30008,6 +30018,16 @@
     "purchase": 1995,
     "wholesale": 2250,
     "stock": 3
+  },
+  {
+    "name": "SONY S 128",
+    "alias": "0003352",
+    "group": "T",
+    "mrp": 2310,
+    "sale": 1700,
+    "purchase": 1540,
+    "wholesale": 1650,
+    "stock": 0
   },
   {
     "name": "Sony s 130",
