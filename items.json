@@ -10480,6 +10480,16 @@
     "stock": 1
   },
   {
+    "name": "KC FRESH WATER",
+    "alias": "0003358",
+    "group": "P",
+    "mrp": 2182.5,
+    "sale": 1750,
+    "purchase": 1455,
+    "wholesale": 1550,
+    "stock": 0
+  },
+  {
     "name": "KC FULL EPISODE",
     "alias": "002211",
     "group": "S",
