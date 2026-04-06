@@ -10487,7 +10487,7 @@
     "sale": 1750,
     "purchase": 1455,
     "wholesale": 1550,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "KC FULL EPISODE",
@@ -13218,6 +13218,16 @@
     "purchase": 1900,
     "wholesale": 2100,
     "stock": 3
+  },
+  {
+    "name": "KC MORNING TEA",
+    "alias": "0003360",
+    "group": "T",
+    "mrp": 2227.5,
+    "sale": 1780,
+    "purchase": 1485,
+    "wholesale": 1585,
+    "stock": 4
   },
   {
     "name": "KC MORNING TUNE",
@@ -16967,7 +16977,7 @@
     "sale": 1750,
     "purchase": 1475,
     "wholesale": 1575,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "KC URBAN STLE",
@@ -27877,7 +27887,7 @@
     "sale": 850,
     "purchase": 625,
     "wholesale": 675,
-    "stock": 4
+    "stock": 12
   },
   {
     "name": "SNT MAHI",
