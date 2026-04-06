@@ -11320,6 +11320,16 @@
     "stock": 4
   },
   {
+    "name": "KC HONEY BELLE",
+    "alias": "0003349",
+    "group": "Suite",
+    "mrp": 1575,
+    "sale": 1250,
+    "purchase": 1050,
+    "wholesale": 1150,
+    "stock": 0
+  },
+  {
     "name": "KC HONEY BITES (WITH PURSE)",
     "alias": "0002691",
     "group": "P",
