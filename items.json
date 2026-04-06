@@ -4060,6 +4060,16 @@
     "stock": 0
   },
   {
+    "name": "GK CYBER",
+    "alias": "0003354",
+    "group": "T",
+    "mrp": 1687.5,
+    "sale": 1350,
+    "purchase": 1125,
+    "wholesale": 1225,
+    "stock": 0
+  },
+  {
     "name": "GK DEV-D",
     "alias": "0002636",
     "group": "S",
@@ -4727,6 +4737,16 @@
     "sale": 750,
     "purchase": 635,
     "wholesale": 660,
+    "stock": 0
+  },
+  {
+    "name": "GK SECURITY",
+    "alias": "0003353",
+    "group": "T",
+    "mrp": 1687.5,
+    "sale": 1350,
+    "purchase": 1125,
+    "wholesale": 1225,
     "stock": 0
   },
   {
