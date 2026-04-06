@@ -4057,7 +4057,7 @@
     "sale": 1350,
     "purchase": 1125,
     "wholesale": 1225,
-    "stock": 0
+    "stock": 2
   },
   {
     "name": "GK Curve",
@@ -4077,7 +4077,7 @@
     "sale": 1350,
     "purchase": 1125,
     "wholesale": 1225,
-    "stock": 0
+    "stock": 2
   },
   {
     "name": "GK DEV-D",
@@ -4757,7 +4757,7 @@
     "sale": 1350,
     "purchase": 1125,
     "wholesale": 1225,
-    "stock": 0
+    "stock": 2
   },
   {
     "name": "GK SIGMA",
@@ -8697,7 +8697,7 @@
     "sale": 1300,
     "purchase": 1095,
     "wholesale": 1200,
-    "stock": -1
+    "stock": 3
   },
   {
     "name": "KC Chaiya Chaiya",
@@ -9217,7 +9217,7 @@
     "sale": 1600,
     "purchase": 1355,
     "wholesale": 1455,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "Kc Crispy Corner",
@@ -10817,7 +10817,7 @@
     "sale": 1400,
     "purchase": 1095,
     "wholesale": 1200,
-    "stock": 0
+    "stock": 2
   },
   {
     "name": "KC GOLDEN VOICE",
@@ -11377,7 +11377,7 @@
     "sale": 1250,
     "purchase": 1050,
     "wholesale": 1150,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "KC HONEY BITES (WITH PURSE)",
@@ -30057,7 +30057,7 @@
     "sale": 1700,
     "purchase": 1540,
     "wholesale": 1650,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "Sony s 130",
@@ -32267,7 +32267,7 @@
     "sale": 1680,
     "purchase": 1400,
     "wholesale": 1500,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "VF HIGH CLASS",
@@ -32297,7 +32297,7 @@
     "sale": 1700,
     "purchase": 1425,
     "wholesale": 1525,
-    "stock": 0
+    "stock": 12
   },
   {
     "name": "VF I LOVE YOU",
@@ -32337,7 +32337,7 @@
     "sale": 1450,
     "purchase": 1265,
     "wholesale": 1370,
-    "stock": 7
+    "stock": 15
   },
   {
     "name": "VF MAHARANI",
@@ -32345,9 +32345,9 @@
     "group": "P",
     "mrp": 2145,
     "sale": 1650,
-    "purchase": 1430,
+    "purchase": 1425,
     "wholesale": 1520,
-    "stock": 3
+    "stock": 7
   },
   {
     "name": "VF MOH MAYA",
@@ -32355,9 +32355,9 @@
     "group": "P",
     "mrp": 2200,
     "sale": 1650,
-    "purchase": 1350,
+    "purchase": 1345,
     "wholesale": 1450,
-    "stock": 4
+    "stock": 12
   },
   {
     "name": "VF Pani Puri",
