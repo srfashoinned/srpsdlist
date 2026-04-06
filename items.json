@@ -23872,7 +23872,7 @@
   {
     "name": "Royal Pouch Packing",
     "alias": "001037",
-    "group": "S",
+    "group": "CS",
     "mrp": 255,
     "sale": 200,
     "purchase": 170,
