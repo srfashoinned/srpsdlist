@@ -8663,10 +8663,10 @@
     "name": "KC CHAI BREAK",
     "alias": "0003347",
     "group": "S",
-    "mrp": 0,
-    "sale": 1850,
-    "purchase": 0,
-    "wholesale": 0,
+    "mrp": 1642.5,
+    "sale": 1300,
+    "purchase": 1095,
+    "wholesale": 1200,
     "stock": -1
   },
   {
