@@ -32290,6 +32290,16 @@
     "stock": -2
   },
   {
+    "name": "VF HIT WICKET",
+    "alias": "0003357",
+    "group": "P",
+    "mrp": 2137.5,
+    "sale": 1700,
+    "purchase": 1425,
+    "wholesale": 1525,
+    "stock": 0
+  },
+  {
     "name": "VF I LOVE YOU",
     "alias": "0002973",
     "group": "P",
