@@ -16960,6 +16960,16 @@
     "stock": 4
   },
   {
+    "name": "KC UNDER WAY",
+    "alias": "0003359",
+    "group": "T",
+    "mrp": 2212.5,
+    "sale": 1750,
+    "purchase": 1475,
+    "wholesale": 1575,
+    "stock": 0
+  },
+  {
     "name": "KC URBAN STLE",
     "alias": "0002734",
     "group": "P",
