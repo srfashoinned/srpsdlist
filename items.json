@@ -32260,6 +32260,16 @@
     "stock": 4
   },
   {
+    "name": "VF CHOCOBAR",
+    "alias": "0003356",
+    "group": "P",
+    "mrp": 2100,
+    "sale": 1680,
+    "purchase": 1400,
+    "wholesale": 1500,
+    "stock": 0
+  },
+  {
     "name": "VF HIGH CLASS",
     "alias": "0003266",
     "group": "P",
