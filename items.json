@@ -29354,9 +29354,4209 @@
     "alias": "001304",
     "group": "S",
     "mrp": 2475,
-    "sale": null,
-    "purchase": null,
-    "wholesale": null,
-    "stock": null
+    "sale": 2250,
+    "purchase": 1650,
+    "wholesale": 1856.25,
+    "stock": 0
+  },
+  {
+    "name": "Sony Coding",
+    "alias": "001663",
+    "group": "S",
+    "mrp": 2130,
+    "sale": 1900,
+    "purchase": 1420,
+    "wholesale": 1597.5,
+    "stock": 0
+  },
+  {
+    "name": "Sony Coding Garara",
+    "alias": "001305",
+    "group": "G",
+    "mrp": 2650,
+    "sale": 2550,
+    "purchase": 1766.67,
+    "wholesale": 1987.5,
+    "stock": -3
+  },
+  {
+    "name": "Sony Coding Garara New Design",
+    "alias": "001306",
+    "group": "G",
+    "mrp": 2557,
+    "sale": 2300,
+    "purchase": 1705,
+    "wholesale": 1917.75,
+    "stock": 0
+  },
+  {
+    "name": "Sony Coding Garara Spl Red",
+    "alias": "001307",
+    "group": "G",
+    "mrp": 2722.5,
+    "sale": 2450,
+    "purchase": 1815,
+    "wholesale": 2050,
+    "stock": 3
+  },
+  {
+    "name": "Sony Coding Suite",
+    "alias": "001696",
+    "group": "S",
+    "mrp": 2130,
+    "sale": 1350,
+    "purchase": 1420,
+    "wholesale": 1597.5,
+    "stock": -3
+  },
+  {
+    "name": "SONY CODING SUITE 1011",
+    "alias": "001308",
+    "group": "S",
+    "mrp": 1928,
+    "sale": 1650,
+    "purchase": 1285.333333,
+    "wholesale": 1446,
+    "stock": 0
+  },
+  {
+    "name": "SONY COTTON PANT",
+    "alias": "001309",
+    "group": "S",
+    "mrp": 0,
+    "sale": 0,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": 0
+  },
+  {
+    "name": "SONY CREAMY TROUSER",
+    "alias": "001310",
+    "group": "T",
+    "mrp": 1762,
+    "sale": 1550,
+    "purchase": 1174.666667,
+    "wholesale": 1321.5,
+    "stock": 0
+  },
+  {
+    "name": "SONY CRUNCHY130",
+    "alias": "0002477",
+    "group": "P",
+    "mrp": 2917.5,
+    "sale": 2400,
+    "purchase": 1945,
+    "wholesale": 2145,
+    "stock": 0
+  },
+  {
+    "name": "SONY D 71",
+    "alias": "0002708",
+    "group": "P",
+    "mrp": 2985,
+    "sale": 2300,
+    "purchase": 1990,
+    "wholesale": 2100,
+    "stock": 2
+  },
+  {
+    "name": "Sony Dark Sharara",
+    "alias": "001768",
+    "group": "T",
+    "mrp": 2040,
+    "sale": 1800,
+    "purchase": 1360,
+    "wholesale": 1530,
+    "stock": 0
+  },
+  {
+    "name": "Sony Dark Simple",
+    "alias": "001769",
+    "group": "T",
+    "mrp": 1815,
+    "sale": 1600,
+    "purchase": 1210,
+    "wholesale": 1361.25,
+    "stock": 0
+  },
+  {
+    "name": "Sony Farshi twill net",
+    "alias": "001311",
+    "group": "G",
+    "mrp": 2730,
+    "sale": 2450,
+    "purchase": 1820,
+    "wholesale": 2047.5,
+    "stock": 0
+  },
+  {
+    "name": "SONY GANESH 01",
+    "alias": "0002770",
+    "group": "T",
+    "mrp": 1965,
+    "sale": 1550,
+    "purchase": 1310,
+    "wholesale": 1450,
+    "stock": 0
+  },
+  {
+    "name": "SONY GANESH 04",
+    "alias": "0002664",
+    "group": "T",
+    "mrp": 1890,
+    "sale": 1350,
+    "purchase": 1260,
+    "wholesale": 1300,
+    "stock": 6
+  },
+  {
+    "name": "Sony Garara",
+    "alias": "001312",
+    "group": "G",
+    "mrp": 2325,
+    "sale": 2100,
+    "purchase": 1550,
+    "wholesale": 1743.75,
+    "stock": 0
+  },
+  {
+    "name": "SONY GARARA 1",
+    "alias": "001313",
+    "group": "G",
+    "mrp": 2250,
+    "sale": 2050,
+    "purchase": 1500,
+    "wholesale": 1687.5,
+    "stock": 0
+  },
+  {
+    "name": "SONY GARARA 2001",
+    "alias": "001314",
+    "group": "G",
+    "mrp": 2650,
+    "sale": 2550,
+    "purchase": 1766.666667,
+    "wholesale": 1987.5,
+    "stock": 0
+  },
+  {
+    "name": "Sony Garara Heavy",
+    "alias": "001315",
+    "group": "G",
+    "mrp": 2280,
+    "sale": 2050,
+    "purchase": 1520,
+    "wholesale": 1710,
+    "stock": 0
+  },
+  {
+    "name": "SONY GARARA READYMADE",
+    "alias": "001316",
+    "group": "G",
+    "mrp": 2557,
+    "sale": 1850,
+    "purchase": 1704.666667,
+    "wholesale": 1917.75,
+    "stock": 0
+  },
+  {
+    "name": "SONY GHARARA",
+    "alias": "001317",
+    "group": "G",
+    "mrp": 2602,
+    "sale": 2350,
+    "purchase": 1734.666667,
+    "wholesale": 1951.5,
+    "stock": 0
+  },
+  {
+    "name": "Sony Gown",
+    "alias": "001318",
+    "group": "G",
+    "mrp": 3600,
+    "sale": 3350,
+    "purchase": 2400,
+    "wholesale": 2700,
+    "stock": -9
+  },
+  {
+    "name": "SONY GUJRAT 306",
+    "alias": "0003173",
+    "group": "P",
+    "mrp": 2790,
+    "sale": 2000,
+    "purchase": 1860,
+    "wholesale": 1950,
+    "stock": 2
+  },
+  {
+    "name": "SONY HARI 51 PURSE",
+    "alias": "0002509",
+    "group": "P",
+    "mrp": 2992.5,
+    "sale": 2200,
+    "purchase": 1995,
+    "wholesale": 2090,
+    "stock": 3
+  },
+  {
+    "name": "Sony Heavy 1",
+    "alias": "001826",
+    "group": "G",
+    "mrp": 2887.5,
+    "sale": 2600,
+    "purchase": 1925,
+    "wholesale": 2165.625,
+    "stock": 0
+  },
+  {
+    "name": "Sony Heavy 2",
+    "alias": "001827",
+    "group": "T",
+    "mrp": 1717.5,
+    "sale": 1550,
+    "purchase": 1145,
+    "wholesale": 1288.125,
+    "stock": 0
+  },
+  {
+    "name": "Sony Heavy 3",
+    "alias": "001828",
+    "group": "T",
+    "mrp": 2940,
+    "sale": 1650,
+    "purchase": 1470,
+    "wholesale": 1550,
+    "stock": 1
+  },
+  {
+    "name": "Sony Heavy 4",
+    "alias": "001829",
+    "group": "G",
+    "mrp": 2415,
+    "sale": 2200,
+    "purchase": 1610,
+    "wholesale": 1811.25,
+    "stock": 0
+  },
+  {
+    "name": "Sony Heavy Red",
+    "alias": "002152",
+    "group": "T",
+    "mrp": 3247.5,
+    "sale": 2900,
+    "purchase": 2200,
+    "wholesale": 2435.625,
+    "stock": 0
+  },
+  {
+    "name": "Sony Heavy Sleeves",
+    "alias": "002150",
+    "group": "T",
+    "mrp": 2152.5,
+    "sale": 1800,
+    "purchase": 1435,
+    "wholesale": 1614.375,
+    "stock": 0
+  },
+  {
+    "name": "SONY HEER 1556",
+    "alias": "0002702",
+    "group": "P",
+    "mrp": 3210,
+    "sale": 2850,
+    "purchase": 2140,
+    "wholesale": 2250,
+    "stock": 0
+  },
+  {
+    "name": "SONY INDO WESTERN 1",
+    "alias": "0002639",
+    "group": "Paplon",
+    "mrp": 6187.5,
+    "sale": 5550,
+    "purchase": 4125,
+    "wholesale": 4800,
+    "stock": 2
+  },
+  {
+    "name": "SONY INDO WESTERN 2",
+    "alias": "0002640",
+    "group": "Paplon",
+    "mrp": 7050,
+    "sale": 6350,
+    "purchase": 4700,
+    "wholesale": 5250,
+    "stock": 2
+  },
+  {
+    "name": "SONY INDO WESTERN 3",
+    "alias": "0002641",
+    "group": "Paplon",
+    "mrp": 3937.5,
+    "sale": 3500,
+    "purchase": 2625,
+    "wholesale": 2850,
+    "stock": 0
+  },
+  {
+    "name": "Sony Jacket Cream",
+    "alias": "001770",
+    "group": "T",
+    "mrp": 1597,
+    "sale": 1400,
+    "purchase": 1064.666667,
+    "wholesale": 1197.75,
+    "stock": 0
+  },
+  {
+    "name": "SONY JACKET S93",
+    "alias": "0002701",
+    "group": "T",
+    "mrp": 2610,
+    "sale": 2350,
+    "purchase": 1740,
+    "wholesale": 1850,
+    "stock": 0
+  },
+  {
+    "name": "SONY JAM COTTON SUITE 1",
+    "alias": "001319",
+    "group": "S",
+    "mrp": 1250,
+    "sale": 950,
+    "purchase": 833.3333333,
+    "wholesale": 937.5,
+    "stock": -1
+  },
+  {
+    "name": "Sony Jiya 152",
+    "alias": "002269",
+    "group": "P",
+    "mrp": 3427.5,
+    "sale": 2550,
+    "purchase": 2285,
+    "wholesale": 2450,
+    "stock": 1
+  },
+  {
+    "name": "SONY JIYA 181",
+    "alias": "0002816",
+    "group": "P",
+    "mrp": 3022.5,
+    "sale": 2350,
+    "purchase": 2015,
+    "wholesale": 2200,
+    "stock": 0
+  },
+  {
+    "name": "SONY JIYA 9093 (WITH PURSE)",
+    "alias": "0002622",
+    "group": "P",
+    "mrp": 3382.5,
+    "sale": 2650,
+    "purchase": 2255,
+    "wholesale": 2355,
+    "stock": 0
+  },
+  {
+    "name": "Sony Jorjet Suit Heavy",
+    "alias": "001320",
+    "group": "S",
+    "mrp": 1808,
+    "sale": 1550,
+    "purchase": 1205.333333,
+    "wholesale": 1356,
+    "stock": 0
+  },
+  {
+    "name": "SONY K 1224",
+    "alias": "002182",
+    "group": "T",
+    "mrp": 2295,
+    "sale": 1700,
+    "purchase": 1435,
+    "wholesale": 1600,
+    "stock": 0
+  },
+  {
+    "name": "SONY K 1224 C",
+    "alias": "0002623",
+    "group": "T",
+    "mrp": 2085.75,
+    "sale": 1700,
+    "purchase": 1545,
+    "wholesale": 1640,
+    "stock": 0
+  },
+  {
+    "name": "SONY K 636",
+    "alias": "002183",
+    "group": "T",
+    "mrp": 1860,
+    "sale": 1650,
+    "purchase": 1240,
+    "wholesale": 1340,
+    "stock": 1
+  },
+  {
+    "name": "Sony kaju katri garara 1026",
+    "alias": "001321",
+    "group": "G",
+    "mrp": 2625,
+    "sale": 2450,
+    "purchase": 1750,
+    "wholesale": 1968.75,
+    "stock": 0
+  },
+  {
+    "name": "SONY KALI PLAZO",
+    "alias": "001322",
+    "group": "P",
+    "mrp": 2557,
+    "sale": 2300,
+    "purchase": 1704.666667,
+    "wholesale": 1917.75,
+    "stock": -2
+  },
+  {
+    "name": "SONY KOTI GARARA",
+    "alias": "001323",
+    "group": "G",
+    "mrp": 0,
+    "sale": 0,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": 0
+  },
+  {
+    "name": "Sony Light Star",
+    "alias": "001830",
+    "group": "T",
+    "mrp": 1710,
+    "sale": 1500,
+    "purchase": 1140,
+    "wholesale": 1282.5,
+    "stock": 0
+  },
+  {
+    "name": "Sony Neelkanth Plazo",
+    "alias": "002155",
+    "group": "P",
+    "mrp": 2992.5,
+    "sale": 2700,
+    "purchase": 1750,
+    "wholesale": 2400,
+    "stock": 0
+  },
+  {
+    "name": "SONY NET",
+    "alias": "001555",
+    "group": "P",
+    "mrp": 3232,
+    "sale": 2900,
+    "purchase": 2154.666667,
+    "wholesale": 2424,
+    "stock": 0
+  },
+  {
+    "name": "Sony Net 02",
+    "alias": "001831",
+    "group": "T",
+    "mrp": 2400,
+    "sale": 2150,
+    "purchase": 1600,
+    "wholesale": 1800,
+    "stock": 0
+  },
+  {
+    "name": "Sony Net Coding",
+    "alias": "001664",
+    "group": "P",
+    "mrp": 2917,
+    "sale": 2600,
+    "purchase": 1944.666667,
+    "wholesale": 2187.75,
+    "stock": 0
+  },
+  {
+    "name": "Sony Net Lacha Light Colour Chart",
+    "alias": "001324",
+    "group": "L",
+    "mrp": 3130,
+    "sale": 0,
+    "purchase": 2086.666667,
+    "wholesale": 2347.5,
+    "stock": 0
+  },
+  {
+    "name": "SONY PANEL WORK",
+    "alias": "001325",
+    "group": "G",
+    "mrp": 0,
+    "sale": 0,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": 0
+  },
+  {
+    "name": "Sony Pant",
+    "alias": "001326",
+    "group": "P",
+    "mrp": 2078,
+    "sale": 1870,
+    "purchase": 1385.333333,
+    "wholesale": 1558.5,
+    "stock": 0
+  },
+  {
+    "name": "Sony Pant Jorjet",
+    "alias": "001327",
+    "group": "P",
+    "mrp": 1658,
+    "sale": 1550,
+    "purchase": 1105.333333,
+    "wholesale": 1243.5,
+    "stock": 0
+  },
+  {
+    "name": "Sony Pant Jorjet Light Colour Chart",
+    "alias": "001328",
+    "group": "P",
+    "mrp": 2325,
+    "sale": 1950,
+    "purchase": 1550,
+    "wholesale": 1743.75,
+    "stock": 0
+  },
+  {
+    "name": "Sony Pant Trouser",
+    "alias": "001329",
+    "group": "T",
+    "mrp": 1850,
+    "sale": 1650,
+    "purchase": 1233.333333,
+    "wholesale": 1387.5,
+    "stock": 0
+  },
+  {
+    "name": "Sony peplum",
+    "alias": "001330",
+    "group": "P",
+    "mrp": 3235,
+    "sale": 3050,
+    "purchase": 2156.666667,
+    "wholesale": 2426.25,
+    "stock": 0
+  },
+  {
+    "name": "SONY PLAZO",
+    "alias": "001331",
+    "group": "P",
+    "mrp": 2850,
+    "sale": 2750,
+    "purchase": 1900,
+    "wholesale": 2137.5,
+    "stock": 0
+  },
+  {
+    "name": "SONY READY MADE 171",
+    "alias": "001332",
+    "group": "P",
+    "mrp": 1675,
+    "sale": 1500,
+    "purchase": 1116.666667,
+    "wholesale": 1256.25,
+    "stock": 0
+  },
+  {
+    "name": "Sony Readymade (7)",
+    "alias": "001633",
+    "group": "T",
+    "mrp": 1597,
+    "sale": 1450,
+    "purchase": 1064.666667,
+    "wholesale": 1197.75,
+    "stock": 0
+  },
+  {
+    "name": "SONY READYMADE 005",
+    "alias": "001333",
+    "group": "S",
+    "mrp": 1725,
+    "sale": 1350,
+    "purchase": 1150,
+    "wholesale": 1293.75,
+    "stock": 0
+  },
+  {
+    "name": "Sony Readymade 1011",
+    "alias": "002156",
+    "group": "G",
+    "mrp": 2722.5,
+    "sale": 2450,
+    "purchase": 1815,
+    "wholesale": 2178,
+    "stock": 1
+  },
+  {
+    "name": "SONY READYMADE 172",
+    "alias": "001334",
+    "group": "T",
+    "mrp": 1672,
+    "sale": 1350,
+    "purchase": 1114.666667,
+    "wholesale": 1254,
+    "stock": 0
+  },
+  {
+    "name": "SONY READYMADE 2681",
+    "alias": "001335",
+    "group": "T",
+    "mrp": 1642,
+    "sale": 1450,
+    "purchase": 1094.666667,
+    "wholesale": 1231.5,
+    "stock": 0
+  },
+  {
+    "name": "SONY READYMADE 2692",
+    "alias": "001336",
+    "group": "S",
+    "mrp": 1875,
+    "sale": 1700,
+    "purchase": 1250,
+    "wholesale": 1406.25,
+    "stock": 0
+  },
+  {
+    "name": "SONY READYMADE 525",
+    "alias": "001337",
+    "group": "T",
+    "mrp": 1875,
+    "sale": 1350,
+    "purchase": 1250,
+    "wholesale": 1406.25,
+    "stock": 0
+  },
+  {
+    "name": "SONY READYMADE 617",
+    "alias": "001338",
+    "group": "T",
+    "mrp": 0,
+    "sale": 1450,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": 0
+  },
+  {
+    "name": "Sony Readymade R104",
+    "alias": "001339",
+    "group": "S",
+    "mrp": 2130,
+    "sale": 1900,
+    "purchase": 1420,
+    "wholesale": 1597.5,
+    "stock": 0
+  },
+  {
+    "name": "Sony Readymade S-02_x_",
+    "alias": "001340",
+    "group": "S",
+    "mrp": 1915,
+    "sale": 1500,
+    "purchase": 1276.666667,
+    "wholesale": 1436.25,
+    "stock": 0
+  },
+  {
+    "name": "Sony Red 1343",
+    "alias": "002271",
+    "group": "G",
+    "mrp": 2992.5,
+    "sale": 2700,
+    "purchase": 1995,
+    "wholesale": 2250,
+    "stock": 3
+  },
+  {
+    "name": "SONY S 128",
+    "alias": "0003352",
+    "group": "T",
+    "mrp": 2310,
+    "sale": 1700,
+    "purchase": 1540,
+    "wholesale": 1650,
+    "stock": 4
+  },
+  {
+    "name": "Sony s 130",
+    "alias": "002272",
+    "group": "P",
+    "mrp": 2782.5,
+    "sale": 2500,
+    "purchase": 1855,
+    "wholesale": 2100,
+    "stock": 0
+  },
+  {
+    "name": "SONY S 165",
+    "alias": "002184",
+    "group": "T",
+    "mrp": 2107.5,
+    "sale": 1850,
+    "purchase": 1405,
+    "wholesale": 1505,
+    "stock": 1
+  },
+  {
+    "name": "SONY S 183",
+    "alias": "002185",
+    "group": "T",
+    "mrp": 1860,
+    "sale": 1650,
+    "purchase": 1240,
+    "wholesale": 1340,
+    "stock": 0
+  },
+  {
+    "name": "SONY S 30",
+    "alias": "002186",
+    "group": "T",
+    "mrp": 1875,
+    "sale": 1600,
+    "purchase": 1250,
+    "wholesale": 1350,
+    "stock": 1
+  },
+  {
+    "name": "SONY S 72",
+    "alias": "0002510",
+    "group": "T",
+    "mrp": 1935,
+    "sale": 1400,
+    "purchase": 1290,
+    "wholesale": 1380,
+    "stock": 0
+  },
+  {
+    "name": "SONY S 91",
+    "alias": "0002615",
+    "group": "T",
+    "mrp": 1965,
+    "sale": 1550,
+    "purchase": 1310,
+    "wholesale": 1450,
+    "stock": 2
+  },
+  {
+    "name": "SONY S70",
+    "alias": "0002592",
+    "group": "T",
+    "mrp": 1935,
+    "sale": 1550,
+    "purchase": 1290,
+    "wholesale": 1370,
+    "stock": 0
+  },
+  {
+    "name": "Sony Sharara",
+    "alias": "001771",
+    "group": "G",
+    "mrp": 2287,
+    "sale": 2050,
+    "purchase": 1524.67,
+    "wholesale": 1715.25,
+    "stock": 0
+  },
+  {
+    "name": "Sony Suit Jorjet",
+    "alias": "001341",
+    "group": "S",
+    "mrp": 1718,
+    "sale": 1400,
+    "purchase": 1145.333333,
+    "wholesale": 1288.5,
+    "stock": 0
+  },
+  {
+    "name": "Sony Suit Jorjet Heavy",
+    "alias": "001342",
+    "group": "S",
+    "mrp": 1718,
+    "sale": 1550,
+    "purchase": 1145.333333,
+    "wholesale": 1288.5,
+    "stock": 0
+  },
+  {
+    "name": "Sony Trouser Silver",
+    "alias": "001877",
+    "group": "T",
+    "mrp": 1912.5,
+    "sale": 1650,
+    "purchase": 1275,
+    "wholesale": 1434.375,
+    "stock": 0
+  },
+  {
+    "name": "Sony White",
+    "alias": "001772",
+    "group": "T",
+    "mrp": 2040,
+    "sale": 1800,
+    "purchase": 1360,
+    "wholesale": 1530,
+    "stock": 0
+  },
+  {
+    "name": "SONY Z GARARA",
+    "alias": "001343",
+    "group": "G",
+    "mrp": 2250,
+    "sale": 2030,
+    "purchase": 1500,
+    "wholesale": 1687.5,
+    "stock": 0
+  },
+  {
+    "name": "SP REDIMATE",
+    "alias": "0003278",
+    "group": "P",
+    "mrp": 1890,
+    "sale": 1450,
+    "purchase": 1260,
+    "wholesale": 1370,
+    "stock": 19
+  },
+  {
+    "name": "SPARI 0829 FARSHI SHALWAR",
+    "alias": "0003339",
+    "group": "P",
+    "mrp": 1912.5,
+    "sale": 1550,
+    "purchase": 1275,
+    "wholesale": 1400,
+    "stock": 8
+  },
+  {
+    "name": "Spari 1240D",
+    "alias": "001797",
+    "group": "K",
+    "mrp": 1695,
+    "sale": 1500,
+    "purchase": 1130,
+    "wholesale": 1271.25,
+    "stock": 0
+  },
+  {
+    "name": "SPARI 1621 FARSHI SHALWAR",
+    "alias": "0003340",
+    "group": "P",
+    "mrp": 1762.5,
+    "sale": 1400,
+    "purchase": 1175,
+    "wholesale": 1300,
+    "stock": 4
+  },
+  {
+    "name": "Spari 4148B",
+    "alias": "001798",
+    "group": "K",
+    "mrp": 1642.5,
+    "sale": 1450,
+    "purchase": 1095,
+    "wholesale": 1231.875,
+    "stock": 0
+  },
+  {
+    "name": "Spari 4213C",
+    "alias": "001799",
+    "group": "K",
+    "mrp": 1875,
+    "sale": 1700,
+    "purchase": 1250,
+    "wholesale": 1406.25,
+    "stock": 0
+  },
+  {
+    "name": "Spari 4277D",
+    "alias": "001800",
+    "group": "K",
+    "mrp": 1740,
+    "sale": 1550,
+    "purchase": 1160,
+    "wholesale": 1305,
+    "stock": 0
+  },
+  {
+    "name": "Spari 4278C",
+    "alias": "001801",
+    "group": "K",
+    "mrp": 1740,
+    "sale": 1550,
+    "purchase": 1160,
+    "wholesale": 1305,
+    "stock": 0
+  },
+  {
+    "name": "Spari 4321B",
+    "alias": "001802",
+    "group": "K",
+    "mrp": 1725,
+    "sale": 1550,
+    "purchase": 1150,
+    "wholesale": 1293.75,
+    "stock": 0
+  },
+  {
+    "name": "Spari 4334B",
+    "alias": "001803",
+    "group": "K",
+    "mrp": 1725,
+    "sale": 1550,
+    "purchase": 1150,
+    "wholesale": 1293.75,
+    "stock": 0
+  },
+  {
+    "name": "Spari 908A",
+    "alias": "001804",
+    "group": "K",
+    "mrp": 1642.5,
+    "sale": 1450,
+    "purchase": 1095,
+    "wholesale": 1231.875,
+    "stock": 0
+  },
+  {
+    "name": "Spari 937B",
+    "alias": "001805",
+    "group": "K",
+    "mrp": 1657.5,
+    "sale": 1500,
+    "purchase": 1105,
+    "wholesale": 1243.125,
+    "stock": 0
+  },
+  {
+    "name": "SPARKLE GEORGETTE",
+    "alias": "001347",
+    "group": "S",
+    "mrp": 450,
+    "sale": 400,
+    "purchase": 300,
+    "wholesale": 330,
+    "stock": 16
+  },
+  {
+    "name": "Spice Garara",
+    "alias": "001761",
+    "group": "G",
+    "mrp": 1612.5,
+    "sale": 1450,
+    "purchase": 1075,
+    "wholesale": 1209.375,
+    "stock": 0
+  },
+  {
+    "name": "SR 02 CRUNCHY",
+    "alias": "001978",
+    "group": "S",
+    "mrp": 2100,
+    "sale": 1900,
+    "purchase": 1400,
+    "wholesale": 1575,
+    "stock": 0
+  },
+  {
+    "name": "SRT Friends",
+    "alias": "001348",
+    "group": "S",
+    "mrp": 0,
+    "sale": 250,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": 0
+  },
+  {
+    "name": "SRT SATMOLA",
+    "alias": "001349",
+    "group": "S",
+    "mrp": 327,
+    "sale": 300,
+    "purchase": 218,
+    "wholesale": 260,
+    "stock": 107
+  },
+  {
+    "name": "SRT SUPERFAST",
+    "alias": "0002647",
+    "group": "S",
+    "mrp": 675,
+    "sale": 550,
+    "purchase": 450,
+    "wholesale": 485,
+    "stock": 2
+  },
+  {
+    "name": "Ss (suny suite) Fivestar",
+    "alias": "001822",
+    "group": "S",
+    "mrp": 870,
+    "sale": 800,
+    "purchase": 580,
+    "wholesale": 652.5,
+    "stock": 0
+  },
+  {
+    "name": "SS Binad jam",
+    "alias": "001350",
+    "group": "S",
+    "mrp": 800,
+    "sale": 700,
+    "purchase": 533.3333333,
+    "wholesale": 600,
+    "stock": 0
+  },
+  {
+    "name": "SS Geet",
+    "alias": "001351",
+    "group": "S",
+    "mrp": 800,
+    "sale": 700,
+    "purchase": 533.3333333,
+    "wholesale": 600,
+    "stock": 0
+  },
+  {
+    "name": "SS JAAM MIX biscuits",
+    "alias": "0002511",
+    "group": "CS",
+    "mrp": 495,
+    "sale": 500,
+    "purchase": 330,
+    "wholesale": 380,
+    "stock": 15
+  },
+  {
+    "name": "Ss Melody",
+    "alias": "001823",
+    "group": "S",
+    "mrp": 900,
+    "sale": 800,
+    "purchase": 600,
+    "wholesale": 675,
+    "stock": 0
+  },
+  {
+    "name": "SS Oreo",
+    "alias": "002032",
+    "group": "CS",
+    "mrp": 637.5,
+    "sale": 550,
+    "purchase": 425,
+    "wholesale": 478.125,
+    "stock": 0
+  },
+  {
+    "name": "SS Rajwadi",
+    "alias": "002131",
+    "group": "CS",
+    "mrp": 637.5,
+    "sale": 600,
+    "purchase": 425,
+    "wholesale": 478.12,
+    "stock": 2
+  },
+  {
+    "name": "SS Somyad",
+    "alias": "001352",
+    "group": "S",
+    "mrp": 800,
+    "sale": 700,
+    "purchase": 533.3333333,
+    "wholesale": 600,
+    "stock": 0
+  },
+  {
+    "name": "SSM Chameli",
+    "alias": "001634",
+    "group": "S",
+    "mrp": 472,
+    "sale": 400,
+    "purchase": 314.6666667,
+    "wholesale": 354,
+    "stock": 0
+  },
+  {
+    "name": "SSM GEORGETTE KIRAN",
+    "alias": "0002466",
+    "group": "G",
+    "mrp": 1627.5,
+    "sale": 1450,
+    "purchase": 1085,
+    "wholesale": 1150,
+    "stock": 3
+  },
+  {
+    "name": "SSM Jhumka",
+    "alias": "002148",
+    "group": "C",
+    "mrp": 652.5,
+    "sale": 600,
+    "purchase": 435,
+    "wholesale": 489.375,
+    "stock": 0
+  },
+  {
+    "name": "SSM KISMISH",
+    "alias": "0002465",
+    "group": "G",
+    "mrp": 1627.5,
+    "sale": 1450,
+    "purchase": 1085,
+    "wholesale": 1150,
+    "stock": 3
+  },
+  {
+    "name": "SSM Kitty party",
+    "alias": "001353",
+    "group": "S",
+    "mrp": 472,
+    "sale": 400,
+    "purchase": 314.6666667,
+    "wholesale": 354,
+    "stock": 0
+  },
+  {
+    "name": "SSM MEMORY",
+    "alias": "0002467",
+    "group": "G",
+    "mrp": 1627.5,
+    "sale": 1450,
+    "purchase": 1085,
+    "wholesale": 1150,
+    "stock": 0
+  },
+  {
+    "name": "SSM Mrf",
+    "alias": "001354",
+    "group": "S",
+    "mrp": 472,
+    "sale": 400,
+    "purchase": 314.6666667,
+    "wholesale": 354,
+    "stock": 0
+  },
+  {
+    "name": "SSM POUND",
+    "alias": "0002464",
+    "group": "T",
+    "mrp": 1627.5,
+    "sale": 1300,
+    "purchase": 1085,
+    "wholesale": 1200,
+    "stock": 6
+  },
+  {
+    "name": "SSM REDIMADE",
+    "alias": "0003224",
+    "group": "P",
+    "mrp": 1627.5,
+    "sale": 1300,
+    "purchase": 1085,
+    "wholesale": 1200,
+    "stock": 0
+  },
+  {
+    "name": "SSM SHEENA",
+    "alias": "0002468",
+    "group": "G",
+    "mrp": 1627.5,
+    "sale": 1450,
+    "purchase": 1085,
+    "wholesale": 1150,
+    "stock": 4
+  },
+  {
+    "name": "SSM Stachu",
+    "alias": "001355",
+    "group": "S",
+    "mrp": 472,
+    "sale": 400,
+    "purchase": 314.6666667,
+    "wholesale": 354,
+    "stock": 0
+  },
+  {
+    "name": "SSM ZEPTO & RAPIDO",
+    "alias": "0003132",
+    "group": "P",
+    "mrp": 1627.5,
+    "sale": 1300,
+    "purchase": 1085,
+    "wholesale": 1200,
+    "stock": 1
+  },
+  {
+    "name": "SST SURYAJYOTI",
+    "alias": "001357",
+    "group": "CC",
+    "mrp": 502.5,
+    "sale": 380,
+    "purchase": 340,
+    "wholesale": 355,
+    "stock": 278
+  },
+  {
+    "name": "SST zCTN SUITE",
+    "alias": "001356",
+    "group": "S",
+    "mrp": 850,
+    "sale": 750,
+    "purchase": 566.67,
+    "wholesale": 637.5,
+    "stock": 0
+  },
+  {
+    "name": "Star Georgette",
+    "alias": "001358",
+    "group": "S",
+    "mrp": 592,
+    "sale": 500,
+    "purchase": 394.6666667,
+    "wholesale": 444,
+    "stock": -1
+  },
+  {
+    "name": "Star W Zarkan",
+    "alias": "0002558",
+    "group": "S",
+    "mrp": 907.5,
+    "sale": 750,
+    "purchase": 605,
+    "wholesale": 650,
+    "stock": 0
+  },
+  {
+    "name": "SUITE",
+    "alias": "001359",
+    "group": "S",
+    "mrp": 0,
+    "sale": 0,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": -362
+  },
+  {
+    "name": "Suite Disha IPL",
+    "alias": "001360",
+    "group": "S",
+    "mrp": 595,
+    "sale": 550,
+    "purchase": 396.6666667,
+    "wholesale": 446.25,
+    "stock": 0
+  },
+  {
+    "name": "Suite Gf Babli",
+    "alias": "001361",
+    "group": "S",
+    "mrp": 570,
+    "sale": 500,
+    "purchase": 380,
+    "wholesale": 427.5,
+    "stock": 0
+  },
+  {
+    "name": "Suite Gf Rochak",
+    "alias": "001362",
+    "group": "S",
+    "mrp": 720,
+    "sale": 650,
+    "purchase": 480,
+    "wholesale": 540,
+    "stock": 0
+  },
+  {
+    "name": "Suite Gf Twelth Pass",
+    "alias": "001363",
+    "group": "S",
+    "mrp": 925,
+    "sale": 850,
+    "purchase": 616.6666667,
+    "wholesale": 693.75,
+    "stock": 0
+  },
+  {
+    "name": "Suite Gk Pichkari",
+    "alias": "001364",
+    "group": "S",
+    "mrp": 1030,
+    "sale": 900,
+    "purchase": 686.6666667,
+    "wholesale": 772.5,
+    "stock": 0
+  },
+  {
+    "name": "Suite Jf Jalebi Bai",
+    "alias": "001365",
+    "group": "S",
+    "mrp": 715,
+    "sale": 650,
+    "purchase": 476.6666667,
+    "wholesale": 536.25,
+    "stock": 0
+  },
+  {
+    "name": "Suite Jf Millennium",
+    "alias": "001366",
+    "group": "S",
+    "mrp": 675,
+    "sale": 600,
+    "purchase": 450,
+    "wholesale": 506.25,
+    "stock": 0
+  },
+  {
+    "name": "Suite KC Ancher",
+    "alias": "001367",
+    "group": "S",
+    "mrp": 985,
+    "sale": 950,
+    "purchase": 656.6666667,
+    "wholesale": 738.75,
+    "stock": 0
+  },
+  {
+    "name": "Suite KC Dhana Dhan",
+    "alias": "001368",
+    "group": "S",
+    "mrp": 555,
+    "sale": 500,
+    "purchase": 370,
+    "wholesale": 416.25,
+    "stock": 0
+  },
+  {
+    "name": "Suite KC Eva Garlic",
+    "alias": "001369",
+    "group": "S",
+    "mrp": 985,
+    "sale": 900,
+    "purchase": 656.6666667,
+    "wholesale": 738.75,
+    "stock": 0
+  },
+  {
+    "name": "Suite KC Eva Simon",
+    "alias": "001370",
+    "group": "S",
+    "mrp": 985,
+    "sale": 900,
+    "purchase": 656.6666667,
+    "wholesale": 738.75,
+    "stock": 0
+  },
+  {
+    "name": "Suite KC Eva Vanrtara",
+    "alias": "001371",
+    "group": "S",
+    "mrp": 985,
+    "sale": 900,
+    "purchase": 656.6666667,
+    "wholesale": 738.75,
+    "stock": 0
+  },
+  {
+    "name": "Suite KC Faabis",
+    "alias": "001372",
+    "group": "S",
+    "mrp": 3250,
+    "sale": 2550,
+    "purchase": 2166.666667,
+    "wholesale": 2437.5,
+    "stock": 0
+  },
+  {
+    "name": "Suite KC Imare",
+    "alias": "001373",
+    "group": "S",
+    "mrp": 985,
+    "sale": 900,
+    "purchase": 656.6666667,
+    "wholesale": 738.75,
+    "stock": 0
+  },
+  {
+    "name": "Suite KC Kashfa",
+    "alias": "001374",
+    "group": "S",
+    "mrp": 985,
+    "sale": 900,
+    "purchase": 656.6666667,
+    "wholesale": 738.75,
+    "stock": 0
+  },
+  {
+    "name": "Suite KC Yusra",
+    "alias": "001377",
+    "group": "S",
+    "mrp": 985,
+    "sale": 900,
+    "purchase": 656.6666667,
+    "wholesale": 738.75,
+    "stock": 0
+  },
+  {
+    "name": "Suite KC Zaafira",
+    "alias": "001378",
+    "group": "S",
+    "mrp": 985,
+    "sale": 900,
+    "purchase": 656.6666667,
+    "wholesale": 738.75,
+    "stock": 0
+  },
+  {
+    "name": "Suite Nazakat Firdous to Firdous",
+    "alias": "001379",
+    "group": "S",
+    "mrp": 735,
+    "sale": 650,
+    "purchase": 490,
+    "wholesale": 551.25,
+    "stock": 0
+  },
+  {
+    "name": "Suite Om Big Boss",
+    "alias": "001380",
+    "group": "S",
+    "mrp": 713,
+    "sale": 650,
+    "purchase": 475.3333333,
+    "wholesale": 534.75,
+    "stock": 0
+  },
+  {
+    "name": "Suite Om Lenskart",
+    "alias": "001381",
+    "group": "S",
+    "mrp": 700,
+    "sale": 650,
+    "purchase": 466.6666667,
+    "wholesale": 525,
+    "stock": 0
+  },
+  {
+    "name": "Suite Om Seltos",
+    "alias": "001382",
+    "group": "S",
+    "mrp": 810,
+    "sale": 750,
+    "purchase": 540,
+    "wholesale": 607.5,
+    "stock": 0
+  },
+  {
+    "name": "Suite Om Verna",
+    "alias": "001383",
+    "group": "S",
+    "mrp": 700,
+    "sale": 650,
+    "purchase": 466.6666667,
+    "wholesale": 525,
+    "stock": 0
+  },
+  {
+    "name": "Suite RR Guide",
+    "alias": "001384",
+    "group": "S",
+    "mrp": 505,
+    "sale": 450,
+    "purchase": 336.6666667,
+    "wholesale": 378.75,
+    "stock": 0
+  },
+  {
+    "name": "Suite RS Fendi",
+    "alias": "001762",
+    "group": "S",
+    "mrp": 1950,
+    "sale": 1750,
+    "purchase": 1300,
+    "wholesale": 1462.5,
+    "stock": 0
+  },
+  {
+    "name": "Suite SG Summer Choice",
+    "alias": "001385",
+    "group": "S",
+    "mrp": 805,
+    "sale": 750,
+    "purchase": 536.6666667,
+    "wholesale": 603.75,
+    "stock": 0
+  },
+  {
+    "name": "Suite SNT Anjali",
+    "alias": "001387",
+    "group": "S",
+    "mrp": 713,
+    "sale": 650,
+    "purchase": 475.3333333,
+    "wholesale": 534.75,
+    "stock": -1
+  },
+  {
+    "name": "Suite SNT Jasmine",
+    "alias": "001388",
+    "group": "S",
+    "mrp": 788,
+    "sale": 700,
+    "purchase": 525.3333333,
+    "wholesale": 591,
+    "stock": 0
+  },
+  {
+    "name": "Suite SNT Lemon",
+    "alias": "001389",
+    "group": "S",
+    "mrp": 788,
+    "sale": 700,
+    "purchase": 525.3333333,
+    "wholesale": 591,
+    "stock": 0
+  },
+  {
+    "name": "Suite SNT Madhubala",
+    "alias": "001390",
+    "group": "S",
+    "mrp": 788,
+    "sale": 700,
+    "purchase": 525.3333333,
+    "wholesale": 591,
+    "stock": 0
+  },
+  {
+    "name": "Suite SNT Neptune",
+    "alias": "001391",
+    "group": "S",
+    "mrp": 788,
+    "sale": 750,
+    "purchase": 525.3333333,
+    "wholesale": 591,
+    "stock": 0
+  },
+  {
+    "name": "Suite SNT Pinkey",
+    "alias": "001392",
+    "group": "S",
+    "mrp": 615,
+    "sale": 600,
+    "purchase": 410,
+    "wholesale": 461.25,
+    "stock": 0
+  },
+  {
+    "name": "Suite SNT Shakira",
+    "alias": "001393",
+    "group": "S",
+    "mrp": 615,
+    "sale": 600,
+    "purchase": 410,
+    "wholesale": 461.25,
+    "stock": 0
+  },
+  {
+    "name": "Suite SNT Star",
+    "alias": "001394",
+    "group": "S",
+    "mrp": 788,
+    "sale": 700,
+    "purchase": 525.3333333,
+    "wholesale": 591,
+    "stock": 0
+  },
+  {
+    "name": "Suite VC NDTV",
+    "alias": "001395",
+    "group": "S",
+    "mrp": 490,
+    "sale": 440,
+    "purchase": 326.6666667,
+    "wholesale": 367.5,
+    "stock": 0
+  },
+  {
+    "name": "Suite Wax Batik Bandni Rayon",
+    "alias": "001396",
+    "group": "S",
+    "mrp": 565,
+    "sale": 500,
+    "purchase": 376.6666667,
+    "wholesale": 423.75,
+    "stock": 0
+  },
+  {
+    "name": "Sultan",
+    "alias": "001397",
+    "group": "General",
+    "mrp": 60,
+    "sale": 50,
+    "purchase": 40,
+    "wholesale": 45,
+    "stock": 1506
+  },
+  {
+    "name": "Suman Pari Fab",
+    "alias": "001398",
+    "group": "S",
+    "mrp": 795,
+    "sale": 6550,
+    "purchase": 530,
+    "wholesale": 596.25,
+    "stock": 0
+  },
+  {
+    "name": "SUNNY SUIT 4192",
+    "alias": "0003299",
+    "group": "S",
+    "mrp": 532.5,
+    "sale": 500,
+    "purchase": 355,
+    "wholesale": 400,
+    "stock": 54
+  },
+  {
+    "name": "SUPER DUPER SVT",
+    "alias": "001399",
+    "group": "S",
+    "mrp": 458,
+    "sale": 400,
+    "purchase": 305.3333333,
+    "wholesale": 343.5,
+    "stock": 0
+  },
+  {
+    "name": "Suro ka saag",
+    "alias": "001400",
+    "group": "S",
+    "mrp": 750,
+    "sale": 650,
+    "purchase": 500,
+    "wholesale": 562.5,
+    "stock": 0
+  },
+  {
+    "name": "SV Royal Stag",
+    "alias": "001648",
+    "group": "S",
+    "mrp": 570,
+    "sale": 500,
+    "purchase": 380,
+    "wholesale": 427.5,
+    "stock": 0
+  },
+  {
+    "name": "SVT Amar Suhag",
+    "alias": "001401",
+    "group": "S",
+    "mrp": 765,
+    "sale": 650,
+    "purchase": 510,
+    "wholesale": 573.75,
+    "stock": 0
+  },
+  {
+    "name": "SVT Balma Garara",
+    "alias": "001402",
+    "group": "G",
+    "mrp": 895,
+    "sale": 650,
+    "purchase": 596.6666667,
+    "wholesale": 671.25,
+    "stock": 0
+  },
+  {
+    "name": "SVT BLACK SUITE",
+    "alias": "001403",
+    "group": "S",
+    "mrp": 0,
+    "sale": 0,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": 0
+  },
+  {
+    "name": "SVT BLACKMAIL",
+    "alias": "001404",
+    "group": "S",
+    "mrp": 635,
+    "sale": 500,
+    "purchase": 423.3333333,
+    "wholesale": 476.25,
+    "stock": 0
+  },
+  {
+    "name": "SVT Blockbuster",
+    "alias": "001405",
+    "group": "S",
+    "mrp": 555,
+    "sale": 500,
+    "purchase": 370,
+    "wholesale": 416.25,
+    "stock": 0
+  },
+  {
+    "name": "SVT Butter Milk",
+    "alias": "001406",
+    "group": "S",
+    "mrp": 715,
+    "sale": 600,
+    "purchase": 476.6666667,
+    "wholesale": 536.25,
+    "stock": 0
+  },
+  {
+    "name": "SVT Char Minar",
+    "alias": "001407",
+    "group": "S",
+    "mrp": 862,
+    "sale": 800,
+    "purchase": 574.6666667,
+    "wholesale": 646.5,
+    "stock": 0
+  },
+  {
+    "name": "SVT Charminar",
+    "alias": "001408",
+    "group": "S",
+    "mrp": 465,
+    "sale": 400,
+    "purchase": 310,
+    "wholesale": 348.75,
+    "stock": 0
+  },
+  {
+    "name": "SVT Diamond Star",
+    "alias": "001409",
+    "group": "S",
+    "mrp": 405,
+    "sale": 350,
+    "purchase": 270,
+    "wholesale": 303.75,
+    "stock": 0
+  },
+  {
+    "name": "SVT Doodh Malai",
+    "alias": "001410",
+    "group": "S",
+    "mrp": 800,
+    "sale": 700,
+    "purchase": 533.3333333,
+    "wholesale": 600,
+    "stock": 0
+  },
+  {
+    "name": "SVT Dream Girl",
+    "alias": "001411",
+    "group": "S",
+    "mrp": 940,
+    "sale": 850,
+    "purchase": 626.6666667,
+    "wholesale": 705,
+    "stock": 0
+  },
+  {
+    "name": "SVT FERRARI",
+    "alias": "001412",
+    "group": "S",
+    "mrp": 637,
+    "sale": 550,
+    "purchase": 424.6666667,
+    "wholesale": 477.75,
+    "stock": 0
+  },
+  {
+    "name": "SVT Fire Bolt",
+    "alias": "001413",
+    "group": "S",
+    "mrp": 428,
+    "sale": 370,
+    "purchase": 285.3333333,
+    "wholesale": 321,
+    "stock": 0
+  },
+  {
+    "name": "SVT Gopi",
+    "alias": "001414",
+    "group": "S",
+    "mrp": 790,
+    "sale": 650,
+    "purchase": 526.6666667,
+    "wholesale": 592.5,
+    "stock": 0
+  },
+  {
+    "name": "SVT Guddu Ki Darling",
+    "alias": "001415",
+    "group": "S",
+    "mrp": 870,
+    "sale": 780,
+    "purchase": 580,
+    "wholesale": 652.5,
+    "stock": 0
+  },
+  {
+    "name": "SVT Masakali",
+    "alias": "001416",
+    "group": "S",
+    "mrp": 435,
+    "sale": 400,
+    "purchase": 290,
+    "wholesale": 326.25,
+    "stock": 0
+  },
+  {
+    "name": "SVT PALKHI",
+    "alias": "001417",
+    "group": "CC",
+    "mrp": 300,
+    "sale": 250,
+    "purchase": 200,
+    "wholesale": 225,
+    "stock": 2
+  },
+  {
+    "name": "SVT PARIDHI",
+    "alias": "001418",
+    "group": "S",
+    "mrp": 307.5,
+    "sale": 250,
+    "purchase": 0,
+    "wholesale": 230,
+    "stock": 119
+  },
+  {
+    "name": "SVT Priyanka",
+    "alias": "001419",
+    "group": "S",
+    "mrp": 495,
+    "sale": 440,
+    "purchase": 330,
+    "wholesale": 371.25,
+    "stock": 0
+  },
+  {
+    "name": "SVT Queen",
+    "alias": "001420",
+    "group": "S",
+    "mrp": 593,
+    "sale": 500,
+    "purchase": 395.3333333,
+    "wholesale": 444.75,
+    "stock": 0
+  },
+  {
+    "name": "SVT Roop Ki Rani",
+    "alias": "001421",
+    "group": "S",
+    "mrp": 698,
+    "sale": 550,
+    "purchase": 465.3333333,
+    "wholesale": 523.5,
+    "stock": 0
+  },
+  {
+    "name": "SVT Royal Enfield",
+    "alias": "001422",
+    "group": "S",
+    "mrp": 578,
+    "sale": 500,
+    "purchase": 385.3333333,
+    "wholesale": 433.5,
+    "stock": 0
+  },
+  {
+    "name": "Svt Sapno Ki Rani",
+    "alias": "001423",
+    "group": "S",
+    "mrp": 685,
+    "sale": 600,
+    "purchase": 456.6666667,
+    "wholesale": 513.75,
+    "stock": 0
+  },
+  {
+    "name": "SVT Seltos",
+    "alias": "001694",
+    "group": "S",
+    "mrp": 727,
+    "sale": 500,
+    "purchase": 484.67,
+    "wholesale": 545.25,
+    "stock": 0
+  },
+  {
+    "name": "SVT Shararat",
+    "alias": "001424",
+    "group": "S",
+    "mrp": 698,
+    "sale": 550,
+    "purchase": 465.3333333,
+    "wholesale": 523.5,
+    "stock": 0
+  },
+  {
+    "name": "Svt Simran",
+    "alias": "001425",
+    "group": "S",
+    "mrp": 625,
+    "sale": 550,
+    "purchase": 416.6666667,
+    "wholesale": 468.75,
+    "stock": 0
+  },
+  {
+    "name": "Svt Sophia",
+    "alias": "001426",
+    "group": "S",
+    "mrp": 625,
+    "sale": 550,
+    "purchase": 416.6666667,
+    "wholesale": 468.75,
+    "stock": 0
+  },
+  {
+    "name": "SVT Star Shine",
+    "alias": "001427",
+    "group": "S",
+    "mrp": 720,
+    "sale": 600,
+    "purchase": 480,
+    "wholesale": 540,
+    "stock": 0
+  },
+  {
+    "name": "SVT Taj Mahal",
+    "alias": "001428",
+    "group": "G",
+    "mrp": 862,
+    "sale": 800,
+    "purchase": 574.6666667,
+    "wholesale": 646.5,
+    "stock": 0
+  },
+  {
+    "name": "SVT TROUSER",
+    "alias": "001429",
+    "group": "T",
+    "mrp": 900,
+    "sale": 800,
+    "purchase": 600,
+    "wholesale": 675,
+    "stock": 0
+  },
+  {
+    "name": "SWEETY MT",
+    "alias": "001430",
+    "group": "S",
+    "mrp": 623,
+    "sale": 550,
+    "purchase": 415.3333333,
+    "wholesale": 467.25,
+    "stock": 0
+  },
+  {
+    "name": "Sweety SNT",
+    "alias": "001431",
+    "group": "S",
+    "mrp": 615,
+    "sale": 550,
+    "purchase": 410,
+    "wholesale": 461.25,
+    "stock": 0
+  },
+  {
+    "name": "Swift GK",
+    "alias": "001432",
+    "group": "S",
+    "mrp": 878,
+    "sale": 750,
+    "purchase": 585.3333333,
+    "wholesale": 658.5,
+    "stock": 0
+  },
+  {
+    "name": "Syed Arshiyan",
+    "alias": "002153",
+    "group": "G",
+    "mrp": 480,
+    "sale": 400,
+    "purchase": 320,
+    "wholesale": 360,
+    "stock": 0
+  },
+  {
+    "name": "Tansen Garara SF",
+    "alias": "001434",
+    "group": "G",
+    "mrp": 1120,
+    "sale": 950,
+    "purchase": 746.6666667,
+    "wholesale": 840,
+    "stock": 0
+  },
+  {
+    "name": "TATA CD",
+    "alias": "0002889",
+    "group": "CD",
+    "mrp": 495,
+    "sale": 450,
+    "purchase": 330,
+    "wholesale": 355,
+    "stock": 3
+  },
+  {
+    "name": "Tata GK",
+    "alias": "001435",
+    "group": "S",
+    "mrp": 955,
+    "sale": 850,
+    "purchase": 636.6666667,
+    "wholesale": 716.25,
+    "stock": 0
+  },
+  {
+    "name": "Thar GK",
+    "alias": "001436",
+    "group": "S",
+    "mrp": 840,
+    "sale": 700,
+    "purchase": 560,
+    "wholesale": 630,
+    "stock": 0
+  },
+  {
+    "name": "Tikli Dupatta",
+    "alias": "002159",
+    "group": "Dupatta",
+    "mrp": 136,
+    "sale": 130,
+    "purchase": 90,
+    "wholesale": 120,
+    "stock": 51
+  },
+  {
+    "name": "Toofan",
+    "alias": "001437",
+    "group": "S",
+    "mrp": 950,
+    "sale": 850,
+    "purchase": 633.3333333,
+    "wholesale": 712.5,
+    "stock": 0
+  },
+  {
+    "name": "Towel Medium",
+    "alias": "001438",
+    "group": "General",
+    "mrp": 46.5,
+    "sale": 40,
+    "purchase": 31,
+    "wholesale": 34.88,
+    "stock": 71
+  },
+  {
+    "name": "Towel Small",
+    "alias": "001170",
+    "group": "General",
+    "mrp": 30,
+    "sale": 25,
+    "purchase": 18,
+    "wholesale": 20,
+    "stock": 664
+  },
+  {
+    "name": "Towel Winner",
+    "alias": "002346",
+    "group": "General",
+    "mrp": 37.5,
+    "sale": 35,
+    "purchase": 25,
+    "wholesale": 30,
+    "stock": 693
+  },
+  {
+    "name": "Trouser",
+    "alias": "001439",
+    "group": "T",
+    "mrp": 0,
+    "sale": 0,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": -3
+  },
+  {
+    "name": "Tufan",
+    "alias": "001440",
+    "group": "S",
+    "mrp": 640,
+    "sale": 550,
+    "purchase": 426.6666667,
+    "wholesale": 480,
+    "stock": 0
+  },
+  {
+    "name": "Turkish Towel",
+    "alias": "001441",
+    "group": "S",
+    "mrp": 87,
+    "sale": 80,
+    "purchase": 58,
+    "wholesale": 65.25,
+    "stock": -2
+  },
+  {
+    "name": "Tycoon KC",
+    "alias": "001442",
+    "group": "S",
+    "mrp": 795,
+    "sale": 720,
+    "purchase": 530,
+    "wholesale": 596.25,
+    "stock": 0
+  },
+  {
+    "name": "Usha GF",
+    "alias": "001443",
+    "group": "S",
+    "mrp": 660,
+    "sale": 550,
+    "purchase": 440,
+    "wholesale": 495,
+    "stock": 0
+  },
+  {
+    "name": "Utsav Punjabi Kudi",
+    "alias": "002017",
+    "group": "S",
+    "mrp": 285,
+    "sale": 250,
+    "purchase": 190,
+    "wholesale": 213.75,
+    "stock": 0
+  },
+  {
+    "name": "Valentine SNT",
+    "alias": "001444",
+    "group": "S",
+    "mrp": 612,
+    "sale": 550,
+    "purchase": 408,
+    "wholesale": 459,
+    "stock": 0
+  },
+  {
+    "name": "Vani Prema",
+    "alias": "001445",
+    "group": "S",
+    "mrp": 660,
+    "sale": 550,
+    "purchase": 440,
+    "wholesale": 495,
+    "stock": 0
+  },
+  {
+    "name": "Vani Print",
+    "alias": "001446",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Vani Sanjoli",
+    "alias": "0003187",
+    "group": "S",
+    "mrp": 810,
+    "sale": 640,
+    "purchase": 540,
+    "wholesale": 580,
+    "stock": 4
+  },
+  {
+    "name": "Vani Studio Jam Cotton Garara Sharara",
+    "alias": "001447",
+    "group": "G",
+    "mrp": 863,
+    "sale": 750,
+    "purchase": 575.3333333,
+    "wholesale": 647.25,
+    "stock": 0
+  },
+  {
+    "name": "Vani Surya",
+    "alias": "001448",
+    "group": "S",
+    "mrp": 653,
+    "sale": 550,
+    "purchase": 435.3333333,
+    "wholesale": 489.75,
+    "stock": 0
+  },
+  {
+    "name": "VARI JASMINE VS",
+    "alias": "0003144",
+    "group": "S",
+    "mrp": 607.5,
+    "sale": 500,
+    "purchase": 405,
+    "wholesale": 435,
+    "stock": 13
+  },
+  {
+    "name": "Varnika Aadarshini",
+    "alias": "001449",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Devgan",
+    "alias": "001450",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Inaya",
+    "alias": "001451",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Innova",
+    "alias": "001452",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Jagrati",
+    "alias": "001453",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Jaipriya",
+    "alias": "001454",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Madhukan",
+    "alias": "001455",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Manohar",
+    "alias": "001456",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Mishri",
+    "alias": "001457",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Misiri",
+    "alias": "001458",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Monalisa",
+    "alias": "001459",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Nirali",
+    "alias": "001460",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Perfect Look",
+    "alias": "001461",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Ramsha",
+    "alias": "001462",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Sahiba",
+    "alias": "001463",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Satluj",
+    "alias": "001464",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Shalu",
+    "alias": "001465",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "Varnika Surjan",
+    "alias": "001466",
+    "group": "S",
+    "mrp": 775,
+    "sale": 650,
+    "purchase": 516.6666667,
+    "wholesale": 581.25,
+    "stock": 0
+  },
+  {
+    "name": "VAS Aaina",
+    "alias": "001815",
+    "group": "S",
+    "mrp": 615,
+    "sale": 550,
+    "purchase": 410,
+    "wholesale": 461.25,
+    "stock": 0
+  },
+  {
+    "name": "Vas Aakruti",
+    "alias": "0002663",
+    "group": "CD",
+    "mrp": 622.5,
+    "sale": 500,
+    "purchase": 415,
+    "wholesale": 445,
+    "stock": 2
+  },
+  {
+    "name": "Vas Avni",
+    "alias": "002018",
+    "group": "CD",
+    "mrp": 637.5,
+    "sale": 550,
+    "purchase": 425,
+    "wholesale": 478.12,
+    "stock": 5
+  },
+  {
+    "name": "VAS BAHAR",
+    "alias": "001467",
+    "group": "S",
+    "mrp": 660,
+    "sale": 600,
+    "purchase": 440,
+    "wholesale": 495,
+    "stock": 0
+  },
+  {
+    "name": "VAS Dil Se",
+    "alias": "002019",
+    "group": "S",
+    "mrp": 735,
+    "sale": 650,
+    "purchase": 490,
+    "wholesale": 551.25,
+    "stock": 0
+  },
+  {
+    "name": "VAS Firoti",
+    "alias": "001816",
+    "group": "S",
+    "mrp": 847.5,
+    "sale": 750,
+    "purchase": 565,
+    "wholesale": 635.625,
+    "stock": 1
+  },
+  {
+    "name": "VAS Marry me",
+    "alias": "001817",
+    "group": "S",
+    "mrp": 862.5,
+    "sale": 750,
+    "purchase": 575,
+    "wholesale": 646.875,
+    "stock": 8
+  },
+  {
+    "name": "VAS Mirzapur",
+    "alias": "002020",
+    "group": "S",
+    "mrp": 825,
+    "sale": 750,
+    "purchase": 550,
+    "wholesale": 618.75,
+    "stock": 0
+  },
+  {
+    "name": "VAS Red Bul",
+    "alias": "001956",
+    "group": "G",
+    "mrp": 1417.5,
+    "sale": 1300,
+    "purchase": 945,
+    "wholesale": 1063.125,
+    "stock": 0
+  },
+  {
+    "name": "VAS Ruchika",
+    "alias": "002021",
+    "group": "S",
+    "mrp": 712.5,
+    "sale": 650,
+    "purchase": 475,
+    "wholesale": 534.375,
+    "stock": -1
+  },
+  {
+    "name": "VAS Saloni",
+    "alias": "001818",
+    "group": "S",
+    "mrp": 660,
+    "sale": 600,
+    "purchase": 440,
+    "wholesale": 495,
+    "stock": 0
+  },
+  {
+    "name": "VAS SILKY",
+    "alias": "001468",
+    "group": "S",
+    "mrp": 510,
+    "sale": 450,
+    "purchase": 340,
+    "wholesale": 382.5,
+    "stock": 0
+  },
+  {
+    "name": "Vas Upasana",
+    "alias": "002022",
+    "group": "CD",
+    "mrp": 615,
+    "sale": 550,
+    "purchase": 410,
+    "wholesale": 435,
+    "stock": 7
+  },
+  {
+    "name": "VC Ajanta",
+    "alias": "001941",
+    "group": "CD",
+    "mrp": 480,
+    "sale": 400,
+    "purchase": 320,
+    "wholesale": 360,
+    "stock": 1
+  },
+  {
+    "name": "Vc big boss",
+    "alias": "002065",
+    "group": "CD",
+    "mrp": 480,
+    "sale": 400,
+    "purchase": 320,
+    "wholesale": 360,
+    "stock": 7
+  },
+  {
+    "name": "VC ENJOY",
+    "alias": "0002393",
+    "group": "S",
+    "mrp": 532.5,
+    "sale": 480,
+    "purchase": 355,
+    "wholesale": 380,
+    "stock": -6
+  },
+  {
+    "name": "Vc Garima",
+    "alias": "002239",
+    "group": "CS",
+    "mrp": 352.5,
+    "sale": 300,
+    "purchase": 235,
+    "wholesale": 260,
+    "stock": 0
+  },
+  {
+    "name": "Vc Gulkad",
+    "alias": "002132",
+    "group": "C",
+    "mrp": 600,
+    "sale": 550,
+    "purchase": 400,
+    "wholesale": 450,
+    "stock": 0
+  },
+  {
+    "name": "VC Heropanthi",
+    "alias": "001469",
+    "group": "S",
+    "mrp": 415,
+    "sale": 350,
+    "purchase": 276.6666667,
+    "wholesale": 311.25,
+    "stock": 0
+  },
+  {
+    "name": "VC IPHONE",
+    "alias": "001470",
+    "group": "S",
+    "mrp": 607,
+    "sale": 550,
+    "purchase": 404.6666667,
+    "wholesale": 455.25,
+    "stock": 0
+  },
+  {
+    "name": "VC Jhalak",
+    "alias": "001471",
+    "group": "S",
+    "mrp": 607,
+    "sale": 550,
+    "purchase": 404.6666667,
+    "wholesale": 455.25,
+    "stock": 0
+  },
+  {
+    "name": "VC JIYA",
+    "alias": "001472",
+    "group": "S",
+    "mrp": 495,
+    "sale": 450,
+    "purchase": 330,
+    "wholesale": 371.25,
+    "stock": 0
+  },
+  {
+    "name": "VC Kanya Kumari",
+    "alias": "001695",
+    "group": "S",
+    "mrp": 465,
+    "sale": 400,
+    "purchase": 310,
+    "wholesale": 348.75,
+    "stock": -2
+  },
+  {
+    "name": "Vc Katil",
+    "alias": "002133",
+    "group": "S",
+    "mrp": 570,
+    "sale": 500,
+    "purchase": 380,
+    "wholesale": 427.5,
+    "stock": 0
+  },
+  {
+    "name": "Vc Lower circuit",
+    "alias": "002066",
+    "group": "CD",
+    "mrp": 492,
+    "sale": 400,
+    "purchase": 328,
+    "wholesale": 360,
+    "stock": -21
+  },
+  {
+    "name": "VC Mahek",
+    "alias": "001942",
+    "group": "S",
+    "mrp": 480,
+    "sale": 400,
+    "purchase": 320,
+    "wholesale": 360,
+    "stock": 4
+  },
+  {
+    "name": "Vc Mango",
+    "alias": "002134",
+    "group": "C",
+    "mrp": 600,
+    "sale": 550,
+    "purchase": 400,
+    "wholesale": 450,
+    "stock": 0
+  },
+  {
+    "name": "Vc Mehbooba",
+    "alias": "002135",
+    "group": "S",
+    "mrp": 652.5,
+    "sale": 600,
+    "purchase": 435,
+    "wholesale": 489.38,
+    "stock": -1
+  },
+  {
+    "name": "VC Mentos",
+    "alias": "001763",
+    "group": "S",
+    "mrp": 484.5,
+    "sale": 450,
+    "purchase": 323,
+    "wholesale": 363.375,
+    "stock": 24
+  },
+  {
+    "name": "VC Mumtaj",
+    "alias": "001473",
+    "group": "S",
+    "mrp": 675,
+    "sale": 550,
+    "purchase": 450,
+    "wholesale": 506.25,
+    "stock": 0
+  },
+  {
+    "name": "VC NDTV",
+    "alias": "001474",
+    "group": "S",
+    "mrp": 480,
+    "sale": 400,
+    "purchase": 433.33,
+    "wholesale": 345,
+    "stock": 2
+  },
+  {
+    "name": "VC PAKISTANI WHITE HOUSE",
+    "alias": "001475",
+    "group": "S",
+    "mrp": 500,
+    "sale": 500,
+    "purchase": 333.3333333,
+    "wholesale": 375,
+    "stock": 0
+  },
+  {
+    "name": "Vc Panipuri",
+    "alias": "000811",
+    "group": "S",
+    "mrp": 480,
+    "sale": 400,
+    "purchase": 320,
+    "wholesale": 345,
+    "stock": 3
+  },
+  {
+    "name": "VC Panparag",
+    "alias": "001477",
+    "group": "S",
+    "mrp": 457,
+    "sale": 400,
+    "purchase": 304.67,
+    "wholesale": 342.75,
+    "stock": 15
+  },
+  {
+    "name": "Vc Playstore",
+    "alias": "001476",
+    "group": "S",
+    "mrp": 480,
+    "sale": 400,
+    "purchase": 320,
+    "wholesale": 345,
+    "stock": 0
+  },
+  {
+    "name": "VC Ragbi",
+    "alias": "001478",
+    "group": "S",
+    "mrp": 540,
+    "sale": 500,
+    "purchase": 360,
+    "wholesale": 405,
+    "stock": 0
+  },
+  {
+    "name": "VC SAMARIYA",
+    "alias": "0002540",
+    "group": "CD",
+    "mrp": 555,
+    "sale": 500,
+    "purchase": 370,
+    "wholesale": 395,
+    "stock": 0
+  },
+  {
+    "name": "Vc Sarbati",
+    "alias": "002136",
+    "group": "C",
+    "mrp": 600,
+    "sale": 550,
+    "purchase": 400,
+    "wholesale": 450,
+    "stock": 0
+  },
+  {
+    "name": "VC SENORITA",
+    "alias": "0003196",
+    "group": "CS",
+    "mrp": 585,
+    "sale": 470,
+    "purchase": 390,
+    "wholesale": 450,
+    "stock": 7
+  },
+  {
+    "name": "VC SONIKUDI",
+    "alias": "001479",
+    "group": "S",
+    "mrp": 420,
+    "sale": 350,
+    "purchase": 280,
+    "wholesale": 315,
+    "stock": 0
+  },
+  {
+    "name": "VC SUNFLOWER",
+    "alias": "0002489",
+    "group": "CD",
+    "mrp": 412.5,
+    "sale": 390,
+    "purchase": 275,
+    "wholesale": 300,
+    "stock": 0
+  },
+  {
+    "name": "Vc Super Six",
+    "alias": "001920",
+    "group": "S",
+    "mrp": 480,
+    "sale": 400,
+    "purchase": 320,
+    "wholesale": 345,
+    "stock": 1
+  },
+  {
+    "name": "VC UPDATE",
+    "alias": "001573",
+    "group": "S",
+    "mrp": 487,
+    "sale": 450,
+    "purchase": 324.6666667,
+    "wholesale": 365.25,
+    "stock": 0
+  },
+  {
+    "name": "VC Variety",
+    "alias": "001480",
+    "group": "S",
+    "mrp": 502,
+    "sale": 450,
+    "purchase": 334.6666667,
+    "wholesale": 376.5,
+    "stock": 0
+  },
+  {
+    "name": "VC WHITE HOUSE",
+    "alias": "001481",
+    "group": "S",
+    "mrp": 540,
+    "sale": 500,
+    "purchase": 360,
+    "wholesale": 405,
+    "stock": 0
+  },
+  {
+    "name": "VC WWE",
+    "alias": "001482",
+    "group": "S",
+    "mrp": 0,
+    "sale": 550,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": 0
+  },
+  {
+    "name": "VELVET D GOWN",
+    "alias": "001483",
+    "group": "G",
+    "mrp": 1650,
+    "sale": 1450,
+    "purchase": 1100,
+    "wholesale": 1237.5,
+    "stock": 0
+  },
+  {
+    "name": "VF BEST CHOICE",
+    "alias": "0002971",
+    "group": "P",
+    "mrp": 2062.5,
+    "sale": 1750,
+    "purchase": 1375,
+    "wholesale": 1500,
+    "stock": 1
+  },
+  {
+    "name": "VF BLACK COFFE",
+    "alias": "0003255",
+    "group": "P",
+    "mrp": 2257.5,
+    "sale": 1750,
+    "purchase": 1505,
+    "wholesale": 1610,
+    "stock": 4
+  },
+  {
+    "name": "VF CHOCOBAR",
+    "alias": "0003356",
+    "group": "P",
+    "mrp": 2100,
+    "sale": 1680,
+    "purchase": 1400,
+    "wholesale": 1500,
+    "stock": 4
+  },
+  {
+    "name": "VF HIGH CLASS",
+    "alias": "0003266",
+    "group": "P",
+    "mrp": 2835,
+    "sale": 2200,
+    "purchase": 1890,
+    "wholesale": 2000,
+    "stock": 4
+  },
+  {
+    "name": "VF HIT KIT",
+    "alias": "0003346",
+    "group": "P",
+    "mrp": 0,
+    "sale": 0,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": -2
+  },
+  {
+    "name": "VF HIT WICKET",
+    "alias": "0003357",
+    "group": "P",
+    "mrp": 2137.5,
+    "sale": 1700,
+    "purchase": 1425,
+    "wholesale": 1525,
+    "stock": 12
+  },
+  {
+    "name": "VF I LOVE YOU",
+    "alias": "0002973",
+    "group": "P",
+    "mrp": 2062.5,
+    "sale": 1650,
+    "purchase": 1375,
+    "wholesale": 1500,
+    "stock": -3
+  },
+  {
+    "name": "Vf Jackpot",
+    "alias": "001975",
+    "group": "T",
+    "mrp": 1740,
+    "sale": 1550,
+    "purchase": 1160,
+    "wholesale": 1305,
+    "stock": 0
+  },
+  {
+    "name": "VF KOMAL",
+    "alias": "0003235",
+    "group": "P",
+    "mrp": 1897.5,
+    "sale": 1500,
+    "purchase": 1265,
+    "wholesale": 1400,
+    "stock": 6
+  },
+  {
+    "name": "VF LAST TIME",
+    "alias": "0002970",
+    "group": "T",
+    "mrp": 2047.5,
+    "sale": 1450,
+    "purchase": 1265,
+    "wholesale": 1370,
+    "stock": 15
+  },
+  {
+    "name": "VF MAHARANI",
+    "alias": "0002968",
+    "group": "P",
+    "mrp": 2145,
+    "sale": 1650,
+    "purchase": 1425,
+    "wholesale": 1520,
+    "stock": 7
+  },
+  {
+    "name": "VF MOH MAYA",
+    "alias": "0002969",
+    "group": "P",
+    "mrp": 2200,
+    "sale": 1650,
+    "purchase": 1345,
+    "wholesale": 1450,
+    "stock": 12
+  },
+  {
+    "name": "VF Pani Puri",
+    "alias": "0003238",
+    "group": "P",
+    "mrp": 2145,
+    "sale": 1600,
+    "purchase": 1430,
+    "wholesale": 1520,
+    "stock": 7
+  },
+  {
+    "name": "VF SILLY SILLY",
+    "alias": "0002608",
+    "group": "CD",
+    "mrp": 637.5,
+    "sale": 550,
+    "purchase": 425,
+    "wholesale": 445,
+    "stock": 4
+  },
+  {
+    "name": "VF SURPRICE",
+    "alias": "0002972",
+    "group": "P",
+    "mrp": 2137.5,
+    "sale": 1800,
+    "purchase": 1425,
+    "wholesale": 1550,
+    "stock": 1
+  },
+  {
+    "name": "VIC GITANJALI",
+    "alias": "0002719",
+    "group": "CS",
+    "mrp": 375,
+    "sale": 340,
+    "purchase": 250,
+    "wholesale": 285,
+    "stock": 4
+  },
+  {
+    "name": "VIC GOL MOL",
+    "alias": "0002717",
+    "group": "CS",
+    "mrp": 352.5,
+    "sale": 300,
+    "purchase": 235,
+    "wholesale": 250,
+    "stock": 0
+  },
+  {
+    "name": "VIC GOLDY",
+    "alias": "0002726",
+    "group": "CS",
+    "mrp": 430.5,
+    "sale": 390,
+    "purchase": 287,
+    "wholesale": 315,
+    "stock": 2
+  },
+  {
+    "name": "VIC JHUMKA",
+    "alias": "0002727",
+    "group": "CS",
+    "mrp": 442.5,
+    "sale": 400,
+    "purchase": 295,
+    "wholesale": 335,
+    "stock": 0
+  },
+  {
+    "name": "VIC LIPSTIC",
+    "alias": "0002725",
+    "group": "CS",
+    "mrp": 442.5,
+    "sale": 400,
+    "purchase": 295,
+    "wholesale": 340,
+    "stock": 4
+  },
+  {
+    "name": "VIC MANJU",
+    "alias": "0002720",
+    "group": "CS",
+    "mrp": 375,
+    "sale": 350,
+    "purchase": 250,
+    "wholesale": 285,
+    "stock": 0
+  },
+  {
+    "name": "VIC MARGI",
+    "alias": "0002722",
+    "group": "CS",
+    "mrp": 375,
+    "sale": 350,
+    "purchase": 250,
+    "wholesale": 285,
+    "stock": 1
+  },
+  {
+    "name": "VIC NATASHA",
+    "alias": "0002716",
+    "group": "CS",
+    "mrp": 382.5,
+    "sale": 350,
+    "purchase": 255,
+    "wholesale": 285,
+    "stock": -7
+  },
+  {
+    "name": "VIC RIVA",
+    "alias": "0002721",
+    "group": "CS",
+    "mrp": 375,
+    "sale": 350,
+    "purchase": 250,
+    "wholesale": 285,
+    "stock": 4
+  },
+  {
+    "name": "VIC RUPA",
+    "alias": "0002723",
+    "group": "CS",
+    "mrp": 352.5,
+    "sale": 300,
+    "purchase": 235,
+    "wholesale": 265,
+    "stock": -4
+  },
+  {
+    "name": "VIC SUPRIYA",
+    "alias": "0002724",
+    "group": "CS",
+    "mrp": 435,
+    "sale": 400,
+    "purchase": 290,
+    "wholesale": 335,
+    "stock": 4
+  },
+  {
+    "name": "Vimal Fortuner",
+    "alias": "002299",
+    "group": "Gents",
+    "mrp": 391.5,
+    "sale": 350,
+    "purchase": 261,
+    "wholesale": 295,
+    "stock": 59
+  },
+  {
+    "name": "Vimal Olive",
+    "alias": "002246",
+    "group": "Gents",
+    "mrp": 255,
+    "sale": 250,
+    "purchase": 170,
+    "wholesale": 225,
+    "stock": 2
+  },
+  {
+    "name": "VIP",
+    "alias": "001484",
+    "group": "S",
+    "mrp": 117,
+    "sale": 100,
+    "purchase": 78,
+    "wholesale": 87.75,
+    "stock": -12
+  },
+  {
+    "name": "Vistara KC",
+    "alias": "001485",
+    "group": "S",
+    "mrp": 1778,
+    "sale": 1600,
+    "purchase": 1185.333333,
+    "wholesale": 1333.5,
+    "stock": 0
+  },
+  {
+    "name": "VS Indu",
+    "alias": "001486",
+    "group": "S",
+    "mrp": 690,
+    "sale": 600,
+    "purchase": 460,
+    "wholesale": 517.5,
+    "stock": 0
+  },
+  {
+    "name": "VS Monisha",
+    "alias": "001487",
+    "group": "S",
+    "mrp": 690,
+    "sale": 600,
+    "purchase": 460,
+    "wholesale": 517.5,
+    "stock": 0
+  },
+  {
+    "name": "VS ORGENZA",
+    "alias": "001488",
+    "group": "G",
+    "mrp": 850,
+    "sale": 750,
+    "purchase": 566.6666667,
+    "wholesale": 637.5,
+    "stock": 0
+  },
+  {
+    "name": "VS Varnika",
+    "alias": "001489",
+    "group": "S",
+    "mrp": 690,
+    "sale": 600,
+    "purchase": 460,
+    "wholesale": 517.5,
+    "stock": 0
+  },
+  {
+    "name": "VS Varnita",
+    "alias": "001490",
+    "group": "S",
+    "mrp": 690,
+    "sale": 600,
+    "purchase": 460,
+    "wholesale": 517.5,
+    "stock": 0
+  },
+  {
+    "name": "VT Anokhi",
+    "alias": "001491",
+    "group": "S",
+    "mrp": 1028,
+    "sale": 850,
+    "purchase": 685.3333333,
+    "wholesale": 771,
+    "stock": 0
+  },
+  {
+    "name": "VT Drasti Organza",
+    "alias": "001492",
+    "group": "S",
+    "mrp": 510,
+    "sale": 440,
+    "purchase": 340,
+    "wholesale": 382.5,
+    "stock": 0
+  },
+  {
+    "name": "VT Harshita",
+    "alias": "001764",
+    "group": "S",
+    "mrp": 1230,
+    "sale": 850,
+    "purchase": 820,
+    "wholesale": 922.5,
+    "stock": 8
+  },
+  {
+    "name": "VT Missile",
+    "alias": "001493",
+    "group": "S",
+    "mrp": 495,
+    "sale": 450,
+    "purchase": 330,
+    "wholesale": 371.25,
+    "stock": 0
+  },
+  {
+    "name": "VT Sallar",
+    "alias": "001494",
+    "group": "S",
+    "mrp": 938,
+    "sale": 800,
+    "purchase": 625.3333333,
+    "wholesale": 703.5,
+    "stock": 0
+  },
+  {
+    "name": "VT Sunrise",
+    "alias": "001943",
+    "group": "S",
+    "mrp": 975,
+    "sale": 850,
+    "purchase": 650,
+    "wholesale": 731.25,
+    "stock": -3
+  },
+  {
+    "name": "VV Eid Mubarak",
+    "alias": "002240",
+    "group": "S",
+    "mrp": 727.5,
+    "sale": 650,
+    "purchase": 485,
+    "wholesale": 515,
+    "stock": 0
+  },
+  {
+    "name": "VV VIMMA",
+    "alias": "0002903",
+    "group": "CC",
+    "mrp": 480,
+    "sale": 370,
+    "purchase": 320,
+    "wholesale": 340,
+    "stock": 13
+  },
+  {
+    "name": "Watermelon SNT",
+    "alias": "001495",
+    "group": "S",
+    "mrp": 795,
+    "sale": 750,
+    "purchase": 530,
+    "wholesale": 596.25,
+    "stock": 0
+  },
+  {
+    "name": "Welcome Aaina",
+    "alias": "002023",
+    "group": "S",
+    "mrp": 802.5,
+    "sale": 700,
+    "purchase": 535,
+    "wholesale": 601.875,
+    "stock": -2
+  },
+  {
+    "name": "Welcome Ajgar",
+    "alias": "001944",
+    "group": "S",
+    "mrp": 750,
+    "sale": 650,
+    "purchase": 500,
+    "wholesale": 562.5,
+    "stock": 0
+  },
+  {
+    "name": "WELCOME BEGAM JAAN",
+    "alias": "002257",
+    "group": "S",
+    "mrp": 727.5,
+    "sale": 650,
+    "purchase": 485,
+    "wholesale": 505,
+    "stock": -3
+  },
+  {
+    "name": "Welcome Begumjaan",
+    "alias": "002149",
+    "group": "S",
+    "mrp": 802.5,
+    "sale": 700,
+    "purchase": 535,
+    "wholesale": 601.875,
+    "stock": 3
+  },
+  {
+    "name": "WELCOME BILLO RANI",
+    "alias": "0003147",
+    "group": "S",
+    "mrp": 735,
+    "sale": 590,
+    "purchase": 490,
+    "wholesale": 530,
+    "stock": 8
+  },
+  {
+    "name": "WELCOME CHANDANI",
+    "alias": "0003336",
+    "group": "S",
+    "mrp": 637.5,
+    "sale": 550,
+    "purchase": 425,
+    "wholesale": 480,
+    "stock": 8
+  },
+  {
+    "name": "WELCOME CHANDNI",
+    "alias": "0003297",
+    "group": "S",
+    "mrp": 0,
+    "sale": 0,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": -4
+  },
+  {
+    "name": "WELCOME CHHMAK CHALLO",
+    "alias": "0003145",
+    "group": "S",
+    "mrp": 735,
+    "sale": 590,
+    "purchase": 490,
+    "wholesale": 535,
+    "stock": -1
+  },
+  {
+    "name": "Welcome Dhoom Dhadaka",
+    "alias": "002024",
+    "group": "S",
+    "mrp": 817.5,
+    "sale": 700,
+    "purchase": 545,
+    "wholesale": 613.125,
+    "stock": 8
+  },
+  {
+    "name": "Welcome Do Pati",
+    "alias": "001778",
+    "group": "S",
+    "mrp": 810,
+    "sale": 700,
+    "purchase": 540,
+    "wholesale": 607.5,
+    "stock": 0
+  },
+  {
+    "name": "Welcome Dream Girl",
+    "alias": "001878",
+    "group": "S",
+    "mrp": 862.5,
+    "sale": 750,
+    "purchase": 575,
+    "wholesale": 646.875,
+    "stock": 8
+  },
+  {
+    "name": "Welcome Dull Sentun",
+    "alias": "002137",
+    "group": "S",
+    "mrp": 855,
+    "sale": 750,
+    "purchase": 570,
+    "wholesale": 641.25,
+    "stock": 4
+  },
+  {
+    "name": "WELCOME FULWARI",
+    "alias": "0003335",
+    "group": "S",
+    "mrp": 637.5,
+    "sale": 550,
+    "purchase": 425,
+    "wholesale": 480,
+    "stock": 8
+  },
+  {
+    "name": "Welcome Ganga Jamuna",
+    "alias": "001879",
+    "group": "S",
+    "mrp": 817.5,
+    "sale": 700,
+    "purchase": 545,
+    "wholesale": 613.125,
+    "stock": 4
+  },
+  {
+    "name": "Welcome Gulabo",
+    "alias": "002097",
+    "group": "S",
+    "mrp": 660,
+    "sale": 600,
+    "purchase": 440,
+    "wholesale": 495,
+    "stock": 10
+  },
+  {
+    "name": "Welcome Gulaboo",
+    "alias": "001945",
+    "group": "S",
+    "mrp": 772.5,
+    "sale": 700,
+    "purchase": 515,
+    "wholesale": 579.375,
+    "stock": -5
+  },
+  {
+    "name": "Welcome Gulshan",
+    "alias": "002138",
+    "group": "S",
+    "mrp": 855,
+    "sale": 750,
+    "purchase": 570,
+    "wholesale": 641.25,
+    "stock": 0
+  },
+  {
+    "name": "Welcome Hanny Banny",
+    "alias": "002025",
+    "group": "S",
+    "mrp": 810,
+    "sale": 700,
+    "purchase": 540,
+    "wholesale": 607.5,
+    "stock": 8
+  },
+  {
+    "name": "Welcome Hany Bany",
+    "alias": "001946",
+    "group": "S",
+    "mrp": 817.5,
+    "sale": 700,
+    "purchase": 545,
+    "wholesale": 613.125,
+    "stock": 4
+  },
+  {
+    "name": "Welcome Hello Baby",
+    "alias": "001947",
+    "group": "S",
+    "mrp": 832.5,
+    "sale": 650,
+    "purchase": 555,
+    "wholesale": 624.38,
+    "stock": 8
+  },
+  {
+    "name": "WELCOME IMLI",
+    "alias": "0003202",
+    "group": "S",
+    "mrp": 727.5,
+    "sale": 580,
+    "purchase": 485,
+    "wholesale": 515,
+    "stock": 5
+  },
+  {
+    "name": "WELCOME JALWA",
+    "alias": "0003146",
+    "group": "S",
+    "mrp": 780,
+    "sale": 620,
+    "purchase": 520,
+    "wholesale": 550,
+    "stock": 1
+  },
+  {
+    "name": "Welcome Kachi Keri",
+    "alias": "0003201",
+    "group": "S",
+    "mrp": 750,
+    "sale": 600,
+    "purchase": 490,
+    "wholesale": 540,
+    "stock": 3
+  },
+  {
+    "name": "Welcome Khajoor",
+    "alias": "001880",
+    "group": "S",
+    "mrp": 817.5,
+    "sale": 700,
+    "purchase": 545,
+    "wholesale": 613.125,
+    "stock": -1
+  },
+  {
+    "name": "Welcome Khajur",
+    "alias": "001779",
+    "group": "S",
+    "mrp": 810,
+    "sale": 700,
+    "purchase": 540,
+    "wholesale": 607.5,
+    "stock": 13
+  },
+  {
+    "name": "WELCOME KULSUM",
+    "alias": "0003334",
+    "group": "S",
+    "mrp": 637.5,
+    "sale": 550,
+    "purchase": 425,
+    "wholesale": 480,
+    "stock": 8
+  },
+  {
+    "name": "Welcome Lotus",
+    "alias": "001780",
+    "group": "S",
+    "mrp": 832.5,
+    "sale": 750,
+    "purchase": 555,
+    "wholesale": 624.375,
+    "stock": -1
+  },
+  {
+    "name": "WELCOME LOVELY",
+    "alias": "0003338",
+    "group": "S",
+    "mrp": 892.5,
+    "sale": 700,
+    "purchase": 595,
+    "wholesale": 635,
+    "stock": 7
+  },
+  {
+    "name": "WELCOME MANISHA",
+    "alias": "0003067",
+    "group": "S",
+    "mrp": 1260,
+    "sale": 1000,
+    "purchase": 840,
+    "wholesale": 950,
+    "stock": 0
+  },
+  {
+    "name": "WELCOME MASTMALAI",
+    "alias": "001781",
+    "group": "S",
+    "mrp": 727.5,
+    "sale": 650,
+    "purchase": 485,
+    "wholesale": 505,
+    "stock": 0
+  },
+  {
+    "name": "WELCOME MONSOON",
+    "alias": "0003199",
+    "group": "S",
+    "mrp": 675,
+    "sale": 540,
+    "purchase": 445,
+    "wholesale": 490,
+    "stock": 8
+  },
+  {
+    "name": "WELCOME MUSKAN",
+    "alias": "0003333",
+    "group": "S",
+    "mrp": 637.5,
+    "sale": 550,
+    "purchase": 425,
+    "wholesale": 480,
+    "stock": 6
+  },
+  {
+    "name": "Welcome New Gulaboo",
+    "alias": "002139",
+    "group": "S",
+    "mrp": 660,
+    "sale": 600,
+    "purchase": 440,
+    "wholesale": 495,
+    "stock": 0
+  },
+  {
+    "name": "Welcome Pardesi",
+    "alias": "001782",
+    "group": "S",
+    "mrp": 817.5,
+    "sale": 700,
+    "purchase": 545,
+    "wholesale": 613.125,
+    "stock": 15
+  },
+  {
+    "name": "Welcome Rangoli",
+    "alias": "001949",
+    "group": "S",
+    "mrp": 787.5,
+    "sale": 700,
+    "purchase": 525,
+    "wholesale": 590.625,
+    "stock": -3
+  },
+  {
+    "name": "Welcome Sada Sukhi",
+    "alias": "002067",
+    "group": "S",
+    "mrp": 825,
+    "sale": 750,
+    "purchase": 550,
+    "wholesale": 618.75,
+    "stock": 1
+  },
+  {
+    "name": "Welcome Sadabahar",
+    "alias": "001783",
+    "group": "S",
+    "mrp": 817.5,
+    "sale": 650,
+    "purchase": 545,
+    "wholesale": 613.12,
+    "stock": 7
+  },
+  {
+    "name": "WELCOME SAHIBA",
+    "alias": "0003337",
+    "group": "S",
+    "mrp": 637.5,
+    "sale": 550,
+    "purchase": 425,
+    "wholesale": 480,
+    "stock": 12
+  },
+  {
+    "name": "WELCOME SAJNI",
+    "alias": "0003191",
+    "group": "S",
+    "mrp": 675,
+    "sale": 540,
+    "purchase": 445,
+    "wholesale": 485,
+    "stock": 14
+  },
+  {
+    "name": "Welcome Sandaar",
+    "alias": "001784",
+    "group": "S",
+    "mrp": 825,
+    "sale": 750,
+    "purchase": 550,
+    "wholesale": 618.75,
+    "stock": -6
+  },
+  {
+    "name": "Welcome Shandar",
+    "alias": "001950",
+    "group": "S",
+    "mrp": 825,
+    "sale": 750,
+    "purchase": 550,
+    "wholesale": 618.75,
+    "stock": 10
+  },
+  {
+    "name": "Welcome She girl",
+    "alias": "002068",
+    "group": "S",
+    "mrp": 780,
+    "sale": 700,
+    "purchase": 520,
+    "wholesale": 585,
+    "stock": 1
+  },
+  {
+    "name": "WELCOME SILVER",
+    "alias": "0003200",
+    "group": "S",
+    "mrp": 787.5,
+    "sale": 630,
+    "purchase": 525,
+    "wholesale": 550,
+    "stock": 4
+  },
+  {
+    "name": "Welcome Sonachandi",
+    "alias": "0003217",
+    "group": "S",
+    "mrp": 727.5,
+    "sale": 590,
+    "purchase": 485,
+    "wholesale": 510,
+    "stock": 4
+  },
+  {
+    "name": "Welcome Sonikudi",
+    "alias": "001951",
+    "group": "S",
+    "mrp": 817.5,
+    "sale": 700,
+    "purchase": 545,
+    "wholesale": 613.125,
+    "stock": 4
+  },
+  {
+    "name": "Welcome Sonpari",
+    "alias": "001825",
+    "group": "S",
+    "mrp": 832.5,
+    "sale": 750,
+    "purchase": 555,
+    "wholesale": 624.375,
+    "stock": 0
+  },
+  {
+    "name": "Welcome Teekhi Mirch",
+    "alias": "001785",
+    "group": "S",
+    "mrp": 810,
+    "sale": 700,
+    "purchase": 540,
+    "wholesale": 607.5,
+    "stock": 12
+  },
+  {
+    "name": "Welcome Tikhi Mirchi",
+    "alias": "001952",
+    "group": "S",
+    "mrp": 817.5,
+    "sale": 700,
+    "purchase": 545,
+    "wholesale": 613.125,
+    "stock": -12
+  },
+  {
+    "name": "WHITE 1 ZARKAN",
+    "alias": "0002450",
+    "group": "CS",
+    "mrp": 660,
+    "sale": 600,
+    "purchase": 440,
+    "wholesale": 500,
+    "stock": 3
+  },
+  {
+    "name": "WHITE 2 TAI",
+    "alias": "0002451",
+    "group": "CS",
+    "mrp": 630,
+    "sale": 550,
+    "purchase": 420,
+    "wholesale": 450,
+    "stock": 13
+  },
+  {
+    "name": "WHITE 3 LAKHNAVI",
+    "alias": "0002452",
+    "group": "CS",
+    "mrp": 645,
+    "sale": 580,
+    "purchase": 430,
+    "wholesale": 480,
+    "stock": 4
+  },
+  {
+    "name": "WHITE 4 PRINT GALA",
+    "alias": "0002453",
+    "group": "CS",
+    "mrp": 667.5,
+    "sale": 400,
+    "purchase": 445,
+    "wholesale": 500,
+    "stock": 4
+  },
+  {
+    "name": "WHITE 5 PRINT GALA",
+    "alias": "0002454",
+    "group": "S",
+    "mrp": 667.5,
+    "sale": 600,
+    "purchase": 445,
+    "wholesale": 500,
+    "stock": 4
+  },
+  {
+    "name": "WHITE CHICKEN",
+    "alias": "002258",
+    "group": "CS",
+    "mrp": 772.5,
+    "sale": 700,
+    "purchase": 515,
+    "wholesale": 545,
+    "stock": 0
+  },
+  {
+    "name": "White Pari",
+    "alias": "001957",
+    "group": "S",
+    "mrp": 697.5,
+    "sale": 600,
+    "purchase": 465,
+    "wholesale": 523.125,
+    "stock": 0
+  },
+  {
+    "name": "White Star",
+    "alias": "001635",
+    "group": "S",
+    "mrp": 562,
+    "sale": 500,
+    "purchase": 374.6666667,
+    "wholesale": 421.5,
+    "stock": 0
+  },
+  {
+    "name": "Yash Cotton Dupatta",
+    "alias": "001894",
+    "group": "S",
+    "mrp": 547.5,
+    "sale": 500,
+    "purchase": 365,
+    "wholesale": 410.625,
+    "stock": 10
+  },
+  {
+    "name": "YC Chaya",
+    "alias": "001958",
+    "group": "S",
+    "mrp": 919.5,
+    "sale": 800,
+    "purchase": 613,
+    "wholesale": 689.625,
+    "stock": 0
+  },
+  {
+    "name": "YC March Ending",
+    "alias": "001959",
+    "group": "S",
+    "mrp": 919.5,
+    "sale": 800,
+    "purchase": 613,
+    "wholesale": 689.625,
+    "stock": 1
+  },
+  {
+    "name": "YC Nafisa",
+    "alias": "001960",
+    "group": "S",
+    "mrp": 919.5,
+    "sale": 800,
+    "purchase": 613,
+    "wholesale": 689.625,
+    "stock": 0
+  },
+  {
+    "name": "YC(Yashika Creation) Nimbu Soda",
+    "alias": "001961",
+    "group": "S",
+    "mrp": 919.5,
+    "sale": 800,
+    "purchase": 613,
+    "wholesale": 689.625,
+    "stock": 0
+  },
+  {
+    "name": "Yellow Gumnam",
+    "alias": "001496",
+    "group": "S",
+    "mrp": 345,
+    "sale": 300,
+    "purchase": 230,
+    "wholesale": 258.75,
+    "stock": 0
+  },
+  {
+    "name": "YELLOW SUITE",
+    "alias": "001497",
+    "group": "S",
+    "mrp": 0,
+    "sale": 0,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": 0
+  },
+  {
+    "name": "YF Akangsha",
+    "alias": "001895",
+    "group": "S",
+    "mrp": 547.5,
+    "sale": 500,
+    "purchase": 365,
+    "wholesale": 410.625,
+    "stock": 0
+  },
+  {
+    "name": "YF Bislerry",
+    "alias": "002069",
+    "group": "CS",
+    "mrp": 600,
+    "sale": 550,
+    "purchase": 400,
+    "wholesale": 450,
+    "stock": 1
+  },
+  {
+    "name": "YF Citizen",
+    "alias": "001896",
+    "group": "S",
+    "mrp": 547.5,
+    "sale": 500,
+    "purchase": 365,
+    "wholesale": 410.625,
+    "stock": 0
+  },
+  {
+    "name": "YF Delhi",
+    "alias": "001897",
+    "group": "S",
+    "mrp": 547.5,
+    "sale": 500,
+    "purchase": 365,
+    "wholesale": 410.625,
+    "stock": 0
+  },
+  {
+    "name": "YF Fashion Store",
+    "alias": "001898",
+    "group": "S",
+    "mrp": 547.5,
+    "sale": 500,
+    "purchase": 365,
+    "wholesale": 410.625,
+    "stock": 1
+  },
+  {
+    "name": "YF jeevan Dhara",
+    "alias": "002070",
+    "group": "CS",
+    "mrp": 600,
+    "sale": 550,
+    "purchase": 400,
+    "wholesale": 450,
+    "stock": -3
+  },
+  {
+    "name": "YF Mango Raas",
+    "alias": "002071",
+    "group": "CS",
+    "mrp": 600,
+    "sale": 550,
+    "purchase": 400,
+    "wholesale": 450,
+    "stock": -1
+  },
+  {
+    "name": "YF Neem Rose",
+    "alias": "001899",
+    "group": "S",
+    "mrp": 547.5,
+    "sale": 500,
+    "purchase": 365,
+    "wholesale": 410.625,
+    "stock": 0
+  },
+  {
+    "name": "YF Prem Palki",
+    "alias": "001900",
+    "group": "S",
+    "mrp": 547.5,
+    "sale": 500,
+    "purchase": 365,
+    "wholesale": 410.625,
+    "stock": 0
+  },
+  {
+    "name": "YF Saffron",
+    "alias": "002072",
+    "group": "CD",
+    "mrp": 600,
+    "sale": 550,
+    "purchase": 400,
+    "wholesale": 450,
+    "stock": 3
+  },
+  {
+    "name": "YF Safron",
+    "alias": "001901",
+    "group": "S",
+    "mrp": 547.5,
+    "sale": 500,
+    "purchase": 365,
+    "wholesale": 410.625,
+    "stock": 0
+  },
+  {
+    "name": "YF Sang Dil",
+    "alias": "001902",
+    "group": "S",
+    "mrp": 547.5,
+    "sale": 500,
+    "purchase": 365,
+    "wholesale": 410.625,
+    "stock": 3
+  },
+  {
+    "name": "YF Sarvana",
+    "alias": "002073",
+    "group": "CS",
+    "mrp": 600,
+    "sale": 550,
+    "purchase": 400,
+    "wholesale": 450,
+    "stock": 1
+  },
+  {
+    "name": "YF sharbat",
+    "alias": "002074",
+    "group": "CS",
+    "mrp": 600,
+    "sale": 550,
+    "purchase": 400,
+    "wholesale": 450,
+    "stock": 0
+  },
+  {
+    "name": "YF Sunaina",
+    "alias": "001903",
+    "group": "S",
+    "mrp": 547.5,
+    "sale": 500,
+    "purchase": 365,
+    "wholesale": 410.625,
+    "stock": 1
+  },
+  {
+    "name": "YF Trishika",
+    "alias": "001904",
+    "group": "S",
+    "mrp": 547.5,
+    "sale": 500,
+    "purchase": 365,
+    "wholesale": 410.625,
+    "stock": 0
+  },
+  {
+    "name": "YF Varsha Devi",
+    "alias": "001905",
+    "group": "S",
+    "mrp": 547.5,
+    "sale": 500,
+    "purchase": 365,
+    "wholesale": 410.625,
+    "stock": -12
+  },
+  {
+    "name": "YF Wonder girl",
+    "alias": "002075",
+    "group": "CD",
+    "mrp": 600,
+    "sale": 550,
+    "purchase": 400,
+    "wholesale": 450,
+    "stock": 3
+  },
+  {
+    "name": "Zara Aheri Suit",
+    "alias": "002187",
+    "group": "CC",
+    "mrp": 292.5,
+    "sale": 250,
+    "purchase": 195,
+    "wholesale": 225,
+    "stock": 52
+  },
+  {
+    "name": "ZARA+MAHROSH+BLACK",
+    "alias": "0003150",
+    "group": "CC",
+    "mrp": 510,
+    "sale": 400,
+    "purchase": 340,
+    "wholesale": 365,
+    "stock": 49
+  },
+  {
+    "name": "Zari Pashmina",
+    "alias": "002157",
+    "group": "General",
+    "mrp": 45,
+    "sale": 35,
+    "purchase": 26,
+    "wholesale": 30,
+    "stock": 491
+  },
+  {
+    "name": "Zorro Eva GF",
+    "alias": "001498",
+    "group": "S",
+    "mrp": 1170,
+    "sale": 950,
+    "purchase": 780,
+    "wholesale": 877.5,
+    "stock": 0
   }
 ]
