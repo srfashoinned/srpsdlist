@@ -29,19 +29,6 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #logo:active{opacity:.7}
 #hdr-right{margin-left:auto;display:flex;gap:8px;align-items:center}
 #badge{font-size:11px;color:var(--muted);background:var(--surf);border:1px solid var(--bord);padding:2px 8px;border-radius:20px;font-variant-numeric:tabular-nums}
-
-/* ── REFRESH BUTTON ── */
-#refresh-btn{
-  width:34px;height:34px;flex-shrink:0;border-radius:9px;
-  background:var(--surf);border:1.5px solid var(--bord);
-  color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;
-  -webkit-tap-highlight-color:transparent;transition:border-color .15s,color .15s;
-}
-#refresh-btn:active{opacity:.7}
-#refresh-btn.spinning svg{animation:spin .7s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-#refresh-btn:hover{border-color:var(--gold);color:var(--gold)}
-
 #admin-btn{font-size:12px;font-weight:700;background:transparent;color:var(--gold);border:1.5px solid var(--gold);padding:5px 12px;border-radius:7px;cursor:pointer;font-family:inherit}
 #admin-btn.on{background:var(--gold);color:#000}
 
@@ -72,72 +59,6 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 }
 .chip.on{background:var(--gold);border-color:var(--gold);color:#000}
 
-/* ── STOCK FILTER CHIPS ── */
-#stock-row{
-  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;
-}
-#stock-row::-webkit-scrollbar{display:none}
-.stock-chip{
-  white-space:nowrap;font-size:12px;font-weight:600;
-  padding:4px 12px;border-radius:20px;
-  border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);
-  cursor:pointer;flex-shrink:0;font-family:inherit;
-  -webkit-tap-highlight-color:transparent;transition:all .15s;
-}
-.stock-chip[data-stock="all"].on{background:var(--gold);border-color:var(--gold);color:#000}
-.stock-chip[data-stock="in"].on{background:rgba(34,197,94,0.18);border-color:var(--green);color:var(--green)}
-.stock-chip[data-stock="low"].on{background:rgba(245,197,66,0.18);border-color:var(--gold);color:var(--gold)}
-.stock-chip[data-stock="out"].on{background:rgba(248,113,113,0.18);border-color:var(--red);color:var(--red)}
-
-/* ── BRAND MODAL ── */
-#brand-modal-bg{
-  position:fixed;inset:0;z-index:180;background:rgba(0,0,0,0.75);
-  backdrop-filter:blur(4px);
-  display:none;align-items:flex-end;justify-content:center;
-}
-#brand-modal-bg.show{display:flex}
-#brand-modal{
-  background:var(--card);border:1px solid var(--bord);
-  border-radius:20px 20px 0 0;
-  width:100%;max-width:520px;
-  max-height:75vh;display:flex;flex-direction:column;
-  transform:translateY(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);
-}
-#brand-modal-bg.show #brand-modal{transform:translateY(0)}
-#brand-modal-hdr{
-  padding:16px 16px 10px;border-bottom:1px solid var(--bord);
-  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
-}
-#brand-modal-title{font-size:15px;font-weight:800;color:var(--txt)}
-#brand-modal-close{
-  background:var(--surf);border:1px solid var(--bord);color:var(--muted);
-  width:28px;height:28px;border-radius:50%;font-size:13px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;font-family:inherit;
-}
-#brand-search-wrap{padding:10px 16px 6px;flex-shrink:0}
-#brand-search{
-  width:100%;background:var(--surf);border:1.5px solid var(--bord);
-  border-radius:8px;padding:8px 12px;font-size:14px;color:var(--txt);
-  outline:none;font-family:inherit;
-}
-#brand-search:focus{border-color:var(--blue)}
-#brand-search::placeholder{color:var(--muted)}
-#brand-list{overflow-y:auto;padding:6px 10px 20px;flex:1}
-.brand-item{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 10px;border-radius:10px;cursor:pointer;
-  font-size:14px;font-weight:600;color:var(--txt);
-  border-bottom:1px solid var(--bord);
-  -webkit-tap-highlight-color:transparent;letter-spacing:.4px;
-}
-.brand-item:last-child{border-bottom:none}
-.brand-item:active{background:var(--surf)}
-.brand-item.selected{color:var(--blue);font-weight:700}
-.brand-item .brand-count{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
-.brand-item.selected .brand-count{color:rgba(96,165,250,0.6)}
-.brand-tick{color:var(--blue);font-size:14px;margin-left:8px;opacity:0}
-.brand-item.selected .brand-tick{opacity:1}
-
 /* ── GROUP PICKER BUTTON ── */
 #grp-btn{
   display:flex;align-items:center;gap:8px;
@@ -151,22 +72,6 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #grp-btn .grp-arrow{margin-left:auto;font-size:11px;opacity:.5}
 #grp-btn .grp-tag{
   background:var(--gold);color:#000;font-size:10px;font-weight:700;
-  padding:2px 7px;border-radius:20px;letter-spacing:.3px;
-}
-
-/* ── BRAND PICKER BUTTON ── */
-#brand-btn{
-  display:flex;align-items:center;gap:8px;
-  background:var(--surf);border:1.5px solid var(--bord);
-  border-radius:10px;padding:8px 14px;cursor:pointer;
-  font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);
-  width:100%;text-align:left;transition:border-color .15s;
-}
-#brand-btn:active{background:#222}
-#brand-btn.active{border-color:var(--blue);color:var(--blue)}
-#brand-btn .brand-arrow{margin-left:auto;font-size:11px;opacity:.5}
-#brand-btn .brand-tag{
-  background:var(--blue);color:#000;font-size:10px;font-weight:700;
   padding:2px 7px;border-radius:20px;letter-spacing:.3px;
 }
 
@@ -247,11 +152,16 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #spacer{width:1px;pointer-events:none}
 #stage{position:absolute;top:0;left:0;right:0}
 
-/* ── CARD ── */
+/* ── CARD ──
+   Cards are absolute-positioned by virtual scroll.
+   padding on stage prevents edge clipping.
+   No margin-bottom needed — gap handled by ROW_H constant.
+*/
 .c{
   position:absolute;left:14px;right:14px;
   background:var(--card);border:1px solid var(--bord);
-  border-radius:12px;padding:16px;cursor:pointer;
+  border-radius:12px;padding:12px;cursor:pointer;
+  /* NO transform, NO animation — pure paint speed */
 }
 .c.exp{border-color:rgba(245,197,66,0.3)}
 .c-name{font-size:17px;font-weight:700;line-height:1.15;color:var(--txt)}
@@ -352,6 +262,96 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   color:var(--gold);padding:4px 0 3px;
   border-bottom:1px solid rgba(245,197,66,0.2);
 }
+
+/* ── PRICE SELECTOR inside expanded card ── */
+.price-sel{display:flex;gap:6px;margin-top:10px;flex-wrap:wrap}
+.ps-btn{
+  flex:1;min-width:80px;padding:7px 8px;border-radius:8px;font-size:12px;font-weight:700;
+  border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);
+  cursor:pointer;font-family:inherit;text-align:center;
+  -webkit-tap-highlight-color:transparent;transition:all .15s;
+}
+.ps-btn.sale-sel{ border-color:var(--green);color:var(--green);background:rgba(34,197,94,0.1) }
+.ps-btn.wholesale-sel{ border-color:var(--blue);color:var(--blue);background:rgba(96,165,250,0.1) }
+.ps-btn.manual-sel{ border-color:var(--gold);color:var(--gold);background:rgba(245,197,66,0.1) }
+.calc-row{margin-top:8px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.calc-in{
+  width:72px;background:var(--surf);border:1.5px solid var(--bord);
+  border-radius:8px;padding:7px 10px;font-size:14px;color:var(--txt);
+  outline:none;font-family:inherit;font-variant-numeric:tabular-nums;text-align:center;
+}
+.calc-in:focus{border-color:var(--gold)}
+.calc-label{font-size:11px;color:var(--muted)}
+.calc-total{font-size:16px;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums;margin-left:auto}
+.add-cart-btn{
+  width:100%;margin-top:8px;padding:10px;border-radius:9px;
+  background:var(--gold);border:none;color:#000;
+  font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;
+}
+.add-cart-btn:active{opacity:.85}
+/* ── CART FAB ── */
+#cart-fab{
+  position:fixed;bottom:22px;right:18px;z-index:140;
+  width:52px;height:52px;border-radius:50%;
+  background:var(--gold);border:none;cursor:pointer;
+  display:none;align-items:center;justify-content:center;
+  font-size:22px;box-shadow:0 4px 18px rgba(245,197,66,0.45);
+}
+#cart-fab.show{display:flex}
+#cart-count{
+  position:absolute;top:-4px;right:-4px;
+  background:var(--red);color:#fff;font-size:10px;font-weight:800;
+  width:18px;height:18px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--bg);
+}
+/* ── CART MODAL ── */
+#cart-ov{position:fixed;inset:0;z-index:190;background:rgba(0,0,0,0.82);display:none;align-items:flex-end;justify-content:center}
+#cart-ov.show{display:flex}
+#cart-box{background:var(--card);border:1px solid var(--bord);border-radius:20px 20px 0 0;width:100%;max-width:560px;max-height:90vh;display:flex;flex-direction:column}
+#cart-hdr{padding:16px 16px 10px;border-bottom:1px solid var(--bord);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+#cart-title{font-size:16px;font-weight:900;color:var(--txt)}
+#cart-close-btn{background:var(--surf);border:1px solid var(--bord);color:var(--muted);width:28px;height:28px;border-radius:50%;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
+#cart-cust-row{padding:10px 16px 6px;flex-shrink:0;display:flex;gap:8px;align-items:center}
+#cart-cust-row label{font-size:11px;color:var(--muted);white-space:nowrap}
+#cart-cust{flex:1;background:var(--surf);border:1.5px solid var(--bord);border-radius:8px;padding:7px 10px;font-size:13px;color:var(--txt);outline:none;font-family:inherit}
+#cart-cust:focus{border-color:var(--gold)}
+#cart-list{overflow-y:auto;flex:1;padding:4px 0}
+.ci{display:flex;align-items:flex-start;gap:10px;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.04)}
+.ci-info{flex:1;min-width:0}
+.ci-name{font-size:13px;font-weight:700;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ci-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.ci-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.ci-price{font-size:13px;font-weight:800;color:var(--gold);font-variant-numeric:tabular-nums}
+.ci-del{background:none;border:none;color:var(--red);font-size:15px;cursor:pointer;padding:0;font-family:inherit;line-height:1}
+#cart-footer{padding:12px 16px 16px;border-top:1px solid var(--bord);flex-shrink:0}
+#cart-total-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+#cart-total-lbl{font-size:13px;color:var(--muted);font-weight:600}
+#cart-total-val{font-size:22px;font-weight:900;color:var(--gold);font-variant-numeric:tabular-nums}
+#cart-actions{display:flex;gap:7px}
+.ca-btn{flex:1;padding:11px 4px;border-radius:10px;font-size:12px;font-weight:700;border:none;cursor:pointer;font-family:inherit}
+.ca-btn.clear{background:var(--surf);border:1px solid var(--bord);color:var(--muted)}
+.ca-btn.wa{background:rgba(34,197,94,0.12);color:var(--green);border:1px solid rgba(34,197,94,0.25)}
+.ca-btn.print{background:var(--gold);color:#000}
+.ca-btn.pdf{background:rgba(96,165,250,0.15);color:var(--blue);border:1px solid rgba(96,165,250,0.3)}
+/* ── PRINT FORMAT PICKER ── */
+#pfmt-ov{position:fixed;inset:0;z-index:210;background:rgba(0,0,0,0.75);display:none;align-items:flex-end;justify-content:center}
+#pfmt-ov.show{display:flex}
+#pfmt-box{background:var(--card);border:1px solid var(--bord);border-radius:20px 20px 0 0;width:100%;max-width:420px;padding:20px}
+#pfmt-title{font-size:15px;font-weight:800;color:var(--txt);margin-bottom:14px}
+.pfmt-opt{display:flex;align-items:center;gap:12px;padding:13px 12px;border-radius:10px;cursor:pointer;border:1.5px solid var(--bord);margin-bottom:8px}
+.pfmt-opt:active{background:var(--surf)}
+.pfmt-icon{font-size:22px;flex-shrink:0}
+.pfmt-label{font-size:14px;font-weight:700;color:var(--txt)}
+.pfmt-desc{font-size:11px;color:var(--muted)}
+#pfmt-cancel{width:100%;padding:11px;border-radius:10px;margin-top:4px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit;font-weight:600}
+/* ── PRINT AREA ── */
+#print-area{display:none}
+@media print{
+  body > *:not(#print-area){display:none!important}
+  #print-area{display:block!important}
+  @page{margin:8mm}
+}
 </style>
 </head>
 <body>
@@ -361,12 +361,6 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   <div id="logo" onclick="goHome()">SR PSD</div>
   <div id="hdr-right">
     <div id="badge">—</div>
-    <button id="refresh-btn" onclick="refreshData()" title="Refresh data">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="23 4 23 10 17 10"/>
-        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
-      </svg>
-    </button>
     <button id="admin-btn" onclick="openAdm()">⚡ Admin</button>
   </div>
 </div>
@@ -394,21 +388,6 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
     <div class="chip" data-sort="sa">Price ↑</div>
     <div class="chip" data-sort="sd">Price ↓</div>
   </div>
-
-  <!-- Stock filter chips -->
-  <div id="stock-row">
-    <div class="stock-chip on" data-stock="all">📦 All Stock</div>
-    <div class="stock-chip" data-stock="in">✅ In Stock</div>
-    <div class="stock-chip" data-stock="low">⚠️ Low Stock (≤5)</div>
-    <div class="stock-chip" data-stock="out">❌ Out of Stock</div>
-  </div>
-
-  <!-- Brand picker button -->
-  <button id="brand-btn" onclick="openBrandModal()">
-    <span>🏷️</span>
-    <span id="brand-btn-label">All Brands</span>
-    <span class="brand-arrow">▼</span>
-  </button>
 
   <!-- Group picker button -->
   <button id="grp-btn" onclick="openGrpModal()">
@@ -452,8 +431,7 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   <div id="adm-box">
     <div id="adm-title">ADMIN</div>
     <div id="adm-sub">4-digit PIN • hidden as you type</div>
-    <!-- inputmode="numeric" + pattern="[0-9]*" forces numeric keyboard on iOS & Android -->
-    <input id="adm-pw" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="• • • •" autocomplete="off"
+    <input id="adm-pw" type="password" maxlength="4" placeholder="• • • •" autocomplete="off"
       oninput="onPwInput(this)" onkeydown="if(event.key==='Enter')doLogin()">
     <div id="dots">
       <div class="dot" id="d0"></div><div class="dot" id="d1"></div>
@@ -493,63 +471,80 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   </div>
 </div>
 
-<!-- BRAND MODAL -->
-<div id="brand-modal-bg">
-  <div id="brand-modal">
-    <div id="brand-modal-hdr">
-      <div id="brand-modal-title">Select Brand</div>
-      <button id="brand-modal-close" onclick="closeBrandModal()">✕</button>
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- CART FAB -->
+<button id="cart-fab" onclick="openCart()">🛒<span id="cart-count">0</span></button>
+
+<!-- CART MODAL -->
+<div id="cart-ov">
+  <div id="cart-box">
+    <div id="cart-hdr">
+      <div id="cart-title">🛒 Estimate</div>
+      <button id="cart-close-btn" onclick="closeCart()">✕</button>
     </div>
-    <div id="brand-search-wrap">
-      <input id="brand-search" type="search" placeholder="Search brands…" autocomplete="off" spellcheck="false">
+    <div id="cart-cust-row">
+      <label>Customer:</label>
+      <input id="cart-cust" type="text" placeholder="Customer name (optional)">
     </div>
-    <div id="brand-list"></div>
+    <div id="cart-list"></div>
+    <div id="cart-footer">
+      <div id="cart-total-row">
+        <span id="cart-total-lbl">Total</span>
+        <span id="cart-total-val">₹0</span>
+      </div>
+      <div id="cart-actions">
+        <button class="ca-btn clear" onclick="clearCart()">🗑 Clear</button>
+        <button class="ca-btn wa"    onclick="shareCartWA()">📲 WhatsApp</button>
+        <button class="ca-btn pdf"   onclick="exportPDF()">📄 PDF</button>
+        <button class="ca-btn print" onclick="choosePrintFmt()">🖨 Print</button>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- TOAST -->
-<div id="toast"></div>
+<!-- PRINT FORMAT PICKER -->
+<div id="pfmt-ov">
+  <div id="pfmt-box">
+    <div id="pfmt-title">Choose Print Format</div>
+    <div class="pfmt-opt" onclick="doPrint('3inch')">
+      <div class="pfmt-icon">🧾</div>
+      <div><div class="pfmt-label">3-inch Thermal</div><div class="pfmt-desc">58mm / 80mm POS printer</div></div>
+    </div>
+    <div class="pfmt-opt" onclick="doPrint('a5')">
+      <div class="pfmt-icon">📋</div>
+      <div><div class="pfmt-label">A5 / Half Page</div><div class="pfmt-desc">Compact estimate sheet</div></div>
+    </div>
+    <div class="pfmt-opt" onclick="doPrint('a4')">
+      <div class="pfmt-icon">📄</div>
+      <div><div class="pfmt-label">A4 Full Page</div><div class="pfmt-desc">Full invoice format</div></div>
+    </div>
+    <button id="pfmt-cancel" onclick="closePfmt()">Cancel</button>
+  </div>
+</div>
+
+<!-- HIDDEN PRINT AREA -->
+<div id="print-area"></div>
 
 <script>
 /* ═══════════════════════════════════════════
    CONFIG
 ═══════════════════════════════════════════ */
 const PASS  = "7865";
-const GAP   = 16;
-let CARD_COLLAPSED_H = 160; // updated dynamically after first measure
-const BUFFER = 4;
-const GRP_HDR_H = 26;
-const LOW_STOCK_THRESHOLD = 5;
-
-// Stores measured expanded height per raw-item index
-let expandedHeights = {};
-
-/* Measure real collapsed card height by probing the DOM */
-function measureCardHeight(){
-  const probe = document.createElement('div');
-  probe.style.cssText = 'position:fixed;top:-9999px;left:14px;right:14px;visibility:hidden;pointer-events:none;z-index:-1';
-  probe.innerHTML = cardHTML({name:'Probe Item',alias:'PRB001',mrp:999,sale:799,wholesale:699,stock:10}, -1, 0, '');
-  const inner = probe.firstElementChild;
-  if(inner){ inner.style.position='relative'; inner.style.top='auto'; inner.style.left='auto'; inner.style.right='auto'; }
-  document.body.appendChild(probe);
-  const h = probe.firstElementChild ? probe.firstElementChild.offsetHeight : 160;
-  document.body.removeChild(probe);
-  CARD_COLLAPSED_H = h + 2;
-}
-
-/* Read actual rendered height of an expanded card straight from the live DOM */
-function measureExpandedCard(ri){
-  const el = stage.querySelector('.c[onclick="toggleCard(' + ri + ')"]');
-  if(el) expandedHeights[ri] = el.offsetHeight + 4;
-}
+const GAP   = 10;   // px gap between cards
+const CARD_COLLAPSED_H = 138; // px — collapsed card height (name+alias+4 price blocks)
+const CARD_EXPANDED_H  = 420; // px — rough expanded height (includes calculator)
+const BUFFER = 4;   // extra rows to render above/below viewport
+const GRP_HDR_H = 26; // px height of group header divider
 
 /* ═══════════════════════════════════════════
    STATE
 ═══════════════════════════════════════════ */
 let raw      = [];
-let pool     = [];
-let heights  = [];
-let offsets  = [];
+let pool     = [];   // filtered indices into raw[]
+let heights  = [];   // per-pool-index actual heights (updated when cards expand)
+let offsets  = [];   // cumulative top offset per pool index
 let isAdmin  = false;
 let activeGroup = '';
 let pMin     = null;
@@ -557,8 +552,6 @@ let pMax     = null;
 let query    = '';
 let editIdx  = -1;
 let activeSort = 'df';
-let activeStock = 'all'; // 'all' | 'in' | 'low' | 'out'
-let activeBrand = '';    // '' = all brands
 let expanded = new Set();
 let vsStart  = 0;
 let vsEnd    = 0;
@@ -576,31 +569,10 @@ async function loadData(){
     raw = await r.json();
     document.getElementById("badge").textContent = raw.length.toLocaleString()+" items";
     buildGroupChips();
-    buildBrandChips();
   }catch(e){
     // Still show welcome — data may load on GitHub Pages
   }
   showWelcome();
-}
-
-/* ── REFRESH ── */
-async function refreshData(){
-  const btn = document.getElementById("refresh-btn");
-  btn.classList.add("spinning");
-  try{
-    const r = await fetch("items.json?t="+Date.now());
-    if(!r.ok) throw new Error("HTTP "+r.status);
-    raw = await r.json();
-    document.getElementById("badge").textContent = raw.length.toLocaleString()+" items";
-    buildGroupChips();
-    buildBrandChips();
-    applyAll();
-    toast("🔄 Refreshed — "+raw.length.toLocaleString()+" items");
-  }catch(e){
-    toast("❌ Refresh failed: "+e.message);
-  }finally{
-    setTimeout(()=>btn.classList.remove("spinning"), 600);
-  }
 }
 
 /* ═══════════════════════════════════════════
@@ -620,52 +592,17 @@ function showWelcome(){
 
 function goHome(){
   document.getElementById("search").value = '';
-  query = ''; pMin = null; pMax = null; activeGroup = ''; activeStock = 'all'; activeBrand = '';
+  query = ''; pMin = null; pMax = null; activeGroup = '';
   document.getElementById("pmin").value = '';
   document.getElementById("pmax").value = '';
   activeSort='df';
   document.querySelectorAll("#sort-row .chip").forEach(c=>c.classList.remove("on"));
   const defChip=document.querySelector("#sort-row .chip[data-sort='df']");
   if(defChip)defChip.classList.add("on");
-  // Reset stock chips
-  document.querySelectorAll("#stock-row .stock-chip").forEach(c=>c.classList.remove("on"));
-  document.querySelector("#stock-row .stock-chip[data-stock='all']").classList.add("on");
-  // Reset brand chips
-  // Reset brand button
-  document.getElementById('brand-btn-label').textContent = 'All Brands';
-  document.getElementById('brand-btn').classList.remove('active');
   // Reset group button
   document.getElementById("grp-btn-label").textContent = "All Groups";
   document.getElementById("grp-btn").classList.remove("active");
   showWelcome();
-}
-
-/* ═══════════════════════════════════════════
-   STOCK FILTER CHIPS
-═══════════════════════════════════════════ */
-document.getElementById("stock-row").addEventListener("click", function(e){
-  const c = e.target.closest(".stock-chip[data-stock]");
-  if(!c) return;
-  document.querySelectorAll("#stock-row .stock-chip").forEach(x=>x.classList.remove("on"));
-  c.classList.add("on");
-  activeStock = c.dataset.stock;
-  applyAll();
-});
-
-function stockMatches(it){
-  if(activeStock === 'all') return true;
-  const s = it.stock;
-  // Treat null/undefined/''/'-' as out of stock
-  if(s === null || s === undefined || s === '' || s === '–' || s === '-'){
-    return activeStock === 'out';
-  }
-  const n = parseFloat(String(s));
-  if(isNaN(n)){
-    return activeStock === 'out';
-  }
-  if(n <= 0)  return activeStock === 'out';
-  if(n <= LOW_STOCK_THRESHOLD) return activeStock === 'low';
-  return activeStock === 'in';
 }
 
 /* ═══════════════════════════════════════════
@@ -674,89 +611,11 @@ function stockMatches(it){
 let allGroups = [];
 
 function buildGroupChips(){
+  // Build group list with item counts
   const countMap = {};
   raw.forEach(it=>{ const g=it.group||''; countMap[g]=(countMap[g]||0)+1; });
   allGroups = Object.keys(countMap).filter(Boolean).sort();
 }
-
-let allBrands = [];
-
-function buildBrandChips(){
-  const brandSet = new Set();
-  raw.forEach(it=>{
-    const first = (it.name||'').trim().split(/\s+/)[0];
-    if(/^[A-Z]{2,6}$/.test(first)) brandSet.add(first);
-  });
-  allBrands = [...brandSet].sort();
-}
-
-function openBrandModal(){
-  renderBrandList('');
-  document.getElementById('brand-modal-bg').classList.add('show');
-  setTimeout(()=>document.getElementById('brand-search').focus(), 200);
-}
-function closeBrandModal(){
-  document.getElementById('brand-modal-bg').classList.remove('show');
-  document.getElementById('brand-search').value='';
-}
-
-function renderBrandList(filter){
-  const f = filter.trim().toLowerCase();
-  const countMap = {};
-  raw.forEach(it=>{
-    const first = (it.name||'').trim().split(/\s+/)[0];
-    if(/^[A-Z]{2,6}$/.test(first)) countMap[first]=(countMap[first]||0)+1;
-  });
-  let brands = allBrands;
-  if(f) brands = brands.filter(b=>b.toLowerCase().includes(f));
-
-  let html = `<div class="brand-item${activeBrand===''?' selected':''}" onclick="selectBrand('')">
-    <span>All Brands</span>
-    <span style="display:flex;align-items:center;gap:6px">
-      <span class="brand-count">${raw.length.toLocaleString()}</span>
-      <span class="brand-tick">✓</span>
-    </span>
-  </div>`;
-
-  if(!brands.length){
-    html += `<div style="text-align:center;padding:30px;font-size:13px;color:var(--muted)">No brands found</div>`;
-  } else {
-    brands.forEach(b=>{
-      const cnt = countMap[b]||0;
-      const sel = activeBrand===b;
-      html += `<div class="brand-item${sel?' selected':''}" onclick="selectBrand('${b}')">
-        <span>${b}</span>
-        <span style="display:flex;align-items:center;gap:6px">
-          <span class="brand-count">${cnt.toLocaleString()}</span>
-          <span class="brand-tick">✓</span>
-        </span>
-      </div>`;
-    });
-  }
-  document.getElementById('brand-list').innerHTML = html;
-}
-
-function selectBrand(b){
-  activeBrand = b;
-  const btn = document.getElementById('brand-btn');
-  const label = document.getElementById('brand-btn-label');
-  if(b){
-    label.innerHTML = `<span class="brand-tag">${b}</span>`;
-    btn.classList.add('active');
-  } else {
-    label.textContent = 'All Brands';
-    btn.classList.remove('active');
-  }
-  closeBrandModal();
-  applyAll();
-}
-
-document.getElementById('brand-search').addEventListener('input', function(){
-  renderBrandList(this.value);
-});
-document.getElementById('brand-modal-bg').addEventListener('click', function(e){
-  if(e.target===this) closeBrandModal();
-});
 
 function openGrpModal(){
   renderGrpList('');
@@ -804,6 +663,7 @@ function renderGrpList(filter){
 
 function selectGroup(g){
   activeGroup = g;
+  // Update button label
   const btn = document.getElementById("grp-btn");
   const label = document.getElementById("grp-btn-label");
   if(g){
@@ -817,9 +677,11 @@ function selectGroup(g){
   applyAll();
 }
 
+// Live search inside group modal
 document.getElementById("grp-search").addEventListener("input", function(){
   renderGrpList(this.value);
 });
+// Close on background tap
 document.getElementById("grp-modal-bg").addEventListener("click", function(e){
   if(e.target===this) closeGrpModal();
 });
@@ -843,22 +705,16 @@ function pn(v){ return v==null||v===''?0:parseFloat(String(v).replace(/[^0-9.]/g
 
 function applyAll(){
   const q = query.trim().toLowerCase();
-  const hasFilter = q || pMin!==null || pMax!==null || activeGroup || activeSort!=='df' || activeStock!=='all' || activeBrand!=='';
+  const hasFilter = q || pMin!==null || pMax!==null || activeGroup || activeSort!=='df';
   if(!hasFilter){ showWelcome(); return; }
 
   expanded.clear();
-  expandedHeights = {};
   let out = [];
   for(let i=0;i<raw.length;i++){
     const it = raw[i];
     if(activeGroup && it.group!==activeGroup) continue;
     if(pMin!==null && pn(it.sale)<pMin) continue;
     if(pMax!==null && pn(it.sale)>pMax) continue;
-    if(!stockMatches(it)) continue;
-    if(activeBrand){
-      const first = (it.name||'').trim().split(/\s+/)[0];
-      if(first !== activeBrand) continue;
-    }
     if(q){
       const n=(it.name||'').toLowerCase();
       const a=(it.alias||'').toLowerCase();
@@ -876,41 +732,40 @@ function applyAll(){
   else if(activeSort==='sd') out.sort((a,b)=>pn(raw[b].sale)-pn(raw[a].sale));
 
   pool = out;
-  measureCardHeight();
+
+  // Build heights & offsets arrays (all collapsed initially)
   rebuildOffsets();
 
   const sortLabel = activeSort==='grp'?' · sorted by group':activeSort==='na'?' · A–Z':activeSort==='sa'?' · price ↑':activeSort==='sd'?' · price ↓':'';
-  const stockLabel = activeStock==='in'?' · in stock':activeStock==='low'?' · low stock':activeStock==='out'?' · out of stock':'';
-  const brandLabel = activeBrand ? ' · '+activeBrand : '';
   document.getElementById("status").textContent =
     (pool.length===raw.length
       ? raw.length.toLocaleString()+" items"
       : pool.length.toLocaleString()+" of "+raw.length.toLocaleString()+" items")
-    + sortLabel + stockLabel + brandLabel;
+    + sortLabel;
 
   scrollEl.scrollTop = 0;
   vsRender(true);
 }
 
 /* ═══════════════════════════════════════════
-   OFFSET TABLE
+   OFFSET TABLE — needed for correct card placement
+   so cards never overlap
 ═══════════════════════════════════════════ */
 function rebuildOffsets(){
   heights  = new Array(pool.length).fill(CARD_COLLAPSED_H);
   offsets  = new Array(pool.length);
-  let top  = 18;
+  let top  = 14; // top padding
   for(let i=0;i<pool.length;i++){
+    // Add group header space when sorted by group
     if(activeSort==='grp'){
       const grp = raw[pool[i]].group||'';
       const prevGrp = i>0?(raw[pool[i-1]].group||''):'__NONE__';
       if(grp!==prevGrp) top += GRP_HDR_H;
     }
     offsets[i] = top;
-    const ri = pool[i];
-    const h = expanded.has(ri) ? (expandedHeights[ri] || CARD_COLLAPSED_H * 2) : CARD_COLLAPSED_H;
-    top += h + GAP;
+    top += (expanded.has(pool[i]) ? CARD_EXPANDED_H : CARD_COLLAPSED_H) + GAP;
   }
-  totalH = top + 60;
+  totalH = top + 60; // bottom padding
   spacer.style.height = totalH + 'px';
 }
 
@@ -927,6 +782,7 @@ function vsRender(force){
   const scrollTop = scrollEl.scrollTop;
   const viewH     = scrollEl.clientHeight;
 
+  // Binary-search for first visible index
   let first = bsearchFirst(scrollTop - BUFFER * CARD_COLLAPSED_H);
   let last  = bsearchLast(scrollTop + viewH + BUFFER * CARD_COLLAPSED_H);
   first = Math.max(0, first);
@@ -938,6 +794,7 @@ function vsRender(force){
   const q = query.trim().toLowerCase();
   let html = '';
   for(let vi=first;vi<=last;vi++){
+    // Group header divider
     if(activeSort==='grp'){
       const grp = raw[pool[vi]].group||'';
       const prevGrp = vi>0?(raw[pool[vi-1]].group||''):'__NONE__';
@@ -1005,6 +862,9 @@ function cardHTML(it, ri, topPx, q){
         <button class="ab sh" onclick="shareItem(${ri},event)">📤 Share</button>
         ${isAdmin?`<button class="ab ed" onclick="openEdit(${ri},event)">✏️ Edit</button>`:''}
       </div>
+      <div style="border-top:1px solid var(--bord);margin-top:10px;padding-top:10px">
+        ${calcHTML(it,ri)}
+      </div>
     </div>`:'';
   return `<div class="c${exp?' exp':''}" style="top:${topPx}px" onclick="toggleCard(${ri})">
     <div class="c-name">${hl(it.name||'',q)}</div>
@@ -1021,39 +881,26 @@ function cardHTML(it, ri, topPx, q){
 }
 
 /* ═══════════════════════════════════════════
-   TOGGLE EXPAND
+   TOGGLE EXPAND — rebuilds offsets so no overlap
 ═══════════════════════════════════════════ */
 function toggleCard(ri){
-  const wasExpanded = expanded.has(ri);
-  if(wasExpanded){
-    expanded.delete(ri);
-    delete expandedHeights[ri];
-    rebuildOffsets();
-    spacer.style.height = totalH + 'px';
-    vsRender(true);
-  } else {
-    expanded.add(ri);
-    // First render with a generous placeholder height so card is in DOM
-    if(!expandedHeights[ri]) expandedHeights[ri] = CARD_COLLAPSED_H * 3;
-    rebuildOffsets();
-    spacer.style.height = totalH + 'px';
-    vsRender(true);
-    // Now measure the real rendered height and rebuild offsets correctly
-    measureExpandedCard(ri);
-    rebuildOffsets();
-    spacer.style.height = totalH + 'px';
-    vsRender(true);
-  }
+  if(expanded.has(ri)) expanded.delete(ri);
+  else expanded.add(ri);
+  rebuildOffsets();
+  spacer.style.height = totalH + 'px';
+  vsRender(true);
+  // Keep scroll position sane
   const vi = pool.indexOf(ri);
   if(vi>=0){
     const cardTop = offsets[vi];
     const scrollTop = scrollEl.scrollTop;
+    const viewH = scrollEl.clientHeight;
     if(cardTop < scrollTop) scrollEl.scrollTop = cardTop - 14;
   }
 }
 
 /* ═══════════════════════════════════════════
-   SCROLL
+   SCROLL — throttled with rAF
 ═══════════════════════════════════════════ */
 let rafPending=false;
 function onScroll(){
@@ -1063,7 +910,7 @@ function onScroll(){
 }
 
 /* ═══════════════════════════════════════════
-   SEARCH
+   SEARCH — debounced 100ms
 ═══════════════════════════════════════════ */
 let searchTimer;
 document.getElementById("search").addEventListener("input",function(){
@@ -1088,12 +935,13 @@ function clearPF(){
   document.getElementById("pmax").value='';
   pMin=null; pMax=null; applyAll(); toast("Price filter cleared");
 }
+// Also trigger Go on Enter in price fields
 ['pmin','pmax'].forEach(id=>{
   document.getElementById(id).addEventListener("keydown",e=>{ if(e.key==='Enter') applyPF(); });
 });
 
 /* ═══════════════════════════════════════════
-   SCANNER
+   SCANNER — native BarcodeDetector first, ZXing fallback
 ═══════════════════════════════════════════ */
 let scanStream=null, scanLoop=null, codeReader=null, zxingReady=false;
 
@@ -1218,7 +1066,7 @@ function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg
    KEYBOARD / DISMISS
 ═══════════════════════════════════════════ */
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){ closeAdm(); closeEdit(); closeScanner(); closeGrpModal(); closeBrandModal(); }
+  if(e.key==="Escape"){ closeAdm(); closeEdit(); closeScanner(); closeGrpModal(); }
   if((e.ctrlKey||e.metaKey)&&e.key==="f"){ e.preventDefault(); document.getElementById("search").focus(); }
 });
 document.getElementById("adm-ov").addEventListener("click",e=>{ if(e.target.id==="adm-ov")closeAdm(); });
@@ -1231,8 +1079,196 @@ scrollEl = document.getElementById("scroll");
 spacer   = document.getElementById("spacer");
 stage    = document.getElementById("stage");
 scrollEl.addEventListener("scroll", onScroll, {passive:true});
-window.addEventListener("resize",()=>{ measureCardHeight(); rebuildOffsets(); vsRender(true); });
+window.addEventListener("resize",()=>{ rebuildOffsets(); vsRender(true); });
 loadData();
+// cart-ov and pfmt-ov are defined after this script tag, bind after full DOM load
+window.addEventListener("DOMContentLoaded",()=>{
+  document.getElementById("cart-ov").addEventListener("click",e=>{ if(e.target.id==="cart-ov")closeCart(); });
+  document.getElementById("pfmt-ov").addEventListener("click",e=>{ if(e.target.id==="pfmt-ov")closePfmt(); });
+});
+
+/* ═══════════════════════════════════════════
+   CART STATE
+═══════════════════════════════════════════ */
+let cart = [];
+const cardPriceType = {};
+
+function cartTotal(){ return cart.reduce((s,r)=>s+r.total,0); }
+
+function updateCartFab(){
+  const fab=document.getElementById("cart-fab");
+  const cnt=document.getElementById("cart-count");
+  const n=cart.reduce((s,r)=>s+r.qty,0);
+  cnt.textContent=n;
+  if(n>0) fab.classList.add("show"); else fab.classList.remove("show");
+}
+
+function addToCart(ri,e){
+  e&&e.stopPropagation();
+  const it=raw[ri];
+  const type=cardPriceType[ri]||'sale';
+  let unitPrice;
+  if(type==='sale')       unitPrice=pn(it.sale);
+  else if(type==='wholesale') unitPrice=pn(it.wholesale);
+  else { const mEl=document.getElementById('calc-price-'+ri); unitPrice=mEl?parseFloat(mEl.value)||0:0; }
+  const qEl=document.getElementById('calc-qty-'+ri);
+  const qty=qEl?(parseInt(qEl.value)||1):1;
+  if(!unitPrice){ toast("⚠️ Set a price first"); return; }
+  const existing=cart.find(r=>r.ri===ri&&r.priceType===type&&r.unitPrice===unitPrice);
+  if(existing){ existing.qty+=qty; existing.total=existing.unitPrice*existing.qty; }
+  else { cart.push({ri,qty,unitPrice,priceType:type,name:it.name||it.alias||'Item',alias:it.alias||'',total:unitPrice*qty}); }
+  updateCartFab();
+  toast("✅ Added "+qty+"× "+(it.name||it.alias));
+}
+
+function removeFromCart(idx){ cart.splice(idx,1); updateCartFab(); renderCartList(); }
+function clearCart(){ cart=[]; updateCartFab(); renderCartList(); }
+
+function openCart(){ renderCartList(); document.getElementById("cart-ov").classList.add("show"); }
+function closeCart(){ document.getElementById("cart-ov").classList.remove("show"); }
+  const list=document.getElementById("cart-list");
+  if(!cart.length){ list.innerHTML='<div style="text-align:center;padding:40px 20px;font-size:13px;color:var(--muted)">Cart is empty — add items from cards below</div>'; document.getElementById("cart-total-val").textContent='₹0'; return; }
+  const tl={sale:'Sale',wholesale:'Wholesale',manual:'Custom'};
+  list.innerHTML=cart.map((r,i)=>`
+    <div class="ci">
+      <div class="ci-info">
+        <div class="ci-name">${r.name}</div>
+        <div class="ci-sub">${tl[r.priceType]||''} ₹${r.unitPrice.toLocaleString('en-IN')} × ${r.qty}</div>
+      </div>
+      <div class="ci-right">
+        <div class="ci-price">₹${r.total.toLocaleString('en-IN')}</div>
+        <button class="ci-del" onclick="removeFromCart(${i})">✕</button>
+      </div>
+    </div>`).join('');
+  document.getElementById("cart-total-val").textContent='₹'+cartTotal().toLocaleString('en-IN');
+}
+
+/* ── Price type selector & calculator ── */
+function setPriceType(ri,type,e){
+  e&&e.stopPropagation();
+  cardPriceType[ri]=type;
+  const card=document.getElementById("calc-card-"+ri);
+  if(!card) return;
+  card.querySelectorAll(".ps-btn").forEach(b=>b.classList.remove("sale-sel","wholesale-sel","manual-sel"));
+  const ab=card.querySelector(".ps-btn[data-type='"+type+"']");
+  if(ab) ab.classList.add(type+"-sel");
+  const mr=document.getElementById("calc-manual-"+ri);
+  if(mr) mr.style.display=type==='manual'?'flex':'none';
+  calcUpdate(ri);
+}
+
+function calcUpdate(ri){
+  const it=raw[ri]; if(!it) return;
+  const type=cardPriceType[ri]||'sale';
+  let price;
+  if(type==='sale')       price=pn(it.sale);
+  else if(type==='wholesale') price=pn(it.wholesale);
+  else { const mEl=document.getElementById("calc-price-"+ri); price=mEl?(parseFloat(mEl.value)||0):0; }
+  const qEl=document.getElementById("calc-qty-"+ri);
+  const qty=qEl?(parseInt(qEl.value)||1):1;
+  const tEl=document.getElementById("calc-total-"+ri);
+  if(tEl) tEl.textContent="₹"+(price*qty).toLocaleString('en-IN');
+}
+
+function calcHTML(it,ri){
+  const type=cardPriceType[ri]||'sale';
+  return `
+  <div class="price-sel" id="calc-card-${ri}">
+    <button class="ps-btn${type==='sale'?' sale-sel':''}" data-type="sale" onclick="setPriceType(${ri},'sale',event)">
+      💚 Sale<br><small style="font-weight:400;opacity:.8">${fmt(it.sale)}</small>
+    </button>
+    <button class="ps-btn${type==='wholesale'?' wholesale-sel':''}" data-type="wholesale" onclick="setPriceType(${ri},'wholesale',event)">
+      💙 Wholesale<br><small style="font-weight:400;opacity:.8">${fmt(it.wholesale)}</small>
+    </button>
+    <button class="ps-btn${type==='manual'?' manual-sel':''}" data-type="manual" onclick="setPriceType(${ri},'manual',event)">
+      ✏️ Custom<br><small style="font-weight:400;opacity:.8">enter price</small>
+    </button>
+  </div>
+  <div id="calc-manual-${ri}" class="calc-row" style="display:${type==='manual'?'flex':'none'}">
+    <span class="calc-label">₹ Price:</span>
+    <input class="calc-in" id="calc-price-${ri}" type="number" placeholder="0" inputmode="decimal"
+      onclick="event.stopPropagation()" oninput="calcUpdate(${ri})">
+  </div>
+  <div class="calc-row">
+    <span class="calc-label">Qty:</span>
+    <input class="calc-in" id="calc-qty-${ri}" type="number" value="1" min="1" inputmode="numeric"
+      onclick="event.stopPropagation()" oninput="calcUpdate(${ri})">
+    <span class="calc-label" style="margin-left:6px">Total:</span>
+    <span class="calc-total" id="calc-total-${ri}">₹${(pn(it.sale)*1).toLocaleString('en-IN')}</span>
+  </div>
+  <button class="add-cart-btn" onclick="addToCart(${ri},event)">＋ Add to Estimate</button>`;
+}
+
+/* ═══════════════════════════════════════════
+   ESTIMATE HTML BUILDER
+═══════════════════════════════════════════ */
+function buildEstimateHTML(fmtType){
+  const cust=document.getElementById("cart-cust").value.trim();
+  const date=new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric'});
+  const total=cartTotal();
+  const is3=fmtType==='3inch';
+  const w=is3?'72mm':fmtType==='a4'?'190mm':'130mm';
+  const fs=is3?'11px':'13px';
+  const rows=cart.map(r=>`<tr>
+    <td style="padding:4px 3px;border-bottom:1px dashed #ccc;word-break:break-word">${r.name}${r.alias?' ('+r.alias+')':''}</td>
+    <td style="padding:4px 3px;border-bottom:1px dashed #ccc;text-align:center">${r.qty}</td>
+    <td style="padding:4px 3px;border-bottom:1px dashed #ccc;text-align:right">₹${r.unitPrice.toLocaleString('en-IN')}</td>
+    <td style="padding:4px 3px;border-bottom:1px dashed #ccc;text-align:right;font-weight:700">₹${r.total.toLocaleString('en-IN')}</td>
+  </tr>`).join('');
+  return `<div style="width:${w};max-width:100%;font-family:Arial,sans-serif;font-size:${fs};color:#111;margin:0 auto">
+    <div style="text-align:center;margin-bottom:${is3?'8px':'14px'}">
+      <div style="font-size:${is3?'16px':'22px'};font-weight:900;letter-spacing:2px">SR FASHION PUSAD</div>
+      ${!is3?'<div style="font-size:11px;color:#555;margin-top:2px">Estimate / Quotation</div>':''}
+      <div style="font-size:10px;color:#777;margin-top:4px">Date: ${date}</div>
+      ${cust?`<div style="font-size:${fs};font-weight:700;margin-top:4px">Customer: ${cust}</div>`:''}
+    </div>
+    <table style="width:100%;border-collapse:collapse;font-size:${fs}">
+      <thead><tr style="border-bottom:2px solid #000">
+        <th style="padding:4px 3px;text-align:left">Item</th>
+        <th style="padding:4px 3px;text-align:center">Qty</th>
+        <th style="padding:4px 3px;text-align:right">Rate</th>
+        <th style="padding:4px 3px;text-align:right">Amt</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div style="margin-top:10px;border-top:2px solid #000;padding-top:8px;display:flex;justify-content:space-between;align-items:center">
+      <span style="font-size:${is3?'12px':'15px'};font-weight:700">TOTAL</span>
+      <span style="font-size:${is3?'16px':'20px'};font-weight:900">₹${total.toLocaleString('en-IN')}</span>
+    </div>
+    ${is3?'<div style="text-align:center;margin-top:10px;font-size:10px;color:#888">Thank you!</div>':''}
+  </div>`;
+}
+
+/* ── WhatsApp ── */
+function shareCartWA(){
+  if(!cart.length){ toast("Cart is empty"); return; }
+  const cust=document.getElementById("cart-cust").value.trim();
+  const date=new Date().toLocaleDateString('en-IN');
+  let txt="*SR FASHION PUSAD*\n"+(cust?"Customer: "+cust+"\n":"")+"Date: "+date+"\n"+"─".repeat(24)+"\n";
+  cart.forEach((r,i)=>{ txt+=(i+1)+". "+r.name+"\n   "+r.qty+" × ₹"+r.unitPrice.toLocaleString('en-IN')+" = *₹"+r.total.toLocaleString('en-IN')+"*\n"; });
+  txt+="─".repeat(24)+"\n*Total: ₹"+cartTotal().toLocaleString('en-IN')+"*";
+  window.open("https://wa.me/?text="+encodeURIComponent(txt),"_blank");
+}
+
+/* ── Print format chooser ── */
+function choosePrintFmt(){ if(!cart.length){ toast("Cart is empty"); return; } closeCart(); document.getElementById("pfmt-ov").classList.add("show"); }
+function closePfmt(){ document.getElementById("pfmt-ov").classList.remove("show"); }
+
+function doPrint(fmtType){
+  closePfmt();
+  document.getElementById("print-area").innerHTML=buildEstimateHTML(fmtType);
+  setTimeout(()=>{ window.print(); setTimeout(()=>document.getElementById("print-area").innerHTML='',500); },200);
+}
+
+/* ── PDF (new window → Save as PDF) ── */
+function exportPDF(){
+  if(!cart.length){ toast("Cart is empty"); return; }
+  const html=buildEstimateHTML('a4');
+  const w=window.open('','_blank');
+  w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>SR Estimate</title><style>body{margin:16px;font-family:Arial,sans-serif}@media print{@page{margin:10mm}}</style></head><body>'+html+'<script>window.onload=function(){window.print()}<\/script></body></html>');
+  w.document.close();
+}
 </script>
+
 </body>
 </html>
