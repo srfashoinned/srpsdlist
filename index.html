@@ -89,6 +89,21 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .stock-chip[data-stock="low"].on{background:rgba(245,197,66,0.18);border-color:var(--gold);color:var(--gold)}
 .stock-chip[data-stock="out"].on{background:rgba(248,113,113,0.18);border-color:var(--red);color:var(--red)}
 
+/* ── BRAND FILTER ── */
+#brand-row{
+  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;
+}
+#brand-row::-webkit-scrollbar{display:none}
+.brand-chip{
+  white-space:nowrap;font-size:12px;font-weight:700;letter-spacing:.5px;
+  padding:4px 13px;border-radius:20px;
+  border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);
+  cursor:pointer;flex-shrink:0;font-family:inherit;
+  -webkit-tap-highlight-color:transparent;transition:all .15s;
+}
+.brand-chip.on{background:rgba(96,165,250,0.18);border-color:var(--blue);color:var(--blue);}
+.brand-chip[data-brand=""].on{background:var(--gold);border-color:var(--gold);color:#000;}
+
 /* ── GROUP PICKER BUTTON ── */
 #grp-btn{
   display:flex;align-items:center;gap:8px;
@@ -338,6 +353,11 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
     <div class="stock-chip" data-stock="out">❌ Out of Stock</div>
   </div>
 
+  <!-- Brand filter -->
+  <div id="brand-row">
+    <div class="brand-chip on" data-brand="">All Brands</div>
+  </div>
+
   <!-- Group picker button -->
   <button id="grp-btn" onclick="openGrpModal()">
     <span>🗂️</span>
@@ -472,6 +492,7 @@ let query    = '';
 let editIdx  = -1;
 let activeSort = 'df';
 let activeStock = 'all'; // 'all' | 'in' | 'low' | 'out'
+let activeBrand = '';    // '' = all brands
 let expanded = new Set();
 let vsStart  = 0;
 let vsEnd    = 0;
@@ -489,6 +510,7 @@ async function loadData(){
     raw = await r.json();
     document.getElementById("badge").textContent = raw.length.toLocaleString()+" items";
     buildGroupChips();
+    buildBrandChips();
   }catch(e){
     // Still show welcome — data may load on GitHub Pages
   }
@@ -505,6 +527,7 @@ async function refreshData(){
     raw = await r.json();
     document.getElementById("badge").textContent = raw.length.toLocaleString()+" items";
     buildGroupChips();
+    buildBrandChips();
     applyAll();
     toast("🔄 Refreshed — "+raw.length.toLocaleString()+" items");
   }catch(e){
@@ -531,7 +554,7 @@ function showWelcome(){
 
 function goHome(){
   document.getElementById("search").value = '';
-  query = ''; pMin = null; pMax = null; activeGroup = ''; activeStock = 'all';
+  query = ''; pMin = null; pMax = null; activeGroup = ''; activeStock = 'all'; activeBrand = '';
   document.getElementById("pmin").value = '';
   document.getElementById("pmax").value = '';
   activeSort='df';
@@ -541,6 +564,10 @@ function goHome(){
   // Reset stock chips
   document.querySelectorAll("#stock-row .stock-chip").forEach(c=>c.classList.remove("on"));
   document.querySelector("#stock-row .stock-chip[data-stock='all']").classList.add("on");
+  // Reset brand chips
+  document.querySelectorAll('#brand-row .brand-chip').forEach(c=>c.classList.remove('on'));
+  const allBrandChip=document.querySelector("#brand-row .brand-chip[data-brand='']");
+  if(allBrandChip) allBrandChip.classList.add('on');
   // Reset group button
   document.getElementById("grp-btn-label").textContent = "All Groups";
   document.getElementById("grp-btn").classList.remove("active");
@@ -584,6 +611,30 @@ function buildGroupChips(){
   const countMap = {};
   raw.forEach(it=>{ const g=it.group||''; countMap[g]=(countMap[g]||0)+1; });
   allGroups = Object.keys(countMap).filter(Boolean).sort();
+}
+
+function buildBrandChips(){
+  // Extract brand prefix = first word of name that is ALL-CAPS letters (2–6 chars)
+  const brandSet = new Set();
+  raw.forEach(it=>{
+    const first = (it.name||'').trim().split(/\s+/)[0];
+    if(/^[A-Z]{2,6}$/.test(first)) brandSet.add(first);
+  });
+  const brands = [...brandSet].sort();
+  const row = document.getElementById('brand-row');
+  row.innerHTML = '<div class="brand-chip on" data-brand="">All Brands</div>'
+    + brands.map(b=>`<div class="brand-chip" data-brand="${b}">${b}</div>`).join('');
+  // Re-attach listener (row is rebuilt)
+  row.addEventListener('click', onBrandClick);
+}
+
+function onBrandClick(e){
+  const c = e.target.closest('.brand-chip[data-brand]');
+  if(!c) return;
+  document.querySelectorAll('#brand-row .brand-chip').forEach(x=>x.classList.remove('on'));
+  c.classList.add('on');
+  activeBrand = c.dataset.brand;
+  applyAll();
 }
 
 function openGrpModal(){
@@ -671,7 +722,7 @@ function pn(v){ return v==null||v===''?0:parseFloat(String(v).replace(/[^0-9.]/g
 
 function applyAll(){
   const q = query.trim().toLowerCase();
-  const hasFilter = q || pMin!==null || pMax!==null || activeGroup || activeSort!=='df' || activeStock!=='all';
+  const hasFilter = q || pMin!==null || pMax!==null || activeGroup || activeSort!=='df' || activeStock!=='all' || activeBrand!=='';
   if(!hasFilter){ showWelcome(); return; }
 
   expanded.clear();
@@ -683,6 +734,10 @@ function applyAll(){
     if(pMin!==null && pn(it.sale)<pMin) continue;
     if(pMax!==null && pn(it.sale)>pMax) continue;
     if(!stockMatches(it)) continue;
+    if(activeBrand){
+      const first = (it.name||'').trim().split(/\s+/)[0];
+      if(first !== activeBrand) continue;
+    }
     if(q){
       const n=(it.name||'').toLowerCase();
       const a=(it.alias||'').toLowerCase();
@@ -705,11 +760,12 @@ function applyAll(){
 
   const sortLabel = activeSort==='grp'?' · sorted by group':activeSort==='na'?' · A–Z':activeSort==='sa'?' · price ↑':activeSort==='sd'?' · price ↓':'';
   const stockLabel = activeStock==='in'?' · in stock':activeStock==='low'?' · low stock':activeStock==='out'?' · out of stock':'';
+  const brandLabel = activeBrand ? ' · '+activeBrand : '';
   document.getElementById("status").textContent =
     (pool.length===raw.length
       ? raw.length.toLocaleString()+" items"
       : pool.length.toLocaleString()+" of "+raw.length.toLocaleString()+" items")
-    + sortLabel + stockLabel;
+    + sortLabel + stockLabel + brandLabel;
 
   scrollEl.scrollTop = 0;
   vsRender(true);
