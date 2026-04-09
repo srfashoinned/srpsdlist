@@ -113,10 +113,18 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .prices{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .pb{border-radius:8px;padding:7px 10px}
 .pb.m{background:rgba(245,197,66,0.1);border:1px solid rgba(245,197,66,0.22)}
-.pb.s{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.22)}
-.pb.w{background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.22)}
+.pb.s{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.22);position:relative}
+.pb.w{background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.22);position:relative}
 .pb.k{background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.18)}
 .pb.p{background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.22)}
+/* Clickable sale/wholesale boxes */
+.pb.s.shareable, .pb.w.shareable{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.pb.s.shareable:active{transform:scale(0.96)}
+.pb.w.shareable:active{transform:scale(0.96)}
+.pb.s.shareable:hover{border-color:rgba(34,197,94,0.6);box-shadow:0 0 0 2px rgba(34,197,94,0.15)}
+.pb.w.shareable:hover{border-color:rgba(96,165,250,0.6);box-shadow:0 0 0 2px rgba(96,165,250,0.15)}
+/* Share icon badge on price box */
+.share-badge{position:absolute;top:5px;right:6px;font-size:9px;opacity:0.5;pointer-events:none}
 .pl{font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;opacity:.65}
 .pb.m .pl{color:var(--gold)}.pb.s .pl{color:var(--green)}.pb.w .pl{color:var(--blue)}.pb.k .pl{color:var(--red)}.pb.p .pl{color:var(--purple)}
 .pv{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2;margin-top:1px}
@@ -132,10 +140,6 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .ab.sh{background:rgba(34,197,94,0.10);color:var(--green);border:1px solid rgba(34,197,94,0.20)}
 .ab.ed{background:rgba(245,197,66,0.12);color:var(--gold);border:1px solid rgba(245,197,66,0.25)}
 .ab.wa{background:rgba(37,211,102,0.12);color:#25d366;border:1px solid rgba(37,211,102,0.3)}
-/* Price type selector */
-.price-sel-row{display:flex;gap:5px;margin-bottom:8px}
-.psel-btn{flex:1;padding:4px 6px;border-radius:6px;font-size:11px;font-weight:600;border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);cursor:pointer;font-family:inherit;-webkit-tap-highlight-color:transparent;transition:all .12s}
-.psel-btn.on{background:rgba(37,211,102,0.15);border-color:#25d366;color:#25d366}
 #welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;gap:14px}
 #welcome .w-logo{font-size:52px;font-weight:900;letter-spacing:5px;color:var(--gold);line-height:1}
 #welcome .w-sub{font-size:18px;font-weight:800;letter-spacing:3px;color:var(--txt)}
@@ -186,20 +190,19 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;padding:0 1px}
 .grp-hdr{position:absolute;left:14px;right:14px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);padding:4px 0 3px;border-bottom:1px solid rgba(245,197,66,0.2)}
-/* WhatsApp share modal */
-#wa-ov{position:fixed;inset:0;z-index:170;background:rgba(0,0,0,0.88);display:none;align-items:flex-end;justify-content:center}
-#wa-ov.show{display:flex}
-#wa-box{background:var(--card);border:1px solid var(--bord);border-radius:20px 20px 0 0;width:100%;max-width:480px;padding:20px 20px 32px;display:flex;flex-direction:column;gap:14px}
-#wa-title{font-size:16px;font-weight:800;color:#25d366}
-#wa-preview-wrap{border-radius:12px;overflow:hidden;border:1px solid var(--bord);background:#000;display:flex;justify-content:center}
-#wa-canvas{max-width:100%;display:block}
-#wa-price-row{display:flex;gap:6px}
-.wa-psel{flex:1;padding:7px 4px;border-radius:8px;font-size:12px;font-weight:700;border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);cursor:pointer;font-family:inherit;text-align:center;-webkit-tap-highlight-color:transparent}
-.wa-psel.on{background:rgba(37,211,102,0.15);border-color:#25d366;color:#25d366}
-#wa-btns{display:flex;gap:8px}
-#wa-send{flex:2;padding:12px;border-radius:10px;background:#25d366;border:none;color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
-#wa-copy-img{flex:1;padding:12px;border-radius:10px;background:var(--surf);border:1px solid var(--bord);color:var(--txt);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
-#wa-cancel{flex:1;padding:12px;border-radius:10px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
+/* Export image modal */
+#exp-ov{position:fixed;inset:0;z-index:170;background:rgba(0,0,0,0.92);display:none;align-items:flex-end;justify-content:center}
+#exp-ov.show{display:flex}
+#exp-box{background:var(--card);border:1px solid var(--bord);border-radius:20px 20px 0 0;width:100%;max-width:480px;padding:18px 18px 30px;display:flex;flex-direction:column;gap:12px}
+#exp-title{font-size:15px;font-weight:800;color:#25d366;display:flex;align-items:center;gap:8px}
+#exp-preview-wrap{border-radius:12px;overflow:hidden;border:1px solid var(--bord);background:#000;display:flex;justify-content:center}
+#exp-canvas{max-width:100%;display:block}
+#exp-btns{display:flex;gap:8px}
+#exp-wa{flex:2;padding:12px;border-radius:10px;background:#25d366;border:none;color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+#exp-save{flex:1;padding:12px;border-radius:10px;background:var(--surf);border:1px solid var(--bord);color:var(--txt);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+#exp-cancel{flex:1;padding:12px;border-radius:10px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
+/* price type hint in modal */
+#exp-price-hint{font-size:12px;color:var(--muted);text-align:center}
 </style>
 </head>
 <body>
@@ -340,22 +343,18 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   </div>
 </div>
 
-<!-- WHATSAPP SHARE MODAL -->
-<div id="wa-ov">
-  <div id="wa-box">
-    <div id="wa-title">📲 Share via WhatsApp</div>
-    <div id="wa-preview-wrap">
-      <canvas id="wa-canvas" width="540" height="640"></canvas>
+<!-- ═══ EXPORT IMAGE MODAL ═══ -->
+<div id="exp-ov">
+  <div id="exp-box">
+    <div id="exp-title">📲 Share Image</div>
+    <div id="exp-price-hint"></div>
+    <div id="exp-preview-wrap">
+      <canvas id="exp-canvas" width="540" height="560"></canvas>
     </div>
-    <div id="wa-price-row">
-      <div class="wa-psel on" data-wprice="sale" onclick="selectWAPrice(this,'sale')">💚 Sale Price</div>
-      <div class="wa-psel" data-wprice="wholesale" onclick="selectWAPrice(this,'wholesale')">💙 Wholesale</div>
-      <div class="wa-psel" data-wprice="mrp" onclick="selectWAPrice(this,'mrp')">🟡 MRP</div>
-    </div>
-    <div id="wa-btns">
-      <button id="wa-send" onclick="doWASend()">Send on WhatsApp</button>
-      <button id="wa-copy-img" onclick="doWACopyImg()">📋 Copy</button>
-      <button id="wa-cancel" onclick="closeWA()">Cancel</button>
+    <div id="exp-btns">
+      <button id="exp-wa" onclick="doExpWA()">Send on WhatsApp</button>
+      <button id="exp-save" onclick="doExpSave()">💾 Save Image</button>
+      <button id="exp-cancel" onclick="closeExp()">Cancel</button>
     </div>
   </div>
 </div>
@@ -364,7 +363,7 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
 <div id="toast"></div>
 
 <!-- Hidden canvas for generating image -->
-<canvas id="gen-canvas" style="display:none" width="540" height="640"></canvas>
+<canvas id="gen-canvas" style="display:none" width="540" height="560"></canvas>
 
 <script>
 /* ═══════════════════════════════════════════
@@ -373,47 +372,12 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
 const PASS  = "7865";
 const SHOP_NAME    = "SR FASHION";
 const SHOP_ADDRESS = "GN Azad College Road, Vasant Nagar, Pusad – 445 204";
-const SHOP_PHONE   = "📞 7588756668";
+const SHOP_PHONE   = "7588756668";
 const GAP   = 16;
 let CARD_COLLAPSED_H = 160;
 const BUFFER = 4;
 const GRP_HDR_H = 26;
 const LOW_STOCK_THRESHOLD = 5;
-
-let expandedHeights = {};
-
-/* ═══════════════════════════════════════════
-   GROUP IMAGE MAP — Unsplash free-to-use keywords
-   Maps group name keywords → search image URL
-═══════════════════════════════════════════ */
-const GROUP_IMAGES = {
-  "garara":    "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=540&h=320&fit=crop",
-  "sharara":   "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=540&h=320&fit=crop",
-  "lehenga":   "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=540&h=320&fit=crop",
-  "saree":     "https://images.unsplash.com/photo-1617143207675-e7e6371f5f5d?w=540&h=320&fit=crop",
-  "saree":     "https://images.unsplash.com/photo-1617143207675-e7e6371f5f5d?w=540&h=320&fit=crop",
-  "suit":      "https://images.unsplash.com/photo-1594938298603-c8148c4b4ee1?w=540&h=320&fit=crop",
-  "kurti":     "https://images.unsplash.com/photo-1594938298603-c8148c4b4ee1?w=540&h=320&fit=crop",
-  "dupatta":   "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=540&h=320&fit=crop",
-  "gown":      "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=540&h=320&fit=crop",
-  "frock":     "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=540&h=320&fit=crop",
-  "top":       "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=540&h=320&fit=crop",
-  "pant":      "https://images.unsplash.com/photo-1542272604-787c3835535d?w=540&h=320&fit=crop",
-  "jeans":     "https://images.unsplash.com/photo-1542272604-787c3835535d?w=540&h=320&fit=crop",
-  "shirt":     "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=540&h=320&fit=crop",
-  "innerwear": "https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=540&h=320&fit=crop",
-  "nightwear": "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=540&h=320&fit=crop",
-  "default":   "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=540&h=320&fit=crop"
-};
-
-function getGroupImageUrl(group){
-  if(!group) return GROUP_IMAGES["default"];
-  const gl = group.toLowerCase();
-  for(const key of Object.keys(GROUP_IMAGES)){
-    if(key !== "default" && gl.includes(key)) return GROUP_IMAGES[key];
-  }
-  return GROUP_IMAGES["default"];
-}
 
 function measureCardHeight(){
   const probe = document.createElement('div');
@@ -428,7 +392,7 @@ function measureCardHeight(){
 }
 
 function measureExpandedCard(ri){
-  const el = stage.querySelector('.c[onclick="toggleCard(' + ri + ')"]');
+  const el = stage.querySelector('.c[data-ri="' + ri + '"]');
   if(el) expandedHeights[ri] = el.offsetHeight + 4;
 }
 
@@ -449,14 +413,15 @@ let activeSort = 'df';
 let activeStock = 'all';
 let activeBrand = '';
 let expanded = new Set();
+let expandedHeights = {};
 let vsStart  = 0;
 let vsEnd    = 0;
 let totalH   = 0;
 let scrollEl, spacer, stage;
 
-// WA share state
-let waItem   = null;
-let waPrice  = 'sale'; // 'sale' | 'wholesale' | 'mrp'
+// Export image state
+let expItem  = null;
+let expPrice = 'sale'; // 'sale' | 'wholesale'
 
 /* ═══════════════════════════════════════════
    LOAD DATA
@@ -852,17 +817,26 @@ function cardHTML(it, ri, topPx, q){
       <div class="act">
         <button class="ab cp" onclick="copyItem(${ri},event)">📋 Copy</button>
         <button class="ab sh" onclick="shareItem(${ri},event)">📤 Share</button>
-        <button class="ab wa" onclick="openWA(${ri},event)">📲 WhatsApp</button>
         ${isAdmin?`<button class="ab ed" onclick="openEdit(${ri},event)">✏️ Edit</button>`:''}
       </div>
     </div>`:'';
-  return `<div class="c${exp?' exp':''}" style="top:${topPx}px" onclick="toggleCard(${ri})">
+
+  /* Sale and Wholesale boxes are clickable to open export image */
+  return `<div class="c${exp?' exp':''}" style="top:${topPx}px" data-ri="${ri}" onclick="toggleCard(${ri})">
     <div class="c-name">${hl(it.name||'',q)}</div>
     <div class="c-alias">⌗ ${hl(it.alias||'',q)}</div>
     <div class="prices">
       <div class="pb m"><div class="pl">MRP</div><div class="pv">${fmt(it.mrp)}</div></div>
-      <div class="pb s"><div class="pl">Sale</div><div class="pv">${fmt(it.sale)}</div></div>
-      <div class="pb w"><div class="pl">Wholesale</div><div class="pv">${fmt(it.wholesale)}</div></div>
+      <div class="pb s shareable" onclick="openExp(${ri},'sale',event)" title="Tap to share Sale price image">
+        <span class="share-badge">📤</span>
+        <div class="pl">Sale Price</div>
+        <div class="pv">${fmt(it.sale)}</div>
+      </div>
+      <div class="pb w shareable" onclick="openExp(${ri},'wholesale',event)" title="Tap to share Wholesale price image">
+        <span class="share-badge">📤</span>
+        <div class="pl">Wholesale</div>
+        <div class="pv">${fmt(it.wholesale)}</div>
+      </div>
       <div class="pb k"><div class="pl">Stock</div><div class="pv">${it.stock??'–'}</div></div>
       ${purchBlock}
     </div>
@@ -930,230 +904,199 @@ function clearPF(){
 });
 
 /* ═══════════════════════════════════════════
-   WHATSAPP IMAGE SHARE
+   EXPORT IMAGE — openExp, drawExpCard, send/save
 ═══════════════════════════════════════════ */
 
-// Cache for loaded product images
-const imgCache = {};
-
-function openWA(ri, e){
+function openExp(ri, priceType, e){
   e && e.stopPropagation();
-  waItem = raw[ri];
-  waPrice = 'sale';
-  document.querySelectorAll('.wa-psel').forEach(b=>b.classList.remove('on'));
-  document.querySelector('.wa-psel[data-wprice="sale"]').classList.add('on');
-  document.getElementById('wa-ov').classList.add('show');
-  drawWACard();
+  expItem  = raw[ri];
+  expPrice = priceType; // 'sale' or 'wholesale'
+  const hint = document.getElementById('exp-price-hint');
+  hint.textContent = priceType === 'sale'
+    ? '💚 Sharing Sale Price'
+    : '💙 Sharing Wholesale Price';
+  hint.style.color = priceType === 'sale' ? '#22c55e' : '#60a5fa';
+  document.getElementById('exp-ov').classList.add('show');
+  drawExpCard(document.getElementById('exp-canvas'));
 }
 
-function closeWA(){
-  document.getElementById('wa-ov').classList.remove('show');
-  waItem = null;
+function closeExp(){
+  document.getElementById('exp-ov').classList.remove('show');
+  expItem = null;
 }
 
-function selectWAPrice(el, priceType){
-  waPrice = priceType;
-  document.querySelectorAll('.wa-psel').forEach(b=>b.classList.remove('on'));
-  el.classList.add('on');
-  drawWACard();
-}
-
-/* Draw the share card onto the canvas */
-function drawWACard(targetCanvas){
-  if(!waItem) return;
-  const canvas = targetCanvas || document.getElementById('wa-canvas');
+/* ── Draw the clean share card ── */
+function drawExpCard(canvas){
+  if(!expItem) return;
+  const it  = expItem;
   const ctx = canvas.getContext('2d');
-  const W = 540, H = 640;
-  canvas.width = W;
-  canvas.height = H;
+  const W   = 540;
 
-  const it = waItem;
-  const group = (it.group || '').toLowerCase();
-  const imgUrl = it.image || getGroupImageUrl(group);
+  /* ── Layout constants ── */
+  const PAD    = 28;
+  const INNER  = W - PAD * 2;
 
-  // Price label + value
-  const priceLabel = waPrice === 'sale' ? 'Sale Price'
-                   : waPrice === 'wholesale' ? 'Wholesale Price'
-                   : 'MRP';
-  const priceValue = fmt(it[waPrice] || it.sale || it.mrp);
-  const priceColor = waPrice === 'sale' ? '#22c55e'
-                   : waPrice === 'wholesale' ? '#60a5fa'
-                   : '#f5c542';
+  /* We'll compute H dynamically; draw to an offscreen first */
+  canvas.width  = W;
+  canvas.height = 560; // will be trimmed
 
-  function drawAll(productImg){
-    // Background
-    ctx.fillStyle = '#0f0f11';
-    ctx.fillRect(0, 0, W, H);
+  /* ── Background ── */
+  ctx.fillStyle = '#0a0a0d';
+  ctx.fillRect(0, 0, W, canvas.height);
 
-    // Top header band
-    const grd = ctx.createLinearGradient(0, 0, W, 80);
-    grd.addColorStop(0, '#1a1200');
-    grd.addColorStop(1, '#0f0f11');
-    ctx.fillStyle = grd;
-    ctx.fillRect(0, 0, W, 80);
+  /* ── Gold left accent bar ── */
+  ctx.fillStyle = '#f5c542';
+  ctx.fillRect(0, 0, 5, canvas.height);
 
-    // Gold accent line
-    ctx.fillStyle = '#f5c542';
-    ctx.fillRect(0, 0, 4, H);
+  let y = 26;
 
-    // Shop name
-    ctx.fillStyle = '#f5c542';
-    ctx.font = 'bold 28px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
-    ctx.fillText(SHOP_NAME, 24, 42);
+  /* ── HEADER: Shop name ── */
+  ctx.font = 'bold 26px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#f5c542';
+  ctx.textBaseline = 'top';
+  ctx.fillText(SHOP_NAME, PAD + 8, y);
+  y += 34;
 
-    // Tagline / address
-    ctx.fillStyle = '#a1a1aa';
-    ctx.font = '13px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
-    ctx.fillText(SHOP_ADDRESS, 24, 62);
+  /* ── Address ── */
+  ctx.font = '13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#a1a1aa';
+  ctx.fillText(SHOP_ADDRESS, PAD + 8, y);
+  y += 20;
 
-    // Phone
+  /* ── Phone ── */
+  ctx.font = '13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#71717a';
+  ctx.fillText('📞 ' + SHOP_PHONE, PAD + 8, y);
+  y += 24;
+
+  /* ── Divider ── */
+  ctx.strokeStyle = 'rgba(245,197,66,0.25)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y);
+  ctx.stroke();
+  y += 18;
+
+  /* ── ALIAS (Item Code) ── */
+  const aliasText = it.alias || it.name || '';
+  ctx.font = 'bold 13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#f5c542';
+  ctx.fillText('CODE', PAD + 8, y);
+  const codeX = PAD + 8 + ctx.measureText('CODE').width + 10;
+  /* Code pill bg */
+  ctx.font = 'bold 15px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  const codeW = ctx.measureText(aliasText).width + 20;
+  roundRect(ctx, codeX - 2, y - 3, codeW, 22, 6);
+  ctx.fillStyle = 'rgba(245,197,66,0.12)';
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(245,197,66,0.3)';
+  ctx.lineWidth = 1;
+  roundRect(ctx, codeX - 2, y - 3, codeW, 22, 6);
+  ctx.stroke();
+  ctx.fillStyle = '#f5c542';
+  ctx.fillText(aliasText, codeX + 8, y);
+  y += 28;
+
+  /* ── GROUP ── */
+  if(it.group){
+    ctx.font = '13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
     ctx.fillStyle = '#71717a';
-    ctx.font = '12px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
-    ctx.fillText(SHOP_PHONE, 24, 78);
-
-    // Product image area
-    const imgY = 88, imgH = 270;
-    if(productImg){
-      // Draw image covering area
-      const ar = productImg.naturalWidth / productImg.naturalHeight;
-      let sx=0, sy=0, sw=productImg.naturalWidth, sh=productImg.naturalHeight;
-      const targetAR = W / imgH;
-      if(ar > targetAR){
-        sw = productImg.naturalHeight * targetAR;
-        sx = (productImg.naturalWidth - sw)/2;
-      } else {
-        sh = productImg.naturalWidth / targetAR;
-        sy = (productImg.naturalHeight - sh)/2;
-      }
-      ctx.drawImage(productImg, sx, sy, sw, sh, 0, imgY, W, imgH);
-      // Gradient overlay on image bottom
-      const imgOverlay = ctx.createLinearGradient(0, imgY+imgH-80, 0, imgY+imgH);
-      imgOverlay.addColorStop(0, 'rgba(15,15,17,0)');
-      imgOverlay.addColorStop(1, 'rgba(15,15,17,1)');
-      ctx.fillStyle = imgOverlay;
-      ctx.fillRect(0, imgY+imgH-80, W, 80);
-    } else {
-      // Fallback: colored block
-      ctx.fillStyle = '#18181b';
-      ctx.fillRect(0, imgY, W, imgH);
-      ctx.fillStyle = '#f5c542';
-      ctx.font = 'bold 52px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText('👗', W/2, imgY + imgH/2 + 18);
-      ctx.textAlign = 'left';
-    }
-
-    const detY = imgY + imgH + 4;
-
-    // Card bg for product details
-    ctx.fillStyle = '#18181b';
-    roundRect(ctx, 14, detY, W-28, H-detY-14, 14);
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(255,255,255,0.08)';
-    ctx.lineWidth = 1;
-    roundRect(ctx, 14, detY, W-28, H-detY-14, 14);
-    ctx.stroke();
-
-    // Product name
+    ctx.fillText('GROUP  ', PAD + 8, y);
     ctx.fillStyle = '#e4e4e7';
-    ctx.font = 'bold 22px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
-    const nameText = it.name || '';
-    // Wrap if too long
-    const nameLines = wrapText(ctx, nameText, W-56, 22);
-    let ny = detY + 28;
-    nameLines.forEach(line => {
-      ctx.fillText(line, 28, ny);
-      ny += 28;
-    });
+    ctx.font = '600 13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+    ctx.fillText(it.group, PAD + 8 + ctx.measureText('GROUP  ').width + 2, y);
+    y += 22;
+  }
 
-    // Alias + Group row
-    ctx.fillStyle = '#71717a';
-    ctx.font = '13px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
-    let aliasStr = it.alias ? '⌗ ' + it.alias : '';
-    if(it.group) aliasStr += (aliasStr ? '  ·  ' : '') + '🗂 ' + it.group;
-    ctx.fillText(aliasStr, 28, ny + 2);
-    ny += 22;
+  /* ── ITEM NAME ── */
+  ctx.font = 'bold 22px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#e4e4e7';
+  const nameLines = wrapText(ctx, it.name || '', INNER - 16, 22);
+  nameLines.forEach(line => {
+    ctx.fillText(line, PAD + 8, y);
+    y += 30;
+  });
+  y += 6;
 
-    // Divider
-    ctx.strokeStyle = 'rgba(255,255,255,0.08)';
-    ctx.lineWidth = 1;
+  /* ── Divider ── */
+  ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y);
+  ctx.stroke();
+  y += 18;
+
+  /* ── MRP ── */
+  const mrpVal = fmt(it.mrp);
+  ctx.font = '13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#71717a';
+  ctx.fillText('MRP', PAD + 8, y);
+  ctx.font = '600 15px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#a1a1aa';
+  const mrpNumX = PAD + 8 + ctx.measureText('MRP  ').width + 4;
+  ctx.fillText(mrpVal, mrpNumX, y);
+  /* strikethrough on mrp when showing sale or wholesale */
+  if(pn(it.mrp) > pn(it[expPrice])){
+    const sw = ctx.measureText(mrpVal).width;
     ctx.beginPath();
-    ctx.moveTo(28, ny + 6);
-    ctx.lineTo(W - 28, ny + 6);
+    ctx.strokeStyle = '#71717a';
+    ctx.lineWidth = 1.5;
+    ctx.moveTo(mrpNumX, y + 6);
+    ctx.lineTo(mrpNumX + sw, y + 6);
     ctx.stroke();
-    ny += 20;
-
-    // Price block
-    const priceBlockX = 28;
-    const priceBlockY = ny;
-    const priceBlockW = W - 56;
-    const priceBlockH = 68;
-
-    // Colored price block bg
-    const pAlpha = '22';
-    const pBorder = waPrice === 'sale' ? '#22c55e' : waPrice === 'wholesale' ? '#60a5fa' : '#f5c542';
-    ctx.fillStyle = waPrice === 'sale' ? 'rgba(34,197,94,0.1)' : waPrice === 'wholesale' ? 'rgba(96,165,250,0.1)' : 'rgba(245,197,66,0.1)';
-    roundRect(ctx, priceBlockX, priceBlockY, priceBlockW, priceBlockH, 10);
-    ctx.fill();
-    ctx.strokeStyle = pBorder + '55';
-    ctx.lineWidth = 1;
-    roundRect(ctx, priceBlockX, priceBlockY, priceBlockW, priceBlockH, 10);
-    ctx.stroke();
-
-    ctx.fillStyle = priceColor;
-    ctx.font = 'bold 13px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
-    ctx.fillText(priceLabel.toUpperCase(), priceBlockX + 14, priceBlockY + 22);
-
-    ctx.fillStyle = priceColor;
-    ctx.font = 'bold 32px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
-    ctx.fillText(priceValue, priceBlockX + 14, priceBlockY + 56);
-
-    // MRP crossed out (if showing sale/wholesale)
-    if(waPrice !== 'mrp' && it.mrp && pn(it.mrp) > pn(it[waPrice])){
-      const mrpStr = fmt(it.mrp);
-      ctx.fillStyle = '#71717a';
-      ctx.font = '14px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
-      const mrpX = priceBlockX + 14 + ctx.measureText(priceValue).width + 14;
-      ctx.fillText('MRP ' + mrpStr, mrpX, priceBlockY + 48);
-      // Strikethrough
-      const mrpW = ctx.measureText('MRP ' + mrpStr).width;
-      ctx.beginPath();
-      ctx.strokeStyle = '#71717a';
-      ctx.lineWidth = 1.5;
-      ctx.moveTo(mrpX, priceBlockY + 42);
-      ctx.lineTo(mrpX + mrpW, priceBlockY + 42);
-      ctx.stroke();
-    }
-
-    // Footer
-    ctx.fillStyle = '#3f3f46';
-    ctx.font = '11px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('SR Fashion · Pusad · ' + SHOP_PHONE.replace('📞 ',''), W/2, H - 18);
-    ctx.textAlign = 'left';
-
-    // Copy to preview canvas
-    const preview = document.getElementById('wa-canvas');
-    if(canvas !== preview){
-      preview.width = W;
-      preview.height = H;
-      preview.getContext('2d').drawImage(canvas, 0, 0);
-    }
   }
+  y += 28;
 
-  // Load image with CORS
-  if(imgCache[imgUrl]){
-    drawAll(imgCache[imgUrl]);
-  } else {
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = () => {
-      imgCache[imgUrl] = img;
-      drawAll(img);
-    };
-    img.onerror = () => drawAll(null);
-    img.src = imgUrl;
-  }
+  /* ── MAIN PRICE BLOCK ── */
+  const priceLabel = expPrice === 'sale' ? 'SALE PRICE' : 'WHOLESALE PRICE';
+  const priceValue = fmt(it[expPrice]);
+  const priceColor = expPrice === 'sale' ? '#22c55e' : '#60a5fa';
+  const priceBg    = expPrice === 'sale' ? 'rgba(34,197,94,0.10)' : 'rgba(96,165,250,0.10)';
+  const priceBord  = expPrice === 'sale' ? 'rgba(34,197,94,0.35)' : 'rgba(96,165,250,0.35)';
+
+  const blockH = 84;
+  roundRect(ctx, PAD, y, INNER, blockH, 12);
+  ctx.fillStyle = priceBg;
+  ctx.fill();
+  ctx.strokeStyle = priceBord;
+  ctx.lineWidth = 1.5;
+  roundRect(ctx, PAD, y, INNER, blockH, 12);
+  ctx.stroke();
+
+  ctx.font = 'bold 11px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = priceColor;
+  ctx.fillText(priceLabel, PAD + 16, y + 18);
+
+  ctx.font = 'bold 42px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = priceColor;
+  ctx.fillText(priceValue, PAD + 16, y + 70);
+  y += blockH + 22;
+
+  /* ── FOOTER ── */
+  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y);
+  ctx.stroke();
+  y += 12;
+
+  ctx.font = '11px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#3f3f46';
+  ctx.textAlign = 'center';
+  ctx.fillText(SHOP_NAME + '  ·  ' + SHOP_ADDRESS + '  ·  ' + SHOP_PHONE, W / 2, y);
+  ctx.textAlign = 'left';
+  y += 22;
+
+  /* ── Resize canvas to actual content height ── */
+  const finalH = y + 4;
+  const imgData = ctx.getImageData(0, 0, W, finalH);
+  canvas.height = finalH;
+  canvas.width  = W;
+  ctx.fillStyle = '#0a0a0d';
+  ctx.fillRect(0, 0, W, finalH);
+  ctx.fillStyle = '#f5c542';
+  ctx.fillRect(0, 0, 5, finalH);
+  ctx.putImageData(imgData, 0, 0);
 }
 
 function roundRect(ctx, x, y, w, h, r){
@@ -1170,83 +1113,69 @@ function roundRect(ctx, x, y, w, h, r){
   ctx.closePath();
 }
 
-function wrapText(ctx, text, maxW, fontSize){
+function wrapText(ctx, text, maxW){
   const words = text.split(' ');
   const lines = [];
   let line = '';
   for(const word of words){
     const test = line ? line + ' ' + word : word;
     if(ctx.measureText(test).width > maxW && line){
-      lines.push(line);
-      line = word;
-    } else {
-      line = test;
-    }
+      lines.push(line); line = word;
+    } else { line = test; }
   }
   if(line) lines.push(line);
-  return lines.slice(0, 2); // max 2 lines
+  return lines.slice(0, 2);
 }
 
-async function getWABlob(){
+async function getExpBlob(){
   const offscreen = document.getElementById('gen-canvas');
-  drawWACard(offscreen);
-  // Wait a tick for async image draws to settle if already cached
-  await new Promise(r => setTimeout(r, 120));
-  return new Promise(res => offscreen.toBlob(res, 'image/png', 0.92));
+  drawExpCard(offscreen);
+  await new Promise(r => setTimeout(r, 80));
+  return new Promise(res => offscreen.toBlob(res, 'image/png', 0.95));
 }
 
-async function doWASend(){
-  if(!waItem) return;
-  const it = waItem;
-  const priceLabel = waPrice === 'sale' ? 'Sale' : waPrice === 'wholesale' ? 'Wholesale' : 'MRP';
-  const priceVal = fmt(it[waPrice]);
+async function doExpWA(){
+  if(!expItem) return;
+  const it = expItem;
+  const priceLabel = expPrice === 'sale' ? 'Sale' : 'Wholesale';
+  const priceVal   = fmt(it[expPrice]);
+  const text = `*${SHOP_NAME}*\n${SHOP_ADDRESS}\n📞 ${SHOP_PHONE}\n\n*${it.name || ''}*\nCode: ${it.alias || '–'}${it.group ? '\nGroup: ' + it.group : ''}\n\nMRP: ${fmt(it.mrp)}\n💰 *${priceLabel}: ${priceVal}*`;
 
-  const text = `*${SHOP_NAME}*\n${SHOP_ADDRESS}\n${SHOP_PHONE}\n\n*${it.name}*\n⌗ ${it.alias||'-'}${it.group ? '  ·  '+it.group : ''}\n\n💰 *${priceLabel}: ${priceVal}*\n${waPrice!=='mrp'&&it.mrp&&pn(it.mrp)>pn(it[waPrice])?'MRP: '+fmt(it.mrp):''}\n\n_SR Fashion Pusad_`;
-
-  // Try Web Share API with image (mobile only)
   if(navigator.share && navigator.canShare){
     try{
-      const blob = await getWABlob();
-      const file = new File([blob], 'product.png', {type:'image/png'});
+      const blob = await getExpBlob();
+      const file = new File([blob], (it.alias||'product')+'.png', {type:'image/png'});
       if(navigator.canShare({files:[file]})){
-        await navigator.share({
-          files: [file],
-          title: it.name,
-          text: text
-        });
-        closeWA();
-        return;
+        await navigator.share({ files:[file], title: it.name, text });
+        closeExp(); return;
       }
     }catch(err){
-      if(err.name === 'AbortError'){ closeWA(); return; }
-      // Fall through to WhatsApp link
+      if(err.name==='AbortError'){ closeExp(); return; }
     }
   }
-
-  // Fallback: open WhatsApp with text
   const waUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
   window.open(waUrl, '_blank');
   toast("📲 Opened WhatsApp");
-  closeWA();
+  closeExp();
 }
 
-async function doWACopyImg(){
+async function doExpSave(){
   try{
-    const blob = await getWABlob();
+    const blob = await getExpBlob();
     if(navigator.clipboard && window.ClipboardItem){
       await navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
-      toast("📋 Image copied!");
+      toast("📋 Image copied to clipboard!");
     } else {
-      // Fallback: download
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
-      a.href = url; a.download = (waItem?.alias||'product')+'.png';
+      a.href = url;
+      a.download = (expItem?.alias || 'product') + '_' + expPrice + '.png';
       a.click();
       URL.revokeObjectURL(url);
       toast("💾 Image saved!");
     }
   }catch(e){
-    toast("❌ Copy failed");
+    toast("❌ Save failed: " + e.message);
   }
 }
 
@@ -1363,12 +1292,12 @@ function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg
 
 /* ═══ KEYBOARD ═══ */
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){ closeAdm(); closeEdit(); closeScanner(); closeGrpModal(); closeBrandModal(); closeWA(); }
+  if(e.key==="Escape"){ closeAdm(); closeEdit(); closeScanner(); closeGrpModal(); closeBrandModal(); closeExp(); }
   if((e.ctrlKey||e.metaKey)&&e.key==="f"){ e.preventDefault(); document.getElementById("search").focus(); }
 });
 document.getElementById("adm-ov").addEventListener("click",e=>{ if(e.target.id==="adm-ov")closeAdm(); });
 document.getElementById("edit-ov").addEventListener("click",e=>{ if(e.target.id==="edit-ov")closeEdit(); });
-document.getElementById("wa-ov").addEventListener("click",e=>{ if(e.target.id==="wa-ov")closeWA(); });
+document.getElementById("exp-ov").addEventListener("click",e=>{ if(e.target.id==="exp-ov")closeExp(); });
 
 /* ═══ BOOT ═══ */
 scrollEl = document.getElementById("scroll");
