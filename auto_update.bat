@@ -7,6 +7,12 @@ echo ===================================
 
 cd /d C:\Users\SR\Desktop\demmo
 
+:: 🔥 STEP 0 — REMOVE GIT LOCK IF EXISTS
+IF EXIST .git\index.lock (
+    echo ⚠ Removing old Git lock...
+    del /f /q .git\index.lock
+)
+
 echo.
 echo Exporting stock from Busy...
 
@@ -32,11 +38,11 @@ IF %ERRORLEVEL% NEQ 0 (
 echo.
 echo Syncing with GitHub...
 
-:: STEP 1: ADD + COMMIT FIRST (IMPORTANT FIX)
+:: STEP 1: COMMIT FIRST
 git add .
 git commit -m "Auto stock update"
 
-:: STEP 2: PULL AFTER COMMIT
+:: STEP 2: PULL
 git pull origin main --rebase
 
 IF %ERRORLEVEL% NEQ 0 (
