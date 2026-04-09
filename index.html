@@ -89,20 +89,54 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .stock-chip[data-stock="low"].on{background:rgba(245,197,66,0.18);border-color:var(--gold);color:var(--gold)}
 .stock-chip[data-stock="out"].on{background:rgba(248,113,113,0.18);border-color:var(--red);color:var(--red)}
 
-/* ── BRAND FILTER ── */
-#brand-row{
-  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;
+/* ── BRAND MODAL ── */
+#brand-modal-bg{
+  position:fixed;inset:0;z-index:180;background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(4px);
+  display:none;align-items:flex-end;justify-content:center;
 }
-#brand-row::-webkit-scrollbar{display:none}
-.brand-chip{
-  white-space:nowrap;font-size:12px;font-weight:700;letter-spacing:.5px;
-  padding:4px 13px;border-radius:20px;
-  border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);
-  cursor:pointer;flex-shrink:0;font-family:inherit;
-  -webkit-tap-highlight-color:transparent;transition:all .15s;
+#brand-modal-bg.show{display:flex}
+#brand-modal{
+  background:var(--card);border:1px solid var(--bord);
+  border-radius:20px 20px 0 0;
+  width:100%;max-width:520px;
+  max-height:75vh;display:flex;flex-direction:column;
+  transform:translateY(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);
 }
-.brand-chip.on{background:rgba(96,165,250,0.18);border-color:var(--blue);color:var(--blue);}
-.brand-chip[data-brand=""].on{background:var(--gold);border-color:var(--gold);color:#000;}
+#brand-modal-bg.show #brand-modal{transform:translateY(0)}
+#brand-modal-hdr{
+  padding:16px 16px 10px;border-bottom:1px solid var(--bord);
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
+}
+#brand-modal-title{font-size:15px;font-weight:800;color:var(--txt)}
+#brand-modal-close{
+  background:var(--surf);border:1px solid var(--bord);color:var(--muted);
+  width:28px;height:28px;border-radius:50%;font-size:13px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-family:inherit;
+}
+#brand-search-wrap{padding:10px 16px 6px;flex-shrink:0}
+#brand-search{
+  width:100%;background:var(--surf);border:1.5px solid var(--bord);
+  border-radius:8px;padding:8px 12px;font-size:14px;color:var(--txt);
+  outline:none;font-family:inherit;
+}
+#brand-search:focus{border-color:var(--blue)}
+#brand-search::placeholder{color:var(--muted)}
+#brand-list{overflow-y:auto;padding:6px 10px 20px;flex:1}
+.brand-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 10px;border-radius:10px;cursor:pointer;
+  font-size:14px;font-weight:600;color:var(--txt);
+  border-bottom:1px solid var(--bord);
+  -webkit-tap-highlight-color:transparent;letter-spacing:.4px;
+}
+.brand-item:last-child{border-bottom:none}
+.brand-item:active{background:var(--surf)}
+.brand-item.selected{color:var(--blue);font-weight:700}
+.brand-item .brand-count{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.brand-item.selected .brand-count{color:rgba(96,165,250,0.6)}
+.brand-tick{color:var(--blue);font-size:14px;margin-left:8px;opacity:0}
+.brand-item.selected .brand-tick{opacity:1}
 
 /* ── GROUP PICKER BUTTON ── */
 #grp-btn{
@@ -117,6 +151,22 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #grp-btn .grp-arrow{margin-left:auto;font-size:11px;opacity:.5}
 #grp-btn .grp-tag{
   background:var(--gold);color:#000;font-size:10px;font-weight:700;
+  padding:2px 7px;border-radius:20px;letter-spacing:.3px;
+}
+
+/* ── BRAND PICKER BUTTON ── */
+#brand-btn{
+  display:flex;align-items:center;gap:8px;
+  background:var(--surf);border:1.5px solid var(--bord);
+  border-radius:10px;padding:8px 14px;cursor:pointer;
+  font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);
+  width:100%;text-align:left;transition:border-color .15s;
+}
+#brand-btn:active{background:#222}
+#brand-btn.active{border-color:var(--blue);color:var(--blue)}
+#brand-btn .brand-arrow{margin-left:auto;font-size:11px;opacity:.5}
+#brand-btn .brand-tag{
+  background:var(--blue);color:#000;font-size:10px;font-weight:700;
   padding:2px 7px;border-radius:20px;letter-spacing:.3px;
 }
 
@@ -201,7 +251,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .c{
   position:absolute;left:14px;right:14px;
   background:var(--card);border:1px solid var(--bord);
-  border-radius:12px;padding:12px;cursor:pointer;
+  border-radius:12px;padding:16px;cursor:pointer;
 }
 .c.exp{border-color:rgba(245,197,66,0.3)}
 .c-name{font-size:17px;font-weight:700;line-height:1.15;color:var(--txt)}
@@ -353,10 +403,12 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
     <div class="stock-chip" data-stock="out">❌ Out of Stock</div>
   </div>
 
-  <!-- Brand filter -->
-  <div id="brand-row">
-    <div class="brand-chip on" data-brand="">All Brands</div>
-  </div>
+  <!-- Brand picker button -->
+  <button id="brand-btn" onclick="openBrandModal()">
+    <span>🏷️</span>
+    <span id="brand-btn-label">All Brands</span>
+    <span class="brand-arrow">▼</span>
+  </button>
 
   <!-- Group picker button -->
   <button id="grp-btn" onclick="openGrpModal()">
@@ -441,6 +493,20 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   </div>
 </div>
 
+<!-- BRAND MODAL -->
+<div id="brand-modal-bg">
+  <div id="brand-modal">
+    <div id="brand-modal-hdr">
+      <div id="brand-modal-title">Select Brand</div>
+      <button id="brand-modal-close" onclick="closeBrandModal()">✕</button>
+    </div>
+    <div id="brand-search-wrap">
+      <input id="brand-search" type="search" placeholder="Search brands…" autocomplete="off" spellcheck="false">
+    </div>
+    <div id="brand-list"></div>
+  </div>
+</div>
+
 <!-- TOAST -->
 <div id="toast"></div>
 
@@ -449,7 +515,7 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
    CONFIG
 ═══════════════════════════════════════════ */
 const PASS  = "7865";
-const GAP   = 10;
+const GAP   = 16;
 let CARD_COLLAPSED_H = 160; // updated dynamically after first measure
 const BUFFER = 4;
 const GRP_HDR_H = 26;
@@ -565,9 +631,9 @@ function goHome(){
   document.querySelectorAll("#stock-row .stock-chip").forEach(c=>c.classList.remove("on"));
   document.querySelector("#stock-row .stock-chip[data-stock='all']").classList.add("on");
   // Reset brand chips
-  document.querySelectorAll('#brand-row .brand-chip').forEach(c=>c.classList.remove('on'));
-  const allBrandChip=document.querySelector("#brand-row .brand-chip[data-brand='']");
-  if(allBrandChip) allBrandChip.classList.add('on');
+  // Reset brand button
+  document.getElementById('brand-btn-label').textContent = 'All Brands';
+  document.getElementById('brand-btn').classList.remove('active');
   // Reset group button
   document.getElementById("grp-btn-label").textContent = "All Groups";
   document.getElementById("grp-btn").classList.remove("active");
@@ -613,29 +679,84 @@ function buildGroupChips(){
   allGroups = Object.keys(countMap).filter(Boolean).sort();
 }
 
+let allBrands = [];
+
 function buildBrandChips(){
-  // Extract brand prefix = first word of name that is ALL-CAPS letters (2–6 chars)
   const brandSet = new Set();
   raw.forEach(it=>{
     const first = (it.name||'').trim().split(/\s+/)[0];
     if(/^[A-Z]{2,6}$/.test(first)) brandSet.add(first);
   });
-  const brands = [...brandSet].sort();
-  const row = document.getElementById('brand-row');
-  row.innerHTML = '<div class="brand-chip on" data-brand="">All Brands</div>'
-    + brands.map(b=>`<div class="brand-chip" data-brand="${b}">${b}</div>`).join('');
-  // Re-attach listener (row is rebuilt)
-  row.addEventListener('click', onBrandClick);
+  allBrands = [...brandSet].sort();
 }
 
-function onBrandClick(e){
-  const c = e.target.closest('.brand-chip[data-brand]');
-  if(!c) return;
-  document.querySelectorAll('#brand-row .brand-chip').forEach(x=>x.classList.remove('on'));
-  c.classList.add('on');
-  activeBrand = c.dataset.brand;
+function openBrandModal(){
+  renderBrandList('');
+  document.getElementById('brand-modal-bg').classList.add('show');
+  setTimeout(()=>document.getElementById('brand-search').focus(), 200);
+}
+function closeBrandModal(){
+  document.getElementById('brand-modal-bg').classList.remove('show');
+  document.getElementById('brand-search').value='';
+}
+
+function renderBrandList(filter){
+  const f = filter.trim().toLowerCase();
+  const countMap = {};
+  raw.forEach(it=>{
+    const first = (it.name||'').trim().split(/\s+/)[0];
+    if(/^[A-Z]{2,6}$/.test(first)) countMap[first]=(countMap[first]||0)+1;
+  });
+  let brands = allBrands;
+  if(f) brands = brands.filter(b=>b.toLowerCase().includes(f));
+
+  let html = `<div class="brand-item${activeBrand===''?' selected':''}" onclick="selectBrand('')">
+    <span>All Brands</span>
+    <span style="display:flex;align-items:center;gap:6px">
+      <span class="brand-count">${raw.length.toLocaleString()}</span>
+      <span class="brand-tick">✓</span>
+    </span>
+  </div>`;
+
+  if(!brands.length){
+    html += `<div style="text-align:center;padding:30px;font-size:13px;color:var(--muted)">No brands found</div>`;
+  } else {
+    brands.forEach(b=>{
+      const cnt = countMap[b]||0;
+      const sel = activeBrand===b;
+      html += `<div class="brand-item${sel?' selected':''}" onclick="selectBrand('${b}')">
+        <span>${b}</span>
+        <span style="display:flex;align-items:center;gap:6px">
+          <span class="brand-count">${cnt.toLocaleString()}</span>
+          <span class="brand-tick">✓</span>
+        </span>
+      </div>`;
+    });
+  }
+  document.getElementById('brand-list').innerHTML = html;
+}
+
+function selectBrand(b){
+  activeBrand = b;
+  const btn = document.getElementById('brand-btn');
+  const label = document.getElementById('brand-btn-label');
+  if(b){
+    label.innerHTML = `<span class="brand-tag">${b}</span>`;
+    btn.classList.add('active');
+  } else {
+    label.textContent = 'All Brands';
+    btn.classList.remove('active');
+  }
+  closeBrandModal();
   applyAll();
 }
+
+document.getElementById('brand-search').addEventListener('input', function(){
+  renderBrandList(this.value);
+});
+document.getElementById('brand-modal-bg').addEventListener('click', function(e){
+  if(e.target===this) closeBrandModal();
+});
 
 function openGrpModal(){
   renderGrpList('');
@@ -777,7 +898,7 @@ function applyAll(){
 function rebuildOffsets(){
   heights  = new Array(pool.length).fill(CARD_COLLAPSED_H);
   offsets  = new Array(pool.length);
-  let top  = 14;
+  let top  = 18;
   for(let i=0;i<pool.length;i++){
     if(activeSort==='grp'){
       const grp = raw[pool[i]].group||'';
@@ -1097,7 +1218,7 @@ function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg
    KEYBOARD / DISMISS
 ═══════════════════════════════════════════ */
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){ closeAdm(); closeEdit(); closeScanner(); closeGrpModal(); }
+  if(e.key==="Escape"){ closeAdm(); closeEdit(); closeScanner(); closeGrpModal(); closeBrandModal(); }
   if((e.ctrlKey||e.metaKey)&&e.key==="f"){ e.preventDefault(); document.getElementById("search").focus(); }
 });
 document.getElementById("adm-ov").addEventListener("click",e=>{ if(e.target.id==="adm-ov")closeAdm(); });
