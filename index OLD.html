@@ -29,6 +29,19 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #logo:active{opacity:.7}
 #hdr-right{margin-left:auto;display:flex;gap:8px;align-items:center}
 #badge{font-size:11px;color:var(--muted);background:var(--surf);border:1px solid var(--bord);padding:2px 8px;border-radius:20px;font-variant-numeric:tabular-nums}
+
+/* ── REFRESH BUTTON ── */
+#refresh-btn{
+  width:34px;height:34px;flex-shrink:0;border-radius:9px;
+  background:var(--surf);border:1.5px solid var(--bord);
+  color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;
+  -webkit-tap-highlight-color:transparent;transition:border-color .15s,color .15s;
+}
+#refresh-btn:active{opacity:.7}
+#refresh-btn.spinning svg{animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#refresh-btn:hover{border-color:var(--gold);color:var(--gold)}
+
 #admin-btn{font-size:12px;font-weight:700;background:transparent;color:var(--gold);border:1.5px solid var(--gold);padding:5px 12px;border-radius:7px;cursor:pointer;font-family:inherit}
 #admin-btn.on{background:var(--gold);color:#000}
 
@@ -59,6 +72,72 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 }
 .chip.on{background:var(--gold);border-color:var(--gold);color:#000}
 
+/* ── STOCK FILTER CHIPS ── */
+#stock-row{
+  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;
+}
+#stock-row::-webkit-scrollbar{display:none}
+.stock-chip{
+  white-space:nowrap;font-size:12px;font-weight:600;
+  padding:4px 12px;border-radius:20px;
+  border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);
+  cursor:pointer;flex-shrink:0;font-family:inherit;
+  -webkit-tap-highlight-color:transparent;transition:all .15s;
+}
+.stock-chip[data-stock="all"].on{background:var(--gold);border-color:var(--gold);color:#000}
+.stock-chip[data-stock="in"].on{background:rgba(34,197,94,0.18);border-color:var(--green);color:var(--green)}
+.stock-chip[data-stock="low"].on{background:rgba(245,197,66,0.18);border-color:var(--gold);color:var(--gold)}
+.stock-chip[data-stock="out"].on{background:rgba(248,113,113,0.18);border-color:var(--red);color:var(--red)}
+
+/* ── BRAND MODAL ── */
+#brand-modal-bg{
+  position:fixed;inset:0;z-index:180;background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(4px);
+  display:none;align-items:flex-end;justify-content:center;
+}
+#brand-modal-bg.show{display:flex}
+#brand-modal{
+  background:var(--card);border:1px solid var(--bord);
+  border-radius:20px 20px 0 0;
+  width:100%;max-width:520px;
+  max-height:75vh;display:flex;flex-direction:column;
+  transform:translateY(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);
+}
+#brand-modal-bg.show #brand-modal{transform:translateY(0)}
+#brand-modal-hdr{
+  padding:16px 16px 10px;border-bottom:1px solid var(--bord);
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
+}
+#brand-modal-title{font-size:15px;font-weight:800;color:var(--txt)}
+#brand-modal-close{
+  background:var(--surf);border:1px solid var(--bord);color:var(--muted);
+  width:28px;height:28px;border-radius:50%;font-size:13px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-family:inherit;
+}
+#brand-search-wrap{padding:10px 16px 6px;flex-shrink:0}
+#brand-search{
+  width:100%;background:var(--surf);border:1.5px solid var(--bord);
+  border-radius:8px;padding:8px 12px;font-size:14px;color:var(--txt);
+  outline:none;font-family:inherit;
+}
+#brand-search:focus{border-color:var(--blue)}
+#brand-search::placeholder{color:var(--muted)}
+#brand-list{overflow-y:auto;padding:6px 10px 20px;flex:1}
+.brand-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 10px;border-radius:10px;cursor:pointer;
+  font-size:14px;font-weight:600;color:var(--txt);
+  border-bottom:1px solid var(--bord);
+  -webkit-tap-highlight-color:transparent;letter-spacing:.4px;
+}
+.brand-item:last-child{border-bottom:none}
+.brand-item:active{background:var(--surf)}
+.brand-item.selected{color:var(--blue);font-weight:700}
+.brand-item .brand-count{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.brand-item.selected .brand-count{color:rgba(96,165,250,0.6)}
+.brand-tick{color:var(--blue);font-size:14px;margin-left:8px;opacity:0}
+.brand-item.selected .brand-tick{opacity:1}
+
 /* ── GROUP PICKER BUTTON ── */
 #grp-btn{
   display:flex;align-items:center;gap:8px;
@@ -72,6 +151,22 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #grp-btn .grp-arrow{margin-left:auto;font-size:11px;opacity:.5}
 #grp-btn .grp-tag{
   background:var(--gold);color:#000;font-size:10px;font-weight:700;
+  padding:2px 7px;border-radius:20px;letter-spacing:.3px;
+}
+
+/* ── BRAND PICKER BUTTON ── */
+#brand-btn{
+  display:flex;align-items:center;gap:8px;
+  background:var(--surf);border:1.5px solid var(--bord);
+  border-radius:10px;padding:8px 14px;cursor:pointer;
+  font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);
+  width:100%;text-align:left;transition:border-color .15s;
+}
+#brand-btn:active{background:#222}
+#brand-btn.active{border-color:var(--blue);color:var(--blue)}
+#brand-btn .brand-arrow{margin-left:auto;font-size:11px;opacity:.5}
+#brand-btn .brand-tag{
+  background:var(--blue);color:#000;font-size:10px;font-weight:700;
   padding:2px 7px;border-radius:20px;letter-spacing:.3px;
 }
 
@@ -152,16 +247,11 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #spacer{width:1px;pointer-events:none}
 #stage{position:absolute;top:0;left:0;right:0}
 
-/* ── CARD ──
-   Cards are absolute-positioned by virtual scroll.
-   padding on stage prevents edge clipping.
-   No margin-bottom needed — gap handled by ROW_H constant.
-*/
+/* ── CARD ── */
 .c{
   position:absolute;left:14px;right:14px;
   background:var(--card);border:1px solid var(--bord);
-  border-radius:12px;padding:12px;cursor:pointer;
-  /* NO transform, NO animation — pure paint speed */
+  border-radius:12px;padding:16px;cursor:pointer;
 }
 .c.exp{border-color:rgba(245,197,66,0.3)}
 .c-name{font-size:17px;font-weight:700;line-height:1.15;color:var(--txt)}
@@ -271,6 +361,12 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   <div id="logo" onclick="goHome()">SR PSD</div>
   <div id="hdr-right">
     <div id="badge">—</div>
+    <button id="refresh-btn" onclick="refreshData()" title="Refresh data">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 4 23 10 17 10"/>
+        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+      </svg>
+    </button>
     <button id="admin-btn" onclick="openAdm()">⚡ Admin</button>
   </div>
 </div>
@@ -298,6 +394,21 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
     <div class="chip" data-sort="sa">Price ↑</div>
     <div class="chip" data-sort="sd">Price ↓</div>
   </div>
+
+  <!-- Stock filter chips -->
+  <div id="stock-row">
+    <div class="stock-chip on" data-stock="all">📦 All Stock</div>
+    <div class="stock-chip" data-stock="in">✅ In Stock</div>
+    <div class="stock-chip" data-stock="low">⚠️ Low Stock (≤5)</div>
+    <div class="stock-chip" data-stock="out">❌ Out of Stock</div>
+  </div>
+
+  <!-- Brand picker button -->
+  <button id="brand-btn" onclick="openBrandModal()">
+    <span>🏷️</span>
+    <span id="brand-btn-label">All Brands</span>
+    <span class="brand-arrow">▼</span>
+  </button>
 
   <!-- Group picker button -->
   <button id="grp-btn" onclick="openGrpModal()">
@@ -341,7 +452,8 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   <div id="adm-box">
     <div id="adm-title">ADMIN</div>
     <div id="adm-sub">4-digit PIN • hidden as you type</div>
-    <input id="adm-pw" type="password" maxlength="4" placeholder="• • • •" autocomplete="off"
+    <!-- inputmode="numeric" + pattern="[0-9]*" forces numeric keyboard on iOS & Android -->
+    <input id="adm-pw" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="• • • •" autocomplete="off"
       oninput="onPwInput(this)" onkeydown="if(event.key==='Enter')doLogin()">
     <div id="dots">
       <div class="dot" id="d0"></div><div class="dot" id="d1"></div>
@@ -381,6 +493,20 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   </div>
 </div>
 
+<!-- BRAND MODAL -->
+<div id="brand-modal-bg">
+  <div id="brand-modal">
+    <div id="brand-modal-hdr">
+      <div id="brand-modal-title">Select Brand</div>
+      <button id="brand-modal-close" onclick="closeBrandModal()">✕</button>
+    </div>
+    <div id="brand-search-wrap">
+      <input id="brand-search" type="search" placeholder="Search brands…" autocomplete="off" spellcheck="false">
+    </div>
+    <div id="brand-list"></div>
+  </div>
+</div>
+
 <!-- TOAST -->
 <div id="toast"></div>
 
@@ -389,19 +515,41 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
    CONFIG
 ═══════════════════════════════════════════ */
 const PASS  = "7865";
-const GAP   = 10;   // px gap between cards
-const CARD_COLLAPSED_H = 138; // px — collapsed card height (name+alias+4 price blocks)
-const CARD_EXPANDED_H  = 300; // px — rough expanded height
-const BUFFER = 4;   // extra rows to render above/below viewport
-const GRP_HDR_H = 26; // px height of group header divider
+const GAP   = 16;
+let CARD_COLLAPSED_H = 160; // updated dynamically after first measure
+const BUFFER = 4;
+const GRP_HDR_H = 26;
+const LOW_STOCK_THRESHOLD = 5;
+
+// Stores measured expanded height per raw-item index
+let expandedHeights = {};
+
+/* Measure real collapsed card height by probing the DOM */
+function measureCardHeight(){
+  const probe = document.createElement('div');
+  probe.style.cssText = 'position:fixed;top:-9999px;left:14px;right:14px;visibility:hidden;pointer-events:none;z-index:-1';
+  probe.innerHTML = cardHTML({name:'Probe Item',alias:'PRB001',mrp:999,sale:799,wholesale:699,stock:10}, -1, 0, '');
+  const inner = probe.firstElementChild;
+  if(inner){ inner.style.position='relative'; inner.style.top='auto'; inner.style.left='auto'; inner.style.right='auto'; }
+  document.body.appendChild(probe);
+  const h = probe.firstElementChild ? probe.firstElementChild.offsetHeight : 160;
+  document.body.removeChild(probe);
+  CARD_COLLAPSED_H = h + 2;
+}
+
+/* Read actual rendered height of an expanded card straight from the live DOM */
+function measureExpandedCard(ri){
+  const el = stage.querySelector('.c[onclick="toggleCard(' + ri + ')"]');
+  if(el) expandedHeights[ri] = el.offsetHeight + 4;
+}
 
 /* ═══════════════════════════════════════════
    STATE
 ═══════════════════════════════════════════ */
 let raw      = [];
-let pool     = [];   // filtered indices into raw[]
-let heights  = [];   // per-pool-index actual heights (updated when cards expand)
-let offsets  = [];   // cumulative top offset per pool index
+let pool     = [];
+let heights  = [];
+let offsets  = [];
 let isAdmin  = false;
 let activeGroup = '';
 let pMin     = null;
@@ -409,6 +557,8 @@ let pMax     = null;
 let query    = '';
 let editIdx  = -1;
 let activeSort = 'df';
+let activeStock = 'all'; // 'all' | 'in' | 'low' | 'out'
+let activeBrand = '';    // '' = all brands
 let expanded = new Set();
 let vsStart  = 0;
 let vsEnd    = 0;
@@ -426,10 +576,31 @@ async function loadData(){
     raw = await r.json();
     document.getElementById("badge").textContent = raw.length.toLocaleString()+" items";
     buildGroupChips();
+    buildBrandChips();
   }catch(e){
     // Still show welcome — data may load on GitHub Pages
   }
   showWelcome();
+}
+
+/* ── REFRESH ── */
+async function refreshData(){
+  const btn = document.getElementById("refresh-btn");
+  btn.classList.add("spinning");
+  try{
+    const r = await fetch("items.json?t="+Date.now());
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    raw = await r.json();
+    document.getElementById("badge").textContent = raw.length.toLocaleString()+" items";
+    buildGroupChips();
+    buildBrandChips();
+    applyAll();
+    toast("🔄 Refreshed — "+raw.length.toLocaleString()+" items");
+  }catch(e){
+    toast("❌ Refresh failed: "+e.message);
+  }finally{
+    setTimeout(()=>btn.classList.remove("spinning"), 600);
+  }
 }
 
 /* ═══════════════════════════════════════════
@@ -449,17 +620,52 @@ function showWelcome(){
 
 function goHome(){
   document.getElementById("search").value = '';
-  query = ''; pMin = null; pMax = null; activeGroup = '';
+  query = ''; pMin = null; pMax = null; activeGroup = ''; activeStock = 'all'; activeBrand = '';
   document.getElementById("pmin").value = '';
   document.getElementById("pmax").value = '';
   activeSort='df';
   document.querySelectorAll("#sort-row .chip").forEach(c=>c.classList.remove("on"));
   const defChip=document.querySelector("#sort-row .chip[data-sort='df']");
   if(defChip)defChip.classList.add("on");
+  // Reset stock chips
+  document.querySelectorAll("#stock-row .stock-chip").forEach(c=>c.classList.remove("on"));
+  document.querySelector("#stock-row .stock-chip[data-stock='all']").classList.add("on");
+  // Reset brand chips
+  // Reset brand button
+  document.getElementById('brand-btn-label').textContent = 'All Brands';
+  document.getElementById('brand-btn').classList.remove('active');
   // Reset group button
   document.getElementById("grp-btn-label").textContent = "All Groups";
   document.getElementById("grp-btn").classList.remove("active");
   showWelcome();
+}
+
+/* ═══════════════════════════════════════════
+   STOCK FILTER CHIPS
+═══════════════════════════════════════════ */
+document.getElementById("stock-row").addEventListener("click", function(e){
+  const c = e.target.closest(".stock-chip[data-stock]");
+  if(!c) return;
+  document.querySelectorAll("#stock-row .stock-chip").forEach(x=>x.classList.remove("on"));
+  c.classList.add("on");
+  activeStock = c.dataset.stock;
+  applyAll();
+});
+
+function stockMatches(it){
+  if(activeStock === 'all') return true;
+  const s = it.stock;
+  // Treat null/undefined/''/'-' as out of stock
+  if(s === null || s === undefined || s === '' || s === '–' || s === '-'){
+    return activeStock === 'out';
+  }
+  const n = parseFloat(String(s));
+  if(isNaN(n)){
+    return activeStock === 'out';
+  }
+  if(n <= 0)  return activeStock === 'out';
+  if(n <= LOW_STOCK_THRESHOLD) return activeStock === 'low';
+  return activeStock === 'in';
 }
 
 /* ═══════════════════════════════════════════
@@ -468,11 +674,89 @@ function goHome(){
 let allGroups = [];
 
 function buildGroupChips(){
-  // Build group list with item counts
   const countMap = {};
   raw.forEach(it=>{ const g=it.group||''; countMap[g]=(countMap[g]||0)+1; });
   allGroups = Object.keys(countMap).filter(Boolean).sort();
 }
+
+let allBrands = [];
+
+function buildBrandChips(){
+  const brandSet = new Set();
+  raw.forEach(it=>{
+    const first = (it.name||'').trim().split(/\s+/)[0];
+    if(/^[A-Z]{2,6}$/.test(first)) brandSet.add(first);
+  });
+  allBrands = [...brandSet].sort();
+}
+
+function openBrandModal(){
+  renderBrandList('');
+  document.getElementById('brand-modal-bg').classList.add('show');
+  setTimeout(()=>document.getElementById('brand-search').focus(), 200);
+}
+function closeBrandModal(){
+  document.getElementById('brand-modal-bg').classList.remove('show');
+  document.getElementById('brand-search').value='';
+}
+
+function renderBrandList(filter){
+  const f = filter.trim().toLowerCase();
+  const countMap = {};
+  raw.forEach(it=>{
+    const first = (it.name||'').trim().split(/\s+/)[0];
+    if(/^[A-Z]{2,6}$/.test(first)) countMap[first]=(countMap[first]||0)+1;
+  });
+  let brands = allBrands;
+  if(f) brands = brands.filter(b=>b.toLowerCase().includes(f));
+
+  let html = `<div class="brand-item${activeBrand===''?' selected':''}" onclick="selectBrand('')">
+    <span>All Brands</span>
+    <span style="display:flex;align-items:center;gap:6px">
+      <span class="brand-count">${raw.length.toLocaleString()}</span>
+      <span class="brand-tick">✓</span>
+    </span>
+  </div>`;
+
+  if(!brands.length){
+    html += `<div style="text-align:center;padding:30px;font-size:13px;color:var(--muted)">No brands found</div>`;
+  } else {
+    brands.forEach(b=>{
+      const cnt = countMap[b]||0;
+      const sel = activeBrand===b;
+      html += `<div class="brand-item${sel?' selected':''}" onclick="selectBrand('${b}')">
+        <span>${b}</span>
+        <span style="display:flex;align-items:center;gap:6px">
+          <span class="brand-count">${cnt.toLocaleString()}</span>
+          <span class="brand-tick">✓</span>
+        </span>
+      </div>`;
+    });
+  }
+  document.getElementById('brand-list').innerHTML = html;
+}
+
+function selectBrand(b){
+  activeBrand = b;
+  const btn = document.getElementById('brand-btn');
+  const label = document.getElementById('brand-btn-label');
+  if(b){
+    label.innerHTML = `<span class="brand-tag">${b}</span>`;
+    btn.classList.add('active');
+  } else {
+    label.textContent = 'All Brands';
+    btn.classList.remove('active');
+  }
+  closeBrandModal();
+  applyAll();
+}
+
+document.getElementById('brand-search').addEventListener('input', function(){
+  renderBrandList(this.value);
+});
+document.getElementById('brand-modal-bg').addEventListener('click', function(e){
+  if(e.target===this) closeBrandModal();
+});
 
 function openGrpModal(){
   renderGrpList('');
@@ -520,7 +804,6 @@ function renderGrpList(filter){
 
 function selectGroup(g){
   activeGroup = g;
-  // Update button label
   const btn = document.getElementById("grp-btn");
   const label = document.getElementById("grp-btn-label");
   if(g){
@@ -534,11 +817,9 @@ function selectGroup(g){
   applyAll();
 }
 
-// Live search inside group modal
 document.getElementById("grp-search").addEventListener("input", function(){
   renderGrpList(this.value);
 });
-// Close on background tap
 document.getElementById("grp-modal-bg").addEventListener("click", function(e){
   if(e.target===this) closeGrpModal();
 });
@@ -562,16 +843,22 @@ function pn(v){ return v==null||v===''?0:parseFloat(String(v).replace(/[^0-9.]/g
 
 function applyAll(){
   const q = query.trim().toLowerCase();
-  const hasFilter = q || pMin!==null || pMax!==null || activeGroup || activeSort!=='df';
+  const hasFilter = q || pMin!==null || pMax!==null || activeGroup || activeSort!=='df' || activeStock!=='all' || activeBrand!=='';
   if(!hasFilter){ showWelcome(); return; }
 
   expanded.clear();
+  expandedHeights = {};
   let out = [];
   for(let i=0;i<raw.length;i++){
     const it = raw[i];
     if(activeGroup && it.group!==activeGroup) continue;
     if(pMin!==null && pn(it.sale)<pMin) continue;
     if(pMax!==null && pn(it.sale)>pMax) continue;
+    if(!stockMatches(it)) continue;
+    if(activeBrand){
+      const first = (it.name||'').trim().split(/\s+/)[0];
+      if(first !== activeBrand) continue;
+    }
     if(q){
       const n=(it.name||'').toLowerCase();
       const a=(it.alias||'').toLowerCase();
@@ -589,40 +876,41 @@ function applyAll(){
   else if(activeSort==='sd') out.sort((a,b)=>pn(raw[b].sale)-pn(raw[a].sale));
 
   pool = out;
-
-  // Build heights & offsets arrays (all collapsed initially)
+  measureCardHeight();
   rebuildOffsets();
 
   const sortLabel = activeSort==='grp'?' · sorted by group':activeSort==='na'?' · A–Z':activeSort==='sa'?' · price ↑':activeSort==='sd'?' · price ↓':'';
+  const stockLabel = activeStock==='in'?' · in stock':activeStock==='low'?' · low stock':activeStock==='out'?' · out of stock':'';
+  const brandLabel = activeBrand ? ' · '+activeBrand : '';
   document.getElementById("status").textContent =
     (pool.length===raw.length
       ? raw.length.toLocaleString()+" items"
       : pool.length.toLocaleString()+" of "+raw.length.toLocaleString()+" items")
-    + sortLabel;
+    + sortLabel + stockLabel + brandLabel;
 
   scrollEl.scrollTop = 0;
   vsRender(true);
 }
 
 /* ═══════════════════════════════════════════
-   OFFSET TABLE — needed for correct card placement
-   so cards never overlap
+   OFFSET TABLE
 ═══════════════════════════════════════════ */
 function rebuildOffsets(){
   heights  = new Array(pool.length).fill(CARD_COLLAPSED_H);
   offsets  = new Array(pool.length);
-  let top  = 14; // top padding
+  let top  = 18;
   for(let i=0;i<pool.length;i++){
-    // Add group header space when sorted by group
     if(activeSort==='grp'){
       const grp = raw[pool[i]].group||'';
       const prevGrp = i>0?(raw[pool[i-1]].group||''):'__NONE__';
       if(grp!==prevGrp) top += GRP_HDR_H;
     }
     offsets[i] = top;
-    top += (expanded.has(pool[i]) ? CARD_EXPANDED_H : CARD_COLLAPSED_H) + GAP;
+    const ri = pool[i];
+    const h = expanded.has(ri) ? (expandedHeights[ri] || CARD_COLLAPSED_H * 2) : CARD_COLLAPSED_H;
+    top += h + GAP;
   }
-  totalH = top + 60; // bottom padding
+  totalH = top + 60;
   spacer.style.height = totalH + 'px';
 }
 
@@ -639,7 +927,6 @@ function vsRender(force){
   const scrollTop = scrollEl.scrollTop;
   const viewH     = scrollEl.clientHeight;
 
-  // Binary-search for first visible index
   let first = bsearchFirst(scrollTop - BUFFER * CARD_COLLAPSED_H);
   let last  = bsearchLast(scrollTop + viewH + BUFFER * CARD_COLLAPSED_H);
   first = Math.max(0, first);
@@ -651,7 +938,6 @@ function vsRender(force){
   const q = query.trim().toLowerCase();
   let html = '';
   for(let vi=first;vi<=last;vi++){
-    // Group header divider
     if(activeSort==='grp'){
       const grp = raw[pool[vi]].group||'';
       const prevGrp = vi>0?(raw[pool[vi-1]].group||''):'__NONE__';
@@ -735,26 +1021,39 @@ function cardHTML(it, ri, topPx, q){
 }
 
 /* ═══════════════════════════════════════════
-   TOGGLE EXPAND — rebuilds offsets so no overlap
+   TOGGLE EXPAND
 ═══════════════════════════════════════════ */
 function toggleCard(ri){
-  if(expanded.has(ri)) expanded.delete(ri);
-  else expanded.add(ri);
-  rebuildOffsets();
-  spacer.style.height = totalH + 'px';
-  vsRender(true);
-  // Keep scroll position sane
+  const wasExpanded = expanded.has(ri);
+  if(wasExpanded){
+    expanded.delete(ri);
+    delete expandedHeights[ri];
+    rebuildOffsets();
+    spacer.style.height = totalH + 'px';
+    vsRender(true);
+  } else {
+    expanded.add(ri);
+    // First render with a generous placeholder height so card is in DOM
+    if(!expandedHeights[ri]) expandedHeights[ri] = CARD_COLLAPSED_H * 3;
+    rebuildOffsets();
+    spacer.style.height = totalH + 'px';
+    vsRender(true);
+    // Now measure the real rendered height and rebuild offsets correctly
+    measureExpandedCard(ri);
+    rebuildOffsets();
+    spacer.style.height = totalH + 'px';
+    vsRender(true);
+  }
   const vi = pool.indexOf(ri);
   if(vi>=0){
     const cardTop = offsets[vi];
     const scrollTop = scrollEl.scrollTop;
-    const viewH = scrollEl.clientHeight;
     if(cardTop < scrollTop) scrollEl.scrollTop = cardTop - 14;
   }
 }
 
 /* ═══════════════════════════════════════════
-   SCROLL — throttled with rAF
+   SCROLL
 ═══════════════════════════════════════════ */
 let rafPending=false;
 function onScroll(){
@@ -764,7 +1063,7 @@ function onScroll(){
 }
 
 /* ═══════════════════════════════════════════
-   SEARCH — debounced 100ms
+   SEARCH
 ═══════════════════════════════════════════ */
 let searchTimer;
 document.getElementById("search").addEventListener("input",function(){
@@ -789,13 +1088,12 @@ function clearPF(){
   document.getElementById("pmax").value='';
   pMin=null; pMax=null; applyAll(); toast("Price filter cleared");
 }
-// Also trigger Go on Enter in price fields
 ['pmin','pmax'].forEach(id=>{
   document.getElementById(id).addEventListener("keydown",e=>{ if(e.key==='Enter') applyPF(); });
 });
 
 /* ═══════════════════════════════════════════
-   SCANNER — native BarcodeDetector first, ZXing fallback
+   SCANNER
 ═══════════════════════════════════════════ */
 let scanStream=null, scanLoop=null, codeReader=null, zxingReady=false;
 
@@ -920,7 +1218,7 @@ function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg
    KEYBOARD / DISMISS
 ═══════════════════════════════════════════ */
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){ closeAdm(); closeEdit(); closeScanner(); closeGrpModal(); }
+  if(e.key==="Escape"){ closeAdm(); closeEdit(); closeScanner(); closeGrpModal(); closeBrandModal(); }
   if((e.ctrlKey||e.metaKey)&&e.key==="f"){ e.preventDefault(); document.getElementById("search").focus(); }
 });
 document.getElementById("adm-ov").addEventListener("click",e=>{ if(e.target.id==="adm-ov")closeAdm(); });
@@ -933,7 +1231,7 @@ scrollEl = document.getElementById("scroll");
 spacer   = document.getElementById("spacer");
 stage    = document.getElementById("stage");
 scrollEl.addEventListener("scroll", onScroll, {passive:true});
-window.addEventListener("resize",()=>{ rebuildOffsets(); vsRender(true); });
+window.addEventListener("resize",()=>{ measureCardHeight(); rebuildOffsets(); vsRender(true); });
 loadData();
 </script>
 </body>
