@@ -21610,6 +21610,16 @@
     "stock": 0
   },
   {
+    "name": "NYN 1162",
+    "alias": "0003387",
+    "group": "CRUNCHY SUIT",
+    "mrp": 1077,
+    "sale": 860,
+    "purchase": 718,
+    "wholesale": 760,
+    "stock": 0
+  },
+  {
     "name": "NYN 1186",
     "alias": "0003386",
     "group": "CRUNCHY SUIT",
@@ -21627,6 +21637,16 @@
     "sale": 860,
     "purchase": 718,
     "wholesale": 755,
+    "stock": 0
+  },
+  {
+    "name": "NYN DAL MAKHNI",
+    "alias": "0003388",
+    "group": "S",
+    "mrp": 1062,
+    "sale": 850,
+    "purchase": 708,
+    "wholesale": 750,
     "stock": 0
   },
   {
