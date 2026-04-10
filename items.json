@@ -6210,6 +6210,16 @@
     "stock": 1
   },
   {
+    "name": "JBT JANVI",
+    "alias": "0003395",
+    "group": "S",
+    "mrp": 787.5,
+    "sale": 630,
+    "purchase": 525,
+    "wholesale": 560,
+    "stock": 0
+  },
+  {
     "name": "JBT SELFIE",
     "alias": "0002759",
     "group": "S",
