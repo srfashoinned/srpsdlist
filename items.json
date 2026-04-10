@@ -16490,13 +16490,13 @@
     "stock": 0
   },
   {
-    "name": "KC SURPRICE MAGIN",
+    "name": "KC SURPRICE MAGIC",
     "alias": "0003381",
-    "group": "BEATS PLZO",
-    "mrp": 0,
-    "sale": 0,
-    "purchase": 0,
-    "wholesale": 0,
+    "group": "T",
+    "mrp": 2197.5,
+    "sale": 1750,
+    "purchase": 1465,
+    "wholesale": 1550,
     "stock": 4
   },
   {
