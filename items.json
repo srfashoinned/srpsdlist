@@ -6200,6 +6200,16 @@
     "stock": 0
   },
   {
+    "name": "JBT IPL",
+    "alias": "0003398",
+    "group": "S",
+    "mrp": 705,
+    "sale": 560,
+    "purchase": 470,
+    "wholesale": 515,
+    "stock": 4
+  },
+  {
     "name": "JBT JAM JAM",
     "alias": "0002990",
     "group": "S",
@@ -6217,7 +6227,7 @@
     "sale": 630,
     "purchase": 525,
     "wholesale": 560,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "JBT SELFIE",
@@ -19663,11 +19673,11 @@
     "name": "MF MEENA 1 BORING",
     "alias": "0003397",
     "group": "CS",
-    "mrp": 705,
-    "sale": 560,
+    "mrp": 712.5,
+    "sale": 570,
     "purchase": 475,
     "wholesale": 515,
-    "stock": 0
+    "stock": 11
   },
   {
     "name": "Mf Mirror",
@@ -21687,7 +21697,7 @@
     "sale": 800,
     "purchase": 675,
     "wholesale": 725,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "NYN ARUNDHATI",
@@ -21717,7 +21727,7 @@
     "sale": 800,
     "purchase": 675,
     "wholesale": 725,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "NYN SRIVALLI",
@@ -27477,7 +27487,7 @@
     "sale": 570,
     "purchase": 475,
     "wholesale": 515,
-    "stock": 0
+    "stock": 12
   },
   {
     "name": "SNT Cotton Suite",
@@ -28187,7 +28197,7 @@
     "sale": 850,
     "purchase": 625,
     "wholesale": 675,
-    "stock": -6
+    "stock": 2
   },
   {
     "name": "SNT MAHI",
