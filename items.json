@@ -21640,6 +21640,16 @@
     "stock": 0
   },
   {
+    "name": "NYN ARUNDHATI",
+    "alias": "0003390",
+    "group": "S",
+    "mrp": 1077,
+    "sale": 860,
+    "purchase": 718,
+    "wholesale": 750,
+    "stock": 0
+  },
+  {
     "name": "NYN DAL MAKHNI",
     "alias": "0003388",
     "group": "S",
@@ -21647,6 +21657,16 @@
     "sale": 850,
     "purchase": 708,
     "wholesale": 750,
+    "stock": 0
+  },
+  {
+    "name": "NYN SRIVALLI",
+    "alias": "0003389",
+    "group": "S",
+    "mrp": 1092,
+    "sale": 870,
+    "purchase": 728,
+    "wholesale": 765,
     "stock": 0
   },
   {
