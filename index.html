@@ -817,6 +817,7 @@ function cardHTML(it, ri, topPx, q){
 
   return `<div class="c${exp?' exp':''}" style="top:${topPx}px" data-ri="${ri}" onclick="toggleCard(${ri})">
     <div class="c-name">${hl(it.alias||'',q)}</div>
+    ${it.name?`<div class="c-alias" style="color:var(--txt);font-size:13px;margin-top:3px;opacity:0.75">${hl(it.name||'',q)}</div>`:''}
     ${it.group?`<div class="c-alias">🗂 ${hl(it.group||'',q)}</div>`:''}
     <div class="prices">
       <div class="pb m"><div class="pl">MRP</div><div class="pv">${fmt(it.mrp)}</div></div>
