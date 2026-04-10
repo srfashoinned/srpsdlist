@@ -117,13 +117,11 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .pb.w{background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.22);position:relative}
 .pb.k{background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.18)}
 .pb.p{background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.22)}
-/* Clickable sale/wholesale boxes */
 .pb.s.shareable, .pb.w.shareable{cursor:pointer;transition:transform .12s,box-shadow .12s}
 .pb.s.shareable:active{transform:scale(0.96)}
 .pb.w.shareable:active{transform:scale(0.96)}
 .pb.s.shareable:hover{border-color:rgba(34,197,94,0.6);box-shadow:0 0 0 2px rgba(34,197,94,0.15)}
 .pb.w.shareable:hover{border-color:rgba(96,165,250,0.6);box-shadow:0 0 0 2px rgba(96,165,250,0.15)}
-/* Share icon badge on price box */
 .share-badge{position:absolute;top:5px;right:6px;font-size:9px;opacity:0.5;pointer-events:none}
 .pl{font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;opacity:.65}
 .pb.m .pl{color:var(--gold)}.pb.s .pl{color:var(--green)}.pb.w .pl{color:var(--blue)}.pb.k .pl{color:var(--red)}.pb.p .pl{color:var(--purple)}
@@ -190,7 +188,6 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;padding:0 1px}
 .grp-hdr{position:absolute;left:14px;right:14px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);padding:4px 0 3px;border-bottom:1px solid rgba(245,197,66,0.2)}
-/* Export image modal */
 #exp-ov{position:fixed;inset:0;z-index:170;background:rgba(0,0,0,0.92);display:none;align-items:flex-end;justify-content:center}
 #exp-ov.show{display:flex}
 #exp-box{background:var(--card);border:1px solid var(--bord);border-radius:20px 20px 0 0;width:100%;max-width:480px;padding:18px 18px 30px;display:flex;flex-direction:column;gap:12px}
@@ -201,7 +198,6 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
 #exp-wa{flex:2;padding:12px;border-radius:10px;background:#25d366;border:none;color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
 #exp-save{flex:1;padding:12px;border-radius:10px;background:var(--surf);border:1px solid var(--bord);color:var(--txt);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
 #exp-cancel{flex:1;padding:12px;border-radius:10px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
-/* price type hint in modal */
 #exp-price-hint{font-size:12px;color:var(--muted);text-align:center}
 </style>
 </head>
@@ -343,7 +339,7 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   </div>
 </div>
 
-<!-- ═══ EXPORT IMAGE MODAL ═══ -->
+<!-- EXPORT IMAGE MODAL -->
 <div id="exp-ov">
   <div id="exp-box">
     <div id="exp-title">📲 Share Image</div>
@@ -362,8 +358,7 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
 <!-- TOAST -->
 <div id="toast"></div>
 
-<!-- Hidden canvas for generating image -->
-<canvas id="gen-canvas" style="display:none" width="540" height="560"></canvas>
+<canvas id="gen-canvas" style="display:none" width="540" height="700"></canvas>
 
 <script>
 /* ═══════════════════════════════════════════
@@ -419,9 +414,8 @@ let vsEnd    = 0;
 let totalH   = 0;
 let scrollEl, spacer, stage;
 
-// Export image state
 let expItem  = null;
-let expPrice = 'sale'; // 'sale' | 'wholesale'
+let expPrice = 'sale';
 
 /* ═══════════════════════════════════════════
    LOAD DATA
@@ -821,7 +815,6 @@ function cardHTML(it, ri, topPx, q){
       </div>
     </div>`:'';
 
-  /* Sale and Wholesale boxes are clickable to open export image */
   return `<div class="c${exp?' exp':''}" style="top:${topPx}px" data-ri="${ri}" onclick="toggleCard(${ri})">
     <div class="c-name">${hl(it.name||'',q)}</div>
     <div class="c-alias">⌗ ${hl(it.alias||'',q)}</div>
@@ -904,17 +897,15 @@ function clearPF(){
 });
 
 /* ═══════════════════════════════════════════
-   EXPORT IMAGE — openExp, drawExpCard, send/save
+   EXPORT IMAGE
 ═══════════════════════════════════════════ */
 
 function openExp(ri, priceType, e){
   e && e.stopPropagation();
   expItem  = raw[ri];
-  expPrice = priceType; // 'sale' or 'wholesale'
+  expPrice = priceType;
   const hint = document.getElementById('exp-price-hint');
-  hint.textContent = priceType === 'sale'
-    ? '💚 Sharing Sale Price'
-    : '💙 Sharing Wholesale Price';
+  hint.textContent = priceType === 'sale' ? '💚 Sharing Sale Price' : '💙 Sharing Wholesale Price';
   hint.style.color = priceType === 'sale' ? '#22c55e' : '#60a5fa';
   document.getElementById('exp-ov').classList.add('show');
   drawExpCard(document.getElementById('exp-canvas'));
@@ -925,180 +916,7 @@ function closeExp(){
   expItem = null;
 }
 
-/* ── Draw the clean share card ── */
-function drawExpCard(canvas){
-  if(!expItem) return;
-  const it  = expItem;
-  const ctx = canvas.getContext('2d');
-  const W   = 540;
-
-  /* ── Layout constants ── */
-  const PAD    = 28;
-  const INNER  = W - PAD * 2;
-
-  /* We'll compute H dynamically; draw to an offscreen first */
-  canvas.width  = W;
-  canvas.height = 560; // will be trimmed
-
-  /* ── Background ── */
-  ctx.fillStyle = '#0a0a0d';
-  ctx.fillRect(0, 0, W, canvas.height);
-
-  /* ── Gold left accent bar ── */
-  ctx.fillStyle = '#f5c542';
-  ctx.fillRect(0, 0, 5, canvas.height);
-
-  let y = 26;
-
-  /* ── HEADER: Shop name ── */
-  ctx.font = 'bold 26px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#f5c542';
-  ctx.textBaseline = 'top';
-  ctx.fillText(SHOP_NAME, PAD + 8, y);
-  y += 34;
-
-  /* ── Address ── */
-  ctx.font = '13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#a1a1aa';
-  ctx.fillText(SHOP_ADDRESS, PAD + 8, y);
-  y += 20;
-
-  /* ── Phone ── */
-  ctx.font = '13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#71717a';
-  ctx.fillText('📞 ' + SHOP_PHONE, PAD + 8, y);
-  y += 24;
-
-  /* ── Divider ── */
-  ctx.strokeStyle = 'rgba(245,197,66,0.25)';
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y);
-  ctx.stroke();
-  y += 18;
-
-  /* ── ALIAS (Item Code) ── */
-  const aliasText = it.alias || it.name || '';
-  ctx.font = 'bold 13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#f5c542';
-  ctx.fillText('CODE', PAD + 8, y);
-  const codeX = PAD + 8 + ctx.measureText('CODE').width + 10;
-  /* Code pill bg */
-  ctx.font = 'bold 15px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  const codeW = ctx.measureText(aliasText).width + 20;
-  roundRect(ctx, codeX - 2, y - 3, codeW, 22, 6);
-  ctx.fillStyle = 'rgba(245,197,66,0.12)';
-  ctx.fill();
-  ctx.strokeStyle = 'rgba(245,197,66,0.3)';
-  ctx.lineWidth = 1;
-  roundRect(ctx, codeX - 2, y - 3, codeW, 22, 6);
-  ctx.stroke();
-  ctx.fillStyle = '#f5c542';
-  ctx.fillText(aliasText, codeX + 8, y);
-  y += 28;
-
-  /* ── GROUP ── */
-  if(it.group){
-    ctx.font = '13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-    ctx.fillStyle = '#71717a';
-    ctx.fillText('GROUP  ', PAD + 8, y);
-    ctx.fillStyle = '#e4e4e7';
-    ctx.font = '600 13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-    ctx.fillText(it.group, PAD + 8 + ctx.measureText('GROUP  ').width + 2, y);
-    y += 22;
-  }
-
-  /* ── ITEM NAME ── */
-  ctx.font = 'bold 22px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#e4e4e7';
-  const nameLines = wrapText(ctx, it.name || '', INNER - 16, 22);
-  nameLines.forEach(line => {
-    ctx.fillText(line, PAD + 8, y);
-    y += 30;
-  });
-  y += 6;
-
-  /* ── Divider ── */
-  ctx.strokeStyle = 'rgba(255,255,255,0.07)';
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y);
-  ctx.stroke();
-  y += 18;
-
-  /* ── MRP ── */
-  const mrpVal = fmt(it.mrp);
-  ctx.font = '13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#71717a';
-  ctx.fillText('MRP', PAD + 8, y);
-  ctx.font = '600 15px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#a1a1aa';
-  const mrpNumX = PAD + 8 + ctx.measureText('MRP  ').width + 4;
-  ctx.fillText(mrpVal, mrpNumX, y);
-  /* strikethrough on mrp when showing sale or wholesale */
-  if(pn(it.mrp) > pn(it[expPrice])){
-    const sw = ctx.measureText(mrpVal).width;
-    ctx.beginPath();
-    ctx.strokeStyle = '#71717a';
-    ctx.lineWidth = 1.5;
-    ctx.moveTo(mrpNumX, y + 6);
-    ctx.lineTo(mrpNumX + sw, y + 6);
-    ctx.stroke();
-  }
-  y += 28;
-
-  /* ── MAIN PRICE BLOCK ── */
-  const priceLabel = expPrice === 'sale' ? 'SALE PRICE' : 'WHOLESALE PRICE';
-  const priceValue = fmt(it[expPrice]);
-  const priceColor = expPrice === 'sale' ? '#22c55e' : '#60a5fa';
-  const priceBg    = expPrice === 'sale' ? 'rgba(34,197,94,0.10)' : 'rgba(96,165,250,0.10)';
-  const priceBord  = expPrice === 'sale' ? 'rgba(34,197,94,0.35)' : 'rgba(96,165,250,0.35)';
-
-  const blockH = 84;
-  roundRect(ctx, PAD, y, INNER, blockH, 12);
-  ctx.fillStyle = priceBg;
-  ctx.fill();
-  ctx.strokeStyle = priceBord;
-  ctx.lineWidth = 1.5;
-  roundRect(ctx, PAD, y, INNER, blockH, 12);
-  ctx.stroke();
-
-  ctx.font = 'bold 11px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = priceColor;
-  ctx.fillText(priceLabel, PAD + 16, y + 18);
-
-  ctx.font = 'bold 42px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = priceColor;
-  ctx.fillText(priceValue, PAD + 16, y + 70);
-  y += blockH + 22;
-
-  /* ── FOOTER ── */
-  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y);
-  ctx.stroke();
-  y += 12;
-
-  ctx.font = '11px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#3f3f46';
-  ctx.textAlign = 'center';
-  ctx.fillText(SHOP_NAME + '  ·  ' + SHOP_ADDRESS + '  ·  ' + SHOP_PHONE, W / 2, y);
-  ctx.textAlign = 'left';
-  y += 22;
-
-  /* ── Resize canvas to actual content height ── */
-  const finalH = y + 4;
-  const imgData = ctx.getImageData(0, 0, W, finalH);
-  canvas.height = finalH;
-  canvas.width  = W;
-  ctx.fillStyle = '#0a0a0d';
-  ctx.fillRect(0, 0, W, finalH);
-  ctx.fillStyle = '#f5c542';
-  ctx.fillRect(0, 0, 5, finalH);
-  ctx.putImageData(imgData, 0, 0);
-}
-
+/* ── Helper: rounded rect path ── */
 function roundRect(ctx, x, y, w, h, r){
   ctx.beginPath();
   ctx.moveTo(x+r, y);
@@ -1113,8 +931,9 @@ function roundRect(ctx, x, y, w, h, r){
   ctx.closePath();
 }
 
+/* ── Helper: wrap text to lines ── */
 function wrapText(ctx, text, maxW){
-  const words = text.split(' ');
+  const words = (text || '').split(' ');
   const lines = [];
   let line = '';
   for(const word of words){
@@ -1124,7 +943,191 @@ function wrapText(ctx, text, maxW){
     } else { line = test; }
   }
   if(line) lines.push(line);
-  return lines.slice(0, 2);
+  return lines.slice(0, 3);
+}
+
+/* ── Helper: auto-fit price font size so it never overflows ── */
+function fitPriceFont(ctx, priceStr, maxW, maxSize){
+  let size = maxSize;
+  ctx.font = `bold ${size}px -apple-system, BlinkMacSystemFont, Arial, sans-serif`;
+  while(size > 18 && ctx.measureText(priceStr).width > maxW){
+    size -= 2;
+    ctx.font = `bold ${size}px -apple-system, BlinkMacSystemFont, Arial, sans-serif`;
+  }
+  return size;
+}
+
+/* ── Draw the share card ── */
+function drawExpCard(canvas){
+  if(!expItem) return;
+  const it  = expItem;
+  const ctx = canvas.getContext('2d');
+  const W   = 540;
+  const PAD = 28;
+  const INNER = W - PAD * 2;
+
+  /* Initial tall canvas to draw on */
+  canvas.width  = W;
+  canvas.height = 700;
+
+  ctx.fillStyle = '#0a0a0d';
+  ctx.fillRect(0, 0, W, canvas.height);
+
+  /* Gold left accent bar */
+  ctx.fillStyle = '#f5c542';
+  ctx.fillRect(0, 0, 5, canvas.height);
+
+  let y = 28;
+
+  /* ── 1. ITEM NAME ── */
+  ctx.font = 'bold 24px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#e4e4e7';
+  ctx.textBaseline = 'top';
+  const nameLines = wrapText(ctx, it.name || '', INNER - 16, 24);
+  nameLines.forEach(line => {
+    ctx.fillText(line, PAD + 8, y);
+    y += 32;
+  });
+  y += 4;
+
+  /* ── 2. ALIAS CODE pill ── */
+  if(it.alias){
+    ctx.font = 'bold 13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+    const aliasLabel = 'CODE  ';
+    const aliasText  = it.alias;
+    const labelW = ctx.measureText(aliasLabel).width;
+
+    ctx.fillStyle = '#71717a';
+    ctx.fillText(aliasLabel, PAD + 8, y);
+
+    /* pill behind alias value */
+    ctx.font = 'bold 13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+    const valW = ctx.measureText(aliasText).width;
+    const pillX = PAD + 8 + labelW;
+    const pillPad = 10;
+    roundRect(ctx, pillX - pillPad/2, y - 3, valW + pillPad + 2, 20, 5);
+    ctx.fillStyle = 'rgba(245,197,66,0.13)';
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(245,197,66,0.35)';
+    ctx.lineWidth = 1;
+    roundRect(ctx, pillX - pillPad/2, y - 3, valW + pillPad + 2, 20, 5);
+    ctx.stroke();
+    ctx.fillStyle = '#f5c542';
+    ctx.fillText(aliasText, pillX + 2, y);
+    y += 26;
+  }
+
+  /* ── 3. GROUP ── */
+  if(it.group){
+    ctx.font = '13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+    ctx.fillStyle = '#71717a';
+    ctx.fillText('GROUP  ', PAD + 8, y);
+    const gLabelW = ctx.measureText('GROUP  ').width;
+    ctx.fillStyle = '#a1a1aa';
+    ctx.font = '600 13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+    ctx.fillText(it.group, PAD + 8 + gLabelW, y);
+    y += 24;
+  }
+
+  y += 8;
+
+  /* ── Divider ── */
+  ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
+  y += 18;
+
+  /* ── 4. MRP row ── */
+  const mrpVal = fmt(it.mrp);
+  ctx.font = '13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#52525b';
+  ctx.textBaseline = 'top';
+  ctx.fillText('MRP', PAD + 8, y);
+  ctx.font = '500 15px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#71717a';
+  const mrpLabelW = ctx.measureText('MRP  ').width + 4;
+  ctx.fillText(mrpVal, PAD + 8 + mrpLabelW, y);
+  /* Strikethrough if price is lower than MRP */
+  if(pn(it.mrp) > pn(it[expPrice])){
+    ctx.font = '500 15px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+    const sw = ctx.measureText(mrpVal).width;
+    const sx = PAD + 8 + mrpLabelW;
+    ctx.beginPath();
+    ctx.strokeStyle = '#52525b';
+    ctx.lineWidth = 1.5;
+    ctx.moveTo(sx, y + 8);
+    ctx.lineTo(sx + sw, y + 8);
+    ctx.stroke();
+  }
+  y += 32;
+
+  /* ── 5. MAIN PRICE BOX ── */
+  const priceLabel = expPrice === 'sale' ? 'SALE PRICE' : 'WHOLESALE PRICE';
+  const priceValue = fmt(it[expPrice]);
+  const priceColor = expPrice === 'sale' ? '#22c55e' : '#60a5fa';
+  const priceBg    = expPrice === 'sale' ? 'rgba(34,197,94,0.10)' : 'rgba(96,165,250,0.10)';
+  const priceBord  = expPrice === 'sale' ? 'rgba(34,197,94,0.40)' : 'rgba(96,165,250,0.40)';
+
+  /* Measure the price text and auto-fit font */
+  const priceFontSize = fitPriceFont(ctx, priceValue, INNER - 40, 52);
+
+  /* box height based on content */
+  const boxH = 28 + priceFontSize + 24;
+  roundRect(ctx, PAD, y, INNER, boxH, 14);
+  ctx.fillStyle = priceBg;
+  ctx.fill();
+  ctx.strokeStyle = priceBord;
+  ctx.lineWidth   = 1.5;
+  roundRect(ctx, PAD, y, INNER, boxH, 14);
+  ctx.stroke();
+
+  /* label inside box */
+  ctx.font = 'bold 11px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = priceColor;
+  ctx.textBaseline = 'top';
+  ctx.fillText(priceLabel, PAD + 18, y + 14);
+
+  /* price value inside box — fitted size */
+  ctx.font = `bold ${priceFontSize}px -apple-system, BlinkMacSystemFont, Arial, sans-serif`;
+  ctx.fillStyle = priceColor;
+  ctx.fillText(priceValue, PAD + 18, y + 28);
+
+  y += boxH + 24;
+
+  /* ── Divider ── */
+  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
+  y += 16;
+
+  /* ── 6. SHOP DETAILS (bottom) ── */
+  ctx.font = 'bold 18px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#f5c542';
+  ctx.textBaseline = 'top';
+  ctx.fillText(SHOP_NAME, PAD + 8, y);
+  y += 26;
+
+  ctx.font = '12px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#71717a';
+  ctx.fillText(SHOP_ADDRESS, PAD + 8, y);
+  y += 20;
+
+  ctx.font = '12px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  ctx.fillStyle = '#52525b';
+  ctx.fillText('\u{1F4DE} ' + SHOP_PHONE, PAD + 8, y);
+  y += 22;
+
+  /* ── Resize canvas to exact content height ── */
+  const finalH = y + 10;
+  const imgData = ctx.getImageData(0, 0, W, Math.min(finalH, canvas.height));
+  canvas.height = finalH;
+  canvas.width  = W;
+  /* Redraw background */
+  ctx.fillStyle = '#0a0a0d';
+  ctx.fillRect(0, 0, W, finalH);
+  ctx.fillStyle = '#f5c542';
+  ctx.fillRect(0, 0, 5, finalH);
+  ctx.putImageData(imgData, 0, 0);
 }
 
 async function getExpBlob(){
