@@ -816,8 +816,8 @@ function cardHTML(it, ri, topPx, q){
     </div>`:'';
 
   return `<div class="c${exp?' exp':''}" style="top:${topPx}px" data-ri="${ri}" onclick="toggleCard(${ri})">
-    <div class="c-name">${hl(it.name||'',q)}</div>
-    <div class="c-alias">⌗ ${hl(it.alias||'',q)}</div>
+    <div class="c-name">${hl(it.alias||'',q)}</div>
+    ${it.group?`<div class="c-alias">🗂 ${hl(it.group||'',q)}</div>`:''}
     <div class="prices">
       <div class="pb m"><div class="pl">MRP</div><div class="pv">${fmt(it.mrp)}</div></div>
       <div class="pb s shareable" onclick="openExp(${ri},'sale',event)" title="Tap to share Sale price image">
