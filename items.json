@@ -1987,7 +1987,7 @@
     "sale": 140,
     "purchase": 102.5,
     "wholesale": 115,
-    "stock": 224
+    "stock": 223
   },
   {
     "name": "GANESHJI FATEMA'",
@@ -5507,7 +5507,7 @@
     "sale": 80,
     "purchase": 63,
     "wholesale": 70,
-    "stock": 903
+    "stock": 902
   },
   {
     "name": "GT Noorie",
@@ -14317,7 +14317,7 @@
     "sale": 1150,
     "purchase": 880,
     "wholesale": 935,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC PRIME POINT",
@@ -19658,6 +19658,16 @@
     "purchase": 500,
     "wholesale": 600,
     "stock": -8
+  },
+  {
+    "name": "MF MEENA 1 BORING",
+    "alias": "0003397",
+    "group": "CS",
+    "mrp": 705,
+    "sale": 560,
+    "purchase": 475,
+    "wholesale": 515,
+    "stock": 0
   },
   {
     "name": "Mf Mirror",
