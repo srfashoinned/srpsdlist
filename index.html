@@ -897,7 +897,7 @@ function clearPF(){
 });
 
 /* ═══════════════════════════════════════════
-   EXPORT IMAGE
+   EXPORT IMAGE  ← FULLY REWRITTEN
 ═══════════════════════════════════════════ */
 
 function openExp(ri, priceType, e){
@@ -916,7 +916,7 @@ function closeExp(){
   expItem = null;
 }
 
-/* ── Helper: rounded rect path ── */
+/* ── rounded rect path ── */
 function roundRect(ctx, x, y, w, h, r){
   ctx.beginPath();
   ctx.moveTo(x+r, y);
@@ -931,202 +931,230 @@ function roundRect(ctx, x, y, w, h, r){
   ctx.closePath();
 }
 
-/* ── Helper: wrap text to lines ── */
-function wrapText(ctx, text, maxW){
-  const words = (text || '').split(' ');
-  const lines = [];
-  let line = '';
-  for(const word of words){
-    const test = line ? line + ' ' + word : word;
-    if(ctx.measureText(test).width > maxW && line){
-      lines.push(line); line = word;
-    } else { line = test; }
-  }
-  if(line) lines.push(line);
-  return lines.slice(0, 3);
+/* ── discount emoji based on % ── */
+function discountEmoji(pct){
+  if(pct >= 40) return '🤩';
+  if(pct >= 30) return '🔥';
+  if(pct >= 20) return '😍';
+  if(pct >= 10) return '😊';
+  return '🎉';
 }
 
-/* ── Helper: auto-fit price font size so it never overflows ── */
-function fitPriceFont(ctx, priceStr, maxW, maxSize){
-  let size = maxSize;
-  ctx.font = `bold ${size}px -apple-system, BlinkMacSystemFont, Arial, sans-serif`;
-  while(size > 18 && ctx.measureText(priceStr).width > maxW){
-    size -= 2;
-    ctx.font = `bold ${size}px -apple-system, BlinkMacSystemFont, Arial, sans-serif`;
-  }
-  return size;
-}
-
-/* ── Draw the share card ── */
+/* ── draw the share card ── */
 function drawExpCard(canvas){
   if(!expItem) return;
   const it  = expItem;
-  const ctx = canvas.getContext('2d');
   const W   = 540;
-  const PAD = 28;
+  const PAD = 32;
   const INNER = W - PAD * 2;
+  const FONT  = '-apple-system, BlinkMacSystemFont, Arial, sans-serif';
 
-  /* Initial tall canvas to draw on */
+  /* helpers */
+  const fmtNum = v => {
+    if(v==null||v==='') return '–';
+    const n = parseFloat(String(v).replace(/[^0-9.]/g,''));
+    return isNaN(n) ? String(v) : '₹' + n.toLocaleString('en-IN');
+  };
+
+  /* set a tall canvas first */
   canvas.width  = W;
-  canvas.height = 700;
+  canvas.height = 900;
+  const ctx = canvas.getContext('2d');
 
-  ctx.fillStyle = '#0a0a0d';
+  /* ── background ── */
+  ctx.fillStyle = '#0d0d10';
   ctx.fillRect(0, 0, W, canvas.height);
 
-  /* Gold left accent bar */
+  /* gold left bar */
   ctx.fillStyle = '#f5c542';
-  ctx.fillRect(0, 0, 5, canvas.height);
+  ctx.fillRect(0, 0, 6, canvas.height);
 
-  let y = 28;
+  let y = 32;
 
-  /* ── 1. ITEM NAME ── */
-  ctx.font = 'bold 24px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#e4e4e7';
+  /* ══ SECTION 1 : ITEM DETAILS ══ */
+
+  /* ── Name label + value ── */
+  ctx.font = `bold 11px ${FONT}`;
+  ctx.fillStyle = '#52525b';
   ctx.textBaseline = 'top';
-  const nameLines = wrapText(ctx, it.name || '', INNER - 16, 24);
-  nameLines.forEach(line => {
-    ctx.fillText(line, PAD + 8, y);
-    y += 32;
-  });
-  y += 4;
+  ctx.letterSpacing = '1px';
+  ctx.fillText('NAME', PAD, y);
+  y += 18;
 
-  /* ── 2. ALIAS CODE pill ── */
+  /* item name — large, white, wrapping */
+  const nameTxt = it.name || '—';
+  ctx.font = `bold 26px ${FONT}`;
+  ctx.fillStyle = '#e4e4e7';
+  /* measure & wrap */
+  const nameWords = nameTxt.split(' ');
+  let nameLine = '', nameLines = [];
+  for(const w of nameWords){
+    const test = nameLine ? nameLine + ' ' + w : w;
+    if(ctx.measureText(test).width > INNER - 10 && nameLine){ nameLines.push(nameLine); nameLine = w; }
+    else nameLine = test;
+  }
+  if(nameLine) nameLines.push(nameLine);
+  nameLines = nameLines.slice(0, 2);
+  nameLines.forEach(l => { ctx.fillText(l, PAD, y); y += 34; });
+  y += 6;
+
+  /* ── Alias (item code) ── */
   if(it.alias){
-    ctx.font = 'bold 13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-    const aliasLabel = 'CODE  ';
-    const aliasText  = it.alias;
-    const labelW = ctx.measureText(aliasLabel).width;
+    ctx.font = `bold 11px ${FONT}`;
+    ctx.fillStyle = '#52525b';
+    ctx.fillText('CODE', PAD, y);
+    y += 16;
 
-    ctx.fillStyle = '#71717a';
-    ctx.fillText(aliasLabel, PAD + 8, y);
-
-    /* pill behind alias value */
-    ctx.font = 'bold 13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-    const valW = ctx.measureText(aliasText).width;
-    const pillX = PAD + 8 + labelW;
-    const pillPad = 10;
-    roundRect(ctx, pillX - pillPad/2, y - 3, valW + pillPad + 2, 20, 5);
+    const aliasStr = it.alias;
+    ctx.font = `bold 18px ${FONT}`;
+    const aW = ctx.measureText(aliasStr).width;
+    const pillX = PAD, pillY = y - 2, pillW = aW + 24, pillH = 26;
+    roundRect(ctx, pillX, pillY, pillW, pillH, 6);
     ctx.fillStyle = 'rgba(245,197,66,0.13)';
     ctx.fill();
-    ctx.strokeStyle = 'rgba(245,197,66,0.35)';
-    ctx.lineWidth = 1;
-    roundRect(ctx, pillX - pillPad/2, y - 3, valW + pillPad + 2, 20, 5);
+    ctx.strokeStyle = 'rgba(245,197,66,0.4)';
+    ctx.lineWidth = 1.2;
+    roundRect(ctx, pillX, pillY, pillW, pillH, 6);
     ctx.stroke();
     ctx.fillStyle = '#f5c542';
-    ctx.fillText(aliasText, pillX + 2, y);
-    y += 26;
+    ctx.fillText(aliasStr, PAD + 12, y);
+    y += 36;
   }
 
-  /* ── 3. GROUP ── */
+  /* ── Group ── */
   if(it.group){
-    ctx.font = '13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-    ctx.fillStyle = '#71717a';
-    ctx.fillText('GROUP  ', PAD + 8, y);
-    const gLabelW = ctx.measureText('GROUP  ').width;
+    ctx.font = `bold 11px ${FONT}`;
+    ctx.fillStyle = '#52525b';
+    ctx.fillText('GROUP', PAD, y);
+    y += 16;
+    ctx.font = `600 15px ${FONT}`;
     ctx.fillStyle = '#a1a1aa';
-    ctx.font = '600 13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-    ctx.fillText(it.group, PAD + 8 + gLabelW, y);
+    ctx.fillText(it.group, PAD, y);
     y += 24;
+  }
+
+  y += 10;
+
+  /* ── Divider ── */
+  ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
+  y += 20;
+
+  /* ══ SECTION 2 : PRICING ══ */
+
+  const mrpVal  = pn(it.mrp);
+  const priceVal = pn(it[expPrice]);
+  const discount = mrpVal > 0 && priceVal > 0 ? mrpVal - priceVal : 0;
+  const discPct  = mrpVal > 0 && discount > 0 ? (discount / mrpVal * 100) : 0;
+
+  /* ── MRP row ── */
+  ctx.font = `bold 11px ${FONT}`;
+  ctx.fillStyle = '#52525b';
+  ctx.fillText('MRP', PAD, y);
+  y += 18;
+
+  const mrpStr = fmtNum(it.mrp);
+  ctx.font = `500 20px ${FONT}`;
+  ctx.fillStyle = '#52525b';
+  ctx.fillText(mrpStr, PAD, y);
+  /* strikethrough */
+  if(discount > 0){
+    const sw = ctx.measureText(mrpStr).width;
+    ctx.beginPath();
+    ctx.strokeStyle = '#52525b';
+    ctx.lineWidth = 1.5;
+    ctx.moveTo(PAD, y + 10);
+    ctx.lineTo(PAD + sw, y + 10);
+    ctx.stroke();
+  }
+  y += 32;
+
+  /* ── MAIN PRICE BOX ── */
+  const priceLabel = expPrice === 'sale' ? 'SALE PRICE' : 'WHOLESALE PRICE';
+  const priceStr   = fmtNum(it[expPrice]);
+  const priceColor = expPrice === 'sale' ? '#22c55e' : '#60a5fa';
+  const priceBg    = expPrice === 'sale' ? 'rgba(34,197,94,0.10)' : 'rgba(96,165,250,0.10)';
+  const priceBord  = expPrice === 'sale' ? 'rgba(34,197,94,0.45)' : 'rgba(96,165,250,0.45)';
+
+  /* auto-fit price font — never overflow box */
+  let priceFontSize = 56;
+  ctx.font = `bold ${priceFontSize}px ${FONT}`;
+  while(priceFontSize > 22 && ctx.measureText(priceStr).width > INNER - 48){
+    priceFontSize -= 2;
+    ctx.font = `bold ${priceFontSize}px ${FONT}`;
+  }
+
+  const boxH = 22 + priceFontSize + 22;
+  roundRect(ctx, PAD, y, INNER, boxH, 16);
+  ctx.fillStyle = priceBg; ctx.fill();
+  ctx.strokeStyle = priceBord; ctx.lineWidth = 1.5;
+  roundRect(ctx, PAD, y, INNER, boxH, 16); ctx.stroke();
+
+  ctx.font = `bold 11px ${FONT}`;
+  ctx.fillStyle = priceColor;
+  ctx.textBaseline = 'top';
+  ctx.fillText(priceLabel, PAD + 20, y + 14);
+
+  ctx.font = `bold ${priceFontSize}px ${FONT}`;
+  ctx.fillStyle = priceColor;
+  ctx.fillText(priceStr, PAD + 20, y + 22);
+
+  y += boxH + 18;
+
+  /* ── Discount row ── */
+  if(discount > 0){
+    const emoji = discountEmoji(discPct);
+    const discStr = `You save  ${fmtNum(discount)}  (${discPct.toFixed(2)}%)  ${emoji}`;
+
+    /* pill bg */
+    ctx.font = `bold 15px ${FONT}`;
+    const dW = ctx.measureText(discStr).width;
+    const dPillW = Math.min(dW + 32, INNER);
+    const dPillH = 32;
+    roundRect(ctx, PAD, y, dPillW, dPillH, 8);
+    ctx.fillStyle = 'rgba(34,197,94,0.08)'; ctx.fill();
+    ctx.strokeStyle = 'rgba(34,197,94,0.25)'; ctx.lineWidth = 1;
+    roundRect(ctx, PAD, y, dPillW, dPillH, 8); ctx.stroke();
+    ctx.fillStyle = '#22c55e';
+    ctx.fillText(discStr, PAD + 16, y + 8);
+    y += dPillH + 18;
   }
 
   y += 8;
 
   /* ── Divider ── */
-  ctx.strokeStyle = 'rgba(255,255,255,0.08)';
-  ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
-  y += 18;
-
-  /* ── 4. MRP row ── */
-  const mrpVal = fmt(it.mrp);
-  ctx.font = '13px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#52525b';
-  ctx.textBaseline = 'top';
-  ctx.fillText('MRP', PAD + 8, y);
-  ctx.font = '500 15px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#71717a';
-  const mrpLabelW = ctx.measureText('MRP  ').width + 4;
-  ctx.fillText(mrpVal, PAD + 8 + mrpLabelW, y);
-  /* Strikethrough if price is lower than MRP */
-  if(pn(it.mrp) > pn(it[expPrice])){
-    ctx.font = '500 15px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-    const sw = ctx.measureText(mrpVal).width;
-    const sx = PAD + 8 + mrpLabelW;
-    ctx.beginPath();
-    ctx.strokeStyle = '#52525b';
-    ctx.lineWidth = 1.5;
-    ctx.moveTo(sx, y + 8);
-    ctx.lineTo(sx + sw, y + 8);
-    ctx.stroke();
-  }
-  y += 32;
-
-  /* ── 5. MAIN PRICE BOX ── */
-  const priceLabel = expPrice === 'sale' ? 'SALE PRICE' : 'WHOLESALE PRICE';
-  const priceValue = fmt(it[expPrice]);
-  const priceColor = expPrice === 'sale' ? '#22c55e' : '#60a5fa';
-  const priceBg    = expPrice === 'sale' ? 'rgba(34,197,94,0.10)' : 'rgba(96,165,250,0.10)';
-  const priceBord  = expPrice === 'sale' ? 'rgba(34,197,94,0.40)' : 'rgba(96,165,250,0.40)';
-
-  /* Measure the price text and auto-fit font */
-  const priceFontSize = fitPriceFont(ctx, priceValue, INNER - 40, 52);
-
-  /* box height based on content */
-  const boxH = 28 + priceFontSize + 24;
-  roundRect(ctx, PAD, y, INNER, boxH, 14);
-  ctx.fillStyle = priceBg;
-  ctx.fill();
-  ctx.strokeStyle = priceBord;
-  ctx.lineWidth   = 1.5;
-  roundRect(ctx, PAD, y, INNER, boxH, 14);
-  ctx.stroke();
-
-  /* label inside box */
-  ctx.font = 'bold 11px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = priceColor;
-  ctx.textBaseline = 'top';
-  ctx.fillText(priceLabel, PAD + 18, y + 14);
-
-  /* price value inside box — fitted size */
-  ctx.font = `bold ${priceFontSize}px -apple-system, BlinkMacSystemFont, Arial, sans-serif`;
-  ctx.fillStyle = priceColor;
-  ctx.fillText(priceValue, PAD + 18, y + 28);
-
-  y += boxH + 24;
-
-  /* ── Divider ── */
   ctx.strokeStyle = 'rgba(255,255,255,0.06)';
   ctx.lineWidth = 1;
   ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
-  y += 16;
-
-  /* ── 6. SHOP DETAILS (bottom) ── */
-  ctx.font = 'bold 18px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#f5c542';
-  ctx.textBaseline = 'top';
-  ctx.fillText(SHOP_NAME, PAD + 8, y);
-  y += 26;
-
-  ctx.font = '12px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#71717a';
-  ctx.fillText(SHOP_ADDRESS, PAD + 8, y);
   y += 20;
 
-  ctx.font = '12px -apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  ctx.fillStyle = '#52525b';
-  ctx.fillText('\u{1F4DE} ' + SHOP_PHONE, PAD + 8, y);
+  /* ══ SECTION 3 : SHOP DETAILS ══ */
+  ctx.font = `bold 22px ${FONT}`;
+  ctx.fillStyle = '#f5c542';
+  ctx.textBaseline = 'top';
+  ctx.fillText(SHOP_NAME, PAD, y);
+  y += 30;
+
+  ctx.font = `14px ${FONT}`;
+  ctx.fillStyle = '#71717a';
+  ctx.fillText(SHOP_ADDRESS, PAD, y);
   y += 22;
 
-  /* ── Resize canvas to exact content height ── */
-  const finalH = y + 10;
+  ctx.font = `14px ${FONT}`;
+  ctx.fillStyle = '#52525b';
+  ctx.fillText('\u{1F4DE} ' + SHOP_PHONE, PAD, y);
+  y += 24;
+
+  /* ── Resize canvas to exact content ── */
+  const finalH = y + 20;
   const imgData = ctx.getImageData(0, 0, W, Math.min(finalH, canvas.height));
   canvas.height = finalH;
   canvas.width  = W;
-  /* Redraw background */
-  ctx.fillStyle = '#0a0a0d';
+  ctx.fillStyle = '#0d0d10';
   ctx.fillRect(0, 0, W, finalH);
   ctx.fillStyle = '#f5c542';
-  ctx.fillRect(0, 0, 5, finalH);
+  ctx.fillRect(0, 0, 6, finalH);
   ctx.putImageData(imgData, 0, 0);
 }
 
@@ -1142,7 +1170,13 @@ async function doExpWA(){
   const it = expItem;
   const priceLabel = expPrice === 'sale' ? 'Sale' : 'Wholesale';
   const priceVal   = fmt(it[expPrice]);
-  const text = `*${SHOP_NAME}*\n${SHOP_ADDRESS}\n📞 ${SHOP_PHONE}\n\n*${it.name || ''}*\nCode: ${it.alias || '–'}${it.group ? '\nGroup: ' + it.group : ''}\n\nMRP: ${fmt(it.mrp)}\n💰 *${priceLabel}: ${priceVal}*`;
+  const mrpVal = pn(it.mrp), saleVal = pn(it[expPrice]);
+  const disc = mrpVal > saleVal ? mrpVal - saleVal : 0;
+  const discPct = mrpVal > 0 && disc > 0 ? (disc/mrpVal*100).toFixed(2) : 0;
+  const emoji = disc > 0 ? discountEmoji(parseFloat(discPct)) : '';
+  const discLine = disc > 0 ? `\nDiscount: ₹${disc.toLocaleString('en-IN')}  (${discPct}%)  ${emoji}` : '';
+
+  const text = `*${SHOP_NAME}*\n${SHOP_ADDRESS}\n📞 ${SHOP_PHONE}\n\n*${it.name || ''}*\nCode: ${it.alias || '–'}${it.group ? '\nGroup: ' + it.group : ''}\n\nMRP: ${fmt(it.mrp)}\n💰 *${priceLabel}: ${priceVal}*${discLine}`;
 
   if(navigator.share && navigator.canShare){
     try{
