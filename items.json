@@ -21630,6 +21630,16 @@
     "stock": 0
   },
   {
+    "name": "NYN 1199",
+    "alias": "0003391",
+    "group": "S",
+    "mrp": 1092,
+    "sale": 870,
+    "purchase": 728,
+    "wholesale": 770,
+    "stock": 0
+  },
+  {
     "name": "NYN 1275",
     "alias": "0003385",
     "group": "CRUNCHY SUIT",
