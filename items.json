@@ -21620,6 +21620,16 @@
     "stock": 0
   },
   {
+    "name": "NYN 1164",
+    "alias": "0003392",
+    "group": "FIRDOS SUIT",
+    "mrp": 1012.5,
+    "sale": 800,
+    "purchase": 675,
+    "wholesale": 725,
+    "stock": 0
+  },
+  {
     "name": "NYN 1186",
     "alias": "0003386",
     "group": "CRUNCHY SUIT",
