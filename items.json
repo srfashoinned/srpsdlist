@@ -27460,6 +27460,16 @@
     "stock": 20
   },
   {
+    "name": "SNT COPPER DUSKI",
+    "alias": "0003396",
+    "group": "S",
+    "mrp": 712.5,
+    "sale": 570,
+    "purchase": 475,
+    "wholesale": 515,
+    "stock": 0
+  },
+  {
     "name": "SNT Cotton Suite",
     "alias": "001204",
     "group": "S",
