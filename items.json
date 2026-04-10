@@ -8617,7 +8617,7 @@
     "sale": 1700,
     "purchase": 1445,
     "wholesale": 1550,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "KC CAFE DILWALE",
@@ -9817,7 +9817,7 @@
     "sale": 1750,
     "purchase": 1465,
     "wholesale": 1565,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "KC DRY DELIGHT",
@@ -13857,7 +13857,7 @@
     "sale": 1800,
     "purchase": 1495,
     "wholesale": 1595,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "KC Orient",
@@ -21617,7 +21617,7 @@
     "sale": 860,
     "purchase": 718,
     "wholesale": 760,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "NYN 1164",
@@ -21627,7 +21627,7 @@
     "sale": 800,
     "purchase": 675,
     "wholesale": 725,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "NYN 1186",
@@ -21637,7 +21637,7 @@
     "sale": 850,
     "purchase": 708,
     "wholesale": 745,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "NYN 1199",
@@ -21647,7 +21647,7 @@
     "sale": 870,
     "purchase": 728,
     "wholesale": 770,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "NYN 1275",
@@ -21657,7 +21657,7 @@
     "sale": 860,
     "purchase": 718,
     "wholesale": 755,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "NYN ARUNDHATI",
@@ -21667,7 +21667,7 @@
     "sale": 860,
     "purchase": 718,
     "wholesale": 750,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "NYN DAL MAKHNI",
@@ -21677,7 +21677,7 @@
     "sale": 850,
     "purchase": 708,
     "wholesale": 750,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "NYN SRIVALLI",
@@ -21687,7 +21687,7 @@
     "sale": 870,
     "purchase": 728,
     "wholesale": 765,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "OC Animal",
