@@ -11370,6 +11370,16 @@
     "stock": 3
   },
   {
+    "name": "KC HIGH CLASS",
+    "alias": "0003266",
+    "group": "RUSSIAN PLAZO",
+    "mrp": 2835,
+    "sale": 2200,
+    "purchase": 1890,
+    "wholesale": 2000,
+    "stock": 4
+  },
+  {
     "name": "Kc High FlyeR",
     "alias": "0003175",
     "group": "P",
@@ -11737,7 +11747,7 @@
     "sale": 2000,
     "purchase": 1790,
     "wholesale": 2020,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC ISHQ STEPS",
@@ -13622,7 +13632,7 @@
   {
     "name": "Kc Nimbu Nasha",
     "alias": "0003289",
-    "group": "P",
+    "group": "RUSSIAN PLAZO",
     "mrp": 2670,
     "sale": 2150,
     "purchase": 1780,
@@ -15864,10 +15874,10 @@
     "alias": "0002859",
     "group": "P",
     "mrp": 3097.5,
-    "sale": 2750,
+    "sale": 2550,
     "purchase": 2065,
     "wholesale": 2250,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "KC SMART POINT",
@@ -17437,7 +17447,7 @@
     "sale": 850,
     "purchase": 730,
     "wholesale": 800,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "Kc Zareen Mahel",
@@ -17587,7 +17597,7 @@
     "sale": 980,
     "purchase": 730,
     "wholesale": 800,
-    "stock": 4
+    "stock": 1
   },
   {
     "name": "KC ZOHRA JABEEN",
@@ -19137,7 +19147,7 @@
     "sale": 350,
     "purchase": 320,
     "wholesale": 335,
-    "stock": 109
+    "stock": 108
   },
   {
     "name": "Masti Kalki",
@@ -19227,7 +19237,7 @@
     "sale": 350,
     "purchase": 320,
     "wholesale": 335,
-    "stock": 128
+    "stock": 127
   },
   {
     "name": "MC PUSHPA",
@@ -21867,7 +21877,7 @@
     "sale": 600,
     "purchase": 565,
     "wholesale": 587.5,
-    "stock": 94
+    "stock": 93
   },
   {
     "name": "OM DARLING",
@@ -26867,7 +26877,7 @@
     "sale": 200,
     "purchase": 170,
     "wholesale": 190,
-    "stock": -10
+    "stock": -11
   },
   {
     "name": "SNT 3 Patti",
@@ -28727,7 +28737,7 @@
     "sale": 500,
     "purchase": 423.33,
     "wholesale": 476.25,
-    "stock": -5
+    "stock": -1
   },
   {
     "name": "SNT Star",
@@ -30817,7 +30827,7 @@
     "sale": 380,
     "purchase": 340,
     "wholesale": 355,
-    "stock": 244
+    "stock": 242
   },
   {
     "name": "SST zCTN SUITE",
@@ -32507,16 +32517,6 @@
     "sale": 1680,
     "purchase": 1400,
     "wholesale": 1500,
-    "stock": 4
-  },
-  {
-    "name": "VF HIGH CLASS",
-    "alias": "0003266",
-    "group": "P",
-    "mrp": 2835,
-    "sale": 2200,
-    "purchase": 1890,
-    "wholesale": 2000,
     "stock": 4
   },
   {
