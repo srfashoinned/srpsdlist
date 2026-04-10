@@ -816,8 +816,8 @@ function cardHTML(it, ri, topPx, q){
     </div>`:'';
 
   return `<div class="c${exp?' exp':''}" style="top:${topPx}px" data-ri="${ri}" onclick="toggleCard(${ri})">
-    <div class="c-name">${hl(it.alias||'',q)}</div>
-    ${it.name?`<div class="c-alias" style="color:var(--txt);font-size:13px;margin-top:3px;opacity:0.75">${hl(it.name||'',q)}</div>`:''}
+    <div class="c-name">${hl(it.name||'',q)}</div>
+    ${it.alias?`<div class="c-alias" style="font-size:12px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums">${hl(it.alias||'',q)}</div>`:''}
     ${it.group?`<div class="c-alias">🗂 ${hl(it.group||'',q)}</div>`:''}
     <div class="prices">
       <div class="pb m"><div class="pl">MRP</div><div class="pv">${fmt(it.mrp)}</div></div>
@@ -972,64 +972,22 @@ function drawExpCard(canvas){
 
   let y = 32;
 
-  /* ══ SECTION 1 : ITEM DETAILS ══ */
+  /* ══ SECTION 1 : ALIAS + GROUP ONLY (no item name in export) ══ */
 
-  /* ── Name label + value ── */
-  ctx.font = `bold 11px ${FONT}`;
-  ctx.fillStyle = '#52525b';
   ctx.textBaseline = 'top';
-  ctx.letterSpacing = '1px';
-  ctx.fillText('NAME', PAD, y);
-  y += 18;
 
-  /* item name — large, white, wrapping */
-  const nameTxt = it.name || '—';
-  ctx.font = `bold 26px ${FONT}`;
-  ctx.fillStyle = '#e4e4e7';
-  /* measure & wrap */
-  const nameWords = nameTxt.split(' ');
-  let nameLine = '', nameLines = [];
-  for(const w of nameWords){
-    const test = nameLine ? nameLine + ' ' + w : w;
-    if(ctx.measureText(test).width > INNER - 10 && nameLine){ nameLines.push(nameLine); nameLine = w; }
-    else nameLine = test;
-  }
-  if(nameLine) nameLines.push(nameLine);
-  nameLines = nameLines.slice(0, 2);
-  nameLines.forEach(l => { ctx.fillText(l, PAD, y); y += 34; });
-  y += 6;
-
-  /* ── Alias (item code) ── */
+  /* ── Alias — prominent ── */
   if(it.alias){
-    ctx.font = `bold 11px ${FONT}`;
-    ctx.fillStyle = '#52525b';
-    ctx.fillText('CODE', PAD, y);
-    y += 16;
-
-    const aliasStr = it.alias;
-    ctx.font = `bold 18px ${FONT}`;
-    const aW = ctx.measureText(aliasStr).width;
-    const pillX = PAD, pillY = y - 2, pillW = aW + 24, pillH = 26;
-    roundRect(ctx, pillX, pillY, pillW, pillH, 6);
-    ctx.fillStyle = 'rgba(245,197,66,0.13)';
-    ctx.fill();
-    ctx.strokeStyle = 'rgba(245,197,66,0.4)';
-    ctx.lineWidth = 1.2;
-    roundRect(ctx, pillX, pillY, pillW, pillH, 6);
-    ctx.stroke();
+    ctx.font = `bold 28px ${FONT}`;
     ctx.fillStyle = '#f5c542';
-    ctx.fillText(aliasStr, PAD + 12, y);
-    y += 36;
+    ctx.fillText(it.alias, PAD, y);
+    y += 38;
   }
 
-  /* ── Group ── */
+  /* ── Group — small, muted ── */
   if(it.group){
-    ctx.font = `bold 11px ${FONT}`;
-    ctx.fillStyle = '#52525b';
-    ctx.fillText('GROUP', PAD, y);
-    y += 16;
-    ctx.font = `600 15px ${FONT}`;
-    ctx.fillStyle = '#a1a1aa';
+    ctx.font = `500 14px ${FONT}`;
+    ctx.fillStyle = '#71717a';
     ctx.fillText(it.group, PAD, y);
     y += 24;
   }
