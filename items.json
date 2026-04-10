@@ -21680,6 +21680,16 @@
     "stock": 4
   },
   {
+    "name": "NYN DRISHTI",
+    "alias": "0003393",
+    "group": "FIRDOS SUIT",
+    "mrp": 1012.5,
+    "sale": 800,
+    "purchase": 675,
+    "wholesale": 725,
+    "stock": 0
+  },
+  {
     "name": "NYN SRIVALLI",
     "alias": "0003389",
     "group": "S",
