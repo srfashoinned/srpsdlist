@@ -21757,7 +21757,7 @@
     "sale": 500,
     "purchase": 360,
     "wholesale": 400,
-    "stock": 5
+    "stock": 4
   },
   {
     "name": "OM Aaj Tak",
@@ -22417,7 +22417,7 @@
     "sale": 600,
     "purchase": 445,
     "wholesale": 500.625,
-    "stock": -1
+    "stock": -2
   },
   {
     "name": "OM My Love",
