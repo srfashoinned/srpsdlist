@@ -21660,6 +21660,16 @@
     "stock": 4
   },
   {
+    "name": "NYN 1291",
+    "alias": "0003394",
+    "group": "FIRDOS SUIT",
+    "mrp": 1012.5,
+    "sale": 800,
+    "purchase": 675,
+    "wholesale": 725,
+    "stock": 0
+  },
+  {
     "name": "NYN ARUNDHATI",
     "alias": "0003390",
     "group": "S",
