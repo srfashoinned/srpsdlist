@@ -9800,6 +9800,16 @@
     "stock": 2
   },
   {
+    "name": "KC DRY BASKET",
+    "alias": "0003382",
+    "group": "T",
+    "mrp": 2197.5,
+    "sale": 1750,
+    "purchase": 1465,
+    "wholesale": 1565,
+    "stock": 0
+  },
+  {
     "name": "KC DRY DELIGHT",
     "alias": "0003378",
     "group": "T",
