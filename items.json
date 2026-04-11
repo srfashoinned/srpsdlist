@@ -27483,9 +27483,9 @@
     "name": "SNT COPPER DUSKI",
     "alias": "0003396",
     "group": "S",
-    "mrp": 712.5,
+    "mrp": 615,
     "sale": 570,
-    "purchase": 475,
+    "purchase": 410,
     "wholesale": 515,
     "stock": 12
   },
