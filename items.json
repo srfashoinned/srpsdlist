@@ -19247,7 +19247,7 @@
     "sale": 370,
     "purchase": 325,
     "wholesale": 340,
-    "stock": 58
+    "stock": 57
   },
   {
     "name": "MASTI RANGAT",
@@ -23337,7 +23337,7 @@
     "sale": 620,
     "purchase": 515,
     "wholesale": 550,
-    "stock": 5
+    "stock": 2
   },
   {
     "name": "PC ROMANCE",
@@ -32577,7 +32577,7 @@
     "sale": 470,
     "purchase": 390,
     "wholesale": 450,
-    "stock": 7
+    "stock": 6
   },
   {
     "name": "VC SONIKUDI",
@@ -33107,7 +33107,7 @@
     "sale": 650,
     "purchase": 500,
     "wholesale": 562.5,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "WELCOME BEGAM JAAN",
