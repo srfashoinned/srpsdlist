@@ -3207,7 +3207,7 @@
     "sale": 750,
     "purchase": 630,
     "wholesale": 675,
-    "stock": 4
+    "stock": 0
   },
   {
     "name": "GF PANJABI KUDI",
@@ -3597,7 +3597,7 @@
     "sale": 900,
     "purchase": 685,
     "wholesale": 735,
-    "stock": 4
+    "stock": 1
   },
   {
     "name": "GF Sujata",
@@ -7617,7 +7617,7 @@
     "sale": 970,
     "purchase": 805,
     "wholesale": 860,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "KC Almas",
@@ -10957,7 +10957,7 @@
     "sale": 970,
     "purchase": 805,
     "wholesale": 860,
-    "stock": 4
+    "stock": 0
   },
   {
     "name": "KC GOOGLE GEMINI",
@@ -12377,7 +12377,7 @@
     "sale": 1300,
     "purchase": 1095,
     "wholesale": 1195,
-    "stock": 11
+    "stock": 8
   },
   {
     "name": "KC Lime Juice",
@@ -12397,7 +12397,7 @@
     "sale": 1200,
     "purchase": 900,
     "wholesale": 1000,
-    "stock": 2
+    "stock": 0
   },
   {
     "name": "KC LONDON CAKE",
@@ -16117,7 +16117,7 @@
     "sale": 1100,
     "purchase": 815,
     "wholesale": 900,
-    "stock": 3
+    "stock": 1
   },
   {
     "name": "KC SPECIAL SOUL",
@@ -17507,7 +17507,7 @@
     "sale": 1000,
     "purchase": 820,
     "wholesale": 875,
-    "stock": 4
+    "stock": 0
   },
   {
     "name": "KC ZARKA",
@@ -22147,7 +22147,7 @@
     "sale": 1080,
     "purchase": 900,
     "wholesale": 1000,
-    "stock": 7
+    "stock": 0
   },
   {
     "name": "OM GIRL FIREND",
