@@ -5887,7 +5887,7 @@
     "sale": 650,
     "purchase": 516,
     "wholesale": 550,
-    "stock": -7
+    "stock": -8
   },
   {
     "name": "INNAYA FIRE",
@@ -5997,7 +5997,7 @@
     "sale": 650,
     "purchase": 537,
     "wholesale": 600,
-    "stock": 6
+    "stock": 5
   },
   {
     "name": "Innaya Sonpari",
@@ -30047,7 +30047,7 @@
     "sale": 4350,
     "purchase": 3610,
     "wholesale": 4100,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "SONY INDO WESTERN 2",
