@@ -2077,7 +2077,7 @@
     "sale": 560,
     "purchase": 465,
     "wholesale": 500,
-    "stock": 29
+    "stock": 28
   },
   {
     "name": "GARIMA LAL PARI",
@@ -5867,7 +5867,7 @@
     "sale": 620,
     "purchase": 516,
     "wholesale": 570,
-    "stock": 2
+    "stock": -1
   },
   {
     "name": "INNAYA CHICKEN",
