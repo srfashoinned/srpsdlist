@@ -4767,7 +4767,7 @@
     "sale": 1050,
     "purchase": 900,
     "wholesale": 1000,
-    "stock": 4
+    "stock": 2
   },
   {
     "name": "GK Sitare",
@@ -7617,7 +7617,7 @@
     "sale": 970,
     "purchase": 805,
     "wholesale": 860,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC Almas",
@@ -21707,7 +21707,7 @@
     "sale": 860,
     "purchase": 718,
     "wholesale": 750,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "NYN DAL MAKHNI",
