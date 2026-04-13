@@ -117,7 +117,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .pb.w{background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.22);position:relative}
 .pb.k{background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.18)}
 .pb.p{background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.22)}
-.pb.s.shareable, .pb.w.shareable{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.pb.s.shareable,.pb.w.shareable{cursor:pointer;transition:transform .12s,box-shadow .12s}
 .pb.s.shareable:active{transform:scale(0.96)}
 .pb.w.shareable:active{transform:scale(0.96)}
 .pb.s.shareable:hover{border-color:rgba(34,197,94,0.6);box-shadow:0 0 0 2px rgba(34,197,94,0.15)}
@@ -136,7 +136,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .ab{flex:1;min-width:60px;padding:7px 4px;border-radius:7px;font-size:12px;font-weight:600;border:none;cursor:pointer;font-family:inherit}
 .ab.cp{background:rgba(96,165,250,0.12);color:var(--blue);border:1px solid rgba(96,165,250,0.25)}
 .ab.sh{background:rgba(34,197,94,0.10);color:var(--green);border:1px solid rgba(34,197,94,0.20)}
-.ab.ed{background:rgba(245,197,66,0.12);color:var(--gold);border:1px solid rgba(245,197,66,0.25)}
+.ab.ig{background:rgba(192,132,252,0.12);color:var(--purple);border:1px solid rgba(192,132,252,0.25)}
 .ab.wa{background:rgba(37,211,102,0.12);color:#25d366;border:1px solid rgba(37,211,102,0.3)}
 #welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;gap:14px}
 #welcome .w-logo{font-size:52px;font-weight:900;letter-spacing:5px;color:var(--gold);line-height:1}
@@ -153,11 +153,19 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #scan-hint{margin-top:22px;color:rgba(255,255,255,0.7);font-size:14px;text-align:center}
 #scan-code{margin-top:8px;color:var(--gold);font-size:13px;min-height:18px;font-variant-numeric:tabular-nums}
 #scan-close{margin-top:22px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:#fff;padding:10px 26px;border-radius:30px;font-size:14px;cursor:pointer;font-family:inherit}
+
+/* ── ADMIN MODAL ── */
 #adm-ov{position:fixed;inset:0;z-index:150;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center}
 #adm-ov.show{display:flex}
 #adm-box{background:var(--card);border:1px solid var(--bord);border-radius:16px;padding:24px;width:88%;max-width:320px}
 #adm-title{font-size:22px;font-weight:900;color:var(--gold);margin-bottom:4px}
 #adm-sub{font-size:12px;color:var(--muted);margin-bottom:16px}
+#adm-bio-btn{width:100%;padding:12px;border-radius:10px;background:rgba(245,197,66,0.1);border:1.5px solid rgba(245,197,66,0.35);color:var(--gold);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px;transition:background .15s}
+#adm-bio-btn:active{background:rgba(245,197,66,0.2)}
+#adm-bio-btn.hidden{display:none}
+#adm-divider{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+#adm-divider span{font-size:11px;color:var(--muted);white-space:nowrap}
+#adm-divider::before,#adm-divider::after{content:'';flex:1;height:1px;background:var(--bord)}
 #adm-pw{width:100%;background:var(--surf);border:1.5px solid var(--bord);border-radius:9px;padding:12px;font-size:20px;color:var(--txt);letter-spacing:8px;text-align:center;outline:none;font-family:inherit}
 #adm-pw:focus{border-color:var(--gold)}
 #adm-pw.err{border-color:var(--red);animation:sh .3s}
@@ -173,21 +181,28 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #adm-btns{display:flex;gap:8px;margin-top:16px}
 #adm-cancel{flex:1;padding:10px;border-radius:9px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
 #adm-login{flex:2;padding:10px;border-radius:9px;background:var(--gold);border:none;color:#000;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
-#edit-ov{position:fixed;inset:0;z-index:160;background:rgba(0,0,0,0.85);display:none;align-items:flex-end;justify-content:center}
-#edit-ov.show{display:flex}
-#edit-box{background:var(--card);border:1px solid var(--bord);border-radius:16px 16px 0 0;padding:20px;width:100%;max-width:480px;max-height:78vh;overflow-y:auto}
-#edit-title{font-size:18px;font-weight:800;color:var(--gold);margin-bottom:14px}
-.ef-wrap{margin-bottom:10px}
-.ef-lbl{font-size:10px;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;margin-bottom:3px}
-.ef-in{width:100%;background:var(--surf);border:1.5px solid var(--bord);border-radius:7px;padding:9px 10px;font-size:13px;color:var(--txt);outline:none;font-family:inherit;font-variant-numeric:tabular-nums}
-.ef-in:focus{border-color:var(--gold)}
-#edit-btns{display:flex;gap:8px;margin-top:14px}
-#edit-save{flex:2;padding:11px;border-radius:9px;background:var(--gold);border:none;color:#000;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit}
-#edit-cancel{flex:1;padding:11px;border-radius:9px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
-#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(70px);background:#27272a;border:1px solid var(--bord);border-radius:30px;padding:9px 18px;font-size:13px;white-space:nowrap;z-index:300;transition:transform .25s,opacity .25s;opacity:0;pointer-events:none}
-#toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;padding:0 1px}
-.grp-hdr{position:absolute;left:14px;right:14px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);padding:4px 0 3px;border-bottom:1px solid rgba(245,197,66,0.2)}
+
+/* ── IMAGE VIEWER MODAL ── */
+#img-ov{position:fixed;inset:0;z-index:170;background:rgba(0,0,0,0.95);display:none;flex-direction:column;align-items:center;justify-content:center}
+#img-ov.show{display:flex}
+#img-box{width:100%;max-width:520px;display:flex;flex-direction:column;align-items:center;gap:0;padding:0 0 20px}
+#img-hdr{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 18px 12px;border-bottom:1px solid var(--bord)}
+#img-title-wrap{display:flex;flex-direction:column;gap:2px}
+#img-title{font-size:15px;font-weight:800;color:var(--txt)}
+#img-subtitle{font-size:11px;color:var(--muted)}
+#img-close{background:rgba(255,255,255,0.08);border:1px solid var(--bord);color:var(--muted);width:32px;height:32px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+#img-main{position:relative;width:100%;display:flex;align-items:center;justify-content:center;min-height:260px;padding:16px}
+#img-el{max-width:100%;max-height:60vh;border-radius:12px;object-fit:contain;display:block}
+#img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:40px 20px;color:var(--muted);text-align:center}
+#img-placeholder .img-icon{font-size:48px;opacity:.4}
+#img-placeholder .img-msg{font-size:13px;line-height:1.6;max-width:200px}
+#img-nav{display:flex;gap:10px;align-items:center;margin-top:4px}
+.img-nav-btn{background:rgba(255,255,255,0.06);border:1px solid var(--bord);color:var(--txt);width:40px;height:40px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.img-nav-btn:active{background:rgba(255,255,255,0.15)}
+#img-counter{font-size:12px;color:var(--muted);min-width:50px;text-align:center;font-variant-numeric:tabular-nums}
+#img-info{width:100%;padding:10px 18px 0;font-size:12px;color:var(--muted);text-align:center}
+
+/* ── EXPORT IMAGE MODAL ── */
 #exp-ov{position:fixed;inset:0;z-index:170;background:rgba(0,0,0,0.92);display:none;align-items:flex-end;justify-content:center}
 #exp-ov.show{display:flex}
 #exp-box{background:var(--card);border:1px solid var(--bord);border-radius:20px 20px 0 0;width:100%;max-width:480px;padding:18px 18px 30px;display:flex;flex-direction:column;gap:12px}
@@ -199,6 +214,10 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
 #exp-save{flex:1;padding:12px;border-radius:10px;background:var(--surf);border:1px solid var(--bord);color:var(--txt);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
 #exp-cancel{flex:1;padding:12px;border-radius:10px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
 #exp-price-hint{font-size:12px;color:var(--muted);text-align:center}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(70px);background:#27272a;border:1px solid var(--bord);border-radius:30px;padding:9px 18px;font-size:13px;white-space:nowrap;z-index:300;transition:transform .25s,opacity .25s;opacity:0;pointer-events:none}
+#toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;padding:0 1px}
+.grp-hdr{position:absolute;left:14px;right:14px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);padding:4px 0 3px;border-bottom:1px solid rgba(245,197,66,0.2)}
 </style>
 </head>
 <body>
@@ -284,7 +303,15 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
 <div id="adm-ov">
   <div id="adm-box">
     <div id="adm-title">ADMIN</div>
-    <div id="adm-sub">4-digit PIN • hidden as you type</div>
+    <div id="adm-sub">Unlock with fingerprint or PIN</div>
+
+    <!-- Biometric button — shown only if supported -->
+    <button id="adm-bio-btn" onclick="doBiometric()" class="hidden">
+      <span style="font-size:22px">👆</span>
+      <span>Use Fingerprint / Face ID</span>
+    </button>
+    <div id="adm-divider" class="hidden"><span>or enter PIN</span></div>
+
     <input id="adm-pw" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="• • • •" autocomplete="off"
       oninput="onPwInput(this)" onkeydown="if(event.key==='Enter')doLogin()">
     <div id="dots">
@@ -299,14 +326,44 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   </div>
 </div>
 
-<!-- EDIT MODAL -->
-<div id="edit-ov">
-  <div id="edit-box">
-    <div id="edit-title">EDIT ITEM</div>
-    <div id="edit-fields"></div>
-    <div id="edit-btns">
-      <button id="edit-cancel" onclick="closeEdit()">Cancel</button>
-      <button id="edit-save" onclick="saveEdit()">💾 Save</button>
+<!-- IMAGE VIEWER MODAL -->
+<div id="img-ov">
+  <div id="img-box">
+    <div id="img-hdr">
+      <div id="img-title-wrap">
+        <div id="img-title">Product Images</div>
+        <div id="img-subtitle"></div>
+      </div>
+      <button id="img-close" onclick="closeImgViewer()">✕</button>
+    </div>
+    <div id="img-main">
+      <img id="img-el" src="" alt="Product" style="display:none" onerror="imgLoadError()" onload="imgLoaded()">
+      <div id="img-placeholder">
+        <div class="img-icon">🖼️</div>
+        <div class="img-msg" id="img-msg">No image available for this product yet.</div>
+      </div>
+    </div>
+    <div id="img-nav" style="display:none">
+      <button class="img-nav-btn" onclick="imgPrev()">‹</button>
+      <div id="img-counter">1 / 1</div>
+      <button class="img-nav-btn" onclick="imgNext()">›</button>
+    </div>
+    <div id="img-info"></div>
+  </div>
+</div>
+
+<!-- EXPORT IMAGE MODAL -->
+<div id="exp-ov">
+  <div id="exp-box">
+    <div id="exp-title">📲 Share Image</div>
+    <div id="exp-price-hint"></div>
+    <div id="exp-preview-wrap">
+      <canvas id="exp-canvas" width="540" height="560"></canvas>
+    </div>
+    <div id="exp-btns">
+      <button id="exp-wa" onclick="doExpWA()">Send on WhatsApp</button>
+      <button id="exp-save" onclick="doExpSave()">💾 Save Image</button>
+      <button id="exp-cancel" onclick="closeExp()">Cancel</button>
     </div>
   </div>
 </div>
@@ -339,22 +396,6 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   </div>
 </div>
 
-<!-- EXPORT IMAGE MODAL -->
-<div id="exp-ov">
-  <div id="exp-box">
-    <div id="exp-title">📲 Share Image</div>
-    <div id="exp-price-hint"></div>
-    <div id="exp-preview-wrap">
-      <canvas id="exp-canvas" width="540" height="560"></canvas>
-    </div>
-    <div id="exp-btns">
-      <button id="exp-wa" onclick="doExpWA()">Send on WhatsApp</button>
-      <button id="exp-save" onclick="doExpSave()">💾 Save Image</button>
-      <button id="exp-cancel" onclick="closeExp()">Cancel</button>
-    </div>
-  </div>
-</div>
-
 <!-- TOAST -->
 <div id="toast"></div>
 
@@ -368,6 +409,38 @@ const PASS  = "7865";
 const SHOP_NAME    = "SR FASHION";
 const SHOP_ADDRESS = "GN Azad College Road, Vasant Nagar, Pusad – 445 204";
 const SHOP_PHONE   = "7588756668";
+
+/*
+  IMAGE SOURCE CONFIG
+  ───────────────────
+  Set IMAGE_SOURCE to one of:
+    'local'      → images folder next to index.html  e.g. images/SR001.jpg
+    'cloudinary' → set IMAGE_BASE_URL to your Cloudinary delivery URL
+                   e.g. "https://res.cloudinary.com/YOUR_CLOUD/image/upload/products/"
+    'drive'      → set IMAGE_BASE_URL to a public Google Drive folder base URL
+                   e.g. "https://drive.google.com/uc?export=view&id=" (then use file IDs in items.json)
+
+  File naming: images should be named by item ALIAS  e.g.  SR001.jpg
+  Multiple images: add an "images" array to item in items.json  e.g.  "images":["SR001_1.jpg","SR001_2.jpg"]
+  If no "images" field, the app auto-tries  <alias>.jpg  and  <alias>.png
+*/
+const IMAGE_SOURCE   = 'local';
+const IMAGE_BASE_URL = 'images/';  // change for cloudinary / drive
+
+function getImageUrls(it){
+  if(it.images && it.images.length){
+    return it.images.map(f => IMAGE_BASE_URL + f);
+  }
+  const alias = (it.alias || '').replace(/[^a-zA-Z0-9_\-]/g,'');
+  if(!alias) return [];
+  return [
+    IMAGE_BASE_URL + alias + '.jpg',
+    IMAGE_BASE_URL + alias + '.png',
+    IMAGE_BASE_URL + alias + '.jpeg',
+    IMAGE_BASE_URL + alias + '.webp'
+  ];
+}
+
 const GAP   = 16;
 let CARD_COLLAPSED_H = 160;
 const BUFFER = 4;
@@ -403,7 +476,6 @@ let activeGroup = '';
 let pMin     = null;
 let pMax     = null;
 let query    = '';
-let editIdx  = -1;
 let activeSort = 'df';
 let activeStock = 'all';
 let activeBrand = '';
@@ -416,6 +488,12 @@ let scrollEl, spacer, stage;
 
 let expItem  = null;
 let expPrice = 'sale';
+
+/* image viewer state */
+let imgItem     = null;
+let imgUrls     = [];
+let imgCurIdx   = 0;
+let imgTryIdx   = 0;
 
 /* ═══════════════════════════════════════════
    LOAD DATA
@@ -430,6 +508,7 @@ async function loadData(){
     buildBrandChips();
   }catch(e){}
   showWelcome();
+  initBiometric();
 }
 
 async function refreshData(){
@@ -811,7 +890,7 @@ function cardHTML(it, ri, topPx, q){
       <div class="act">
         <button class="ab cp" onclick="copyItem(${ri},event)">📋 Copy</button>
         <button class="ab sh" onclick="shareItem(${ri},event)">📤 Share</button>
-        ${isAdmin?`<button class="ab ed" onclick="openEdit(${ri},event)">✏️ Edit</button>`:''}
+        <button class="ab ig" onclick="openImgViewer(${ri},event)">🖼️ Images</button>
       </div>
     </div>`:'';
 
@@ -898,9 +977,109 @@ function clearPF(){
 });
 
 /* ═══════════════════════════════════════════
-   EXPORT IMAGE  ← FULLY REWRITTEN
+   IMAGE VIEWER
 ═══════════════════════════════════════════ */
+function openImgViewer(ri, e){
+  e && e.stopPropagation();
+  imgItem   = raw[ri];
+  imgUrls   = getImageUrls(imgItem);
+  imgCurIdx = 0;
+  imgTryIdx = 0;
 
+  document.getElementById('img-title').textContent = imgItem.alias || imgItem.name || 'Product';
+  document.getElementById('img-subtitle').textContent = imgItem.name || '';
+  document.getElementById('img-info').textContent = '';
+
+  if(!imgUrls.length){
+    showImgPlaceholder('No image configured for this item.');
+  } else {
+    loadImgAt(0);
+  }
+  document.getElementById('img-ov').classList.add('show');
+}
+
+function closeImgViewer(){
+  document.getElementById('img-ov').classList.remove('show');
+  const el = document.getElementById('img-el');
+  el.src = '';
+  el.style.display = 'none';
+  imgItem = null; imgUrls = []; imgCurIdx = 0; imgTryIdx = 0;
+}
+
+function loadImgAt(idx){
+  if(idx >= imgUrls.length){
+    showImgPlaceholder('No image found for this product.\n\nTip: Add an image named "' + (imgItem.alias||'ALIAS') + '.jpg" to your images folder.');
+    return;
+  }
+  imgCurIdx = idx;
+  const el = document.getElementById('img-el');
+  const ph = document.getElementById('img-placeholder');
+  ph.style.display = 'none';
+  el.style.display = 'none';
+  el.src = imgUrls[idx];
+}
+
+function imgLoaded(){
+  const el = document.getElementById('img-el');
+  const ph = document.getElementById('img-placeholder');
+  el.style.display = 'block';
+  ph.style.display = 'none';
+  updateImgNav();
+  document.getElementById('img-info').textContent = IMAGE_SOURCE === 'local'
+    ? 'Image ' + (imgCurIdx+1) + ' of ' + imgUrls.length
+    : '';
+}
+
+function imgLoadError(){
+  /* try next candidate URL (jpg → png → jpeg → webp) */
+  imgTryIdx++;
+  if(imgTryIdx < imgUrls.length && !imgItem.images){
+    loadImgAt(imgTryIdx);
+  } else {
+    showImgPlaceholder('No image found for this product.\n\nTip: Add an image named "' + (imgItem?.alias||'ALIAS') + '.jpg" to your images folder.');
+  }
+}
+
+function showImgPlaceholder(msg){
+  const el = document.getElementById('img-el');
+  const ph = document.getElementById('img-placeholder');
+  el.style.display = 'none';
+  ph.style.display = 'flex';
+  document.getElementById('img-msg').textContent = msg;
+  document.getElementById('img-nav').style.display = 'none';
+}
+
+function updateImgNav(){
+  const nav = document.getElementById('img-nav');
+  const counter = document.getElementById('img-counter');
+  if(imgItem && imgItem.images && imgItem.images.length > 1){
+    nav.style.display = 'flex';
+    counter.textContent = (imgCurIdx+1) + ' / ' + imgItem.images.length;
+  } else {
+    nav.style.display = 'none';
+  }
+}
+
+function imgPrev(){
+  if(!imgItem || !imgItem.images) return;
+  const newIdx = (imgCurIdx - 1 + imgItem.images.length) % imgItem.images.length;
+  imgTryIdx = newIdx;
+  loadImgAt(newIdx);
+}
+function imgNext(){
+  if(!imgItem || !imgItem.images) return;
+  const newIdx = (imgCurIdx + 1) % imgItem.images.length;
+  imgTryIdx = newIdx;
+  loadImgAt(newIdx);
+}
+
+document.getElementById('img-ov').addEventListener('click', function(e){
+  if(e.target === this) closeImgViewer();
+});
+
+/* ═══════════════════════════════════════════
+   EXPORT IMAGE
+═══════════════════════════════════════════ */
 function openExp(ri, priceType, e){
   e && e.stopPropagation();
   expItem  = raw[ri];
@@ -911,13 +1090,11 @@ function openExp(ri, priceType, e){
   document.getElementById('exp-ov').classList.add('show');
   drawExpCard(document.getElementById('exp-canvas'));
 }
-
 function closeExp(){
   document.getElementById('exp-ov').classList.remove('show');
   expItem = null;
 }
 
-/* ── rounded rect path ── */
 function roundRect(ctx, x, y, w, h, r){
   ctx.beginPath();
   ctx.moveTo(x+r, y);
@@ -931,8 +1108,6 @@ function roundRect(ctx, x, y, w, h, r){
   ctx.quadraticCurveTo(x, y, x+r, y);
   ctx.closePath();
 }
-
-/* ── discount emoji based on % ── */
 function discountEmoji(pct){
   if(pct >= 40) return '🤩';
   if(pct >= 30) return '🔥';
@@ -941,7 +1116,6 @@ function discountEmoji(pct){
   return '🎉';
 }
 
-/* ── draw the share card ── */
 function drawExpCard(canvas){
   if(!expItem) return;
   const it  = expItem;
@@ -949,75 +1123,49 @@ function drawExpCard(canvas){
   const PAD = 32;
   const INNER = W - PAD * 2;
   const FONT  = '-apple-system, BlinkMacSystemFont, Arial, sans-serif';
-
-  /* helpers */
   const fmtNum = v => {
     if(v==null||v==='') return '–';
     const n = parseFloat(String(v).replace(/[^0-9.]/g,''));
     return isNaN(n) ? String(v) : '₹' + n.toLocaleString('en-IN');
   };
-
-  /* set a tall canvas first */
   canvas.width  = W;
   canvas.height = 900;
   const ctx = canvas.getContext('2d');
-
-  /* ── background ── */
   ctx.fillStyle = '#0d0d10';
   ctx.fillRect(0, 0, W, canvas.height);
-
-  /* gold left bar */
   ctx.fillStyle = '#f5c542';
   ctx.fillRect(0, 0, 6, canvas.height);
-
   let y = 32;
-
-  /* ══ SECTION 1 : ALIAS + GROUP ONLY (no item name in export) ══ */
-
   ctx.textBaseline = 'top';
-
-  /* ── Alias — prominent ── */
   if(it.alias){
     ctx.font = `bold 28px ${FONT}`;
     ctx.fillStyle = '#f5c542';
     ctx.fillText(it.alias, PAD, y);
     y += 38;
   }
-
-  /* ── Group — small, muted ── */
   if(it.group){
     ctx.font = `500 14px ${FONT}`;
     ctx.fillStyle = '#71717a';
     ctx.fillText(it.group, PAD, y);
     y += 24;
   }
-
   y += 10;
-
-  /* ── Divider ── */
   ctx.strokeStyle = 'rgba(255,255,255,0.07)';
   ctx.lineWidth = 1;
   ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
   y += 20;
-
-  /* ══ SECTION 2 : PRICING ══ */
-
   const mrpVal  = pn(it.mrp);
   const priceVal = pn(it[expPrice]);
   const discount = mrpVal > 0 && priceVal > 0 ? mrpVal - priceVal : 0;
   const discPct  = mrpVal > 0 && discount > 0 ? (discount / mrpVal * 100) : 0;
-
-  /* ── MRP row ── */
   ctx.font = `bold 11px ${FONT}`;
   ctx.fillStyle = '#52525b';
   ctx.fillText('MRP', PAD, y);
   y += 18;
-
   const mrpStr = fmtNum(it.mrp);
   ctx.font = `500 20px ${FONT}`;
   ctx.fillStyle = '#52525b';
   ctx.fillText(mrpStr, PAD, y);
-  /* strikethrough */
   if(discount > 0){
     const sw = ctx.measureText(mrpStr).width;
     ctx.beginPath();
@@ -1028,45 +1176,33 @@ function drawExpCard(canvas){
     ctx.stroke();
   }
   y += 32;
-
-  /* ── MAIN PRICE BOX ── */
   const priceLabel = expPrice === 'sale' ? 'SALE PRICE' : 'WHOLESALE PRICE';
   const priceStr   = fmtNum(it[expPrice]);
   const priceColor = expPrice === 'sale' ? '#22c55e' : '#60a5fa';
   const priceBg    = expPrice === 'sale' ? 'rgba(34,197,94,0.10)' : 'rgba(96,165,250,0.10)';
   const priceBord  = expPrice === 'sale' ? 'rgba(34,197,94,0.45)' : 'rgba(96,165,250,0.45)';
-
-  /* auto-fit price font — never overflow box */
   let priceFontSize = 56;
   ctx.font = `bold ${priceFontSize}px ${FONT}`;
   while(priceFontSize > 22 && ctx.measureText(priceStr).width > INNER - 48){
     priceFontSize -= 2;
     ctx.font = `bold ${priceFontSize}px ${FONT}`;
   }
-
   const boxH = 22 + priceFontSize + 22;
   roundRect(ctx, PAD, y, INNER, boxH, 16);
   ctx.fillStyle = priceBg; ctx.fill();
   ctx.strokeStyle = priceBord; ctx.lineWidth = 1.5;
   roundRect(ctx, PAD, y, INNER, boxH, 16); ctx.stroke();
-
   ctx.font = `bold 11px ${FONT}`;
   ctx.fillStyle = priceColor;
   ctx.textBaseline = 'top';
   ctx.fillText(priceLabel, PAD + 20, y + 14);
-
   ctx.font = `bold ${priceFontSize}px ${FONT}`;
   ctx.fillStyle = priceColor;
   ctx.fillText(priceStr, PAD + 20, y + 22);
-
   y += boxH + 18;
-
-  /* ── Discount row ── */
   if(discount > 0){
     const emoji = discountEmoji(discPct);
     const discStr = `You save  ${fmtNum(discount)}  (${discPct.toFixed(2)}%)  ${emoji}`;
-
-    /* pill bg */
     ctx.font = `bold 15px ${FONT}`;
     const dW = ctx.measureText(discStr).width;
     const dPillW = Math.min(dW + 32, INNER);
@@ -1079,33 +1215,24 @@ function drawExpCard(canvas){
     ctx.fillText(discStr, PAD + 16, y + 8);
     y += dPillH + 18;
   }
-
   y += 8;
-
-  /* ── Divider ── */
   ctx.strokeStyle = 'rgba(255,255,255,0.06)';
   ctx.lineWidth = 1;
   ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
   y += 20;
-
-  /* ══ SECTION 3 : SHOP DETAILS ══ */
   ctx.font = `bold 22px ${FONT}`;
   ctx.fillStyle = '#f5c542';
   ctx.textBaseline = 'top';
   ctx.fillText(SHOP_NAME, PAD, y);
   y += 30;
-
   ctx.font = `14px ${FONT}`;
   ctx.fillStyle = '#71717a';
   ctx.fillText(SHOP_ADDRESS, PAD, y);
   y += 22;
-
   ctx.font = `14px ${FONT}`;
   ctx.fillStyle = '#52525b';
   ctx.fillText('\u{1F4DE} ' + SHOP_PHONE, PAD, y);
   y += 24;
-
-  /* ── Resize canvas to exact content ── */
   const finalH = y + 20;
   const imgData = ctx.getImageData(0, 0, W, Math.min(finalH, canvas.height));
   canvas.height = finalH;
@@ -1134,9 +1261,7 @@ async function doExpWA(){
   const discPct = mrpVal > 0 && disc > 0 ? (disc/mrpVal*100).toFixed(2) : 0;
   const emoji = disc > 0 ? discountEmoji(parseFloat(discPct)) : '';
   const discLine = disc > 0 ? `\nDiscount: ₹${disc.toLocaleString('en-IN')}  (${discPct}%)  ${emoji}` : '';
-
   const text = `*${SHOP_NAME}*\n${SHOP_ADDRESS}\n📞 ${SHOP_PHONE}\n\n*${it.name || ''}*\nCode: ${it.alias || '–'}${it.group ? '\nGroup: ' + it.group : ''}\n\nMRP: ${fmt(it.mrp)}\n💰 *${priceLabel}: ${priceVal}*${discLine}`;
-
   if(navigator.share && navigator.canShare){
     try{
       const blob = await getExpBlob();
@@ -1246,12 +1371,51 @@ function shareItem(ri,e){
   else navigator.clipboard.writeText(t).then(()=>toast("📤 Copied"));
 }
 
-/* ═══ ADMIN ═══ */
-function openAdm(){ if(isAdmin){logout();return;} document.getElementById("adm-ov").classList.add("show"); setTimeout(()=>document.getElementById("adm-pw").focus(),150); }
-function closeAdm(){ document.getElementById("adm-ov").classList.remove("show"); resetPw(); }
-function resetPw(){ const p=document.getElementById("adm-pw"); p.value=''; p.className=''; document.getElementById("adm-msg").textContent=''; document.getElementById("adm-msg").className=''; [0,1,2,3].forEach(i=>dot(i,'')); }
-function onPwInput(el){ const v=el.value; [0,1,2,3].forEach(i=>dot(i,i<v.length?'f':'')); if(v.length===4)setTimeout(doLogin,100); }
-function dot(i,c){ const d=document.getElementById("d"+i); d.className='dot'; if(c)d.classList.add(c); }
+/* ═══════════════════════════════════════════
+   ADMIN — BIOMETRIC + PIN
+═══════════════════════════════════════════ */
+
+/* WebAuthn credential key stored in localStorage */
+const BIO_KEY = 'sr_adm_bio_cred';
+
+async function initBiometric(){
+  /* Check if platform authenticator (fingerprint/FaceID) is available */
+  if(!window.PublicKeyCredential) return;
+  try{
+    const available = await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable();
+    if(available){
+      document.getElementById('adm-bio-btn').classList.remove('hidden');
+      document.getElementById('adm-divider').classList.remove('hidden');
+    }
+  }catch(_){}
+}
+
+function openAdm(){
+  if(isAdmin){ logout(); return; }
+  document.getElementById("adm-ov").classList.add("show");
+  setTimeout(()=>document.getElementById("adm-pw").focus(), 150);
+}
+function closeAdm(){
+  document.getElementById("adm-ov").classList.remove("show");
+  resetPw();
+}
+function resetPw(){
+  const p=document.getElementById("adm-pw");
+  p.value=''; p.className='';
+  document.getElementById("adm-msg").textContent='';
+  document.getElementById("adm-msg").className='';
+  [0,1,2,3].forEach(i=>dot(i,''));
+}
+function onPwInput(el){
+  const v=el.value;
+  [0,1,2,3].forEach(i=>dot(i,i<v.length?'f':''));
+  if(v.length===4) setTimeout(doLogin,100);
+}
+function dot(i,c){
+  const d=document.getElementById("d"+i);
+  d.className='dot';
+  if(c) d.classList.add(c);
+}
 function doLogin(){
   const pw=document.getElementById("adm-pw");
   if(pw.value===PASS){
@@ -1265,21 +1429,93 @@ function doLogin(){
     setTimeout(()=>{ pw.value=''; pw.className=''; m.textContent=''; [0,1,2,3].forEach(i=>dot(i,'')); },900);
   }
 }
-function logout(){ isAdmin=false; document.getElementById("admin-btn").textContent='⚡ Admin'; document.getElementById("admin-btn").classList.remove("on"); vsRender(true); toast("🔒 Logged out"); }
-
-/* ═══ EDIT ═══ */
-function openEdit(ri,e){
-  e&&e.stopPropagation(); if(!isAdmin) return;
-  editIdx=ri; const it=raw[ri];
-  const fields=[['name','Name'],['alias','Alias'],['mrp','MRP (₹)'],['sale','Sale (₹)'],['wholesale','Wholesale (₹)'],['stock','Stock'],['purchase','Purchase (₹)'],['group','Group'],['brand','Brand'],['barcode','Barcode']];
-  document.getElementById("edit-fields").innerHTML=fields.map(([k,l])=>`<div class="ef-wrap"><div class="ef-lbl">${l}</div><input class="ef-in" id="ef-${k}" value="${(it[k]||'').toString().replace(/"/g,'&quot;')}"></div>`).join('');
-  document.getElementById("edit-ov").classList.add("show");
+function logout(){
+  isAdmin=false;
+  document.getElementById("admin-btn").textContent='⚡ Admin';
+  document.getElementById("admin-btn").classList.remove("on");
+  vsRender(true);
+  toast("🔒 Logged out");
 }
-function closeEdit(){ document.getElementById("edit-ov").classList.remove("show"); editIdx=-1; }
-function saveEdit(){
-  if(editIdx<0) return;
-  ['name','alias','mrp','sale','wholesale','stock','purchase','group','brand','barcode'].forEach(k=>{ const el=document.getElementById("ef-"+k); if(el) raw[editIdx][k]=el.value; });
-  closeEdit(); applyAll(); toast("✅ Saved (session)");
+
+/* ── BIOMETRIC via WebAuthn ── */
+async function doBiometric(){
+  const msg = document.getElementById('adm-msg');
+  msg.textContent = ''; msg.className = '';
+
+  try{
+    const savedCred = localStorage.getItem(BIO_KEY);
+
+    if(!savedCred){
+      /* First time: REGISTER a credential bound to this device */
+      msg.textContent = 'Setting up biometric…'; msg.className = '';
+      const challenge = crypto.getRandomValues(new Uint8Array(32));
+      const userId    = crypto.getRandomValues(new Uint8Array(16));
+
+      const credential = await navigator.credentials.create({
+        publicKey:{
+          challenge,
+          rp:{ name: SHOP_NAME, id: location.hostname || 'localhost' },
+          user:{ id: userId, name:'admin', displayName:'Admin' },
+          pubKeyCredParams:[
+            { type:'public-key', alg:-7  },
+            { type:'public-key', alg:-257}
+          ],
+          authenticatorSelection:{
+            authenticatorAttachment:'platform',
+            userVerification:'required'
+          },
+          timeout:60000
+        }
+      });
+
+      /* Save credential ID so we can assert later */
+      const credId = btoa(String.fromCharCode(...new Uint8Array(credential.rawId)));
+      localStorage.setItem(BIO_KEY, credId);
+      grantAdmin('👆 Biometric registered & unlocked');
+      return;
+    }
+
+    /* Subsequent times: ASSERT (verify fingerprint) */
+    msg.textContent = 'Waiting for fingerprint…'; msg.className = '';
+    const challenge  = crypto.getRandomValues(new Uint8Array(32));
+    const rawId      = Uint8Array.from(atob(savedCred), c=>c.charCodeAt(0));
+
+    await navigator.credentials.get({
+      publicKey:{
+        challenge,
+        allowCredentials:[{ type:'public-key', id: rawId }],
+        userVerification:'required',
+        timeout:60000
+      }
+    });
+
+    grantAdmin('👆 Fingerprint verified');
+
+  }catch(err){
+    if(err.name === 'NotAllowedError'){
+      msg.textContent = 'Biometric cancelled'; msg.className = 'e';
+    } else if(err.name === 'InvalidStateError'){
+      /* credential not found on this device — clear & retry */
+      localStorage.removeItem(BIO_KEY);
+      msg.textContent = 'Credential reset — tap again to re-register'; msg.className = 'e';
+    } else {
+      msg.textContent = 'Biometric error — use PIN'; msg.className = 'e';
+    }
+  }
+}
+
+function grantAdmin(toastMsg){
+  isAdmin = true;
+  const m = document.getElementById('adm-msg');
+  m.textContent = '✓ Granted'; m.className = 'g';
+  [0,1,2,3].forEach(i=>dot(i,'g'));
+  setTimeout(()=>{
+    closeAdm();
+    document.getElementById("admin-btn").textContent = '🔓 Logout';
+    document.getElementById("admin-btn").classList.add("on");
+    vsRender(true);
+    toast(toastMsg || "🔓 Admin on");
+  }, 500);
 }
 
 /* ═══ TOAST ═══ */
@@ -1288,11 +1524,10 @@ function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg
 
 /* ═══ KEYBOARD ═══ */
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){ closeAdm(); closeEdit(); closeScanner(); closeGrpModal(); closeBrandModal(); closeExp(); }
+  if(e.key==="Escape"){ closeAdm(); closeScanner(); closeGrpModal(); closeBrandModal(); closeExp(); closeImgViewer(); }
   if((e.ctrlKey||e.metaKey)&&e.key==="f"){ e.preventDefault(); document.getElementById("search").focus(); }
 });
 document.getElementById("adm-ov").addEventListener("click",e=>{ if(e.target.id==="adm-ov")closeAdm(); });
-document.getElementById("edit-ov").addEventListener("click",e=>{ if(e.target.id==="edit-ov")closeEdit(); });
 document.getElementById("exp-ov").addEventListener("click",e=>{ if(e.target.id==="exp-ov")closeExp(); });
 
 /* ═══ BOOT ═══ */
