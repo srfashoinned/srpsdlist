@@ -12640,6 +12640,16 @@
     "stock": 1
   },
   {
+    "name": "KC LOVE BOUTIQUE",
+    "alias": "0003445",
+    "group": "BEATS PLZO",
+    "mrp": 2992.5,
+    "sale": 2350,
+    "purchase": 1995,
+    "wholesale": 2100,
+    "stock": 0
+  },
+  {
     "name": "KC LOVE MASALA",
     "alias": "0002855",
     "group": "S",
