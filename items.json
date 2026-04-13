@@ -1030,6 +1030,16 @@
     "stock": 0
   },
   {
+    "name": "BL ROOFAN",
+    "alias": "0003442",
+    "group": "RUSSIAN PLAZO",
+    "mrp": 2272.5,
+    "sale": 1820,
+    "purchase": 1515,
+    "wholesale": 1620,
+    "stock": 0
+  },
+  {
     "name": "BL SALIX",
     "alias": "0003439",
     "group": "T",
@@ -22018,6 +22028,16 @@
     "purchase": 718,
     "wholesale": 750,
     "stock": 1
+  },
+  {
+    "name": "NYN BITS RUSSIAN",
+    "alias": "0003443",
+    "group": "P",
+    "mrp": 2100,
+    "sale": 1700,
+    "purchase": 1400,
+    "wholesale": 1500,
+    "stock": 0
   },
   {
     "name": "NYN DAL MAKHNI",
