@@ -9830,6 +9830,16 @@
     "stock": 0
   },
   {
+    "name": "KC DOOR TO DOOR",
+    "alias": "0003425",
+    "group": "RUSSIAN PLAZO",
+    "mrp": 2542,
+    "sale": 2000,
+    "purchase": 1695,
+    "wholesale": 1800,
+    "stock": 0
+  },
+  {
     "name": "Kc Dosti Fm",
     "alias": "0002497",
     "group": "P",
@@ -15228,6 +15238,16 @@
     "purchase": 1355,
     "wholesale": 1470,
     "stock": 1
+  },
+  {
+    "name": "KC ROYAL CHANDNI",
+    "alias": "0003426",
+    "group": "T",
+    "mrp": 2130,
+    "sale": 1700,
+    "purchase": 1420,
+    "wholesale": 1520,
+    "stock": 0
   },
   {
     "name": "Kc Royal Fit",
