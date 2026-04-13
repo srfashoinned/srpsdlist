@@ -32870,6 +32870,16 @@
     "stock": 1
   },
   {
+    "name": "VF BLACK COFEE",
+    "alias": "0003421",
+    "group": "RUSSIAN PLAZO",
+    "mrp": 2265,
+    "sale": 1800,
+    "purchase": 1510,
+    "wholesale": 1610,
+    "stock": 0
+  },
+  {
     "name": "VF BLACK COFFE",
     "alias": "0003255",
     "group": "P",
@@ -32888,6 +32898,26 @@
     "purchase": 1400,
     "wholesale": 1500,
     "stock": 4
+  },
+  {
+    "name": "VF CHURMA",
+    "alias": "0003422",
+    "group": "P",
+    "mrp": 2137.5,
+    "sale": 1700,
+    "purchase": 1425,
+    "wholesale": 1530,
+    "stock": 0
+  },
+  {
+    "name": "VF HEENA",
+    "alias": "0003420",
+    "group": "T",
+    "mrp": 1897.5,
+    "sale": 1500,
+    "purchase": 1265,
+    "wholesale": 1365,
+    "stock": 0
   },
   {
     "name": "VF HIT KIT",
