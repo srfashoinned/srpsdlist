@@ -5980,6 +5980,16 @@
     "stock": -9
   },
   {
+    "name": "INNAYA CROCODILES",
+    "alias": "0003453",
+    "group": "CD",
+    "mrp": 0,
+    "sale": 0,
+    "purchase": 0,
+    "wholesale": 0,
+    "stock": 0
+  },
+  {
     "name": "INNAYA FIRE",
     "alias": "0003158",
     "group": "CD",
