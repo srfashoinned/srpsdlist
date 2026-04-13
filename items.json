@@ -9610,6 +9610,16 @@
     "stock": 0
   },
   {
+    "name": "KC DHURANDHAR",
+    "alias": "0003428",
+    "group": "P",
+    "mrp": 2325,
+    "sale": 1850,
+    "purchase": 1550,
+    "wholesale": 1650,
+    "stock": 0
+  },
+  {
     "name": "KC DIGITAL LOOK",
     "alias": "0002552",
     "group": "S",
@@ -11048,6 +11058,16 @@
     "purchase": 775,
     "wholesale": 850,
     "stock": 4
+  },
+  {
+    "name": "KC GOOD GOLD",
+    "alias": "0003429",
+    "group": "S",
+    "mrp": 1717.5,
+    "sale": 1400,
+    "purchase": 1145,
+    "wholesale": 1225,
+    "stock": 0
   },
   {
     "name": "KC Good Luck",
