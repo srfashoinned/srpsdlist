@@ -17680,6 +17680,16 @@
     "stock": 0
   },
   {
+    "name": "KC YEH DOSTI",
+    "alias": "0003446",
+    "group": "T",
+    "mrp": 2385,
+    "sale": 1900,
+    "purchase": 1590,
+    "wholesale": 1700,
+    "stock": 0
+  },
+  {
     "name": "KC YEH RISHTA",
     "alias": "0002526",
     "group": "S",
