@@ -23500,6 +23500,16 @@
     "stock": 10
   },
   {
+    "name": "PC ANMOL",
+    "alias": "0003419",
+    "group": "S",
+    "mrp": 0,
+    "sale": 500,
+    "purchase": 405,
+    "wholesale": 0,
+    "stock": -1
+  },
+  {
     "name": "Pc Jackpot",
     "alias": "0002523",
     "group": "S",
