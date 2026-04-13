@@ -1020,6 +1020,16 @@
     "stock": 0
   },
   {
+    "name": "BL MASTANI",
+    "alias": "0003448",
+    "group": "SHADED PLAZO",
+    "mrp": 2685,
+    "sale": 2150,
+    "purchase": 1790,
+    "wholesale": 1900,
+    "stock": 0
+  },
+  {
     "name": "BL MUSTAFA",
     "alias": "0003438",
     "group": "RUSSIAN PLAZO",
@@ -16928,6 +16938,16 @@
     "purchase": 1220,
     "wholesale": 1300,
     "stock": 1
+  },
+  {
+    "name": "KC SWEET ANJEER",
+    "alias": "0003447",
+    "group": "BEATS PLZO",
+    "mrp": 2385,
+    "sale": 1900,
+    "purchase": 1590,
+    "wholesale": 1700,
+    "stock": 0
   },
   {
     "name": "KC SWEET CELEBRATION",
