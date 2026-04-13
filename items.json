@@ -1010,6 +1010,16 @@
     "stock": 0
   },
   {
+    "name": "BL GOWN ALEENA",
+    "alias": "0003441",
+    "group": "Gown",
+    "mrp": 3727.5,
+    "sale": 3300,
+    "purchase": 2485,
+    "wholesale": 2650,
+    "stock": 0
+  },
+  {
     "name": "BL MUSTAFA",
     "alias": "0003438",
     "group": "RUSSIAN PLAZO",
