@@ -10540,6 +10540,16 @@
     "stock": 0
   },
   {
+    "name": "KC FLORA FIT",
+    "alias": "0003424",
+    "group": "CS",
+    "mrp": 1320,
+    "sale": 1050,
+    "purchase": 880,
+    "wholesale": 930,
+    "stock": 0
+  },
+  {
     "name": "KC FLORY BAND",
     "alias": "0002953",
     "group": "S",
@@ -14218,6 +14228,16 @@
     "purchase": 1524.67,
     "wholesale": 1715.25,
     "stock": 1
+  },
+  {
+    "name": "KC PEHLI ZALAK",
+    "alias": "0003423",
+    "group": "CS",
+    "mrp": 1320,
+    "sale": 1050,
+    "purchase": 880,
+    "wholesale": 930,
+    "stock": 0
   },
   {
     "name": "KC Pehrava",
