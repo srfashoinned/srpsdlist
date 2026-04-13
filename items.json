@@ -327,7 +327,7 @@
     "sale": 780,
     "purchase": 650,
     "wholesale": 690,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "AFSANA",
@@ -9627,7 +9627,7 @@
     "sale": 1850,
     "purchase": 1550,
     "wholesale": 1650,
-    "stock": 0
+    "stock": 3
   },
   {
     "name": "KC DIGITAL LOOK",
@@ -9857,7 +9857,7 @@
     "sale": 2000,
     "purchase": 1695,
     "wholesale": 1800,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "Kc Dosti Fm",
@@ -10577,7 +10577,7 @@
     "sale": 1050,
     "purchase": 880,
     "wholesale": 930,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "KC FLORY BAND",
@@ -11077,7 +11077,7 @@
     "sale": 1400,
     "purchase": 1145,
     "wholesale": 1225,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "KC Good Luck",
@@ -14277,7 +14277,7 @@
     "sale": 1050,
     "purchase": 880,
     "wholesale": 930,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "KC Pehrava",
@@ -15277,7 +15277,7 @@
     "sale": 1700,
     "purchase": 1420,
     "wholesale": 1520,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "Kc Royal Fit",
@@ -17377,7 +17377,7 @@
     "sale": 1800,
     "purchase": 1495,
     "wholesale": 1600,
-    "stock": 0
+    "stock": 3
   },
   {
     "name": "KC UBER",
@@ -19857,7 +19857,7 @@
     "sale": 590,
     "purchase": 495,
     "wholesale": 535,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "MF GALA KHATLI HEAVY",
@@ -22487,7 +22487,7 @@
     "sale": 1280,
     "purchase": 1070,
     "wholesale": 1150,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "Om Imperial",
@@ -22747,7 +22747,7 @@
     "sale": 450,
     "purchase": 360,
     "wholesale": 390,
-    "stock": 0
+    "stock": 22
   },
   {
     "name": "OM Mojito",
@@ -29037,7 +29037,7 @@
     "sale": 1350,
     "purchase": 1125,
     "wholesale": 1210,
-    "stock": 12
+    "stock": 31
   },
   {
     "name": "SNT Sahenaaz",
@@ -30337,7 +30337,7 @@
     "sale": 2450,
     "purchase": 2110,
     "wholesale": 2200,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "SONY INDO WESTERN 1",
@@ -30497,6 +30497,16 @@
     "sale": 1700,
     "purchase": 1545,
     "wholesale": 1640,
+    "stock": 0
+  },
+  {
+    "name": "SONY K 1313",
+    "alias": "0003436",
+    "group": "RUSSIAN PLAZO",
+    "mrp": 2992.5,
+    "sale": 2350,
+    "purchase": 1995,
+    "wholesale": 2100,
     "stock": 0
   },
   {
@@ -30837,7 +30847,7 @@
     "sale": 1650,
     "purchase": 1490,
     "wholesale": 1580,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "SONY S 30",
@@ -33007,7 +33017,7 @@
     "sale": 1800,
     "purchase": 1510,
     "wholesale": 1610,
-    "stock": 0
+    "stock": 8
   },
   {
     "name": "VF BLACK COFFE",
@@ -33037,7 +33047,7 @@
     "sale": 1700,
     "purchase": 1425,
     "wholesale": 1530,
-    "stock": 0
+    "stock": 16
   },
   {
     "name": "VF HEENA",
@@ -33047,7 +33057,7 @@
     "sale": 1500,
     "purchase": 1265,
     "wholesale": 1365,
-    "stock": 0
+    "stock": 8
   },
   {
     "name": "VF HIT KIT",
@@ -33097,7 +33107,7 @@
     "sale": 1500,
     "purchase": 1265,
     "wholesale": 1400,
-    "stock": 6
+    "stock": 22
   },
   {
     "name": "VF LAST TIME",
@@ -33107,7 +33117,7 @@
     "sale": 1450,
     "purchase": 1265,
     "wholesale": 1370,
-    "stock": 15
+    "stock": 27
   },
   {
     "name": "VF MAHARANI",
