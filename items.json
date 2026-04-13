@@ -10607,7 +10607,7 @@
     "sale": 1450,
     "purchase": 1125,
     "wholesale": 1200,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "KC FLAMINGO",
