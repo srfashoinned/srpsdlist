@@ -5597,7 +5597,7 @@
     "sale": 80,
     "purchase": 63,
     "wholesale": 70,
-    "stock": 902
+    "stock": 899
   },
   {
     "name": "GT Noorie",
@@ -15367,7 +15367,7 @@
     "sale": 1400,
     "purchase": 1285,
     "wholesale": 1325,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC ROWDY RAJA",
@@ -22467,7 +22467,7 @@
     "sale": 600,
     "purchase": 565,
     "wholesale": 587.5,
-    "stock": 91
+    "stock": 90
   },
   {
     "name": "OM DARLING",
@@ -23727,7 +23727,7 @@
     "sale": 30,
     "purchase": 23.5,
     "wholesale": 26,
-    "stock": 3274.85
+    "stock": 3262.85
   },
   {
     "name": "Pasta MT",
@@ -27857,7 +27857,7 @@
     "sale": 630,
     "purchase": 595,
     "wholesale": 630,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "SNT brezza",
@@ -32127,7 +32127,7 @@
     "sale": 250,
     "purchase": 200,
     "wholesale": 225,
-    "stock": -62
+    "stock": -66
   },
   {
     "name": "SVT PARIDHI",
