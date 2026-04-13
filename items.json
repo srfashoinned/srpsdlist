@@ -1000,6 +1000,16 @@
     "stock": 0
   },
   {
+    "name": "BL BALENO",
+    "alias": "0003440",
+    "group": "T",
+    "mrp": 2250,
+    "sale": 1750,
+    "purchase": 1500,
+    "wholesale": 1600,
+    "stock": 0
+  },
+  {
     "name": "BL MUSTAFA",
     "alias": "0003438",
     "group": "RUSSIAN PLAZO",
