@@ -11120,6 +11120,16 @@
     "stock": 2
   },
   {
+    "name": "KC GOLDEN UDAAN",
+    "alias": "0003451",
+    "group": "BEATS SUIT",
+    "mrp": 1642.5,
+    "sale": 1350,
+    "purchase": 1095,
+    "wholesale": 1200,
+    "stock": 0
+  },
+  {
     "name": "KC GOLDEN VOICE",
     "alias": "0002529",
     "group": "S",
@@ -12467,6 +12477,16 @@
     "sale": 2550,
     "purchase": 1970,
     "wholesale": 2216.25,
+    "stock": 0
+  },
+  {
+    "name": "KC KITE KINGDOM",
+    "alias": "0003450",
+    "group": "BEATS SUIT",
+    "mrp": 1642.5,
+    "sale": 1350,
+    "purchase": 1095,
+    "wholesale": 1200,
     "stock": 0
   },
   {
