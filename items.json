@@ -17340,6 +17340,16 @@
     "stock": 3
   },
   {
+    "name": "KC TWINKLE BRIDE",
+    "alias": "0003427",
+    "group": "P",
+    "mrp": 2242.5,
+    "sale": 1800,
+    "purchase": 1495,
+    "wholesale": 1600,
+    "stock": 0
+  },
+  {
     "name": "KC UBER",
     "alias": "0003324",
     "group": "P",
