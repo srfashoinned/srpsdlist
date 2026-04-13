@@ -17010,6 +17010,16 @@
     "stock": 4
   },
   {
+    "name": "KC SWEET WELCOME",
+    "alias": "0003449",
+    "group": "BEATS SUIT",
+    "mrp": 1642.5,
+    "sale": 1350,
+    "purchase": 1095,
+    "wholesale": 1200,
+    "stock": 0
+  },
+  {
     "name": "KC SWEET WISH",
     "alias": "0003310",
     "group": "FLUTE PLAZO",
