@@ -22740,6 +22740,16 @@
     "stock": 0
   },
   {
+    "name": "OM MIX DARK JORJET",
+    "alias": "0003435",
+    "group": "S",
+    "mrp": 540,
+    "sale": 450,
+    "purchase": 360,
+    "wholesale": 390,
+    "stock": 0
+  },
+  {
     "name": "OM Mojito",
     "alias": "001433",
     "group": "S",
@@ -30817,6 +30827,16 @@
     "sale": 1650,
     "purchase": 1240,
     "wholesale": 1340,
+    "stock": 0
+  },
+  {
+    "name": "SONY S 201",
+    "alias": "0003434",
+    "group": "T",
+    "mrp": 2235,
+    "sale": 1650,
+    "purchase": 1490,
+    "wholesale": 1580,
     "stock": 0
   },
   {
