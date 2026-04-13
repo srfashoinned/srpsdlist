@@ -11037,7 +11037,7 @@
     "sale": 1550,
     "purchase": 1250,
     "wholesale": 1325,
-    "stock": 2
+    "stock": 0
   },
   {
     "name": "KC GLOW ZONE",
@@ -23777,7 +23777,7 @@
     "sale": 500,
     "purchase": 405,
     "wholesale": 435,
-    "stock": 79
+    "stock": 67
   },
   {
     "name": "Pc Jackpot",
@@ -31907,7 +31907,7 @@
     "sale": 50,
     "purchase": 40,
     "wholesale": 45,
-    "stock": 1490
+    "stock": 1478
   },
   {
     "name": "Suman Pari Fab",
