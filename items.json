@@ -320,6 +320,16 @@
     "stock": 3
   },
   {
+    "name": "AF TOKYO",
+    "alias": "0003430",
+    "group": "BEATS SUIT",
+    "mrp": 975,
+    "sale": 780,
+    "purchase": 650,
+    "wholesale": 690,
+    "stock": 0
+  },
+  {
     "name": "AFSANA",
     "alias": "000019",
     "group": "S",
@@ -28992,10 +29002,10 @@
   {
     "name": "Snt Russian Plazo",
     "alias": "001344",
-    "group": "P",
-    "mrp": 1612.5,
+    "group": "RUSSIAN PLAZO",
+    "mrp": 1687.5,
     "sale": 1350,
-    "purchase": 1075,
+    "purchase": 1125,
     "wholesale": 1210,
     "stock": 12
   },
