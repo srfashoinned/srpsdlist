@@ -19850,6 +19850,16 @@
     "stock": 0
   },
   {
+    "name": "MF DAMAN BORING",
+    "alias": "0003431",
+    "group": "CS",
+    "mrp": 742.5,
+    "sale": 590,
+    "purchase": 495,
+    "wholesale": 535,
+    "stock": 0
+  },
+  {
     "name": "MF GALA KHATLI HEAVY",
     "alias": "0002646",
     "group": "CS",
