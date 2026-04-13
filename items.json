@@ -23643,10 +23643,10 @@
     "name": "PC ROMANCE",
     "alias": "0002397",
     "group": "S",
-    "mrp": 750,
-    "sale": 650,
-    "purchase": 500,
-    "wholesale": 530,
+    "mrp": 727.5,
+    "sale": 600,
+    "purchase": 485,
+    "wholesale": 510,
     "stock": 0
   },
   {
