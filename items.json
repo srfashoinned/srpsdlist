@@ -1010,6 +1010,16 @@
     "stock": 0
   },
   {
+    "name": "BL SALIX",
+    "alias": "0003439",
+    "group": "T",
+    "mrp": 3067.5,
+    "sale": 2400,
+    "purchase": 2045,
+    "wholesale": 2150,
+    "stock": 0
+  },
+  {
     "name": "Black Bery",
     "alias": "000052",
     "group": "S",
