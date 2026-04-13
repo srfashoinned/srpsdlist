@@ -1000,6 +1000,16 @@
     "stock": 0
   },
   {
+    "name": "BL MUSTAFA",
+    "alias": "0003438",
+    "group": "RUSSIAN PLAZO",
+    "mrp": 2685,
+    "sale": 2150,
+    "purchase": 1790,
+    "wholesale": 1900,
+    "stock": 0
+  },
+  {
     "name": "Black Bery",
     "alias": "000052",
     "group": "S",
