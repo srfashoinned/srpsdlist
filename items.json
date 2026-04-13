@@ -11910,6 +11910,16 @@
     "stock": 4
   },
   {
+    "name": "KC ISHQ ASHIQI",
+    "alias": "0003444",
+    "group": "P",
+    "mrp": 2992.5,
+    "sale": 2390,
+    "purchase": 1995,
+    "wholesale": 2100,
+    "stock": 0
+  },
+  {
     "name": "KC Ishq Deewangi",
     "alias": "000536",
     "group": "S",
@@ -33207,7 +33217,7 @@
     "sale": 1650,
     "purchase": 1345,
     "wholesale": 1450,
-    "stock": 9
+    "stock": 8
   },
   {
     "name": "VF Pani Puri",
