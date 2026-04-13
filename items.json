@@ -3007,7 +3007,7 @@
     "sale": 850,
     "purchase": 700,
     "wholesale": 750,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "GF kaju",
@@ -31907,7 +31907,7 @@
     "sale": 50,
     "purchase": 40,
     "wholesale": 45,
-    "stock": 1478
+    "stock": 1476
   },
   {
     "name": "Suman Pari Fab",
@@ -32127,7 +32127,7 @@
     "sale": 250,
     "purchase": 200,
     "wholesale": 225,
-    "stock": -66
+    "stock": -67
   },
   {
     "name": "SVT PARIDHI",
