@@ -18970,6 +18970,16 @@
     "stock": -1
   },
   {
+    "name": "LC ALISHA",
+    "alias": "0003462",
+    "group": "S",
+    "mrp": 945,
+    "sale": 760,
+    "purchase": 630,
+    "wholesale": 670,
+    "stock": 0
+  },
+  {
     "name": "LC BURJ KHALIFA",
     "alias": "0003461",
     "group": "S",
@@ -19153,7 +19163,7 @@
     "name": "LC SAMSUNG",
     "alias": "0003239",
     "group": "S",
-    "mrp": 892.5,
+    "mrp": 915,
     "sale": 700,
     "purchase": 595,
     "wholesale": 650,
