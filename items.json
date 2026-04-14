@@ -5940,6 +5940,16 @@
     "stock": 0
   },
   {
+    "name": "INNAYA BARFI",
+    "alias": "0003455",
+    "group": "CD",
+    "mrp": 774,
+    "sale": 650,
+    "purchase": 516,
+    "wholesale": 556,
+    "stock": 0
+  },
+  {
     "name": "Innaya Bits",
     "alias": "001966",
     "group": "S",
@@ -5980,6 +5990,16 @@
     "stock": -9
   },
   {
+    "name": "INNAYA CROCODILE",
+    "alias": "0003456",
+    "group": "CD",
+    "mrp": 855,
+    "sale": 680,
+    "purchase": 570,
+    "wholesale": 620,
+    "stock": 0
+  },
+  {
     "name": "INNAYA CROCODILES",
     "alias": "0003453",
     "group": "CD",
@@ -6004,7 +6024,7 @@
     "alias": "0003159",
     "group": "CD",
     "mrp": 825,
-    "sale": 650,
+    "sale": 660,
     "purchase": 550,
     "wholesale": 600,
     "stock": 3
