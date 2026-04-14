@@ -11337,7 +11337,7 @@
     "sale": 1600,
     "purchase": 1200,
     "wholesale": 1300,
-    "stock": 2
+    "stock": 0
   },
   {
     "name": "Kc Gulnaar Glow",
@@ -16937,7 +16937,7 @@
     "sale": 2400,
     "purchase": 2085,
     "wholesale": 2300,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "KC SUROOR TERA",
