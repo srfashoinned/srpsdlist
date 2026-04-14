@@ -6023,9 +6023,9 @@
     "name": "INNAYA FLAVOUR",
     "alias": "0003159",
     "group": "CD",
-    "mrp": 825,
+    "mrp": 840,
     "sale": 660,
-    "purchase": 550,
+    "purchase": 560,
     "wholesale": 600,
     "stock": 3
   },
@@ -6153,9 +6153,9 @@
     "name": "Innaya Super 30",
     "alias": "001969",
     "group": "S",
-    "mrp": 712.5,
+    "mrp": 727.5,
     "sale": 600,
-    "purchase": 475,
+    "purchase": 485,
     "wholesale": 525,
     "stock": -1
   },
