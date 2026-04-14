@@ -6060,6 +6060,16 @@
     "stock": 4
   },
   {
+    "name": "INNAYA JELLY",
+    "alias": "0003457",
+    "group": "CD",
+    "mrp": 757.5,
+    "sale": 600,
+    "purchase": 505,
+    "wholesale": 550,
+    "stock": 0
+  },
+  {
     "name": "INNAYA LAKHNAVI",
     "alias": "0003223",
     "group": "CD",
