@@ -18970,6 +18970,16 @@
     "stock": -1
   },
   {
+    "name": "LC BURJ KHALIFA",
+    "alias": "0003461",
+    "group": "S",
+    "mrp": 967.5,
+    "sale": 770,
+    "purchase": 645,
+    "wholesale": 690,
+    "stock": 0
+  },
+  {
     "name": "LC DDL",
     "alias": "0002617",
     "group": "S",
@@ -19077,6 +19087,16 @@
     "sale": 760,
     "purchase": 660,
     "wholesale": 695,
+    "stock": 0
+  },
+  {
+    "name": "LC NAYAB",
+    "alias": "0003460",
+    "group": "S",
+    "mrp": 945,
+    "sale": 750,
+    "purchase": 630,
+    "wholesale": 670,
     "stock": 0
   },
   {
