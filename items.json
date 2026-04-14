@@ -23000,6 +23000,16 @@
     "stock": -2
   },
   {
+    "name": "OM MUSKAN",
+    "alias": "0003463",
+    "group": "CS",
+    "mrp": 540,
+    "sale": 500,
+    "purchase": 360,
+    "wholesale": 395,
+    "stock": 4
+  },
+  {
     "name": "OM My Love",
     "alias": "002039",
     "group": "OS",
