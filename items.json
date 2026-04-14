@@ -5947,7 +5947,7 @@
     "sale": 650,
     "purchase": 516,
     "wholesale": 556,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "Innaya Bits",
@@ -5963,11 +5963,11 @@
     "name": "INNAYA BLUE EYES",
     "alias": "0003244",
     "group": "CD",
-    "mrp": 774,
+    "mrp": 790.5,
     "sale": 620,
-    "purchase": 516,
+    "purchase": 527,
     "wholesale": 570,
-    "stock": -1
+    "stock": 3
   },
   {
     "name": "INNAYA CHICKEN",
@@ -5997,7 +5997,7 @@
     "sale": 680,
     "purchase": 570,
     "wholesale": 620,
-    "stock": 0
+    "stock": 12
   },
   {
     "name": "INNAYA CROCODILES",
@@ -6013,11 +6013,11 @@
     "name": "INNAYA FIRE",
     "alias": "0003158",
     "group": "CD",
-    "mrp": 660,
+    "mrp": 678,
     "sale": 530,
-    "purchase": 441,
-    "wholesale": 480,
-    "stock": 3
+    "purchase": 452,
+    "wholesale": 490,
+    "stock": 23
   },
   {
     "name": "INNAYA FLAVOUR",
@@ -6027,17 +6027,17 @@
     "sale": 660,
     "purchase": 560,
     "wholesale": 600,
-    "stock": 3
+    "stock": 7
   },
   {
     "name": "INNAYA GOOGLEPAY",
     "alias": "0003135",
     "group": "CD",
-    "mrp": 790.5,
+    "mrp": 807,
     "sale": 630,
-    "purchase": 527,
-    "wholesale": 565,
-    "stock": 5
+    "purchase": 538,
+    "wholesale": 590,
+    "stock": 17
   },
   {
     "name": "Innaya Gudgudi",
@@ -6067,7 +6067,7 @@
     "sale": 600,
     "purchase": 505,
     "wholesale": 550,
-    "stock": 0
+    "stock": 8
   },
   {
     "name": "INNAYA LAKHNAVI",
@@ -6137,7 +6137,7 @@
     "sale": 620,
     "purchase": 516,
     "wholesale": 550,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "Innaya Sonpari",
@@ -6157,7 +6157,7 @@
     "sale": 600,
     "purchase": 485,
     "wholesale": 525,
-    "stock": -1
+    "stock": 11
   },
   {
     "name": "INNAYA VIDMATE'",
@@ -18977,7 +18977,7 @@
     "sale": 760,
     "purchase": 630,
     "wholesale": 670,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "LC BURJ KHALIFA",
@@ -18987,7 +18987,7 @@
     "sale": 770,
     "purchase": 645,
     "wholesale": 690,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "LC DDL",
@@ -19097,7 +19097,7 @@
     "sale": 760,
     "purchase": 660,
     "wholesale": 695,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "LC NAYAB",
@@ -19107,7 +19107,7 @@
     "sale": 750,
     "purchase": 630,
     "wholesale": 670,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "LC Nusrat",
@@ -19165,9 +19165,9 @@
     "group": "S",
     "mrp": 915,
     "sale": 700,
-    "purchase": 595,
+    "purchase": 610,
     "wholesale": 650,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "LC Saniya",
@@ -29885,9 +29885,9 @@
     "group": "T",
     "mrp": 2002.5,
     "sale": 1500,
-    "purchase": 1335,
+    "purchase": 1435,
     "wholesale": 1435,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "SONY 122",
@@ -30507,7 +30507,7 @@
     "sale": 2200,
     "purchase": 1995,
     "wholesale": 2090,
-    "stock": 3
+    "stock": 7
   },
   {
     "name": "Sony Heavy 1",
@@ -30727,7 +30727,7 @@
     "sale": 2550,
     "purchase": 2255,
     "wholesale": 2360,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "Sony Jorjet Suit Heavy",
