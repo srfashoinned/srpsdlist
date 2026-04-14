@@ -4727,7 +4727,7 @@
     "sale": 1450,
     "purchase": 1260,
     "wholesale": 1360,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "GK REDI MADE",
@@ -25507,7 +25507,7 @@
     "sale": 1700,
     "purchase": 1285,
     "wholesale": 1400,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "RS 1395",
@@ -27937,7 +27937,7 @@
     "sale": 630,
     "purchase": 595,
     "wholesale": 630,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "SNT brezza",
@@ -33297,7 +33297,7 @@
     "sale": 1680,
     "purchase": 1400,
     "wholesale": 1500,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "VF CHURMA",
