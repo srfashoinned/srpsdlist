@@ -1040,16 +1040,6 @@
     "stock": 4
   },
   {
-    "name": "BL ROOFAN",
-    "alias": "0003442",
-    "group": "RUSSIAN PLAZO",
-    "mrp": 2272.5,
-    "sale": 1820,
-    "purchase": 1515,
-    "wholesale": 1620,
-    "stock": 4
-  },
-  {
     "name": "BL SALIX",
     "alias": "0003439",
     "group": "T",
@@ -1057,6 +1047,16 @@
     "sale": 2400,
     "purchase": 2045,
     "wholesale": 2150,
+    "stock": 4
+  },
+  {
+    "name": "BL TOOFAN",
+    "alias": "0003442",
+    "group": "T",
+    "mrp": 2272.5,
+    "sale": 1820,
+    "purchase": 1515,
+    "wholesale": 1620,
     "stock": 4
   },
   {
