@@ -247,7 +247,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 4235
+    "stock": 4233
   },
   {
     "name": "AF DURANDHAR",
@@ -1887,7 +1887,7 @@
     "sale": 50,
     "purchase": 38,
     "wholesale": 45,
-    "stock": 72
+    "stock": 68
   },
   {
     "name": "Firdous To Firdous",
@@ -19397,7 +19397,7 @@
     "sale": 200,
     "purchase": 148,
     "wholesale": 175,
-    "stock": 48
+    "stock": 47
   },
   {
     "name": "MALAI COTTON",
@@ -23807,7 +23807,7 @@
     "sale": 30,
     "purchase": 23.5,
     "wholesale": 26,
-    "stock": 3262.85
+    "stock": 3242.85
   },
   {
     "name": "Pasta MT",
