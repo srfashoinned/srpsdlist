@@ -19657,7 +19657,7 @@
     "sale": 500,
     "purchase": 455,
     "wholesale": 470,
-    "stock": 55
+    "stock": 53
   },
   {
     "name": "Masti Bulbul",
@@ -19777,7 +19777,7 @@
     "sale": 500,
     "purchase": 445,
     "wholesale": 475,
-    "stock": 4
+    "stock": -4
   },
   {
     "name": "Masti Zara",
@@ -20097,7 +20097,7 @@
     "sale": 590,
     "purchase": 495,
     "wholesale": 535,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "MF GALA KHATLI HEAVY",
@@ -22257,7 +22257,7 @@
     "sale": 0,
     "purchase": 0,
     "wholesale": 0,
-    "stock": -4
+    "stock": -5
   },
   {
     "name": "NYN SRIVALLI",
@@ -27417,7 +27417,7 @@
     "sale": 30,
     "purchase": 23,
     "wholesale": 25,
-    "stock": 1626
+    "stock": 1576
   },
   {
     "name": "SHAWL 350",
@@ -33397,7 +33397,7 @@
     "sale": 1500,
     "purchase": 1265,
     "wholesale": 1400,
-    "stock": 22
+    "stock": 21
   },
   {
     "name": "VF LAST TIME",
