@@ -247,7 +247,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 4217
+    "stock": 4215
   },
   {
     "name": "AF DURANDHAR",
@@ -17107,7 +17107,7 @@
     "sale": 1350,
     "purchase": 1095,
     "wholesale": 1200,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC SWEET WISH",
@@ -18367,7 +18367,7 @@
     "sale": 300,
     "purchase": 245,
     "wholesale": 275,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "KKC AKSHARA",
@@ -19747,7 +19747,7 @@
     "sale": 370,
     "purchase": 325,
     "wholesale": 340,
-    "stock": 54
+    "stock": 53
   },
   {
     "name": "MASTI RANGAT",
@@ -19787,7 +19787,7 @@
     "sale": 350,
     "purchase": 332,
     "wholesale": 335,
-    "stock": 117
+    "stock": 115
   },
   {
     "name": "MC PUSHPA",
@@ -22197,7 +22197,7 @@
     "sale": 860,
     "purchase": 718,
     "wholesale": 755,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "NYN 1291",
@@ -23597,7 +23597,7 @@
     "sale": 500,
     "purchase": 375,
     "wholesale": 400,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "OM Yes Boss",
@@ -24537,7 +24537,7 @@
     "sale": 500,
     "purchase": 410,
     "wholesale": 435,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "Rice GK",
@@ -24747,7 +24747,7 @@
     "sale": 200,
     "purchase": 170,
     "wholesale": 191.25,
-    "stock": 314
+    "stock": 304
   },
   {
     "name": "Royal Punjabi Cut",
@@ -25377,7 +25377,7 @@
     "sale": 500,
     "purchase": 0,
     "wholesale": 0,
-    "stock": -1
+    "stock": -2
   },
   {
     "name": "RS 0005",
@@ -25907,7 +25907,7 @@
     "sale": 300,
     "purchase": 227,
     "wholesale": 250,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "RV Charminar",
@@ -27607,7 +27607,7 @@
     "sale": 200,
     "purchase": 170,
     "wholesale": 190,
-    "stock": 101
+    "stock": 100
   },
   {
     "name": "SNT 3 Patti",
@@ -29797,7 +29797,7 @@
     "sale": 200,
     "purchase": 170,
     "wholesale": 190,
-    "stock": 269
+    "stock": 266
   },
   {
     "name": "Sonet Plazo",
@@ -30377,7 +30377,7 @@
     "sale": 2300,
     "purchase": 1990,
     "wholesale": 2100,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "Sony Dark Sharara",
@@ -31627,7 +31627,7 @@
     "sale": 380,
     "purchase": 340,
     "wholesale": 355,
-    "stock": 227
+    "stock": 225
   },
   {
     "name": "SST zCTN SUITE",
@@ -32027,7 +32027,7 @@
     "sale": 50,
     "purchase": 40,
     "wholesale": 45,
-    "stock": 1445
+    "stock": 1444
   },
   {
     "name": "Suman Pari Fab",
@@ -32247,7 +32247,7 @@
     "sale": 250,
     "purchase": 200,
     "wholesale": 225,
-    "stock": -68
+    "stock": -70
   },
   {
     "name": "SVT PARIDHI",
@@ -32497,7 +32497,7 @@
     "sale": 25,
     "purchase": 18,
     "wholesale": 20,
-    "stock": 425
+    "stock": 421
   },
   {
     "name": "Towel Winner",
