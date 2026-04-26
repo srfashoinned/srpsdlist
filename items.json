@@ -16760,6 +16760,16 @@
     "stock": 2
   },
   {
+    "name": "KC SPICE MASTER",
+    "alias": "0003309",
+    "group": "SHARARA",
+    "mrp": 2370,
+    "sale": 1800,
+    "purchase": 1580,
+    "wholesale": 1700,
+    "stock": 4
+  },
+  {
     "name": "KC SPICE PALACE",
     "alias": "0003015",
     "group": "P",
@@ -16777,16 +16787,6 @@
     "sale": 2000,
     "purchase": 1695,
     "wholesale": 1800,
-    "stock": 4
-  },
-  {
-    "name": "KC SPIRCE MASTER",
-    "alias": "0003309",
-    "group": "SHARARA",
-    "mrp": 2370,
-    "sale": 1800,
-    "purchase": 1580,
-    "wholesale": 1700,
     "stock": 4
   },
   {
