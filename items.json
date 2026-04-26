@@ -187,7 +187,7 @@
     "sale": 1180,
     "purchase": 985,
     "wholesale": 1050,
-    "stock": 7
+    "stock": 6
   },
   {
     "name": "AARJU BHUMI",
@@ -215,9 +215,9 @@
     "group": "General",
     "mrp": 61,
     "sale": 60,
-    "purchase": 40.67,
+    "purchase": 48,
     "wholesale": 50,
-    "stock": 515
+    "stock": 503
   },
   {
     "name": "Aatish",
@@ -257,7 +257,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 4199
+    "stock": 4193
   },
   {
     "name": "AF DURANDHAR",
@@ -417,7 +417,7 @@
     "sale": 40,
     "purchase": 31.5,
     "wholesale": 36,
-    "stock": 821
+    "stock": 836
   },
   {
     "name": "Airtel Pari Fab",
@@ -707,7 +707,7 @@
     "sale": 1300,
     "purchase": 1170,
     "wholesale": 1250,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "Arnima 1392",
@@ -757,7 +757,7 @@
     "sale": 1200,
     "purchase": 1000,
     "wholesale": 1100,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "AVNEE 251",
@@ -1117,7 +1117,7 @@
     "sale": 30,
     "purchase": 21.5,
     "wholesale": 24,
-    "stock": 3076.15
+    "stock": 3074.15
   },
   {
     "name": "Bobby Jasoos",
@@ -2067,7 +2067,7 @@
     "sale": 140,
     "purchase": 102.5,
     "wholesale": 115,
-    "stock": 220
+    "stock": 219
   },
   {
     "name": "GANESHJI FATEMA'",
@@ -5107,7 +5107,7 @@
     "sale": 700,
     "purchase": 585,
     "wholesale": 615,
-    "stock": 6
+    "stock": 4
   },
   {
     "name": "GNA Amrita",
@@ -6207,7 +6207,7 @@
     "sale": 600,
     "purchase": 485,
     "wholesale": 525,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "INNAYA VIDMATE'",
@@ -6417,7 +6417,7 @@
     "sale": 550,
     "purchase": 460,
     "wholesale": 485,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "JBT JANVI",
@@ -6967,7 +6967,7 @@
     "sale": 400,
     "purchase": 313,
     "wholesale": 335,
-    "stock": -43
+    "stock": -45
   },
   {
     "name": "JMD MIX SUIT STAR",
@@ -8197,7 +8197,7 @@
     "sale": 1600,
     "purchase": 1370,
     "wholesale": 1470,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "KC Band Baaja",
@@ -8668,6 +8668,16 @@
     "purchase": 2250,
     "wholesale": 2450,
     "stock": 4
+  },
+  {
+    "name": "KC BLOOMBERG",
+    "alias": "0003501",
+    "group": "S",
+    "mrp": 2032.5,
+    "sale": 1600,
+    "purchase": 1355,
+    "wholesale": 1450,
+    "stock": 0
   },
   {
     "name": "KC Blue Bell",
@@ -9270,6 +9280,16 @@
     "stock": 0
   },
   {
+    "name": "KC CLASSY CUT",
+    "alias": "0003497",
+    "group": "T",
+    "mrp": 1942.5,
+    "sale": 1550,
+    "purchase": 1295,
+    "wholesale": 1395,
+    "stock": 0
+  },
+  {
     "name": "KC CLASSY TASHAN",
     "alias": "0003030",
     "group": "P",
@@ -9528,6 +9548,16 @@
     "purchase": 1225,
     "wholesale": 1325,
     "stock": 4
+  },
+  {
+    "name": "KC CRUNCH KING",
+    "alias": "0003499",
+    "group": "P",
+    "mrp": 2272.5,
+    "sale": 1820,
+    "purchase": 1515,
+    "wholesale": 1620,
+    "stock": 0
   },
   {
     "name": "KC CRUNCHELLA",
@@ -10237,6 +10267,16 @@
     "sale": 1220,
     "purchase": 813.3333333,
     "wholesale": 915,
+    "stock": 0
+  },
+  {
+    "name": "KC ELEGANT LOOK",
+    "alias": "0003500",
+    "group": "S",
+    "mrp": 1792.5,
+    "sale": 1400,
+    "purchase": 1195,
+    "wholesale": 1300,
     "stock": 0
   },
   {
@@ -11157,7 +11197,7 @@
     "sale": 1550,
     "purchase": 1250,
     "wholesale": 1325,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC GLOW ZONE",
@@ -11407,7 +11447,7 @@
     "sale": 2250,
     "purchase": 1950,
     "wholesale": 2050,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC GULFARA BEGUM",
@@ -12270,6 +12310,16 @@
     "stock": 0
   },
   {
+    "name": "KC JANNAT DULHAN",
+    "alias": "0003493",
+    "group": "S",
+    "mrp": 1875,
+    "sale": 1500,
+    "purchase": 1250,
+    "wholesale": 1350,
+    "stock": 0
+  },
+  {
     "name": "KC Jazari",
     "alias": "000544",
     "group": "S",
@@ -12788,6 +12838,16 @@
     "purchase": 1420,
     "wholesale": 1550,
     "stock": 4
+  },
+  {
+    "name": "KC LONDON MUSIC",
+    "alias": "0003502",
+    "group": "S",
+    "mrp": 1830,
+    "sale": 1450,
+    "purchase": 1220,
+    "wholesale": 1320,
+    "stock": 0
   },
   {
     "name": "KC LONG DRIVE",
@@ -13410,6 +13470,16 @@
     "stock": 3
   },
   {
+    "name": "KC MEHAR GLOW",
+    "alias": "0003492",
+    "group": "S",
+    "mrp": 1830,
+    "sale": 1450,
+    "purchase": 1220,
+    "wholesale": 1320,
+    "stock": 0
+  },
+  {
     "name": "KC MEHAR LOOK",
     "alias": "0003063",
     "group": "P",
@@ -13647,6 +13717,16 @@
     "sale": 1800,
     "purchase": 1344.666667,
     "wholesale": 1512.75,
+    "stock": 0
+  },
+  {
+    "name": "KC MITHAI MAGIC",
+    "alias": "0003491",
+    "group": "S",
+    "mrp": 1875,
+    "sale": 1500,
+    "purchase": 1250,
+    "wholesale": 1350,
     "stock": 0
   },
   {
@@ -13947,7 +14027,7 @@
     "sale": 1750,
     "purchase": 1485,
     "wholesale": 1600,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "Kc Nawabi Love",
@@ -14157,7 +14237,7 @@
     "sale": 2000,
     "purchase": 1750,
     "wholesale": 1850,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "KC NOOR E SULTANA",
@@ -14178,6 +14258,16 @@
     "purchase": 1200,
     "wholesale": 1300,
     "stock": 3
+  },
+  {
+    "name": "KC NOOR WEDDING",
+    "alias": "0003494",
+    "group": "S",
+    "mrp": 1875,
+    "sale": 1500,
+    "purchase": 1250,
+    "wholesale": 1350,
+    "stock": 0
   },
   {
     "name": "KC NOORALI",
@@ -14247,7 +14337,7 @@
     "sale": 2000,
     "purchase": 1655,
     "wholesale": 1850,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "KC Orange Juice",
@@ -14388,6 +14478,16 @@
     "purchase": 645,
     "wholesale": 675,
     "stock": 2
+  },
+  {
+    "name": "KC PARIS MELODY",
+    "alias": "0003496",
+    "group": "S",
+    "mrp": 1830,
+    "sale": 1450,
+    "purchase": 1220,
+    "wholesale": 1350,
+    "stock": 0
   },
   {
     "name": "KC Parle Magic",
@@ -14967,7 +15067,7 @@
     "sale": 1750,
     "purchase": 1495,
     "wholesale": 1600,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC RADIO SARGAM",
@@ -15350,6 +15450,16 @@
     "stock": 0
   },
   {
+    "name": "KC RIZWAANI",
+    "alias": "0003495",
+    "group": "S",
+    "mrp": 1830,
+    "sale": 1450,
+    "purchase": 1220,
+    "wholesale": 1320,
+    "stock": 0
+  },
+  {
     "name": "KC RIZWANA",
     "alias": "000659",
     "group": "S",
@@ -15394,9 +15504,9 @@
     "alias": "0002707",
     "group": "T",
     "mrp": 2002.5,
-    "sale": 1550,
+    "sale": 1450,
     "purchase": 1335,
-    "wholesale": 1425,
+    "wholesale": 1400,
     "stock": 1
   },
   {
@@ -15827,6 +15937,16 @@
     "sale": 2750,
     "purchase": 1900,
     "wholesale": 2137.5,
+    "stock": 0
+  },
+  {
+    "name": "KC SEA SULTAN",
+    "alias": "0003498",
+    "group": "T",
+    "mrp": 1550,
+    "sale": 1550,
+    "purchase": 1295,
+    "wholesale": 1400,
     "stock": 0
   },
   {
@@ -16497,7 +16617,7 @@
     "sale": 1450,
     "purchase": 1230,
     "wholesale": 1330,
-    "stock": 2
+    "stock": 0
   },
   {
     "name": "KC SNAPPER",
@@ -17797,7 +17917,7 @@
     "sale": 1500,
     "purchase": 1315,
     "wholesale": 1415,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC White Mogra",
@@ -18467,7 +18587,7 @@
     "sale": 300,
     "purchase": 255,
     "wholesale": 270,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "KKC ASHA",
@@ -19207,7 +19327,7 @@
     "sale": 760,
     "purchase": 660,
     "wholesale": 695,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "LC NAQUAB",
@@ -19227,7 +19347,7 @@
     "sale": 750,
     "purchase": 625,
     "wholesale": 670,
-    "stock": 8
+    "stock": 7
   },
   {
     "name": "LC Nusrat",
@@ -19327,7 +19447,7 @@
     "sale": 750,
     "purchase": 625,
     "wholesale": 660,
-    "stock": -2
+    "stock": -3
   },
   {
     "name": "LC Sneha",
@@ -19357,7 +19477,7 @@
     "sale": 780,
     "purchase": 645,
     "wholesale": 675,
-    "stock": 0
+    "stock": -8
   },
   {
     "name": "LC TROUSER",
@@ -19877,7 +19997,7 @@
     "sale": 370,
     "purchase": 325,
     "wholesale": 340,
-    "stock": 33
+    "stock": 32
   },
   {
     "name": "MASTI RANGAT",
@@ -19887,7 +20007,7 @@
     "sale": 500,
     "purchase": 430,
     "wholesale": 455,
-    "stock": 5
+    "stock": 3
   },
   {
     "name": "Masti Rayon to Rayon",
@@ -19927,7 +20047,7 @@
     "sale": 350,
     "purchase": 332,
     "wholesale": 335,
-    "stock": 55
+    "stock": 42
   },
   {
     "name": "MC PUSHPA",
@@ -20237,7 +20357,7 @@
     "sale": 590,
     "purchase": 495,
     "wholesale": 535,
-    "stock": -5
+    "stock": -9
   },
   {
     "name": "MF GALA KHATLI HEAVY",
@@ -23667,7 +23787,7 @@
     "sale": 600,
     "purchase": 465,
     "wholesale": 523.125,
-    "stock": 4
+    "stock": 1
   },
   {
     "name": "OM TITAN",
@@ -24007,7 +24127,7 @@
     "sale": 30,
     "purchase": 23.5,
     "wholesale": 26,
-    "stock": 3091.6
+    "stock": 3085.6
   },
   {
     "name": "Pasta MT",
@@ -24067,7 +24187,7 @@
     "sale": 500,
     "purchase": 405,
     "wholesale": 435,
-    "stock": 44
+    "stock": 42
   },
   {
     "name": "PC GALAXY",
@@ -24747,7 +24867,7 @@
     "sale": 500,
     "purchase": 410,
     "wholesale": 435,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "Rice GK",
@@ -25087,7 +25207,7 @@
     "sale": 300,
     "purchase": 238,
     "wholesale": 275,
-    "stock": 13
+    "stock": 12
   },
   {
     "name": "RR BLACK BUNNY",
@@ -25297,7 +25417,7 @@
     "sale": 300,
     "purchase": 238,
     "wholesale": 270,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "RR Meghdoot",
@@ -25407,7 +25527,7 @@
     "sale": 300,
     "purchase": 222,
     "wholesale": 260,
-    "stock": 8
+    "stock": 4
   },
   {
     "name": "RR RAFTAR",
@@ -25417,7 +25537,7 @@
     "sale": 400,
     "purchase": 313,
     "wholesale": 350,
-    "stock": 4
+    "stock": 0
   },
   {
     "name": "RR Railyatri",
@@ -25537,7 +25657,7 @@
     "sale": 350,
     "purchase": 238,
     "wholesale": 270,
-    "stock": 10
+    "stock": 6
   },
   {
     "name": "RR TRUPTI",
@@ -26097,7 +26217,7 @@
     "sale": 1950,
     "purchase": 1635,
     "wholesale": 1880,
-    "stock": 18
+    "stock": 17
   },
   {
     "name": "RV Anti Virus",
@@ -27837,7 +27957,7 @@
     "sale": 200,
     "purchase": 170,
     "wholesale": 190,
-    "stock": 67
+    "stock": 63
   },
   {
     "name": "SNT 3 Patti",
@@ -29197,7 +29317,7 @@
     "sale": 650,
     "purchase": 475,
     "wholesale": 515,
-    "stock": 7
+    "stock": 6
   },
   {
     "name": "SNT NAMRATA",
@@ -30027,7 +30147,7 @@
     "sale": 200,
     "purchase": 170,
     "wholesale": 190,
-    "stock": 265
+    "stock": 262
   },
   {
     "name": "Sonet Plazo",
@@ -30147,7 +30267,7 @@
     "sale": 1500,
     "purchase": 1435,
     "wholesale": 1435,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "SONY 122",
@@ -30427,7 +30547,7 @@
     "sale": 2250,
     "purchase": 1845,
     "wholesale": 2000,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "Sony Alina 1",
@@ -30607,7 +30727,7 @@
     "sale": 2300,
     "purchase": 1990,
     "wholesale": 2100,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "Sony Dark Sharara",
@@ -31507,7 +31627,7 @@
     "sale": 1400,
     "purchase": 1175,
     "wholesale": 1300,
-    "stock": 1
+    "stock": -5
   },
   {
     "name": "Spari 4148B",
@@ -31857,7 +31977,7 @@
     "sale": 380,
     "purchase": 340,
     "wholesale": 355,
-    "stock": 209
+    "stock": 208
   },
   {
     "name": "SST zCTN SUITE",
@@ -32277,7 +32397,7 @@
     "sale": 500,
     "purchase": 355,
     "wholesale": 400,
-    "stock": 25
+    "stock": 24
   },
   {
     "name": "SUPER DUPER SVT",
@@ -32737,7 +32857,7 @@
     "sale": 35,
     "purchase": 25,
     "wholesale": 30,
-    "stock": 517
+    "stock": 504
   },
   {
     "name": "Trouser",
@@ -33537,7 +33657,7 @@
     "sale": 1800,
     "purchase": 1510,
     "wholesale": 1610,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "VF BLACK COFFE",
@@ -33577,7 +33697,7 @@
     "sale": 1500,
     "purchase": 1265,
     "wholesale": 1365,
-    "stock": 8
+    "stock": 6
   },
   {
     "name": "VF HIT KIT",
@@ -33747,7 +33867,7 @@
     "sale": 400,
     "purchase": 295,
     "wholesale": 340,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "VIC MANJU",
@@ -34227,7 +34347,7 @@
     "sale": 620,
     "purchase": 510,
     "wholesale": 550,
-    "stock": 5
+    "stock": 3
   },
   {
     "name": "Welcome Kachi Keri",
