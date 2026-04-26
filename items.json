@@ -27937,7 +27937,7 @@
     "sale": 25,
     "purchase": 18,
     "wholesale": 20.25,
-    "stock": 0
+    "stock": -2
   },
   {
     "name": "SN CLIMAX",
@@ -27957,7 +27957,7 @@
     "sale": 200,
     "purchase": 170,
     "wholesale": 190,
-    "stock": 63
+    "stock": 62
   },
   {
     "name": "SNT 3 Patti",
@@ -32597,7 +32597,7 @@
     "sale": 250,
     "purchase": 200,
     "wholesale": 225,
-    "stock": -72
+    "stock": -74
   },
   {
     "name": "SVT PARIDHI",
