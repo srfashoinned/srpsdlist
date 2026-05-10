@@ -182,7 +182,7 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #adm-cancel{flex:1;padding:10px;border-radius:9px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
 #adm-login{flex:2;padding:10px;border-radius:9px;background:var(--gold);border:none;color:#000;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
 
-/* ── IMAGE VIEWER MODAL ── */
+/* ── OLD IMAGE VIEWER (kept for compatibility) ── */
 #img-ov{position:fixed;inset:0;z-index:170;background:rgba(0,0,0,0.95);display:none;flex-direction:column;align-items:center;justify-content:center}
 #img-ov.show{display:flex}
 #img-box{width:100%;max-width:520px;display:flex;flex-direction:column;align-items:center;gap:0;padding:0 0 20px}
@@ -191,16 +191,6 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #img-title{font-size:15px;font-weight:800;color:var(--txt)}
 #img-subtitle{font-size:11px;color:var(--muted)}
 #img-close{background:rgba(255,255,255,0.08);border:1px solid var(--bord);color:var(--muted);width:32px;height:32px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-#img-main{position:relative;width:100%;display:flex;align-items:center;justify-content:center;min-height:260px;padding:16px}
-#img-el{max-width:100%;max-height:60vh;border-radius:12px;object-fit:contain;display:block}
-#img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:40px 20px;color:var(--muted);text-align:center}
-#img-placeholder .img-icon{font-size:48px;opacity:.4}
-#img-placeholder .img-msg{font-size:13px;line-height:1.6;max-width:200px}
-#img-nav{display:flex;gap:10px;align-items:center;margin-top:4px}
-.img-nav-btn{background:rgba(255,255,255,0.06);border:1px solid var(--bord);color:var(--txt);width:40px;height:40px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
-.img-nav-btn:active{background:rgba(255,255,255,0.15)}
-#img-counter{font-size:12px;color:var(--muted);min-width:50px;text-align:center;font-variant-numeric:tabular-nums}
-#img-info{width:100%;padding:10px 18px 0;font-size:12px;color:var(--muted);text-align:center}
 
 /* ── EXPORT IMAGE MODAL ── */
 #exp-ov{position:fixed;inset:0;z-index:170;background:rgba(0,0,0,0.92);display:none;align-items:flex-end;justify-content:center}
@@ -218,6 +208,190 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;padding:0 1px}
 .grp-hdr{position:absolute;left:14px;right:14px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);padding:4px 0 3px;border-bottom:1px solid rgba(245,197,66,0.2)}
+
+/* ══════════════════════════════════════════
+   IMAGE MANAGER MODAL
+══════════════════════════════════════════ */
+#imgmgr-ov{
+  position:fixed;inset:0;z-index:190;
+  background:rgba(0,0,0,0.85);
+  backdrop-filter:blur(6px);
+  display:none;align-items:flex-end;justify-content:center;
+}
+#imgmgr-ov.show{display:flex}
+#imgmgr-box{
+  background:#111113;
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:22px 22px 0 0;
+  width:100%;max-width:540px;
+  max-height:90vh;
+  display:flex;flex-direction:column;
+  transform:translateY(100%);
+  transition:transform .3s cubic-bezier(.4,0,.2,1);
+}
+#imgmgr-ov.show #imgmgr-box{transform:translateY(0)}
+#imgmgr-hdr{
+  display:flex;align-items:center;gap:10px;
+  padding:16px 18px 12px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  flex-shrink:0;
+}
+#imgmgr-hdr-info{flex:1;min-width:0}
+#imgmgr-title{font-size:15px;font-weight:800;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#imgmgr-alias{font-size:11px;color:var(--muted);margin-top:1px;font-variant-numeric:tabular-nums}
+#imgmgr-close{
+  width:32px;height:32px;border-radius:50%;flex-shrink:0;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  color:var(--muted);font-size:15px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-family:inherit;
+}
+#imgmgr-token-bar{
+  padding:10px 18px 8px;
+  border-bottom:1px solid rgba(255,255,255,0.07);
+  flex-shrink:0;
+  display:flex;align-items:center;gap:8px;
+}
+#imgmgr-token-input{
+  flex:1;background:var(--surf);border:1.5px solid var(--bord);
+  border-radius:8px;padding:7px 12px;font-size:12px;color:var(--txt);
+  outline:none;font-family:inherit;
+}
+#imgmgr-token-input:focus{border-color:var(--gold)}
+#imgmgr-token-input::placeholder{color:var(--muted)}
+#imgmgr-token-save{
+  padding:7px 12px;border-radius:8px;background:var(--gold);
+  border:none;color:#000;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;
+}
+#imgmgr-token-status{font-size:11px;color:var(--green);white-space:nowrap}
+#imgmgr-token-clear{
+  padding:6px 10px;border-radius:7px;background:var(--surf);
+  border:1px solid var(--bord);color:var(--red);font-size:11px;cursor:pointer;font-family:inherit;
+}
+#imgmgr-body{flex:1;overflow-y:auto;padding:14px 18px 20px;-webkit-overflow-scrolling:touch}
+#imgmgr-body::-webkit-scrollbar{width:2px}
+#imgmgr-body::-webkit-scrollbar-thumb{background:var(--bord)}
+#imgmgr-loading{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:50px 20px;gap:12px;color:var(--muted);font-size:13px;
+}
+.imgmgr-spinner{
+  width:28px;height:28px;border:2px solid rgba(255,255,255,0.1);
+  border-top-color:var(--gold);border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+#imgmgr-count-row{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:12px;
+}
+#imgmgr-count-label{font-size:12px;color:var(--muted)}
+#imgmgr-count-num{font-size:12px;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums}
+#imgmgr-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
+  gap:10px;margin-bottom:16px;
+}
+.imgmgr-thumb{
+  position:relative;border-radius:10px;overflow:hidden;
+  background:#1a1a1d;border:1px solid rgba(255,255,255,0.08);
+  aspect-ratio:1/1;cursor:pointer;
+}
+.imgmgr-thumb img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:opacity .2s;
+}
+.imgmgr-thumb:hover img{opacity:0.85}
+.imgmgr-thumb-num{
+  position:absolute;top:6px;left:7px;
+  background:rgba(0,0,0,0.65);backdrop-filter:blur(4px);
+  font-size:10px;font-weight:700;color:#fff;
+  padding:2px 6px;border-radius:4px;font-variant-numeric:tabular-nums;
+}
+.imgmgr-del-btn{
+  position:absolute;top:5px;right:5px;
+  width:24px;height:24px;border-radius:50%;
+  background:rgba(248,113,113,0.85);border:none;
+  color:#fff;font-size:13px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  display:none;
+}
+.imgmgr-thumb:hover .imgmgr-del-btn.visible{display:flex}
+.imgmgr-thumb.deleting{opacity:0.4;pointer-events:none}
+#imgmgr-no-images{
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  padding:30px 0 10px;color:var(--muted);text-align:center;
+}
+#imgmgr-no-images .ni-icon{font-size:40px;opacity:.4}
+#imgmgr-no-images .ni-txt{font-size:13px;line-height:1.6;max-width:200px}
+#imgmgr-actions{
+  display:flex;gap:8px;flex-wrap:wrap;
+}
+.imgmgr-action-btn{
+  flex:1;min-width:110px;padding:12px 8px;
+  border-radius:10px;font-size:13px;font-weight:600;
+  cursor:pointer;font-family:inherit;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+  border:1.5px solid;transition:opacity .15s;
+}
+.imgmgr-action-btn:active{opacity:.7}
+.imgmgr-action-btn:disabled{opacity:.35;cursor:not-allowed}
+.imgmgr-btn-upload{
+  background:rgba(96,165,250,0.1);color:var(--blue);
+  border-color:rgba(96,165,250,0.35);
+}
+.imgmgr-btn-capture{
+  background:rgba(34,197,94,0.1);color:var(--green);
+  border-color:rgba(34,197,94,0.35);
+}
+.imgmgr-btn-limit{
+  background:rgba(248,113,113,0.08);color:var(--red);
+  border-color:rgba(248,113,113,0.2);cursor:not-allowed;
+  font-size:12px;
+}
+#imgmgr-upload-progress{
+  margin-top:10px;display:none;
+}
+.imgmgr-prog-bar{
+  width:100%;height:4px;background:rgba(255,255,255,0.08);
+  border-radius:2px;overflow:hidden;
+}
+.imgmgr-prog-fill{
+  height:100%;background:var(--gold);border-radius:2px;
+  transition:width .3s;width:0%;
+}
+.imgmgr-prog-label{
+  font-size:11px;color:var(--muted);text-align:center;
+  margin-top:6px;
+}
+/* full-screen image view within manager */
+#imgmgr-view-ov{
+  position:fixed;inset:0;z-index:210;
+  background:rgba(0,0,0,0.97);
+  display:none;flex-direction:column;align-items:center;justify-content:center;
+}
+#imgmgr-view-ov.show{display:flex}
+#imgmgr-view-img{
+  max-width:100%;max-height:80vh;object-fit:contain;border-radius:8px;
+}
+#imgmgr-view-bar{
+  display:flex;align-items:center;gap:16px;margin-top:20px;
+}
+.imgmgr-view-nav{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+  color:#fff;font-size:20px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-family:inherit;
+}
+.imgmgr-view-nav:active{opacity:.6}
+#imgmgr-view-counter{font-size:13px;color:var(--muted);min-width:50px;text-align:center;font-variant-numeric:tabular-nums}
+#imgmgr-view-close{
+  position:absolute;top:16px;right:16px;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);
+  color:#fff;font-size:16px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-family:inherit;
+}
+/* hidden file inputs */
+#imgmgr-file-input{display:none}
+#imgmgr-cam-input{display:none;capture:environment}
 </style>
 </head>
 <body>
@@ -304,14 +478,11 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   <div id="adm-box">
     <div id="adm-title">ADMIN</div>
     <div id="adm-sub">Unlock with fingerprint or PIN</div>
-
-    <!-- Biometric button — shown only if supported -->
     <button id="adm-bio-btn" onclick="doBiometric()" class="hidden">
       <span style="font-size:22px">👆</span>
       <span>Use Fingerprint / Face ID</span>
     </button>
     <div id="adm-divider" class="hidden"><span>or enter PIN</span></div>
-
     <input id="adm-pw" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="• • • •" autocomplete="off"
       oninput="onPwInput(this)" onkeydown="if(event.key==='Enter')doLogin()">
     <div id="dots">
@@ -326,7 +497,7 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   </div>
 </div>
 
-<!-- IMAGE VIEWER MODAL -->
+<!-- IMAGE VIEWER (legacy, kept for compat) -->
 <div id="img-ov">
   <div id="img-box">
     <div id="img-hdr">
@@ -336,19 +507,6 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
       </div>
       <button id="img-close" onclick="closeImgViewer()">✕</button>
     </div>
-    <div id="img-main">
-      <img id="img-el" src="" alt="Product" style="display:none" onerror="imgLoadError()" onload="imgLoaded()">
-      <div id="img-placeholder">
-        <div class="img-icon">🖼️</div>
-        <div class="img-msg" id="img-msg">No image available for this product yet.</div>
-      </div>
-    </div>
-    <div id="img-nav" style="display:none">
-      <button class="img-nav-btn" onclick="imgPrev()">‹</button>
-      <div id="img-counter">1 / 1</div>
-      <button class="img-nav-btn" onclick="imgNext()">›</button>
-    </div>
-    <div id="img-info"></div>
   </div>
 </div>
 
@@ -396,6 +554,55 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   </div>
 </div>
 
+<!-- ══════════════════════════════════════════
+     IMAGE MANAGER MODAL (NEW)
+══════════════════════════════════════════ -->
+<div id="imgmgr-ov">
+  <div id="imgmgr-box">
+
+    <!-- Header -->
+    <div id="imgmgr-hdr">
+      <div id="imgmgr-hdr-info">
+        <div id="imgmgr-title">Product Images</div>
+        <div id="imgmgr-alias"></div>
+      </div>
+      <button id="imgmgr-close" onclick="closeImgMgr()">✕</button>
+    </div>
+
+    <!-- GitHub Token Bar -->
+    <div id="imgmgr-token-bar">
+      <input id="imgmgr-token-input" type="password" placeholder="GitHub Token (for upload/delete)…" autocomplete="off" spellcheck="false">
+      <button id="imgmgr-token-save" onclick="saveGhToken()">Save</button>
+      <span id="imgmgr-token-status" style="display:none">✓ Token set</span>
+      <button id="imgmgr-token-clear" onclick="clearGhToken()" style="display:none">✕</button>
+    </div>
+
+    <!-- Body -->
+    <div id="imgmgr-body">
+      <div id="imgmgr-loading">
+        <div class="imgmgr-spinner"></div>
+        <span>Loading images…</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Full-screen image viewer (inside manager) -->
+<div id="imgmgr-view-ov">
+  <button id="imgmgr-view-close" onclick="closeImgView()">✕</button>
+  <img id="imgmgr-view-img" src="" alt="Product image">
+  <div id="imgmgr-view-bar">
+    <button class="imgmgr-view-nav" onclick="imgViewPrev()">‹</button>
+    <div id="imgmgr-view-counter">1 / 1</div>
+    <button class="imgmgr-view-nav" onclick="imgViewNext()">›</button>
+  </div>
+</div>
+
+<!-- Hidden file inputs -->
+<input id="imgmgr-file-input" type="file" accept="image/*" multiple>
+<input id="imgmgr-cam-input" type="file" accept="image/*" capture="environment">
+
 <!-- TOAST -->
 <div id="toast"></div>
 
@@ -410,930 +617,643 @@ const SHOP_NAME    = "SR FASHION";
 const SHOP_ADDRESS = "GN Azad College Road, Vasant Nagar, Pusad – 445 204";
 const SHOP_PHONE   = "7588756668";
 
-/*
-  IMAGE SOURCE CONFIG
-  ───────────────────
-  Set IMAGE_SOURCE to one of:
-    'local'      → images folder next to index.html  e.g. images/SR001.jpg
-    'cloudinary' → set IMAGE_BASE_URL to your Cloudinary delivery URL
-                   e.g. "https://res.cloudinary.com/YOUR_CLOUD/image/upload/products/"
-    'drive'      → set IMAGE_BASE_URL to a public Google Drive folder base URL
-                   e.g. "https://drive.google.com/uc?export=view&id=" (then use file IDs in items.json)
+/* GitHub image storage config */
+const GH_OWNER  = 'srfashoinned';
+const GH_REPO   = 'image-storage-psd';
+const GH_BRANCH = 'main';
+const MAX_IMAGES = 10;
+const IMG_MAX_DIM = 1200;
+const IMG_QUALITY = 0.82;
 
-  File naming: images should be named by item ALIAS  e.g.  SR001.jpg
-  Multiple images: add an "images" array to item in items.json  e.g.  "images":["SR001_1.jpg","SR001_2.jpg"]
-  If no "images" field, the app auto-tries  <alias>.jpg  and  <alias>.png
-*/
 const IMAGE_SOURCE   = 'local';
-const IMAGE_BASE_URL = 'images/';  // change for cloudinary / drive
+const IMAGE_BASE_URL = 'images/';
 
 function getImageUrls(it){
-  if(it.images && it.images.length){
-    return it.images.map(f => IMAGE_BASE_URL + f);
-  }
-  const alias = (it.alias || '').replace(/[^a-zA-Z0-9_\-]/g,'');
+  if(it.images && it.images.length) return it.images.map(f=>IMAGE_BASE_URL+f);
+  const alias=(it.alias||'').replace(/[^a-zA-Z0-9_\-]/g,'');
   if(!alias) return [];
-  return [
-    IMAGE_BASE_URL + alias + '.jpg',
-    IMAGE_BASE_URL + alias + '.png',
-    IMAGE_BASE_URL + alias + '.jpeg',
-    IMAGE_BASE_URL + alias + '.webp'
-  ];
+  return [IMAGE_BASE_URL+alias+'.jpg',IMAGE_BASE_URL+alias+'.png',IMAGE_BASE_URL+alias+'.jpeg',IMAGE_BASE_URL+alias+'.webp'];
 }
 
-const GAP   = 16;
+const GAP = 16;
 let CARD_COLLAPSED_H = 160;
 const BUFFER = 4;
 const GRP_HDR_H = 26;
 const LOW_STOCK_THRESHOLD = 5;
 
 function measureCardHeight(){
-  const probe = document.createElement('div');
-  probe.style.cssText = 'position:fixed;top:-9999px;left:14px;right:14px;visibility:hidden;pointer-events:none;z-index:-1';
-  probe.innerHTML = cardHTML({name:'Probe Item',alias:'PRB001',mrp:999,sale:799,wholesale:699,stock:10}, -1, 0, '');
-  const inner = probe.firstElementChild;
-  if(inner){ inner.style.position='relative'; inner.style.top='auto'; inner.style.left='auto'; inner.style.right='auto'; }
+  const probe=document.createElement('div');
+  probe.style.cssText='position:fixed;top:-9999px;left:14px;right:14px;visibility:hidden;pointer-events:none;z-index:-1';
+  probe.innerHTML=cardHTML({name:'Probe Item',alias:'PRB001',mrp:999,sale:799,wholesale:699,stock:10},-1,0,'');
+  const inner=probe.firstElementChild;
+  if(inner){inner.style.position='relative';inner.style.top='auto';inner.style.left='auto';inner.style.right='auto';}
   document.body.appendChild(probe);
-  const h = probe.firstElementChild ? probe.firstElementChild.offsetHeight : 160;
+  const h=probe.firstElementChild?probe.firstElementChild.offsetHeight:160;
   document.body.removeChild(probe);
-  CARD_COLLAPSED_H = h + 2;
+  CARD_COLLAPSED_H=h+2;
 }
-
 function measureExpandedCard(ri){
-  const el = stage.querySelector('.c[data-ri="' + ri + '"]');
-  if(el) expandedHeights[ri] = el.offsetHeight + 4;
+  const el=stage.querySelector('.c[data-ri="'+ri+'"]');
+  if(el) expandedHeights[ri]=el.offsetHeight+4;
 }
 
 /* ═══════════════════════════════════════════
    STATE
 ═══════════════════════════════════════════ */
-let raw      = [];
-let pool     = [];
-let heights  = [];
-let offsets  = [];
-let isAdmin  = false;
-let activeGroup = '';
-let pMin     = null;
-let pMax     = null;
-let query    = '';
-let activeSort = 'df';
-let activeStock = 'all';
-let activeBrand = '';
-let expanded = new Set();
-let expandedHeights = {};
-let vsStart  = 0;
-let vsEnd    = 0;
-let totalH   = 0;
+let raw=[], pool=[], heights=[], offsets=[], isAdmin=false;
+let activeGroup='', pMin=null, pMax=null, query='', activeSort='df', activeStock='all', activeBrand='';
+let expanded=new Set(), expandedHeights={};
+let vsStart=0, vsEnd=0, totalH=0;
 let scrollEl, spacer, stage;
+let expItem=null, expPrice='sale';
+let imgItem=null, imgUrls=[], imgCurIdx=0, imgTryIdx=0;
 
-let expItem  = null;
-let expPrice = 'sale';
-
-/* image viewer state */
-let imgItem     = null;
-let imgUrls     = [];
-let imgCurIdx   = 0;
-let imgTryIdx   = 0;
+/* ═══════════════════════════════════════════
+   GITHUB IMAGE MANAGER STATE
+═══════════════════════════════════════════ */
+let ghToken = sessionStorage.getItem('sr_gh_token') || '';
+let imgMgrItem = null;
+let imgMgrFiles = []; // {name, sha, url, downloadUrl}
+let imgViewIdx = 0;
 
 /* ═══════════════════════════════════════════
    LOAD DATA
 ═══════════════════════════════════════════ */
 async function loadData(){
   try{
-    const r = await fetch("items.json?t="+Date.now());
+    const r=await fetch("items.json?t="+Date.now());
     if(!r.ok) throw new Error("HTTP "+r.status);
-    raw = await r.json();
-    document.getElementById("badge").textContent = raw.length.toLocaleString()+" items";
-    buildGroupChips();
-    buildBrandChips();
+    raw=await r.json();
+    document.getElementById("badge").textContent=raw.length.toLocaleString()+" items";
+    buildGroupChips(); buildBrandChips();
   }catch(e){}
-  showWelcome();
-  initBiometric();
+  showWelcome(); initBiometric();
 }
 
 async function refreshData(){
-  const btn = document.getElementById("refresh-btn");
+  const btn=document.getElementById("refresh-btn");
   btn.classList.add("spinning");
   try{
-    const r = await fetch("items.json?t="+Date.now());
+    const r=await fetch("items.json?t="+Date.now());
     if(!r.ok) throw new Error("HTTP "+r.status);
-    raw = await r.json();
-    document.getElementById("badge").textContent = raw.length.toLocaleString()+" items";
-    buildGroupChips();
-    buildBrandChips();
-    applyAll();
+    raw=await r.json();
+    document.getElementById("badge").textContent=raw.length.toLocaleString()+" items";
+    buildGroupChips(); buildBrandChips(); applyAll();
     toast("🔄 Refreshed — "+raw.length.toLocaleString()+" items");
-  }catch(e){
-    toast("❌ Refresh failed: "+e.message);
-  }finally{
-    setTimeout(()=>btn.classList.remove("spinning"), 600);
-  }
+  }catch(e){ toast("❌ Refresh failed: "+e.message); }
+  finally{ setTimeout(()=>btn.classList.remove("spinning"),600); }
 }
 
 function showWelcome(){
-  spacer.style.height = '0px';
-  stage.innerHTML = `
-    <div id="welcome">
-      <div class="w-logo">SR</div>
-      <div class="w-sub">FASHION PUSAD</div>
-      <div class="w-line"></div>
-      <div class="w-hint">Search or scan a product above to find items instantly</div>
-    </div>`;
-  document.getElementById("status").textContent = '';
+  spacer.style.height='0px';
+  stage.innerHTML=`<div id="welcome"><div class="w-logo">SR</div><div class="w-sub">FASHION PUSAD</div><div class="w-line"></div><div class="w-hint">Search or scan a product above to find items instantly</div></div>`;
+  document.getElementById("status").textContent='';
 }
-
 function goHome(){
-  document.getElementById("search").value = '';
-  query = ''; pMin = null; pMax = null; activeGroup = ''; activeStock = 'all'; activeBrand = '';
-  document.getElementById("pmin").value = '';
-  document.getElementById("pmax").value = '';
+  document.getElementById("search").value='';
+  query=''; pMin=null; pMax=null; activeGroup=''; activeStock='all'; activeBrand='';
+  document.getElementById("pmin").value=''; document.getElementById("pmax").value='';
   activeSort='df';
   document.querySelectorAll("#sort-row .chip").forEach(c=>c.classList.remove("on"));
   const defChip=document.querySelector("#sort-row .chip[data-sort='df']");
-  if(defChip)defChip.classList.add("on");
+  if(defChip) defChip.classList.add("on");
   document.querySelectorAll("#stock-row .stock-chip").forEach(c=>c.classList.remove("on"));
   document.querySelector("#stock-row .stock-chip[data-stock='all']").classList.add("on");
-  document.getElementById('brand-btn-label').textContent = 'All Brands';
+  document.getElementById('brand-btn-label').textContent='All Brands';
   document.getElementById('brand-btn').classList.remove('active');
-  document.getElementById("grp-btn-label").textContent = "All Groups";
+  document.getElementById("grp-btn-label").textContent="All Groups";
   document.getElementById("grp-btn").classList.remove("active");
   showWelcome();
 }
 
 /* ═══ STOCK FILTER ═══ */
-document.getElementById("stock-row").addEventListener("click", function(e){
-  const c = e.target.closest(".stock-chip[data-stock]");
-  if(!c) return;
+document.getElementById("stock-row").addEventListener("click",function(e){
+  const c=e.target.closest(".stock-chip[data-stock]"); if(!c) return;
   document.querySelectorAll("#stock-row .stock-chip").forEach(x=>x.classList.remove("on"));
-  c.classList.add("on");
-  activeStock = c.dataset.stock;
-  applyAll();
+  c.classList.add("on"); activeStock=c.dataset.stock; applyAll();
 });
-
 function stockMatches(it){
-  if(activeStock === 'all') return true;
-  const s = it.stock;
-  if(s === null || s === undefined || s === '' || s === '–' || s === '-'){
-    return activeStock === 'out';
-  }
-  const n = parseFloat(String(s));
-  if(isNaN(n)) return activeStock === 'out';
-  if(n <= 0)  return activeStock === 'out';
-  if(n <= LOW_STOCK_THRESHOLD) return activeStock === 'low';
-  return activeStock === 'in';
+  if(activeStock==='all') return true;
+  const s=it.stock;
+  if(s===null||s===undefined||s===''||s==='–'||s==='-') return activeStock==='out';
+  const n=parseFloat(String(s));
+  if(isNaN(n)) return activeStock==='out';
+  if(n<=0) return activeStock==='out';
+  if(n<=LOW_STOCK_THRESHOLD) return activeStock==='low';
+  return activeStock==='in';
 }
 
-/* ═══ GROUP MODAL ═══ */
-let allGroups = [];
-function buildGroupChips(){
-  const countMap = {};
-  raw.forEach(it=>{ const g=it.group||''; countMap[g]=(countMap[g]||0)+1; });
-  allGroups = Object.keys(countMap).filter(Boolean).sort();
-}
+/* ═══ GROUP + BRAND MODALS ═══ */
+let allGroups=[], allBrands=[];
+function buildGroupChips(){ const m={}; raw.forEach(it=>{ const g=it.group||''; m[g]=(m[g]||0)+1; }); allGroups=Object.keys(m).filter(Boolean).sort(); }
+function buildBrandChips(){ const s=new Set(); raw.forEach(it=>{ const f=(it.name||'').trim().split(/\s+/)[0]; if(/^[A-Z]{2,6}$/.test(f)) s.add(f); }); allBrands=[...s].sort(); }
 
-let allBrands = [];
-function buildBrandChips(){
-  const brandSet = new Set();
-  raw.forEach(it=>{
-    const first = (it.name||'').trim().split(/\s+/)[0];
-    if(/^[A-Z]{2,6}$/.test(first)) brandSet.add(first);
-  });
-  allBrands = [...brandSet].sort();
-}
-
-function openBrandModal(){
-  renderBrandList('');
-  document.getElementById('brand-modal-bg').classList.add('show');
-  setTimeout(()=>document.getElementById('brand-search').focus(), 200);
-}
-function closeBrandModal(){
-  document.getElementById('brand-modal-bg').classList.remove('show');
-  document.getElementById('brand-search').value='';
-}
-
+function openBrandModal(){ renderBrandList(''); document.getElementById('brand-modal-bg').classList.add('show'); setTimeout(()=>document.getElementById('brand-search').focus(),200); }
+function closeBrandModal(){ document.getElementById('brand-modal-bg').classList.remove('show'); document.getElementById('brand-search').value=''; }
 function renderBrandList(filter){
-  const f = filter.trim().toLowerCase();
-  const countMap = {};
-  raw.forEach(it=>{
-    const first = (it.name||'').trim().split(/\s+/)[0];
-    if(/^[A-Z]{2,6}$/.test(first)) countMap[first]=(countMap[first]||0)+1;
-  });
-  let brands = allBrands;
-  if(f) brands = brands.filter(b=>b.toLowerCase().includes(f));
-  let html = `<div class="brand-item${activeBrand===''?' selected':''}" onclick="selectBrand('')">
-    <span>All Brands</span>
-    <span style="display:flex;align-items:center;gap:6px">
-      <span class="brand-count">${raw.length.toLocaleString()}</span>
-      <span class="brand-tick">✓</span>
-    </span>
-  </div>`;
-  if(!brands.length){
-    html += `<div style="text-align:center;padding:30px;font-size:13px;color:var(--muted)">No brands found</div>`;
-  } else {
-    brands.forEach(b=>{
-      const cnt = countMap[b]||0;
-      const sel = activeBrand===b;
-      html += `<div class="brand-item${sel?' selected':''}" onclick="selectBrand('${b}')">
-        <span>${b}</span>
-        <span style="display:flex;align-items:center;gap:6px">
-          <span class="brand-count">${cnt.toLocaleString()}</span>
-          <span class="brand-tick">✓</span>
-        </span>
-      </div>`;
-    });
-  }
-  document.getElementById('brand-list').innerHTML = html;
+  const f=filter.trim().toLowerCase();
+  const m={}; raw.forEach(it=>{ const x=(it.name||'').trim().split(/\s+/)[0]; if(/^[A-Z]{2,6}$/.test(x)) m[x]=(m[x]||0)+1; });
+  let brands=allBrands; if(f) brands=brands.filter(b=>b.toLowerCase().includes(f));
+  let html=`<div class="brand-item${activeBrand===''?' selected':''}" onclick="selectBrand('')"><span>All Brands</span><span style="display:flex;align-items:center;gap:6px"><span class="brand-count">${raw.length.toLocaleString()}</span><span class="brand-tick">✓</span></span></div>`;
+  brands.forEach(b=>{ const cnt=m[b]||0; const sel=activeBrand===b; html+=`<div class="brand-item${sel?' selected':''}" onclick="selectBrand('${b}')"><span>${b}</span><span style="display:flex;align-items:center;gap:6px"><span class="brand-count">${cnt.toLocaleString()}</span><span class="brand-tick">✓</span></span></div>`; });
+  document.getElementById('brand-list').innerHTML=html;
 }
+function selectBrand(b){ activeBrand=b; const btn=document.getElementById('brand-btn'); const label=document.getElementById('brand-btn-label'); if(b){ label.innerHTML=`<span class="brand-tag">${b}</span>`; btn.classList.add('active'); } else { label.textContent='All Brands'; btn.classList.remove('active'); } closeBrandModal(); applyAll(); }
+document.getElementById('brand-search').addEventListener('input',function(){ renderBrandList(this.value); });
+document.getElementById('brand-modal-bg').addEventListener('click',function(e){ if(e.target===this) closeBrandModal(); });
 
-function selectBrand(b){
-  activeBrand = b;
-  const btn = document.getElementById('brand-btn');
-  const label = document.getElementById('brand-btn-label');
-  if(b){
-    label.innerHTML = `<span class="brand-tag">${b}</span>`;
-    btn.classList.add('active');
-  } else {
-    label.textContent = 'All Brands';
-    btn.classList.remove('active');
-  }
-  closeBrandModal();
-  applyAll();
-}
-
-document.getElementById('brand-search').addEventListener('input', function(){
-  renderBrandList(this.value);
-});
-document.getElementById('brand-modal-bg').addEventListener('click', function(e){
-  if(e.target===this) closeBrandModal();
-});
-
-function openGrpModal(){
-  renderGrpList('');
-  document.getElementById("grp-modal-bg").classList.add("show");
-  setTimeout(()=>document.getElementById("grp-search").focus(), 200);
-}
-function closeGrpModal(){
-  document.getElementById("grp-modal-bg").classList.remove("show");
-  document.getElementById("grp-search").value='';
-}
-
+function openGrpModal(){ renderGrpList(''); document.getElementById("grp-modal-bg").classList.add("show"); setTimeout(()=>document.getElementById("grp-search").focus(),200); }
+function closeGrpModal(){ document.getElementById("grp-modal-bg").classList.remove("show"); document.getElementById("grp-search").value=''; }
 function renderGrpList(filter){
-  const f = filter.trim().toLowerCase();
-  const countMap = {};
-  raw.forEach(it=>{ const g=it.group||''; countMap[g]=(countMap[g]||0)+1; });
-  let groups = allGroups;
-  if(f) groups = groups.filter(g=>g.toLowerCase().includes(f));
-  let html = `<div class="grp-item${activeGroup===''?' selected':''}" onclick="selectGroup('')">
-    <span>All Groups</span>
-    <span style="display:flex;align-items:center;gap:6px">
-      <span class="grp-count">${raw.length.toLocaleString()}</span>
-      <span class="grp-tick">✓</span>
-    </span>
-  </div>`;
-  if(!groups.length){
-    html += `<div style="text-align:center;padding:30px;font-size:13px;color:var(--muted)">No groups found</div>`;
-  } else {
-    groups.forEach(g=>{
-      const cnt = countMap[g]||0;
-      const sel = activeGroup===g;
-      html += `<div class="grp-item${sel?' selected':''}" onclick="selectGroup('${g.replace(/'/g,"\\'")}')">
-        <span>${g}</span>
-        <span style="display:flex;align-items:center;gap:6px">
-          <span class="grp-count">${cnt.toLocaleString()}</span>
-          <span class="grp-tick">✓</span>
-        </span>
-      </div>`;
-    });
-  }
-  document.getElementById("grp-list").innerHTML = html;
+  const f=filter.trim().toLowerCase();
+  const m={}; raw.forEach(it=>{ const g=it.group||''; m[g]=(m[g]||0)+1; });
+  let groups=allGroups; if(f) groups=groups.filter(g=>g.toLowerCase().includes(f));
+  let html=`<div class="grp-item${activeGroup===''?' selected':''}" onclick="selectGroup('')"><span>All Groups</span><span style="display:flex;align-items:center;gap:6px"><span class="grp-count">${raw.length.toLocaleString()}</span><span class="grp-tick">✓</span></span></div>`;
+  groups.forEach(g=>{ const cnt=m[g]||0; const sel=activeGroup===g; html+=`<div class="grp-item${sel?' selected':''}" onclick="selectGroup('${g.replace(/'/g,"\\'")}')"><span>${g}</span><span style="display:flex;align-items:center;gap:6px"><span class="grp-count">${cnt.toLocaleString()}</span><span class="grp-tick">✓</span></span></div>`; });
+  document.getElementById("grp-list").innerHTML=html;
 }
-
-function selectGroup(g){
-  activeGroup = g;
-  const btn = document.getElementById("grp-btn");
-  const label = document.getElementById("grp-btn-label");
-  if(g){
-    label.innerHTML = `<span class="grp-tag">${g}</span>`;
-    btn.classList.add("active");
-  } else {
-    label.textContent = "All Groups";
-    btn.classList.remove("active");
-  }
-  closeGrpModal();
-  applyAll();
-}
-
-document.getElementById("grp-search").addEventListener("input", function(){
-  renderGrpList(this.value);
-});
-document.getElementById("grp-modal-bg").addEventListener("click", function(e){
-  if(e.target===this) closeGrpModal();
-});
+function selectGroup(g){ activeGroup=g; const btn=document.getElementById("grp-btn"); const label=document.getElementById("grp-btn-label"); if(g){ label.innerHTML=`<span class="grp-tag">${g}</span>`; btn.classList.add("active"); } else { label.textContent="All Groups"; btn.classList.remove("active"); } closeGrpModal(); applyAll(); }
+document.getElementById("grp-search").addEventListener("input",function(){ renderGrpList(this.value); });
+document.getElementById("grp-modal-bg").addEventListener("click",function(e){ if(e.target===this) closeGrpModal(); });
 
 /* ═══ SORT ═══ */
 document.getElementById("sort-row").addEventListener("click",function(e){
-  const c=e.target.closest(".chip[data-sort]");
-  if(!c) return;
+  const c=e.target.closest(".chip[data-sort]"); if(!c) return;
   document.querySelectorAll("#sort-row .chip").forEach(x=>x.classList.remove("on"));
-  c.classList.add("on");
-  activeSort=c.dataset.sort;
-  applyAll();
+  c.classList.add("on"); activeSort=c.dataset.sort; applyAll();
 });
 
 /* ═══ FILTER + SORT ═══ */
 function pn(v){ return v==null||v===''?0:parseFloat(String(v).replace(/[^0-9.]/g,''))||0; }
-
 function applyAll(){
-  const q = query.trim().toLowerCase();
-  const hasFilter = q || pMin!==null || pMax!==null || activeGroup || activeSort!=='df' || activeStock!=='all' || activeBrand!=='';
+  const q=query.trim().toLowerCase();
+  const hasFilter=q||pMin!==null||pMax!==null||activeGroup||activeSort!=='df'||activeStock!=='all'||activeBrand!=='';
   if(!hasFilter){ showWelcome(); return; }
-  expanded.clear();
-  expandedHeights = {};
-  let out = [];
+  expanded.clear(); expandedHeights={};
+  let out=[];
   for(let i=0;i<raw.length;i++){
-    const it = raw[i];
-    if(activeGroup && it.group!==activeGroup) continue;
-    if(pMin!==null && pn(it.sale)<pMin) continue;
-    if(pMax!==null && pn(it.sale)>pMax) continue;
+    const it=raw[i];
+    if(activeGroup&&it.group!==activeGroup) continue;
+    if(pMin!==null&&pn(it.sale)<pMin) continue;
+    if(pMax!==null&&pn(it.sale)>pMax) continue;
     if(!stockMatches(it)) continue;
-    if(activeBrand){
-      const first = (it.name||'').trim().split(/\s+/)[0];
-      if(first !== activeBrand) continue;
-    }
-    if(q){
-      const n=(it.name||'').toLowerCase();
-      const a=(it.alias||'').toLowerCase();
-      const b=(it.barcode||'').toLowerCase();
-      const g=(it.group||'').toLowerCase();
-      if(!n.includes(q)&&!a.includes(q)&&!b.includes(q)&&!g.includes(q)) continue;
-    }
+    if(activeBrand){ const f=(it.name||'').trim().split(/\s+/)[0]; if(f!==activeBrand) continue; }
+    if(q){ const n=(it.name||'').toLowerCase(),a=(it.alias||'').toLowerCase(),b=(it.barcode||'').toLowerCase(),g=(it.group||'').toLowerCase(); if(!n.includes(q)&&!a.includes(q)&&!b.includes(q)&&!g.includes(q)) continue; }
     out.push(i);
   }
-  if(activeSort==='grp')  out.sort((a,b)=>((raw[a].group||'').localeCompare(raw[b].group||'')) || (raw[a].name||'').localeCompare(raw[b].name||''));
+  if(activeSort==='grp') out.sort((a,b)=>((raw[a].group||'').localeCompare(raw[b].group||'))||(raw[a].name||'').localeCompare(raw[b].name||'')));
   else if(activeSort==='na') out.sort((a,b)=>(raw[a].name||'').localeCompare(raw[b].name||''));
   else if(activeSort==='sa') out.sort((a,b)=>pn(raw[a].sale)-pn(raw[b].sale));
   else if(activeSort==='sd') out.sort((a,b)=>pn(raw[b].sale)-pn(raw[a].sale));
-
-  pool = out;
-  measureCardHeight();
-  rebuildOffsets();
-
-  const sortLabel = activeSort==='grp'?' · sorted by group':activeSort==='na'?' · A–Z':activeSort==='sa'?' · price ↑':activeSort==='sd'?' · price ↓':'';
-  const stockLabel = activeStock==='in'?' · in stock':activeStock==='low'?' · low stock':activeStock==='out'?' · out of stock':'';
-  const brandLabel = activeBrand ? ' · '+activeBrand : '';
-  document.getElementById("status").textContent =
-    (pool.length===raw.length
-      ? raw.length.toLocaleString()+" items"
-      : pool.length.toLocaleString()+" of "+raw.length.toLocaleString()+" items")
-    + sortLabel + stockLabel + brandLabel;
-
-  scrollEl.scrollTop = 0;
-  vsRender(true);
+  pool=out; measureCardHeight(); rebuildOffsets();
+  const sortLabel=activeSort==='grp'?' · sorted by group':activeSort==='na'?' · A–Z':activeSort==='sa'?' · price ↑':activeSort==='sd'?' · price ↓':'';
+  const stockLabel=activeStock==='in'?' · in stock':activeStock==='low'?' · low stock':activeStock==='out'?' · out of stock':'';
+  const brandLabel=activeBrand?' · '+activeBrand:'';
+  document.getElementById("status").textContent=(pool.length===raw.length?raw.length.toLocaleString()+" items":pool.length.toLocaleString()+" of "+raw.length.toLocaleString()+" items")+sortLabel+stockLabel+brandLabel;
+  scrollEl.scrollTop=0; vsRender(true);
 }
-
 function rebuildOffsets(){
-  heights  = new Array(pool.length).fill(CARD_COLLAPSED_H);
-  offsets  = new Array(pool.length);
-  let top  = 18;
+  heights=new Array(pool.length).fill(CARD_COLLAPSED_H);
+  offsets=new Array(pool.length);
+  let top=18;
   for(let i=0;i<pool.length;i++){
-    if(activeSort==='grp'){
-      const grp = raw[pool[i]].group||'';
-      const prevGrp = i>0?(raw[pool[i-1]].group||''):'__NONE__';
-      if(grp!==prevGrp) top += GRP_HDR_H;
-    }
-    offsets[i] = top;
-    const ri = pool[i];
-    const h = expanded.has(ri) ? (expandedHeights[ri] || CARD_COLLAPSED_H * 2) : CARD_COLLAPSED_H;
-    top += h + GAP;
+    if(activeSort==='grp'){ const grp=raw[pool[i]].group||''; const prevGrp=i>0?(raw[pool[i-1]].group||''):'__NONE__'; if(grp!==prevGrp) top+=GRP_HDR_H; }
+    offsets[i]=top;
+    const ri=pool[i];
+    const h=expanded.has(ri)?(expandedHeights[ri]||CARD_COLLAPSED_H*2):CARD_COLLAPSED_H;
+    top+=h+GAP;
   }
-  totalH = top + 60;
-  spacer.style.height = totalH + 'px';
+  totalH=top+60; spacer.style.height=totalH+'px';
 }
-
 function vsRender(force){
-  if(!pool.length){
-    spacer.style.height='0px';
-    stage.innerHTML='<div style="text-align:center;padding:50px 20px;font-size:14px;color:var(--muted)">No items found</div>';
-    return;
-  }
-  const scrollTop = scrollEl.scrollTop;
-  const viewH     = scrollEl.clientHeight;
-  let first = bsearchFirst(scrollTop - BUFFER * CARD_COLLAPSED_H);
-  let last  = bsearchLast(scrollTop + viewH + BUFFER * CARD_COLLAPSED_H);
-  first = Math.max(0, first);
-  last  = Math.min(pool.length-1, last);
-  if(!force && first===vsStart && last===vsEnd) return;
-  vsStart = first; vsEnd = last;
-  const q = query.trim().toLowerCase();
-  let html = '';
+  if(!pool.length){ spacer.style.height='0px'; stage.innerHTML='<div style="text-align:center;padding:50px 20px;font-size:14px;color:var(--muted)">No items found</div>'; return; }
+  const scrollTop=scrollEl.scrollTop, viewH=scrollEl.clientHeight;
+  let first=bsearchFirst(scrollTop-BUFFER*CARD_COLLAPSED_H);
+  let last=bsearchLast(scrollTop+viewH+BUFFER*CARD_COLLAPSED_H);
+  first=Math.max(0,first); last=Math.min(pool.length-1,last);
+  if(!force&&first===vsStart&&last===vsEnd) return;
+  vsStart=first; vsEnd=last;
+  const q=query.trim().toLowerCase();
+  let html='';
   for(let vi=first;vi<=last;vi++){
-    if(activeSort==='grp'){
-      const grp = raw[pool[vi]].group||'';
-      const prevGrp = vi>0?(raw[pool[vi-1]].group||''):'__NONE__';
-      if(grp!==prevGrp){
-        const hdrTop = offsets[vi] - GRP_HDR_H;
-        html += `<div class="grp-hdr" style="top:${hdrTop}px">${grp||'No Group'}</div>`;
-      }
-    }
-    html += cardHTML(raw[pool[vi]], pool[vi], offsets[vi], q);
+    if(activeSort==='grp'){ const grp=raw[pool[vi]].group||''; const prevGrp=vi>0?(raw[pool[vi-1]].group||''):'__NONE__'; if(grp!==prevGrp){ const hdrTop=offsets[vi]-GRP_HDR_H; html+=`<div class="grp-hdr" style="top:${hdrTop}px">${grp||'No Group'}</div>`; } }
+    html+=cardHTML(raw[pool[vi]],pool[vi],offsets[vi],q);
   }
-  stage.innerHTML = html;
+  stage.innerHTML=html;
 }
-
-function bsearchFirst(targetTop){
-  let lo=0, hi=offsets.length-1;
-  while(lo<hi){
-    const mid=(lo+hi)>>1;
-    if(offsets[mid]<targetTop) lo=mid+1; else hi=mid;
-  }
-  return lo;
-}
-function bsearchLast(targetBottom){
-  let lo=0, hi=offsets.length-1;
-  while(lo<hi){
-    const mid=(lo+hi+1)>>1;
-    if(offsets[mid]<=targetBottom) lo=mid; else hi=mid-1;
-  }
-  return lo;
-}
+function bsearchFirst(targetTop){ let lo=0,hi=offsets.length-1; while(lo<hi){ const mid=(lo+hi)>>1; if(offsets[mid]<targetTop) lo=mid+1; else hi=mid; } return lo; }
+function bsearchLast(targetBottom){ let lo=0,hi=offsets.length-1; while(lo<hi){ const mid=(lo+hi+1)>>1; if(offsets[mid]<=targetBottom) lo=mid; else hi=mid-1; } return lo; }
 
 /* ═══ CARD HTML ═══ */
-function fmt(v){
-  if(v==null||v==='') return '–';
-  const n=parseFloat(String(v).replace(/[^0-9.]/g,''));
-  return isNaN(n)?String(v):'₹'+n.toLocaleString('en-IN');
-}
-function hl(t,q){
-  if(!q||!t) return t||'';
-  const i=t.toLowerCase().indexOf(q);
-  if(i<0) return t;
-  return t.slice(0,i)+'<mark>'+t.slice(i,i+q.length)+'</mark>'+t.slice(i+q.length);
-}
-function marginStr(it){
-  const s=pn(it.sale),p=pn(it.purchase);
-  if(!s||!p) return '';
-  return ' <span style="font-size:10px;color:var(--green);font-weight:600">('+Math.round((s-p)/s*100)+'%)</span>';
-}
+function fmt(v){ if(v==null||v==='') return '–'; const n=parseFloat(String(v).replace(/[^0-9.]/g,'')); return isNaN(n)?String(v):'₹'+n.toLocaleString('en-IN'); }
+function hl(t,q){ if(!q||!t) return t||''; const i=t.toLowerCase().indexOf(q); if(i<0) return t; return t.slice(0,i)+'<mark>'+t.slice(i,i+q.length)+'</mark>'+t.slice(i+q.length); }
+function marginStr(it){ const s=pn(it.sale),p=pn(it.purchase); if(!s||!p) return ''; return ' <span style="font-size:10px;color:var(--green);font-weight:600">('+Math.round((s-p)/s*100)+'%)</span>'; }
 
-function cardHTML(it, ri, topPx, q){
-  const exp = expanded.has(ri);
-  const purchBlock = isAdmin
-    ?`<div class="pb p"><div class="pl">Purchase</div><div class="pv">${fmt(it.purchase)}${marginStr(it)}</div></div>`:'';
-  const detHTML = exp?`
-    <div class="det">
-      <div class="drow"><span>Name</span><span>${it.name||'–'}</span></div>
-      <div class="drow"><span>Alias</span><span>${it.alias||'–'}</span></div>
-      ${it.barcode?`<div class="drow"><span>Barcode</span><span>${it.barcode}</span></div>`:''}
-      ${it.group?`<div class="drow"><span>Group</span><span>${it.group}</span></div>`:''}
-      ${it.brand?`<div class="drow"><span>Brand</span><span>${it.brand}</span></div>`:''}
-      ${isAdmin&&it.purchase?`<div class="drow"><span>Purchase</span><span style="color:var(--purple)">${fmt(it.purchase)}</span></div>`:''}
-      <div class="act">
-        <button class="ab cp" onclick="copyItem(${ri},event)">📋 Copy</button>
-        <button class="ab sh" onclick="shareItem(${ri},event)">📤 Share</button>
-        <button class="ab ig" onclick="openImgViewer(${ri},event)">🖼️ Images</button>
-      </div>
-    </div>`:'';
-
-  return `<div class="c${exp?' exp':''}" style="top:${topPx}px" data-ri="${ri}" onclick="toggleCard(${ri})">
-    <div class="c-name">${hl(it.name||'',q)}</div>
-    ${it.alias?`<div class="c-alias" style="font-size:12px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums">${hl(it.alias||'',q)}</div>`:''}
-    ${it.group?`<div class="c-alias">🗂 ${hl(it.group||'',q)}</div>`:''}
-    <div class="prices">
-      <div class="pb m"><div class="pl">MRP</div><div class="pv">${fmt(it.mrp)}</div></div>
-      <div class="pb s shareable" onclick="openExp(${ri},'sale',event)" title="Tap to share Sale price image">
-        <span class="share-badge">📤</span>
-        <div class="pl">Sale Price</div>
-        <div class="pv">${fmt(it.sale)}</div>
-      </div>
-      <div class="pb w shareable" onclick="openExp(${ri},'wholesale',event)" title="Tap to share Wholesale price image">
-        <span class="share-badge">📤</span>
-        <div class="pl">Wholesale</div>
-        <div class="pv">${fmt(it.wholesale)}</div>
-      </div>
-      <div class="pb k"><div class="pl">Stock</div><div class="pv">${it.stock??'–'}</div></div>
-      ${purchBlock}
-    </div>
-    ${detHTML}
-  </div>`;
+function cardHTML(it,ri,topPx,q){
+  const exp=expanded.has(ri);
+  const purchBlock=isAdmin?`<div class="pb p"><div class="pl">Purchase</div><div class="pv">${fmt(it.purchase)}${marginStr(it)}</div></div>`:'';
+  const detHTML=exp?`<div class="det"><div class="drow"><span>Name</span><span>${it.name||'–'}</span></div><div class="drow"><span>Alias</span><span>${it.alias||'–'}</span></div>${it.barcode?`<div class="drow"><span>Barcode</span><span>${it.barcode}</span></div>`:''} ${it.group?`<div class="drow"><span>Group</span><span>${it.group}</span></div>`:''} ${it.brand?`<div class="drow"><span>Brand</span><span>${it.brand}</span></div>`:''} ${isAdmin&&it.purchase?`<div class="drow"><span>Purchase</span><span style="color:var(--purple)">${fmt(it.purchase)}</span></div>`:''}<div class="act"><button class="ab cp" onclick="copyItem(${ri},event)">📋 Copy</button><button class="ab sh" onclick="shareItem(${ri},event)">📤 Share</button><button class="ab ig" onclick="openImgViewer(${ri},event)">🖼️ Images</button></div></div>`:'';
+  return `<div class="c${exp?' exp':''}" style="top:${topPx}px" data-ri="${ri}" onclick="toggleCard(${ri})"><div class="c-name">${hl(it.name||'',q)}</div>${it.alias?`<div class="c-alias" style="font-size:12px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums">${hl(it.alias||'',q)}</div>`:''} ${it.group?`<div class="c-alias">🗂 ${hl(it.group||'',q)}</div>`:''}<div class="prices"><div class="pb m"><div class="pl">MRP</div><div class="pv">${fmt(it.mrp)}</div></div><div class="pb s shareable" onclick="openExp(${ri},'sale',event)" title="Tap to share Sale price image"><span class="share-badge">📤</span><div class="pl">Sale Price</div><div class="pv">${fmt(it.sale)}</div></div><div class="pb w shareable" onclick="openExp(${ri},'wholesale',event)" title="Tap to share Wholesale price image"><span class="share-badge">📤</span><div class="pl">Wholesale</div><div class="pv">${fmt(it.wholesale)}</div></div><div class="pb k"><div class="pl">Stock</div><div class="pv">${it.stock??'–'}</div></div>${purchBlock}</div>${detHTML}</div>`;
 }
 
 /* ═══ TOGGLE EXPAND ═══ */
 function toggleCard(ri){
-  const wasExpanded = expanded.has(ri);
-  if(wasExpanded){
-    expanded.delete(ri);
-    delete expandedHeights[ri];
-    rebuildOffsets();
-    spacer.style.height = totalH + 'px';
-    vsRender(true);
-  } else {
-    expanded.add(ri);
-    if(!expandedHeights[ri]) expandedHeights[ri] = CARD_COLLAPSED_H * 3;
-    rebuildOffsets();
-    spacer.style.height = totalH + 'px';
-    vsRender(true);
-    measureExpandedCard(ri);
-    rebuildOffsets();
-    spacer.style.height = totalH + 'px';
-    vsRender(true);
-  }
-  const vi = pool.indexOf(ri);
-  if(vi>=0){
-    const cardTop = offsets[vi];
-    const scrollTop = scrollEl.scrollTop;
-    if(cardTop < scrollTop) scrollEl.scrollTop = cardTop - 14;
-  }
+  const wasExpanded=expanded.has(ri);
+  if(wasExpanded){ expanded.delete(ri); delete expandedHeights[ri]; rebuildOffsets(); spacer.style.height=totalH+'px'; vsRender(true); }
+  else{ expanded.add(ri); if(!expandedHeights[ri]) expandedHeights[ri]=CARD_COLLAPSED_H*3; rebuildOffsets(); spacer.style.height=totalH+'px'; vsRender(true); measureExpandedCard(ri); rebuildOffsets(); spacer.style.height=totalH+'px'; vsRender(true); }
+  const vi=pool.indexOf(ri);
+  if(vi>=0){ const cardTop=offsets[vi]; const scrollTop=scrollEl.scrollTop; if(cardTop<scrollTop) scrollEl.scrollTop=cardTop-14; }
 }
 
 let rafPending=false;
-function onScroll(){
-  if(rafPending) return;
-  rafPending=true;
-  requestAnimationFrame(()=>{ vsRender(false); rafPending=false; });
-}
+function onScroll(){ if(rafPending) return; rafPending=true; requestAnimationFrame(()=>{ vsRender(false); rafPending=false; }); }
 
 let searchTimer;
-document.getElementById("search").addEventListener("input",function(){
-  query=this.value;
-  clearTimeout(searchTimer);
-  searchTimer=setTimeout(applyAll,100);
-});
+document.getElementById("search").addEventListener("input",function(){ query=this.value; clearTimeout(searchTimer); searchTimer=setTimeout(applyAll,100); });
 
 function applyPF(){
-  const mn=document.getElementById("pmin").value;
-  const mx=document.getElementById("pmax").value;
-  pMin=mn!==''?parseFloat(mn):null;
-  pMax=mx!==''?parseFloat(mx):null;
-  applyAll();
-  toast(`₹${mn||'0'} – ₹${mx||'∞'}`);
+  const mn=document.getElementById("pmin").value,mx=document.getElementById("pmax").value;
+  pMin=mn!==''?parseFloat(mn):null; pMax=mx!==''?parseFloat(mx):null; applyAll(); toast(`₹${mn||'0'} – ₹${mx||'∞'}`);
 }
-function clearPF(){
-  document.getElementById("pmin").value='';
-  document.getElementById("pmax").value='';
-  pMin=null; pMax=null; applyAll(); toast("Price filter cleared");
-}
-['pmin','pmax'].forEach(id=>{
-  document.getElementById(id).addEventListener("keydown",e=>{ if(e.key==='Enter') applyPF(); });
-});
+function clearPF(){ document.getElementById("pmin").value=''; document.getElementById("pmax").value=''; pMin=null; pMax=null; applyAll(); toast("Price filter cleared"); }
+['pmin','pmax'].forEach(id=>{ document.getElementById(id).addEventListener("keydown",e=>{ if(e.key==='Enter') applyPF(); }); });
 
 /* ═══════════════════════════════════════════
-   IMAGE VIEWER
+   IMAGE MANAGER  ← NEW SYSTEM
 ═══════════════════════════════════════════ */
+
+/* ── Token management ── */
+function initTokenBar(){
+  const inp=document.getElementById('imgmgr-token-input');
+  const status=document.getElementById('imgmgr-token-status');
+  const clearBtn=document.getElementById('imgmgr-token-clear');
+  if(ghToken){
+    inp.value='';
+    inp.placeholder='Token saved for this session ●●●●●●●';
+    status.style.display='inline';
+    clearBtn.style.display='inline';
+  } else {
+    inp.placeholder='GitHub Token (for upload/delete)…';
+    status.style.display='none';
+    clearBtn.style.display='none';
+  }
+}
+function saveGhToken(){
+  const v=document.getElementById('imgmgr-token-input').value.trim();
+  if(!v){ toast('❌ Enter a token first'); return; }
+  ghToken=v;
+  sessionStorage.setItem('sr_gh_token',v);
+  initTokenBar();
+  toast('✅ Token saved for this session');
+  renderImgMgrBody();
+}
+function clearGhToken(){
+  ghToken='';
+  sessionStorage.removeItem('sr_gh_token');
+  document.getElementById('imgmgr-token-input').value='';
+  initTokenBar();
+  toast('🗑 Token cleared');
+  renderImgMgrBody();
+}
+
+/* ── Open / Close ── */
 function openImgViewer(ri, e){
-  if (e) e.stopPropagation();
+  if(e) e.stopPropagation();
+  const it=raw[ri];
+  if(!it){ toast('Product not found'); return; }
+  imgMgrItem=it;
+  imgMgrFiles=[];
+  const ov=document.getElementById('imgmgr-ov');
+  document.getElementById('imgmgr-title').textContent=it.name||'Product';
+  document.getElementById('imgmgr-alias').textContent=(it.alias||it.barcode||'')+'  ·  Images on GitHub';
+  initTokenBar();
+  ov.classList.add('show');
+  loadImgMgr();
+}
+function closeImgMgr(){
+  document.getElementById('imgmgr-ov').classList.remove('show');
+  imgMgrItem=null; imgMgrFiles=[];
+}
+function closeImgViewer(){ closeImgMgr(); } /* compat alias */
 
-  const it = raw[ri];
-  if (!it) {
-    alert('Product not found.');
-    return;
+/* ── GitHub API helpers ── */
+function ghHeaders(write){
+  const h={'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
+  if(write&&ghToken) h['Authorization']='Bearer '+ghToken;
+  else if(ghToken) h['Authorization']='Bearer '+ghToken;
+  return h;
+}
+function ghFolderPath(it){
+  const alias=(it.alias||it.barcode||it.name||'').trim().replace(/[^a-zA-Z0-9_\-]/g,'_');
+  return 'products/'+alias;
+}
+
+async function ghListImages(it){
+  const path=ghFolderPath(it);
+  const url=`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}?ref=${GH_BRANCH}`;
+  const r=await fetch(url,{headers:ghHeaders(false)});
+  if(r.status===404) return [];
+  if(!r.ok) throw new Error('GitHub API: '+r.status);
+  const data=await r.json();
+  return data.filter(f=>/\.(jpg|jpeg|png|webp|gif)$/i.test(f.name))
+             .sort((a,b)=>a.name.localeCompare(b.name,undefined,{numeric:true}))
+             .map(f=>({ name:f.name, sha:f.sha, url:f.url, downloadUrl:f.download_url }));
+}
+
+async function ghUploadImage(it, base64Data, filename){
+  if(!ghToken) throw new Error('No GitHub token set');
+  const path=ghFolderPath(it)+'/'+filename;
+  // Check if file exists (to get sha for update)
+  let sha=undefined;
+  try{
+    const chk=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`,{headers:ghHeaders(true)});
+    if(chk.ok){ const d=await chk.json(); sha=d.sha; }
+  }catch(_){}
+  const body={message:`Upload ${filename} for ${it.alias||it.name}`,content:base64Data,branch:GH_BRANCH};
+  if(sha) body.sha=sha;
+  const r=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`,{method:'PUT',headers:{...ghHeaders(true),'Content-Type':'application/json'},body:JSON.stringify(body)});
+  if(!r.ok){ const d=await r.json(); throw new Error(d.message||'Upload failed'); }
+  return r.json();
+}
+
+async function ghDeleteImage(it, file){
+  if(!ghToken) throw new Error('No GitHub token set');
+  const path=ghFolderPath(it)+'/'+file.name;
+  const body={message:`Delete ${file.name}`,sha:file.sha,branch:GH_BRANCH};
+  const r=await fetch(`https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${path}`,{method:'DELETE',headers:{...ghHeaders(true),'Content-Type':'application/json'},body:JSON.stringify(body)});
+  if(!r.ok){ const d=await r.json(); throw new Error(d.message||'Delete failed'); }
+}
+
+/* ── Image compression ── */
+async function compressImage(file){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=e=>{
+      const img=new Image();
+      img.onload=()=>{
+        let w=img.width, h=img.height;
+        if(w>IMG_MAX_DIM||h>IMG_MAX_DIM){
+          if(w>h){ h=Math.round(h*IMG_MAX_DIM/w); w=IMG_MAX_DIM; }
+          else { w=Math.round(w*IMG_MAX_DIM/h); h=IMG_MAX_DIM; }
+        }
+        const canvas=document.createElement('canvas');
+        canvas.width=w; canvas.height=h;
+        const ctx=canvas.getContext('2d');
+        ctx.drawImage(img,0,0,w,h);
+        canvas.toBlob(blob=>{
+          const reader2=new FileReader();
+          reader2.onload=e2=>resolve(e2.target.result.split(',')[1]);
+          reader2.readAsDataURL(blob);
+        },'image/jpeg',IMG_QUALITY);
+      };
+      img.onerror=reject;
+      img.src=e.target.result;
+    };
+    reader.onerror=reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function nextImgFilename(existingFiles){
+  const used=new Set(existingFiles.map(f=>parseInt(f.name)));
+  for(let i=1;i<=MAX_IMAGES;i++){ if(!used.has(i)) return i+'.jpg'; }
+  return null;
+}
+
+/* ── Load / Render ── */
+async function loadImgMgr(){
+  const body=document.getElementById('imgmgr-body');
+  body.innerHTML=`<div id="imgmgr-loading"><div class="imgmgr-spinner"></div><span>Loading images…</span></div>`;
+  try{
+    imgMgrFiles=await ghListImages(imgMgrItem);
+    renderImgMgrBody();
+  }catch(err){
+    body.innerHTML=`<div id="imgmgr-loading"><div style="font-size:30px">⚠️</div><span style="color:var(--red)">Failed to load: ${err.message}</span><button onclick="loadImgMgr()" style="margin-top:10px;padding:8px 16px;border-radius:8px;background:var(--surf);border:1px solid var(--bord);color:var(--txt);cursor:pointer;font-family:inherit">Retry</button></div>`;
   }
-
-  const alias = encodeURIComponent(
-    (it.alias || it.barcode || it.name || '').trim()
-  );
-
-  if (!alias) {
-    alert('No product alias found.');
-    return;
-  }
-
-  const url =
-    'https://srfashoinned.github.io/image-storage-psd/?alias=' + alias;
-
-  window.open(url, '_blank');
 }
 
-function closeImgViewer(){
-  document.getElementById('img-ov').classList.remove('show');
-  const el = document.getElementById('img-el');
-  el.src = '';
-  el.style.display = 'none';
-  imgItem = null; imgUrls = []; imgCurIdx = 0; imgTryIdx = 0;
-}
-
-function loadImgAt(idx){
-  if(idx >= imgUrls.length){
-    showImgPlaceholder('No image found for this product.\n\nTip: Add an image named "' + (imgItem.alias||'ALIAS') + '.jpg" to your images folder.');
-    return;
-  }
-  imgCurIdx = idx;
-  const el = document.getElementById('img-el');
-  const ph = document.getElementById('img-placeholder');
-  ph.style.display = 'none';
-  el.style.display = 'none';
-  el.src = imgUrls[idx];
-}
-
-function imgLoaded(){
-  const el = document.getElementById('img-el');
-  const ph = document.getElementById('img-placeholder');
-  el.style.display = 'block';
-  ph.style.display = 'none';
-  updateImgNav();
-  document.getElementById('img-info').textContent = IMAGE_SOURCE === 'local'
-    ? 'Image ' + (imgCurIdx+1) + ' of ' + imgUrls.length
-    : '';
-}
-
-function imgLoadError(){
-  /* try next candidate URL (jpg → png → jpeg → webp) */
-  imgTryIdx++;
-  if(imgTryIdx < imgUrls.length && !imgItem.images){
-    loadImgAt(imgTryIdx);
+function renderImgMgrBody(){
+  const body=document.getElementById('imgmgr-body');
+  const count=imgMgrFiles.length;
+  const atLimit=count>=MAX_IMAGES;
+  const hasToken=!!ghToken;
+  let html=`<div id="imgmgr-count-row"><span id="imgmgr-count-label">Photos uploaded</span><span id="imgmgr-count-num">${count} / ${MAX_IMAGES}</span></div>`;
+  // Grid
+  if(count===0){
+    html+=`<div id="imgmgr-no-images"><div class="ni-icon">📷</div><div class="ni-txt">No images yet for this product.<br>Upload or capture below.</div></div>`;
   } else {
-    showImgPlaceholder('No image found for this product.\n\nTip: Add an image named "' + (imgItem?.alias||'ALIAS') + '.jpg" to your images folder.');
+    html+=`<div id="imgmgr-grid">`;
+    imgMgrFiles.forEach((f,i)=>{
+      const delVisible=isAdmin?' visible':'';
+      html+=`<div class="imgmgr-thumb" onclick="openImgView(${i})">
+        <img src="${f.downloadUrl}" alt="Product image ${i+1}" loading="lazy">
+        <div class="imgmgr-thumb-num">${i+1}</div>
+        ${isAdmin?`<button class="imgmgr-del-btn${delVisible}" onclick="deleteImg(${i},event)" title="Delete image">✕</button>`:''}
+      </div>`;
+    });
+    html+=`</div>`;
   }
-}
-
-function showImgPlaceholder(msg){
-  const el = document.getElementById('img-el');
-  const ph = document.getElementById('img-placeholder');
-  el.style.display = 'none';
-  ph.style.display = 'flex';
-  document.getElementById('img-msg').textContent = msg;
-  document.getElementById('img-nav').style.display = 'none';
-}
-
-function updateImgNav(){
-  const nav = document.getElementById('img-nav');
-  const counter = document.getElementById('img-counter');
-  if(imgItem && imgItem.images && imgItem.images.length > 1){
-    nav.style.display = 'flex';
-    counter.textContent = (imgCurIdx+1) + ' / ' + imgItem.images.length;
+  // Actions
+  html+=`<div id="imgmgr-actions">`;
+  if(!hasToken){
+    html+=`<div class="imgmgr-action-btn imgmgr-btn-limit" style="flex:none;width:100%">🔐 Set GitHub token above to upload images</div>`;
+  } else if(atLimit){
+    html+=`<div class="imgmgr-action-btn imgmgr-btn-limit" style="flex:none;width:100%">📦 Limit reached — max ${MAX_IMAGES} images per product${isAdmin?' (delete some to free space)':''}</div>`;
   } else {
-    nav.style.display = 'none';
+    html+=`<button class="imgmgr-action-btn imgmgr-btn-upload" onclick="triggerUpload()">📁 Upload Photos</button>`;
+    html+=`<button class="imgmgr-action-btn imgmgr-btn-capture" onclick="triggerCapture()">📷 Take Photo</button>`;
+  }
+  html+=`</div>`;
+  html+=`<div id="imgmgr-upload-progress"><div class="imgmgr-prog-bar"><div class="imgmgr-prog-fill" id="imgmgr-prog-fill"></div></div><div class="imgmgr-prog-label" id="imgmgr-prog-label">Uploading…</div></div>`;
+  body.innerHTML=html;
+}
+
+/* ── Upload / Capture ── */
+function triggerUpload(){
+  const inp=document.getElementById('imgmgr-file-input');
+  inp.value=''; inp.removeAttribute('capture');
+  inp.click();
+}
+function triggerCapture(){
+  const inp=document.getElementById('imgmgr-cam-input');
+  inp.value=''; inp.setAttribute('capture','environment');
+  inp.click();
+}
+
+async function handleFilesSelected(files){
+  if(!files||!files.length) return;
+  if(!ghToken){ toast('❌ Set your GitHub token first'); return; }
+  const slots=MAX_IMAGES-imgMgrFiles.length;
+  if(slots<=0){ toast(`📦 Already at ${MAX_IMAGES} image limit`); return; }
+  const toUpload=Array.from(files).slice(0,slots);
+  const prog=document.getElementById('imgmgr-upload-progress');
+  const fill=document.getElementById('imgmgr-prog-fill');
+  const label=document.getElementById('imgmgr-prog-label');
+  if(prog){ prog.style.display='block'; }
+  let ok=0;
+  for(let i=0;i<toUpload.length;i++){
+    const file=toUpload[i];
+    const filename=nextImgFilename(imgMgrFiles);
+    if(!filename) break;
+    try{
+      if(label) label.textContent=`Compressing ${i+1}/${toUpload.length}…`;
+      const b64=await compressImage(file);
+      if(label) label.textContent=`Uploading ${i+1}/${toUpload.length}…`;
+      await ghUploadImage(imgMgrItem, b64, filename);
+      ok++;
+      if(fill) fill.style.width=Math.round((i+1)/toUpload.length*100)+'%';
+    }catch(err){
+      toast(`❌ Upload failed: ${err.message}`);
+      break;
+    }
+  }
+  if(prog) setTimeout(()=>{ prog.style.display='none'; if(fill) fill.style.width='0%'; },800);
+  if(ok>0){ toast(`✅ ${ok} image${ok>1?'s':''} uploaded!`); }
+  await loadImgMgr();
+}
+
+document.getElementById('imgmgr-file-input').addEventListener('change',function(){ handleFilesSelected(this.files); });
+document.getElementById('imgmgr-cam-input').addEventListener('change',function(){ handleFilesSelected(this.files); });
+
+/* ── Delete ── */
+async function deleteImg(idx, e){
+  e && e.stopPropagation();
+  if(!isAdmin){ toast('🔒 Admin only'); return; }
+  if(!ghToken){ toast('❌ Set GitHub token first'); return; }
+  const file=imgMgrFiles[idx];
+  if(!file) return;
+  if(!confirm(`Delete image ${idx+1}?`)) return;
+  const thumb=document.getElementById('imgmgr-body').querySelectorAll('.imgmgr-thumb')[idx];
+  if(thumb) thumb.classList.add('deleting');
+  try{
+    await ghDeleteImage(imgMgrItem, file);
+    toast('🗑 Image deleted');
+    await loadImgMgr();
+  }catch(err){
+    toast('❌ Delete failed: '+err.message);
+    if(thumb) thumb.classList.remove('deleting');
   }
 }
 
-function imgPrev(){
-  if(!imgItem || !imgItem.images) return;
-  const newIdx = (imgCurIdx - 1 + imgItem.images.length) % imgItem.images.length;
-  imgTryIdx = newIdx;
-  loadImgAt(newIdx);
+/* ── Full-screen image view ── */
+function openImgView(idx){
+  imgViewIdx=idx;
+  document.getElementById('imgmgr-view-ov').classList.add('show');
+  renderImgView();
 }
-function imgNext(){
-  if(!imgItem || !imgItem.images) return;
-  const newIdx = (imgCurIdx + 1) % imgItem.images.length;
-  imgTryIdx = newIdx;
-  loadImgAt(newIdx);
+function closeImgView(){
+  document.getElementById('imgmgr-view-ov').classList.remove('show');
+}
+function renderImgView(){
+  const f=imgMgrFiles[imgViewIdx];
+  if(!f) return;
+  document.getElementById('imgmgr-view-img').src=f.downloadUrl+'?t='+Date.now();
+  document.getElementById('imgmgr-view-counter').textContent=(imgViewIdx+1)+' / '+imgMgrFiles.length;
+}
+function imgViewPrev(){
+  imgViewIdx=(imgViewIdx-1+imgMgrFiles.length)%imgMgrFiles.length;
+  renderImgView();
+}
+function imgViewNext(){
+  imgViewIdx=(imgViewIdx+1)%imgMgrFiles.length;
+  renderImgView();
 }
 
-document.getElementById('img-ov').addEventListener('click', function(e){
-  if(e.target === this) closeImgViewer();
-});
+/* close modals on backdrop click */
+document.getElementById('imgmgr-ov').addEventListener('click',function(e){ if(e.target===this) closeImgMgr(); });
+document.getElementById('imgmgr-view-ov').addEventListener('click',function(e){ if(e.target===this) closeImgView(); });
 
 /* ═══════════════════════════════════════════
    EXPORT IMAGE
 ═══════════════════════════════════════════ */
-function openExp(ri, priceType, e){
-  e && e.stopPropagation();
-  expItem  = raw[ri];
-  expPrice = priceType;
-  const hint = document.getElementById('exp-price-hint');
-  hint.textContent = priceType === 'sale' ? '💚 Sharing Sale Price' : '💙 Sharing Wholesale Price';
-  hint.style.color = priceType === 'sale' ? '#22c55e' : '#60a5fa';
+function openExp(ri,priceType,e){
+  e&&e.stopPropagation(); expItem=raw[ri]; expPrice=priceType;
+  const hint=document.getElementById('exp-price-hint');
+  hint.textContent=priceType==='sale'?'💚 Sharing Sale Price':'💙 Sharing Wholesale Price';
+  hint.style.color=priceType==='sale'?'#22c55e':'#60a5fa';
   document.getElementById('exp-ov').classList.add('show');
   drawExpCard(document.getElementById('exp-canvas'));
 }
-function closeExp(){
-  document.getElementById('exp-ov').classList.remove('show');
-  expItem = null;
-}
+function closeExp(){ document.getElementById('exp-ov').classList.remove('show'); expItem=null; }
 
-function roundRect(ctx, x, y, w, h, r){
-  ctx.beginPath();
-  ctx.moveTo(x+r, y);
-  ctx.lineTo(x+w-r, y);
-  ctx.quadraticCurveTo(x+w, y, x+w, y+r);
-  ctx.lineTo(x+w, y+h-r);
-  ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h);
-  ctx.lineTo(x+r, y+h);
-  ctx.quadraticCurveTo(x, y+h, x, y+h-r);
-  ctx.lineTo(x, y+r);
-  ctx.quadraticCurveTo(x, y, x+r, y);
-  ctx.closePath();
-}
-function discountEmoji(pct){
-  if(pct >= 40) return '🤩';
-  if(pct >= 30) return '🔥';
-  if(pct >= 20) return '😍';
-  if(pct >= 10) return '😊';
-  return '🎉';
-}
+function roundRect(ctx,x,y,w,h,r){ ctx.beginPath(); ctx.moveTo(x+r,y); ctx.lineTo(x+w-r,y); ctx.quadraticCurveTo(x+w,y,x+w,y+r); ctx.lineTo(x+w,y+h-r); ctx.quadraticCurveTo(x+w,y+h,x+w-r,y+h); ctx.lineTo(x+r,y+h); ctx.quadraticCurveTo(x,y+h,x,y+h-r); ctx.lineTo(x,y+r); ctx.quadraticCurveTo(x,y,x+r,y); ctx.closePath(); }
+function discountEmoji(pct){ if(pct>=40) return '🤩'; if(pct>=30) return '🔥'; if(pct>=20) return '😍'; if(pct>=10) return '😊'; return '🎉'; }
 
 function drawExpCard(canvas){
   if(!expItem) return;
-  const it  = expItem;
-  const W   = 540;
-  const PAD = 32;
-  const INNER = W - PAD * 2;
-  const FONT  = '-apple-system, BlinkMacSystemFont, Arial, sans-serif';
-  const fmtNum = v => {
-    if(v==null||v==='') return '–';
-    const n = parseFloat(String(v).replace(/[^0-9.]/g,''));
-    return isNaN(n) ? String(v) : '₹' + n.toLocaleString('en-IN');
-  };
-  canvas.width  = W;
-  canvas.height = 900;
-  const ctx = canvas.getContext('2d');
-  ctx.fillStyle = '#0d0d10';
-  ctx.fillRect(0, 0, W, canvas.height);
-  ctx.fillStyle = '#f5c542';
-  ctx.fillRect(0, 0, 6, canvas.height);
-  let y = 32;
-  ctx.textBaseline = 'top';
-  if(it.alias){
-    ctx.font = `bold 28px ${FONT}`;
-    ctx.fillStyle = '#f5c542';
-    ctx.fillText(it.alias, PAD, y);
-    y += 38;
-  }
-  if(it.group){
-    ctx.font = `500 14px ${FONT}`;
-    ctx.fillStyle = '#71717a';
-    ctx.fillText(it.group, PAD, y);
-    y += 24;
-  }
-  y += 10;
-  ctx.strokeStyle = 'rgba(255,255,255,0.07)';
-  ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
-  y += 20;
-  const mrpVal  = pn(it.mrp);
-  const priceVal = pn(it[expPrice]);
-  const discount = mrpVal > 0 && priceVal > 0 ? mrpVal - priceVal : 0;
-  const discPct  = mrpVal > 0 && discount > 0 ? (discount / mrpVal * 100) : 0;
-  ctx.font = `bold 11px ${FONT}`;
-  ctx.fillStyle = '#52525b';
-  ctx.fillText('MRP', PAD, y);
-  y += 18;
-  const mrpStr = fmtNum(it.mrp);
-  ctx.font = `500 20px ${FONT}`;
-  ctx.fillStyle = '#52525b';
-  ctx.fillText(mrpStr, PAD, y);
-  if(discount > 0){
-    const sw = ctx.measureText(mrpStr).width;
-    ctx.beginPath();
-    ctx.strokeStyle = '#52525b';
-    ctx.lineWidth = 1.5;
-    ctx.moveTo(PAD, y + 10);
-    ctx.lineTo(PAD + sw, y + 10);
-    ctx.stroke();
-  }
-  y += 32;
-  const priceLabel = expPrice === 'sale' ? 'SALE PRICE' : 'WHOLESALE PRICE';
-  const priceStr   = fmtNum(it[expPrice]);
-  const priceColor = expPrice === 'sale' ? '#22c55e' : '#60a5fa';
-  const priceBg    = expPrice === 'sale' ? 'rgba(34,197,94,0.10)' : 'rgba(96,165,250,0.10)';
-  const priceBord  = expPrice === 'sale' ? 'rgba(34,197,94,0.45)' : 'rgba(96,165,250,0.45)';
-  let priceFontSize = 56;
-  ctx.font = `bold ${priceFontSize}px ${FONT}`;
-  while(priceFontSize > 22 && ctx.measureText(priceStr).width > INNER - 48){
-    priceFontSize -= 2;
-    ctx.font = `bold ${priceFontSize}px ${FONT}`;
-  }
-  const boxH = 22 + priceFontSize + 22;
-  roundRect(ctx, PAD, y, INNER, boxH, 16);
-  ctx.fillStyle = priceBg; ctx.fill();
-  ctx.strokeStyle = priceBord; ctx.lineWidth = 1.5;
-  roundRect(ctx, PAD, y, INNER, boxH, 16); ctx.stroke();
-  ctx.font = `bold 11px ${FONT}`;
-  ctx.fillStyle = priceColor;
-  ctx.textBaseline = 'top';
-  ctx.fillText(priceLabel, PAD + 20, y + 14);
-  ctx.font = `bold ${priceFontSize}px ${FONT}`;
-  ctx.fillStyle = priceColor;
-  ctx.fillText(priceStr, PAD + 20, y + 22);
-  y += boxH + 18;
-  if(discount > 0){
-    const emoji = discountEmoji(discPct);
-    const discStr = `You save  ${fmtNum(discount)}  (${discPct.toFixed(2)}%)  ${emoji}`;
-    ctx.font = `bold 15px ${FONT}`;
-    const dW = ctx.measureText(discStr).width;
-    const dPillW = Math.min(dW + 32, INNER);
-    const dPillH = 32;
-    roundRect(ctx, PAD, y, dPillW, dPillH, 8);
-    ctx.fillStyle = 'rgba(34,197,94,0.08)'; ctx.fill();
-    ctx.strokeStyle = 'rgba(34,197,94,0.25)'; ctx.lineWidth = 1;
-    roundRect(ctx, PAD, y, dPillW, dPillH, 8); ctx.stroke();
-    ctx.fillStyle = '#22c55e';
-    ctx.fillText(discStr, PAD + 16, y + 8);
-    y += dPillH + 18;
-  }
-  y += 8;
-  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
-  ctx.lineWidth = 1;
-  ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
-  y += 20;
-  ctx.font = `bold 22px ${FONT}`;
-  ctx.fillStyle = '#f5c542';
-  ctx.textBaseline = 'top';
-  ctx.fillText(SHOP_NAME, PAD, y);
-  y += 30;
-  ctx.font = `14px ${FONT}`;
-  ctx.fillStyle = '#71717a';
-  ctx.fillText(SHOP_ADDRESS, PAD, y);
-  y += 22;
-  ctx.font = `14px ${FONT}`;
-  ctx.fillStyle = '#52525b';
-  ctx.fillText('\u{1F4DE} ' + SHOP_PHONE, PAD, y);
-  y += 24;
-  const finalH = y + 20;
-  const imgData = ctx.getImageData(0, 0, W, Math.min(finalH, canvas.height));
-  canvas.height = finalH;
-  canvas.width  = W;
-  ctx.fillStyle = '#0d0d10';
-  ctx.fillRect(0, 0, W, finalH);
-  ctx.fillStyle = '#f5c542';
-  ctx.fillRect(0, 0, 6, finalH);
-  ctx.putImageData(imgData, 0, 0);
+  const it=expItem,W=540,PAD=32,INNER=W-PAD*2;
+  const FONT='-apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  const fmtNum=v=>{ if(v==null||v==='') return '–'; const n=parseFloat(String(v).replace(/[^0-9.]/g,'')); return isNaN(n)?String(v):'₹'+n.toLocaleString('en-IN'); };
+  canvas.width=W; canvas.height=900;
+  const ctx=canvas.getContext('2d');
+  ctx.fillStyle='#0d0d10'; ctx.fillRect(0,0,W,canvas.height);
+  ctx.fillStyle='#f5c542'; ctx.fillRect(0,0,6,canvas.height);
+  let y=32; ctx.textBaseline='top';
+  if(it.alias){ ctx.font=`bold 28px ${FONT}`; ctx.fillStyle='#f5c542'; ctx.fillText(it.alias,PAD,y); y+=38; }
+  if(it.group){ ctx.font=`500 14px ${FONT}`; ctx.fillStyle='#71717a'; ctx.fillText(it.group,PAD,y); y+=24; }
+  y+=10; ctx.strokeStyle='rgba(255,255,255,0.07)'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(PAD,y); ctx.lineTo(W-PAD,y); ctx.stroke(); y+=20;
+  const mrpVal=pn(it.mrp),priceVal=pn(it[expPrice]);
+  const discount=mrpVal>0&&priceVal>0?mrpVal-priceVal:0;
+  const discPct=mrpVal>0&&discount>0?(discount/mrpVal*100):0;
+  ctx.font=`bold 11px ${FONT}`; ctx.fillStyle='#52525b'; ctx.fillText('MRP',PAD,y); y+=18;
+  const mrpStr=fmtNum(it.mrp); ctx.font=`500 20px ${FONT}`; ctx.fillStyle='#52525b'; ctx.fillText(mrpStr,PAD,y);
+  if(discount>0){ const sw=ctx.measureText(mrpStr).width; ctx.beginPath(); ctx.strokeStyle='#52525b'; ctx.lineWidth=1.5; ctx.moveTo(PAD,y+10); ctx.lineTo(PAD+sw,y+10); ctx.stroke(); } y+=32;
+  const priceLabel=expPrice==='sale'?'SALE PRICE':'WHOLESALE PRICE',priceStr=fmtNum(it[expPrice]),priceColor=expPrice==='sale'?'#22c55e':'#60a5fa',priceBg=expPrice==='sale'?'rgba(34,197,94,0.10)':'rgba(96,165,250,0.10)',priceBord=expPrice==='sale'?'rgba(34,197,94,0.45)':'rgba(96,165,250,0.45)';
+  let priceFontSize=56; ctx.font=`bold ${priceFontSize}px ${FONT}`;
+  while(priceFontSize>22&&ctx.measureText(priceStr).width>INNER-48){ priceFontSize-=2; ctx.font=`bold ${priceFontSize}px ${FONT}`; }
+  const boxH=22+priceFontSize+22;
+  roundRect(ctx,PAD,y,INNER,boxH,16); ctx.fillStyle=priceBg; ctx.fill(); ctx.strokeStyle=priceBord; ctx.lineWidth=1.5; roundRect(ctx,PAD,y,INNER,boxH,16); ctx.stroke();
+  ctx.font=`bold 11px ${FONT}`; ctx.fillStyle=priceColor; ctx.textBaseline='top'; ctx.fillText(priceLabel,PAD+20,y+14);
+  ctx.font=`bold ${priceFontSize}px ${FONT}`; ctx.fillStyle=priceColor; ctx.fillText(priceStr,PAD+20,y+22); y+=boxH+18;
+  if(discount>0){ const emoji=discountEmoji(discPct),discStr=`You save  ${fmtNum(discount)}  (${discPct.toFixed(2)}%)  ${emoji}`; ctx.font=`bold 15px ${FONT}`; const dW=ctx.measureText(discStr).width,dPillW=Math.min(dW+32,INNER),dPillH=32; roundRect(ctx,PAD,y,dPillW,dPillH,8); ctx.fillStyle='rgba(34,197,94,0.08)'; ctx.fill(); ctx.strokeStyle='rgba(34,197,94,0.25)'; ctx.lineWidth=1; roundRect(ctx,PAD,y,dPillW,dPillH,8); ctx.stroke(); ctx.fillStyle='#22c55e'; ctx.fillText(discStr,PAD+16,y+8); y+=dPillH+18; }
+  y+=8; ctx.strokeStyle='rgba(255,255,255,0.06)'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(PAD,y); ctx.lineTo(W-PAD,y); ctx.stroke(); y+=20;
+  ctx.font=`bold 22px ${FONT}`; ctx.fillStyle='#f5c542'; ctx.textBaseline='top'; ctx.fillText(SHOP_NAME,PAD,y); y+=30;
+  ctx.font=`14px ${FONT}`; ctx.fillStyle='#71717a'; ctx.fillText(SHOP_ADDRESS,PAD,y); y+=22;
+  ctx.font=`14px ${FONT}`; ctx.fillStyle='#52525b'; ctx.fillText('\u{1F4DE} '+SHOP_PHONE,PAD,y); y+=24;
+  const finalH=y+20,imgData=ctx.getImageData(0,0,W,Math.min(finalH,canvas.height));
+  canvas.height=finalH; canvas.width=W;
+  ctx.fillStyle='#0d0d10'; ctx.fillRect(0,0,W,finalH); ctx.fillStyle='#f5c542'; ctx.fillRect(0,0,6,finalH);
+  ctx.putImageData(imgData,0,0);
 }
 
-async function getExpBlob(){
-  const offscreen = document.getElementById('gen-canvas');
-  drawExpCard(offscreen);
-  await new Promise(r => setTimeout(r, 80));
-  return new Promise(res => offscreen.toBlob(res, 'image/png', 0.95));
-}
+async function getExpBlob(){ const offscreen=document.getElementById('gen-canvas'); drawExpCard(offscreen); await new Promise(r=>setTimeout(r,80)); return new Promise(res=>offscreen.toBlob(res,'image/png',0.95)); }
 
 async function doExpWA(){
   if(!expItem) return;
-  const it = expItem;
-  const priceLabel = expPrice === 'sale' ? 'Sale' : 'Wholesale';
-  const priceVal   = fmt(it[expPrice]);
-  const mrpVal = pn(it.mrp), saleVal = pn(it[expPrice]);
-  const disc = mrpVal > saleVal ? mrpVal - saleVal : 0;
-  const discPct = mrpVal > 0 && disc > 0 ? (disc/mrpVal*100).toFixed(2) : 0;
-  const emoji = disc > 0 ? discountEmoji(parseFloat(discPct)) : '';
-  const discLine = disc > 0 ? `\nDiscount: ₹${disc.toLocaleString('en-IN')}  (${discPct}%)  ${emoji}` : '';
-  const text = `*${SHOP_NAME}*\n${SHOP_ADDRESS}\n📞 ${SHOP_PHONE}\n\n*${it.name || ''}*\nCode: ${it.alias || '–'}${it.group ? '\nGroup: ' + it.group : ''}\n\nMRP: ${fmt(it.mrp)}\n💰 *${priceLabel}: ${priceVal}*${discLine}`;
-  if(navigator.share && navigator.canShare){
-    try{
-      const blob = await getExpBlob();
-      const file = new File([blob], (it.alias||'product')+'.png', {type:'image/png'});
-      if(navigator.canShare({files:[file]})){
-        await navigator.share({ files:[file], title: it.name, text });
-        closeExp(); return;
-      }
-    }catch(err){
-      if(err.name==='AbortError'){ closeExp(); return; }
-    }
+  const it=expItem,priceLabel=expPrice==='sale'?'Sale':'Wholesale',priceVal=fmt(it[expPrice]);
+  const mrpVal=pn(it.mrp),saleVal=pn(it[expPrice]),disc=mrpVal>saleVal?mrpVal-saleVal:0;
+  const discPct=mrpVal>0&&disc>0?(disc/mrpVal*100).toFixed(2):0;
+  const emoji=disc>0?discountEmoji(parseFloat(discPct)):'';
+  const discLine=disc>0?`\nDiscount: ₹${disc.toLocaleString('en-IN')}  (${discPct}%)  ${emoji}`:'';
+  const text=`*${SHOP_NAME}*\n${SHOP_ADDRESS}\n📞 ${SHOP_PHONE}\n\n*${it.name||''}*\nCode: ${it.alias||'–'}${it.group?'\nGroup: '+it.group:''}\n\nMRP: ${fmt(it.mrp)}\n💰 *${priceLabel}: ${priceVal}*${discLine}`;
+  if(navigator.share&&navigator.canShare){
+    try{ const blob=await getExpBlob(); const file=new File([blob],(it.alias||'product')+'.png',{type:'image/png'}); if(navigator.canShare({files:[file]})){await navigator.share({files:[file],title:it.name,text}); closeExp(); return;} }catch(err){ if(err.name==='AbortError'){closeExp(); return;} }
   }
-  const waUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
-  window.open(waUrl, '_blank');
-  toast("📲 Opened WhatsApp");
-  closeExp();
+  const waUrl='https://wa.me/?text='+encodeURIComponent(text);
+  window.open(waUrl,'_blank'); toast("📲 Opened WhatsApp"); closeExp();
 }
 
 async function doExpSave(){
   try{
-    const blob = await getExpBlob();
-    if(navigator.clipboard && window.ClipboardItem){
-      await navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
-      toast("📋 Image copied to clipboard!");
-    } else {
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = (expItem?.alias || 'product') + '_' + expPrice + '.png';
-      a.click();
-      URL.revokeObjectURL(url);
-      toast("💾 Image saved!");
-    }
-  }catch(e){
-    toast("❌ Save failed: " + e.message);
-  }
+    const blob=await getExpBlob();
+    if(navigator.clipboard&&window.ClipboardItem){ await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]); toast("📋 Image copied to clipboard!"); }
+    else{ const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download=(expItem?.alias||'product')+'_'+expPrice+'.png'; a.click(); URL.revokeObjectURL(url); toast("💾 Image saved!"); }
+  }catch(e){ toast("❌ Save failed: "+e.message); }
 }
 
 /* ═══ SCANNER ═══ */
-let scanStream=null, scanLoop=null, codeReader=null, zxingReady=false;
-
+let scanStream=null,scanLoop=null,codeReader=null,zxingReady=false;
 async function openScanner(){
-  document.getElementById("scan-ov").classList.add("show");
-  document.getElementById("scan-btn").classList.add("on");
-  document.getElementById("scan-code").textContent='';
+  document.getElementById("scan-ov").classList.add("show"); document.getElementById("scan-btn").classList.add("on"); document.getElementById("scan-code").textContent='';
   try{
-    const stream = await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment",width:{ideal:1280},height:{ideal:720}}});
-    scanStream=stream;
-    const vid=document.getElementById("scan-vid");
-    vid.srcObject=stream; await vid.play();
+    const stream=await navigator.mediaDevices.getUserMedia({video:{facingMode:"environment",width:{ideal:1280},height:{ideal:720}}});
+    scanStream=stream; const vid=document.getElementById("scan-vid"); vid.srcObject=stream; await vid.play();
     if('BarcodeDetector' in window){
       const bd=new BarcodeDetector({formats:['qr_code','code_128','code_39','ean_13','ean_8','upc_a','upc_e','itf','data_matrix','pdf417']});
-      const canvas=document.createElement('canvas');
-      const ctx=canvas.getContext('2d');
-      scanLoop=setInterval(async()=>{
-        if(!vid.readyState||vid.readyState<2) return;
-        canvas.width=vid.videoWidth; canvas.height=vid.videoHeight;
-        ctx.drawImage(vid,0,0);
-        try{ const c=await bd.detect(canvas); if(c.length) onScanResult(c[0].rawValue); }catch(_){}
-      },300);
+      const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d');
+      scanLoop=setInterval(async()=>{ if(!vid.readyState||vid.readyState<2) return; canvas.width=vid.videoWidth; canvas.height=vid.videoHeight; ctx.drawImage(vid,0,0); try{const c=await bd.detect(canvas); if(c.length) onScanResult(c[0].rawValue);}catch(_){} },300);
     } else {
-      if(!zxingReady){
-        document.getElementById("scan-code").textContent='Loading scanner…';
-        await new Promise((res,rej)=>{ const s=document.createElement('script'); s.src='https://unpkg.com/@zxing/library@0.19.1/umd/index.min.js'; s.onload=res; s.onerror=rej; document.head.appendChild(s); });
-        zxingReady=true;
-        document.getElementById("scan-code").textContent='';
-      }
+      if(!zxingReady){ document.getElementById("scan-code").textContent='Loading scanner…'; await new Promise((res,rej)=>{ const s=document.createElement('script'); s.src='https://unpkg.com/@zxing/library@0.19.1/umd/index.min.js'; s.onload=res; s.onerror=rej; document.head.appendChild(s); }); zxingReady=true; document.getElementById("scan-code").textContent=''; }
       stream.getTracks().forEach(t=>t.stop()); scanStream=null;
       codeReader=new ZXing.BrowserMultiFormatReader();
       const devices=await codeReader.listVideoInputDevices();
@@ -1342,186 +1262,47 @@ async function openScanner(){
     }
   }catch(e){ toast("Camera: "+e.message); closeScanner(); }
 }
-
-function onScanResult(code){
-  document.getElementById("scan-code").textContent='✓ '+code;
-  setTimeout(()=>{
-    closeScanner();
-    document.getElementById("search").value=code;
-    query=code; applyAll(); toast("📷 "+code);
-  },400);
-}
-function closeScanner(){
-  document.getElementById("scan-ov").classList.remove("show");
-  document.getElementById("scan-btn").classList.remove("on");
-  if(scanLoop){ clearInterval(scanLoop); scanLoop=null; }
-  if(scanStream){ scanStream.getTracks().forEach(t=>t.stop()); scanStream=null; }
-  if(codeReader){ try{codeReader.reset();}catch(_){} codeReader=null; }
-  const v=document.getElementById("scan-vid");
-  if(v.srcObject){ v.srcObject.getTracks().forEach(t=>t.stop()); v.srcObject=null; }
-}
+function onScanResult(code){ document.getElementById("scan-code").textContent='✓ '+code; setTimeout(()=>{ closeScanner(); document.getElementById("search").value=code; query=code; applyAll(); toast("📷 "+code); },400); }
+function closeScanner(){ document.getElementById("scan-ov").classList.remove("show"); document.getElementById("scan-btn").classList.remove("on"); if(scanLoop){clearInterval(scanLoop);scanLoop=null;} if(scanStream){scanStream.getTracks().forEach(t=>t.stop());scanStream=null;} if(codeReader){try{codeReader.reset();}catch(_){} codeReader=null;} const v=document.getElementById("scan-vid"); if(v.srcObject){v.srcObject.getTracks().forEach(t=>t.stop());v.srcObject=null;} }
 
 /* ═══ COPY / SHARE ═══ */
-function copyItem(ri,e){
-  e&&e.stopPropagation();
-  const it=raw[ri];
-  const t=[`📦 ${it.name} (${it.alias})`,`MRP: ${fmt(it.mrp)}`,`Sale: ${fmt(it.sale)}`,`Wholesale: ${fmt(it.wholesale)}`,`Stock: ${it.stock??'–'}`,isAdmin&&it.purchase?`Purchase: ${fmt(it.purchase)}`:''  ].filter(Boolean).join('\n');
-  navigator.clipboard.writeText(t).then(()=>toast("📋 Copied"));
-}
-function shareItem(ri,e){
-  e&&e.stopPropagation();
-  const it=raw[ri];
-  const t=`${it.name} (${it.alias})\nMRP: ${fmt(it.mrp)} | Sale: ${fmt(it.sale)} | Wholesale: ${fmt(it.wholesale)}`;
-  if(navigator.share) navigator.share({title:it.name,text:t}).catch(()=>{});
-  else navigator.clipboard.writeText(t).then(()=>toast("📤 Copied"));
-}
+function copyItem(ri,e){ e&&e.stopPropagation(); const it=raw[ri]; const t=[`📦 ${it.name} (${it.alias})`,`MRP: ${fmt(it.mrp)}`,`Sale: ${fmt(it.sale)}`,`Wholesale: ${fmt(it.wholesale)}`,`Stock: ${it.stock??'–'}`,isAdmin&&it.purchase?`Purchase: ${fmt(it.purchase)}`:''  ].filter(Boolean).join('\n'); navigator.clipboard.writeText(t).then(()=>toast("📋 Copied")); }
+function shareItem(ri,e){ e&&e.stopPropagation(); const it=raw[ri]; const t=`${it.name} (${it.alias})\nMRP: ${fmt(it.mrp)} | Sale: ${fmt(it.sale)} | Wholesale: ${fmt(it.wholesale)}`; if(navigator.share) navigator.share({title:it.name,text:t}).catch(()=>{}); else navigator.clipboard.writeText(t).then(()=>toast("📤 Copied")); }
 
-/* ═══════════════════════════════════════════
-   ADMIN — BIOMETRIC + PIN
-═══════════════════════════════════════════ */
+/* ═══ ADMIN ═══ */
+const BIO_KEY='sr_adm_bio_cred';
+async function initBiometric(){ if(!window.PublicKeyCredential) return; try{ const available=await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable(); if(available){ document.getElementById('adm-bio-btn').classList.remove('hidden'); document.getElementById('adm-divider').classList.remove('hidden'); } }catch(_){} }
+function openAdm(){ if(isAdmin){logout();return;} document.getElementById("adm-ov").classList.add("show"); setTimeout(()=>document.getElementById("adm-pw").focus(),150); }
+function closeAdm(){ document.getElementById("adm-ov").classList.remove("show"); resetPw(); }
+function resetPw(){ const p=document.getElementById("adm-pw"); p.value=''; p.className=''; document.getElementById("adm-msg").textContent=''; document.getElementById("adm-msg").className=''; [0,1,2,3].forEach(i=>dot(i,'')); }
+function onPwInput(el){ const v=el.value; [0,1,2,3].forEach(i=>dot(i,i<v.length?'f':'')); if(v.length===4) setTimeout(doLogin,100); }
+function dot(i,c){ const d=document.getElementById("d"+i); d.className='dot'; if(c) d.classList.add(c); }
+function doLogin(){ const pw=document.getElementById("adm-pw"); if(pw.value===PASS){ [0,1,2,3].forEach(i=>dot(i,'g')); pw.classList.add('ok'); const m=document.getElementById("adm-msg"); m.textContent='✓ Granted'; m.className='g'; isAdmin=true; setTimeout(()=>{ closeAdm(); document.getElementById("admin-btn").textContent='🔓 Logout'; document.getElementById("admin-btn").classList.add("on"); vsRender(true); toast("🔓 Admin on"); },550); } else { pw.classList.add('err'); [0,1,2,3].forEach(i=>dot(i,'e')); const m=document.getElementById("adm-msg"); m.textContent='✗ Wrong PIN'; m.className='e'; setTimeout(()=>{pw.value=''; pw.className=''; m.textContent=''; [0,1,2,3].forEach(i=>dot(i,''));},900); } }
+function logout(){ isAdmin=false; document.getElementById("admin-btn").textContent='⚡ Admin'; document.getElementById("admin-btn").classList.remove("on"); vsRender(true); toast("🔒 Logged out"); }
 
-/* WebAuthn credential key stored in localStorage */
-const BIO_KEY = 'sr_adm_bio_cred';
-
-async function initBiometric(){
-  /* Check if platform authenticator (fingerprint/FaceID) is available */
-  if(!window.PublicKeyCredential) return;
-  try{
-    const available = await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable();
-    if(available){
-      document.getElementById('adm-bio-btn').classList.remove('hidden');
-      document.getElementById('adm-divider').classList.remove('hidden');
-    }
-  }catch(_){}
-}
-
-function openAdm(){
-  if(isAdmin){ logout(); return; }
-  document.getElementById("adm-ov").classList.add("show");
-  setTimeout(()=>document.getElementById("adm-pw").focus(), 150);
-}
-function closeAdm(){
-  document.getElementById("adm-ov").classList.remove("show");
-  resetPw();
-}
-function resetPw(){
-  const p=document.getElementById("adm-pw");
-  p.value=''; p.className='';
-  document.getElementById("adm-msg").textContent='';
-  document.getElementById("adm-msg").className='';
-  [0,1,2,3].forEach(i=>dot(i,''));
-}
-function onPwInput(el){
-  const v=el.value;
-  [0,1,2,3].forEach(i=>dot(i,i<v.length?'f':''));
-  if(v.length===4) setTimeout(doLogin,100);
-}
-function dot(i,c){
-  const d=document.getElementById("d"+i);
-  d.className='dot';
-  if(c) d.classList.add(c);
-}
-function doLogin(){
-  const pw=document.getElementById("adm-pw");
-  if(pw.value===PASS){
-    [0,1,2,3].forEach(i=>dot(i,'g')); pw.classList.add('ok');
-    const m=document.getElementById("adm-msg"); m.textContent='✓ Granted'; m.className='g';
-    isAdmin=true;
-    setTimeout(()=>{ closeAdm(); document.getElementById("admin-btn").textContent='🔓 Logout'; document.getElementById("admin-btn").classList.add("on"); vsRender(true); toast("🔓 Admin on"); },550);
-  }else{
-    pw.classList.add('err'); [0,1,2,3].forEach(i=>dot(i,'e'));
-    const m=document.getElementById("adm-msg"); m.textContent='✗ Wrong PIN'; m.className='e';
-    setTimeout(()=>{ pw.value=''; pw.className=''; m.textContent=''; [0,1,2,3].forEach(i=>dot(i,'')); },900);
-  }
-}
-function logout(){
-  isAdmin=false;
-  document.getElementById("admin-btn").textContent='⚡ Admin';
-  document.getElementById("admin-btn").classList.remove("on");
-  vsRender(true);
-  toast("🔒 Logged out");
-}
-
-/* ── BIOMETRIC via WebAuthn ── */
 async function doBiometric(){
-  const msg = document.getElementById('adm-msg');
-  msg.textContent = ''; msg.className = '';
-
+  const msg=document.getElementById('adm-msg'); msg.textContent=''; msg.className='';
   try{
-    const savedCred = localStorage.getItem(BIO_KEY);
-
+    const savedCred=localStorage.getItem(BIO_KEY);
     if(!savedCred){
-      /* First time: REGISTER a credential bound to this device */
-      msg.textContent = 'Setting up biometric…'; msg.className = '';
-      const challenge = crypto.getRandomValues(new Uint8Array(32));
-      const userId    = crypto.getRandomValues(new Uint8Array(16));
-
-      const credential = await navigator.credentials.create({
-        publicKey:{
-          challenge,
-          rp:{ name: SHOP_NAME, id: location.hostname || 'localhost' },
-          user:{ id: userId, name:'admin', displayName:'Admin' },
-          pubKeyCredParams:[
-            { type:'public-key', alg:-7  },
-            { type:'public-key', alg:-257}
-          ],
-          authenticatorSelection:{
-            authenticatorAttachment:'platform',
-            userVerification:'required'
-          },
-          timeout:60000
-        }
-      });
-
-      /* Save credential ID so we can assert later */
-      const credId = btoa(String.fromCharCode(...new Uint8Array(credential.rawId)));
-      localStorage.setItem(BIO_KEY, credId);
-      grantAdmin('👆 Biometric registered & unlocked');
-      return;
+      msg.textContent='Setting up biometric…'; msg.className='';
+      const challenge=crypto.getRandomValues(new Uint8Array(32)),userId=crypto.getRandomValues(new Uint8Array(16));
+      const credential=await navigator.credentials.create({publicKey:{challenge,rp:{name:SHOP_NAME,id:location.hostname||'localhost'},user:{id:userId,name:'admin',displayName:'Admin'},pubKeyCredParams:[{type:'public-key',alg:-7},{type:'public-key',alg:-257}],authenticatorSelection:{authenticatorAttachment:'platform',userVerification:'required'},timeout:60000}});
+      const credId=btoa(String.fromCharCode(...new Uint8Array(credential.rawId))); localStorage.setItem(BIO_KEY,credId); grantAdmin('👆 Biometric registered & unlocked'); return;
     }
-
-    /* Subsequent times: ASSERT (verify fingerprint) */
-    msg.textContent = 'Waiting for fingerprint…'; msg.className = '';
-    const challenge  = crypto.getRandomValues(new Uint8Array(32));
-    const rawId      = Uint8Array.from(atob(savedCred), c=>c.charCodeAt(0));
-
-    await navigator.credentials.get({
-      publicKey:{
-        challenge,
-        allowCredentials:[{ type:'public-key', id: rawId }],
-        userVerification:'required',
-        timeout:60000
-      }
-    });
-
+    msg.textContent='Waiting for fingerprint…'; msg.className='';
+    const challenge=crypto.getRandomValues(new Uint8Array(32)),rawId=Uint8Array.from(atob(savedCred),c=>c.charCodeAt(0));
+    await navigator.credentials.get({publicKey:{challenge,allowCredentials:[{type:'public-key',id:rawId}],userVerification:'required',timeout:60000}});
     grantAdmin('👆 Fingerprint verified');
-
   }catch(err){
-    if(err.name === 'NotAllowedError'){
-      msg.textContent = 'Biometric cancelled'; msg.className = 'e';
-    } else if(err.name === 'InvalidStateError'){
-      /* credential not found on this device — clear & retry */
-      localStorage.removeItem(BIO_KEY);
-      msg.textContent = 'Credential reset — tap again to re-register'; msg.className = 'e';
-    } else {
-      msg.textContent = 'Biometric error — use PIN'; msg.className = 'e';
-    }
+    if(err.name==='NotAllowedError') msg.textContent='Biometric cancelled';
+    else if(err.name==='InvalidStateError'){ localStorage.removeItem(BIO_KEY); msg.textContent='Credential reset — tap again to re-register'; }
+    else msg.textContent='Biometric error — use PIN';
+    msg.className='e';
   }
 }
 
-function grantAdmin(toastMsg){
-  isAdmin = true;
-  const m = document.getElementById('adm-msg');
-  m.textContent = '✓ Granted'; m.className = 'g';
-  [0,1,2,3].forEach(i=>dot(i,'g'));
-  setTimeout(()=>{
-    closeAdm();
-    document.getElementById("admin-btn").textContent = '🔓 Logout';
-    document.getElementById("admin-btn").classList.add("on");
-    vsRender(true);
-    toast(toastMsg || "🔓 Admin on");
-  }, 500);
-}
+function grantAdmin(toastMsg){ isAdmin=true; const m=document.getElementById('adm-msg'); m.textContent='✓ Granted'; m.className='g'; [0,1,2,3].forEach(i=>dot(i,'g')); setTimeout(()=>{ closeAdm(); document.getElementById("admin-btn").textContent='🔓 Logout'; document.getElementById("admin-btn").classList.add("on"); vsRender(true); toast(toastMsg||"🔓 Admin on"); },500); }
 
 /* ═══ TOAST ═══ */
 let toastTm;
@@ -1529,17 +1310,15 @@ function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg
 
 /* ═══ KEYBOARD ═══ */
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){ closeAdm(); closeScanner(); closeGrpModal(); closeBrandModal(); closeExp(); closeImgViewer(); }
+  if(e.key==="Escape"){ closeAdm(); closeScanner(); closeGrpModal(); closeBrandModal(); closeExp(); closeImgMgr(); closeImgView(); }
   if((e.ctrlKey||e.metaKey)&&e.key==="f"){ e.preventDefault(); document.getElementById("search").focus(); }
 });
-document.getElementById("adm-ov").addEventListener("click",e=>{ if(e.target.id==="adm-ov")closeAdm(); });
-document.getElementById("exp-ov").addEventListener("click",e=>{ if(e.target.id==="exp-ov")closeExp(); });
+document.getElementById("adm-ov").addEventListener("click",e=>{ if(e.target.id==="adm-ov") closeAdm(); });
+document.getElementById("exp-ov").addEventListener("click",e=>{ if(e.target.id==="exp-ov") closeExp(); });
 
 /* ═══ BOOT ═══ */
-scrollEl = document.getElementById("scroll");
-spacer   = document.getElementById("spacer");
-stage    = document.getElementById("stage");
-scrollEl.addEventListener("scroll", onScroll, {passive:true});
+scrollEl=document.getElementById("scroll"); spacer=document.getElementById("spacer"); stage=document.getElementById("stage");
+scrollEl.addEventListener("scroll",onScroll,{passive:true});
 window.addEventListener("resize",()=>{ measureCardHeight(); rebuildOffsets(); vsRender(true); });
 loadData();
 </script>
