@@ -14,122 +14,47 @@
 }
 html,body{height:100%;overflow:hidden}
 body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;display:flex;flex-direction:column}
-
-/* ── HEADER ── */
-#hdr{
-  flex-shrink:0;height:52px;padding:0 14px;
-  display:flex;align-items:center;gap:10px;
-  background:rgba(9,9,11,0.97);border-bottom:1px solid var(--bord);z-index:50;
-}
-#logo{
-  font-size:20px;font-weight:900;letter-spacing:2px;color:var(--gold);
-  white-space:nowrap;cursor:pointer;user-select:none;
-  -webkit-tap-highlight-color:transparent;
-}
+#hdr{flex-shrink:0;height:52px;padding:0 14px;display:flex;align-items:center;gap:10px;background:rgba(9,9,11,0.97);border-bottom:1px solid var(--bord);z-index:50}
+#logo{font-size:20px;font-weight:900;letter-spacing:2px;color:var(--gold);white-space:nowrap;cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent}
 #logo:active{opacity:.7}
 #hdr-right{margin-left:auto;display:flex;gap:8px;align-items:center}
 #badge{font-size:11px;color:var(--muted);background:var(--surf);border:1px solid var(--bord);padding:2px 8px;border-radius:20px;font-variant-numeric:tabular-nums}
-
-/* ── REFRESH BUTTON ── */
-#refresh-btn{
-  width:34px;height:34px;flex-shrink:0;border-radius:9px;
-  background:var(--surf);border:1.5px solid var(--bord);
-  color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;
-  -webkit-tap-highlight-color:transparent;transition:border-color .15s,color .15s;
-}
+#refresh-btn{width:34px;height:34px;flex-shrink:0;border-radius:9px;background:var(--surf);border:1.5px solid var(--bord);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent;transition:border-color .15s,color .15s}
 #refresh-btn:active{opacity:.7}
 #refresh-btn.spinning svg{animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 #refresh-btn:hover{border-color:var(--gold);color:var(--gold)}
-
 #admin-btn{font-size:12px;font-weight:700;background:transparent;color:var(--gold);border:1.5px solid var(--gold);padding:5px 12px;border-radius:7px;cursor:pointer;font-family:inherit}
 #admin-btn.on{background:var(--gold);color:#000}
-
-/* ── CONTROLS ── */
 #ctrl{flex-shrink:0;padding:10px 14px 6px;display:flex;flex-direction:column;gap:7px}
 #search-row{display:flex;gap:8px;align-items:center}
-#search{
-  flex:1;background:var(--surf);border:1.5px solid var(--bord);
-  border-radius:10px;padding:10px 14px;font-size:15px;color:var(--txt);
-  outline:none;font-family:inherit;
-}
+#search{flex:1;background:var(--surf);border:1.5px solid var(--bord);border-radius:10px;padding:10px 14px;font-size:15px;color:var(--txt);outline:none;font-family:inherit}
 #search:focus{border-color:var(--gold)}
 #search::placeholder{color:var(--muted)}
-#scan-btn{
-  width:42px;height:42px;flex-shrink:0;border-radius:10px;
-  background:var(--surf);border:1.5px solid var(--bord);
-  color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:center;
-}
+#scan-btn{width:42px;height:42px;flex-shrink:0;border-radius:10px;background:var(--surf);border:1.5px solid var(--bord);color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:center}
 #scan-btn.on{border-color:var(--gold);color:var(--gold)}
-
-/* ── CHIPS (sort row only) ── */
-.chip{
-  white-space:nowrap;font-size:12px;font-weight:600;
-  padding:4px 12px;border-radius:20px;
-  border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);
-  cursor:pointer;flex-shrink:0;font-family:inherit;
-  -webkit-tap-highlight-color:transparent;
-}
+.chip{white-space:nowrap;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);cursor:pointer;flex-shrink:0;font-family:inherit;-webkit-tap-highlight-color:transparent}
 .chip.on{background:var(--gold);border-color:var(--gold);color:#000}
-
-/* ── STOCK FILTER CHIPS ── */
-#stock-row{
-  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;
-}
+#stock-row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
 #stock-row::-webkit-scrollbar{display:none}
-.stock-chip{
-  white-space:nowrap;font-size:12px;font-weight:600;
-  padding:4px 12px;border-radius:20px;
-  border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);
-  cursor:pointer;flex-shrink:0;font-family:inherit;
-  -webkit-tap-highlight-color:transparent;transition:all .15s;
-}
+.stock-chip{white-space:nowrap;font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);cursor:pointer;flex-shrink:0;font-family:inherit;-webkit-tap-highlight-color:transparent;transition:all .15s}
 .stock-chip[data-stock="all"].on{background:var(--gold);border-color:var(--gold);color:#000}
 .stock-chip[data-stock="in"].on{background:rgba(34,197,94,0.18);border-color:var(--green);color:var(--green)}
 .stock-chip[data-stock="low"].on{background:rgba(245,197,66,0.18);border-color:var(--gold);color:var(--gold)}
 .stock-chip[data-stock="out"].on{background:rgba(248,113,113,0.18);border-color:var(--red);color:var(--red)}
-
-/* ── BRAND MODAL ── */
-#brand-modal-bg{
-  position:fixed;inset:0;z-index:180;background:rgba(0,0,0,0.75);
-  backdrop-filter:blur(4px);
-  display:none;align-items:flex-end;justify-content:center;
-}
+#brand-modal-bg{position:fixed;inset:0;z-index:180;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);display:none;align-items:flex-end;justify-content:center}
 #brand-modal-bg.show{display:flex}
-#brand-modal{
-  background:var(--card);border:1px solid var(--bord);
-  border-radius:20px 20px 0 0;
-  width:100%;max-width:520px;
-  max-height:75vh;display:flex;flex-direction:column;
-  transform:translateY(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);
-}
+#brand-modal{background:var(--card);border:1px solid var(--bord);border-radius:20px 20px 0 0;width:100%;max-width:520px;max-height:75vh;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .28s cubic-bezier(.4,0,.2,1)}
 #brand-modal-bg.show #brand-modal{transform:translateY(0)}
-#brand-modal-hdr{
-  padding:16px 16px 10px;border-bottom:1px solid var(--bord);
-  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
-}
+#brand-modal-hdr{padding:16px 16px 10px;border-bottom:1px solid var(--bord);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 #brand-modal-title{font-size:15px;font-weight:800;color:var(--txt)}
-#brand-modal-close{
-  background:var(--surf);border:1px solid var(--bord);color:var(--muted);
-  width:28px;height:28px;border-radius:50%;font-size:13px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;font-family:inherit;
-}
+#brand-modal-close{background:var(--surf);border:1px solid var(--bord);color:var(--muted);width:28px;height:28px;border-radius:50%;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
 #brand-search-wrap{padding:10px 16px 6px;flex-shrink:0}
-#brand-search{
-  width:100%;background:var(--surf);border:1.5px solid var(--bord);
-  border-radius:8px;padding:8px 12px;font-size:14px;color:var(--txt);
-  outline:none;font-family:inherit;
-}
+#brand-search{width:100%;background:var(--surf);border:1.5px solid var(--bord);border-radius:8px;padding:8px 12px;font-size:14px;color:var(--txt);outline:none;font-family:inherit}
 #brand-search:focus{border-color:var(--blue)}
 #brand-search::placeholder{color:var(--muted)}
 #brand-list{overflow-y:auto;padding:6px 10px 20px;flex:1}
-.brand-item{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 10px;border-radius:10px;cursor:pointer;
-  font-size:14px;font-weight:600;color:var(--txt);
-  border-bottom:1px solid var(--bord);
-  -webkit-tap-highlight-color:transparent;letter-spacing:.4px;
-}
+.brand-item{display:flex;align-items:center;justify-content:space-between;padding:12px 10px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:600;color:var(--txt);border-bottom:1px solid var(--bord);-webkit-tap-highlight-color:transparent;letter-spacing:.4px}
 .brand-item:last-child{border-bottom:none}
 .brand-item:active{background:var(--surf)}
 .brand-item.selected{color:var(--blue);font-weight:700}
@@ -137,80 +62,29 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .brand-item.selected .brand-count{color:rgba(96,165,250,0.6)}
 .brand-tick{color:var(--blue);font-size:14px;margin-left:8px;opacity:0}
 .brand-item.selected .brand-tick{opacity:1}
-
-/* ── GROUP PICKER BUTTON ── */
-#grp-btn{
-  display:flex;align-items:center;gap:8px;
-  background:var(--surf);border:1.5px solid var(--bord);
-  border-radius:10px;padding:8px 14px;cursor:pointer;
-  font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);
-  width:100%;text-align:left;transition:border-color .15s;
-}
+#grp-btn{display:flex;align-items:center;gap:8px;background:var(--surf);border:1.5px solid var(--bord);border-radius:10px;padding:8px 14px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);width:100%;text-align:left;transition:border-color .15s}
 #grp-btn:active{background:#222}
 #grp-btn.active{border-color:var(--gold);color:var(--gold)}
 #grp-btn .grp-arrow{margin-left:auto;font-size:11px;opacity:.5}
-#grp-btn .grp-tag{
-  background:var(--gold);color:#000;font-size:10px;font-weight:700;
-  padding:2px 7px;border-radius:20px;letter-spacing:.3px;
-}
-
-/* ── BRAND PICKER BUTTON ── */
-#brand-btn{
-  display:flex;align-items:center;gap:8px;
-  background:var(--surf);border:1.5px solid var(--bord);
-  border-radius:10px;padding:8px 14px;cursor:pointer;
-  font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);
-  width:100%;text-align:left;transition:border-color .15s;
-}
+#grp-btn .grp-tag{background:var(--gold);color:#000;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;letter-spacing:.3px}
+#brand-btn{display:flex;align-items:center;gap:8px;background:var(--surf);border:1.5px solid var(--bord);border-radius:10px;padding:8px 14px;cursor:pointer;font-family:inherit;font-size:13px;font-weight:600;color:var(--muted);width:100%;text-align:left;transition:border-color .15s}
 #brand-btn:active{background:#222}
 #brand-btn.active{border-color:var(--blue);color:var(--blue)}
 #brand-btn .brand-arrow{margin-left:auto;font-size:11px;opacity:.5}
-#brand-btn .brand-tag{
-  background:var(--blue);color:#000;font-size:10px;font-weight:700;
-  padding:2px 7px;border-radius:20px;letter-spacing:.3px;
-}
-
-/* ── GROUP MODAL ── */
-#grp-modal-bg{
-  position:fixed;inset:0;z-index:180;background:rgba(0,0,0,0.75);
-  backdrop-filter:blur(4px);
-  display:none;align-items:flex-end;justify-content:center;
-}
+#brand-btn .brand-tag{background:var(--blue);color:#000;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;letter-spacing:.3px}
+#grp-modal-bg{position:fixed;inset:0;z-index:180;background:rgba(0,0,0,0.75);backdrop-filter:blur(4px);display:none;align-items:flex-end;justify-content:center}
 #grp-modal-bg.show{display:flex}
-#grp-modal{
-  background:var(--card);border:1px solid var(--bord);
-  border-radius:20px 20px 0 0;
-  width:100%;max-width:520px;
-  max-height:75vh;display:flex;flex-direction:column;
-  transform:translateY(100%);transition:transform .28s cubic-bezier(.4,0,.2,1);
-}
+#grp-modal{background:var(--card);border:1px solid var(--bord);border-radius:20px 20px 0 0;width:100%;max-width:520px;max-height:75vh;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .28s cubic-bezier(.4,0,.2,1)}
 #grp-modal-bg.show #grp-modal{transform:translateY(0)}
-#grp-modal-hdr{
-  padding:16px 16px 10px;border-bottom:1px solid var(--bord);
-  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
-}
+#grp-modal-hdr{padding:16px 16px 10px;border-bottom:1px solid var(--bord);display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 #grp-modal-title{font-size:15px;font-weight:800;color:var(--txt)}
-#grp-modal-close{
-  background:var(--surf);border:1px solid var(--bord);color:var(--muted);
-  width:28px;height:28px;border-radius:50%;font-size:13px;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;font-family:inherit;
-}
+#grp-modal-close{background:var(--surf);border:1px solid var(--bord);color:var(--muted);width:28px;height:28px;border-radius:50%;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-family:inherit}
 #grp-search-wrap{padding:10px 16px 6px;flex-shrink:0}
-#grp-search{
-  width:100%;background:var(--surf);border:1.5px solid var(--bord);
-  border-radius:8px;padding:8px 12px;font-size:14px;color:var(--txt);
-  outline:none;font-family:inherit;
-}
+#grp-search{width:100%;background:var(--surf);border:1.5px solid var(--bord);border-radius:8px;padding:8px 12px;font-size:14px;color:var(--txt);outline:none;font-family:inherit}
 #grp-search:focus{border-color:var(--gold)}
 #grp-search::placeholder{color:var(--muted)}
 #grp-list{overflow-y:auto;padding:6px 10px 20px;flex:1}
-.grp-item{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:12px 10px;border-radius:10px;cursor:pointer;
-  font-size:14px;font-weight:500;color:var(--txt);
-  border-bottom:1px solid var(--bord);
-  -webkit-tap-highlight-color:transparent;
-}
+.grp-item{display:flex;align-items:center;justify-content:space-between;padding:12px 10px;border-radius:10px;cursor:pointer;font-size:14px;font-weight:500;color:var(--txt);border-bottom:1px solid var(--bord);-webkit-tap-highlight-color:transparent}
 .grp-item:last-child{border-bottom:none}
 .grp-item:active{background:var(--surf)}
 .grp-item.selected{color:var(--gold);font-weight:700}
@@ -218,83 +92,57 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .grp-item.selected .grp-count{color:rgba(245,197,66,0.6)}
 .grp-tick{color:var(--gold);font-size:14px;margin-left:8px;opacity:0}
 .grp-item.selected .grp-tick{opacity:1}
-
-/* ── SORT ROW ── */
-#sort-row{
-  display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;
-}
+#sort-row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
 #sort-row::-webkit-scrollbar{display:none}
-
-/* ── PRICE FILTER ── */
 #pf{display:flex;align-items:center;gap:6px;flex-wrap:nowrap}
 #pf label{font-size:11px;color:var(--muted);white-space:nowrap}
-.pi{
-  width:68px;background:var(--surf);border:1.5px solid var(--bord);
-  border-radius:7px;padding:5px 8px;font-size:12px;color:var(--txt);
-  outline:none;font-family:inherit;font-variant-numeric:tabular-nums;
-}
+.pi{width:68px;background:var(--surf);border:1.5px solid var(--bord);border-radius:7px;padding:5px 8px;font-size:12px;color:var(--txt);outline:none;font-family:inherit;font-variant-numeric:tabular-nums}
 .pi:focus{border-color:var(--gold)}
 #pf-go{padding:5px 10px;border-radius:7px;background:var(--gold);border:none;color:#000;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
 #pf-clr{padding:5px 9px;border-radius:7px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:12px;cursor:pointer;font-family:inherit}
-
-/* ── STATUS ── */
 #status{flex-shrink:0;padding:2px 14px 4px;font-size:11px;color:var(--muted)}
-
-/* ── VIRTUAL SCROLL ── */
 #scroll{flex:1;overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
 #scroll::-webkit-scrollbar{width:3px}
 #scroll::-webkit-scrollbar-thumb{background:var(--bord);border-radius:3px}
 #spacer{width:1px;pointer-events:none}
 #stage{position:absolute;top:0;left:0;right:0}
-
-/* ── CARD ── */
-.c{
-  position:absolute;left:14px;right:14px;
-  background:var(--card);border:1px solid var(--bord);
-  border-radius:12px;padding:16px;cursor:pointer;
-}
+.c{position:absolute;left:14px;right:14px;background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:16px;cursor:pointer}
 .c.exp{border-color:rgba(245,197,66,0.3)}
 .c-name{font-size:17px;font-weight:700;line-height:1.15;color:var(--txt)}
 .c-alias{font-size:11px;color:var(--muted);margin-top:2px;font-variant-numeric:tabular-nums}
-
-/* ── PRICE BLOCKS ── */
 .prices{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .pb{border-radius:8px;padding:7px 10px}
-.pb.m{background:rgba(245,197,66,0.1); border:1px solid rgba(245,197,66,0.22)}
-.pb.s{background:rgba(34,197,94,0.1);  border:1px solid rgba(34,197,94,0.22)}
-.pb.w{background:rgba(96,165,250,0.1); border:1px solid rgba(96,165,250,0.22)}
+.pb.m{background:rgba(245,197,66,0.1);border:1px solid rgba(245,197,66,0.22)}
+.pb.s{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.22);position:relative}
+.pb.w{background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.22);position:relative}
 .pb.k{background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.18)}
 .pb.p{background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.22)}
+.pb.s.shareable,.pb.w.shareable{cursor:pointer;transition:transform .12s,box-shadow .12s}
+.pb.s.shareable:active{transform:scale(0.96)}
+.pb.w.shareable:active{transform:scale(0.96)}
+.pb.s.shareable:hover{border-color:rgba(34,197,94,0.6);box-shadow:0 0 0 2px rgba(34,197,94,0.15)}
+.pb.w.shareable:hover{border-color:rgba(96,165,250,0.6);box-shadow:0 0 0 2px rgba(96,165,250,0.15)}
+.share-badge{position:absolute;top:5px;right:6px;font-size:9px;opacity:0.5;pointer-events:none}
 .pl{font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;opacity:.65}
-.pb.m .pl{color:var(--gold)} .pb.s .pl{color:var(--green)}
-.pb.w .pl{color:var(--blue)} .pb.k .pl{color:var(--red)} .pb.p .pl{color:var(--purple)}
+.pb.m .pl{color:var(--gold)}.pb.s .pl{color:var(--green)}.pb.w .pl{color:var(--blue)}.pb.k .pl{color:var(--red)}.pb.p .pl{color:var(--purple)}
 .pv{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2;margin-top:1px}
-.pb.m .pv{color:var(--gold)} .pb.s .pv{color:var(--green)}
-.pb.w .pv{color:var(--blue)} .pb.k .pv{color:var(--red)} .pb.p .pv{color:var(--purple)}
-
-/* ── EXPANDED DETAIL ── */
+.pb.m .pv{color:var(--gold)}.pb.s .pv{color:var(--green)}.pb.w .pv{color:var(--blue)}.pb.k .pv{color:var(--red)}.pb.p .pv{color:var(--purple)}
 .det{display:none;border-top:1px solid var(--bord);margin-top:10px;padding-top:10px}
 .c.exp .det{display:block}
 .drow{display:flex;justify-content:space-between;font-size:12px;padding:3px 0}
 .drow span:first-child{color:var(--muted)}
 .drow span:last-child{font-weight:600;font-variant-numeric:tabular-nums;text-align:right;max-width:60%}
-.act{display:flex;gap:7px;margin-top:10px}
-.ab{flex:1;padding:7px 4px;border-radius:7px;font-size:12px;font-weight:600;border:none;cursor:pointer;font-family:inherit}
+.act{display:flex;gap:7px;margin-top:10px;flex-wrap:wrap}
+.ab{flex:1;min-width:60px;padding:7px 4px;border-radius:7px;font-size:12px;font-weight:600;border:none;cursor:pointer;font-family:inherit}
 .ab.cp{background:rgba(96,165,250,0.12);color:var(--blue);border:1px solid rgba(96,165,250,0.25)}
 .ab.sh{background:rgba(34,197,94,0.10);color:var(--green);border:1px solid rgba(34,197,94,0.20)}
-.ab.ed{background:rgba(245,197,66,0.12);color:var(--gold);border:1px solid rgba(245,197,66,0.25)}
-
-/* ── WELCOME SCREEN ── */
-#welcome{
-  display:flex;flex-direction:column;align-items:center;
-  justify-content:center;padding:60px 24px;text-align:center;gap:14px;
-}
+.ab.ig{background:rgba(192,132,252,0.12);color:var(--purple);border:1px solid rgba(192,132,252,0.25)}
+.ab.wa{background:rgba(37,211,102,0.12);color:#25d366;border:1px solid rgba(37,211,102,0.3)}
+#welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;gap:14px}
 #welcome .w-logo{font-size:52px;font-weight:900;letter-spacing:5px;color:var(--gold);line-height:1}
 #welcome .w-sub{font-size:18px;font-weight:800;letter-spacing:3px;color:var(--txt)}
 #welcome .w-line{width:40px;height:2px;background:var(--gold);border-radius:2px;opacity:.5}
 #welcome .w-hint{font-size:13px;color:var(--muted);line-height:1.7;max-width:220px}
-
-/* ── SCANNER ── */
 #scan-ov{position:fixed;inset:0;z-index:200;background:#000;display:none;flex-direction:column;align-items:center;justify-content:center}
 #scan-ov.show{display:flex}
 #scan-vid{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
@@ -312,6 +160,12 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 #adm-box{background:var(--card);border:1px solid var(--bord);border-radius:16px;padding:24px;width:88%;max-width:320px}
 #adm-title{font-size:22px;font-weight:900;color:var(--gold);margin-bottom:4px}
 #adm-sub{font-size:12px;color:var(--muted);margin-bottom:16px}
+#adm-bio-btn{width:100%;padding:12px;border-radius:10px;background:rgba(245,197,66,0.1);border:1.5px solid rgba(245,197,66,0.35);color:var(--gold);font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px;transition:background .15s}
+#adm-bio-btn:active{background:rgba(245,197,66,0.2)}
+#adm-bio-btn.hidden{display:none}
+#adm-divider{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+#adm-divider span{font-size:11px;color:var(--muted);white-space:nowrap}
+#adm-divider::before,#adm-divider::after{content:'';flex:1;height:1px;background:var(--bord)}
 #adm-pw{width:100%;background:var(--surf);border:1.5px solid var(--bord);border-radius:9px;padding:12px;font-size:20px;color:var(--txt);letter-spacing:8px;text-align:center;outline:none;font-family:inherit}
 #adm-pw:focus{border-color:var(--gold)}
 #adm-pw.err{border-color:var(--red);animation:sh .3s}
@@ -323,40 +177,51 @@ body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSys
 .dot.e{background:var(--red);border-color:var(--red)}
 .dot.g{background:var(--green);border-color:var(--green)}
 #adm-msg{font-size:12px;text-align:center;margin-top:8px;height:16px;color:var(--muted)}
-#adm-msg.e{color:var(--red)} #adm-msg.g{color:var(--green)}
+#adm-msg.e{color:var(--red)}#adm-msg.g{color:var(--green)}
 #adm-btns{display:flex;gap:8px;margin-top:16px}
 #adm-cancel{flex:1;padding:10px;border-radius:9px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
 #adm-login{flex:2;padding:10px;border-radius:9px;background:var(--gold);border:none;color:#000;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
 
-/* ── EDIT MODAL ── */
-#edit-ov{position:fixed;inset:0;z-index:160;background:rgba(0,0,0,0.85);display:none;align-items:flex-end;justify-content:center}
-#edit-ov.show{display:flex}
-#edit-box{background:var(--card);border:1px solid var(--bord);border-radius:16px 16px 0 0;padding:20px;width:100%;max-width:480px;max-height:78vh;overflow-y:auto}
-#edit-title{font-size:18px;font-weight:800;color:var(--gold);margin-bottom:14px}
-.ef-wrap{margin-bottom:10px}
-.ef-lbl{font-size:10px;color:var(--muted);letter-spacing:.8px;text-transform:uppercase;margin-bottom:3px}
-.ef-in{width:100%;background:var(--surf);border:1.5px solid var(--bord);border-radius:7px;padding:9px 10px;font-size:13px;color:var(--txt);outline:none;font-family:inherit;font-variant-numeric:tabular-nums}
-.ef-in:focus{border-color:var(--gold)}
-#edit-btns{display:flex;gap:8px;margin-top:14px}
-#edit-save{flex:2;padding:11px;border-radius:9px;background:var(--gold);border:none;color:#000;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit}
-#edit-cancel{flex:1;padding:11px;border-radius:9px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
+/* ── IMAGE VIEWER MODAL ── */
+#img-ov{position:fixed;inset:0;z-index:170;background:rgba(0,0,0,0.95);display:none;flex-direction:column;align-items:center;justify-content:center}
+#img-ov.show{display:flex}
+#img-box{width:100%;max-width:520px;display:flex;flex-direction:column;align-items:center;gap:0;padding:0 0 20px}
+#img-hdr{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 18px 12px;border-bottom:1px solid var(--bord)}
+#img-title-wrap{display:flex;flex-direction:column;gap:2px}
+#img-title{font-size:15px;font-weight:800;color:var(--txt)}
+#img-subtitle{font-size:11px;color:var(--muted)}
+#img-close{background:rgba(255,255,255,0.08);border:1px solid var(--bord);color:var(--muted);width:32px;height:32px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+#img-main{position:relative;width:100%;display:flex;align-items:center;justify-content:center;min-height:260px;padding:16px}
+#img-el{max-width:100%;max-height:60vh;border-radius:12px;object-fit:contain;display:block}
+#img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:40px 20px;color:var(--muted);text-align:center}
+#img-placeholder .img-icon{font-size:48px;opacity:.4}
+#img-placeholder .img-msg{font-size:13px;line-height:1.6;max-width:200px}
+#img-nav{display:flex;gap:10px;align-items:center;margin-top:4px}
+.img-nav-btn{background:rgba(255,255,255,0.06);border:1px solid var(--bord);color:var(--txt);width:40px;height:40px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.img-nav-btn:active{background:rgba(255,255,255,0.15)}
+#img-counter{font-size:12px;color:var(--muted);min-width:50px;text-align:center;font-variant-numeric:tabular-nums}
+#img-info{width:100%;padding:10px 18px 0;font-size:12px;color:var(--muted);text-align:center}
 
-/* ── TOAST ── */
+/* ── EXPORT IMAGE MODAL ── */
+#exp-ov{position:fixed;inset:0;z-index:170;background:rgba(0,0,0,0.92);display:none;align-items:flex-end;justify-content:center}
+#exp-ov.show{display:flex}
+#exp-box{background:var(--card);border:1px solid var(--bord);border-radius:20px 20px 0 0;width:100%;max-width:480px;padding:18px 18px 30px;display:flex;flex-direction:column;gap:12px}
+#exp-title{font-size:15px;font-weight:800;color:#25d366;display:flex;align-items:center;gap:8px}
+#exp-preview-wrap{border-radius:12px;overflow:hidden;border:1px solid var(--bord);background:#000;display:flex;justify-content:center}
+#exp-canvas{max-width:100%;display:block}
+#exp-btns{display:flex;gap:8px}
+#exp-wa{flex:2;padding:12px;border-radius:10px;background:#25d366;border:none;color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit}
+#exp-save{flex:1;padding:12px;border-radius:10px;background:var(--surf);border:1px solid var(--bord);color:var(--txt);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+#exp-cancel{flex:1;padding:12px;border-radius:10px;background:var(--surf);border:1px solid var(--bord);color:var(--muted);font-size:13px;cursor:pointer;font-family:inherit}
+#exp-price-hint{font-size:12px;color:var(--muted);text-align:center}
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(70px);background:#27272a;border:1px solid var(--bord);border-radius:30px;padding:9px 18px;font-size:13px;white-space:nowrap;z-index:300;transition:transform .25s,opacity .25s;opacity:0;pointer-events:none}
 #toast.show{transform:translateX(-50%) translateY(0);opacity:1}
-
 mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;padding:0 1px}
-.grp-hdr{
-  position:absolute;left:14px;right:14px;
-  font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--gold);padding:4px 0 3px;
-  border-bottom:1px solid rgba(245,197,66,0.2);
-}
+.grp-hdr{position:absolute;left:14px;right:14px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);padding:4px 0 3px;border-bottom:1px solid rgba(245,197,66,0.2)}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div id="hdr">
   <div id="logo" onclick="goHome()">SR PSD</div>
   <div id="hdr-right">
@@ -371,9 +236,7 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   </div>
 </div>
 
-<!-- CONTROLS -->
 <div id="ctrl">
-  <!-- Search + Scan -->
   <div id="search-row">
     <input id="search" type="search" placeholder="🔍  Name, alias, barcode…" autocomplete="off" spellcheck="false" inputmode="search">
     <button id="scan-btn" onclick="openScanner()" title="Scan barcode">
@@ -385,8 +248,6 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
       </svg>
     </button>
   </div>
-
-  <!-- Sort chips -->
   <div id="sort-row">
     <div class="chip on" data-sort="df">Default</div>
     <div class="chip" data-sort="grp">By Group</div>
@@ -394,30 +255,22 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
     <div class="chip" data-sort="sa">Price ↑</div>
     <div class="chip" data-sort="sd">Price ↓</div>
   </div>
-
-  <!-- Stock filter chips -->
   <div id="stock-row">
     <div class="stock-chip on" data-stock="all">📦 All Stock</div>
     <div class="stock-chip" data-stock="in">✅ In Stock</div>
     <div class="stock-chip" data-stock="low">⚠️ Low Stock (≤5)</div>
     <div class="stock-chip" data-stock="out">❌ Out of Stock</div>
   </div>
-
-  <!-- Brand picker button -->
   <button id="brand-btn" onclick="openBrandModal()">
     <span>🏷️</span>
     <span id="brand-btn-label">All Brands</span>
     <span class="brand-arrow">▼</span>
   </button>
-
-  <!-- Group picker button -->
   <button id="grp-btn" onclick="openGrpModal()">
     <span>🗂️</span>
     <span id="grp-btn-label">All Groups</span>
     <span class="grp-arrow">▼</span>
   </button>
-
-  <!-- Price range -->
   <div id="pf">
     <label>₹ Sale:</label>
     <input class="pi" id="pmin" type="number" placeholder="Min" inputmode="numeric">
@@ -430,7 +283,6 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
 
 <div id="status"></div>
 
-<!-- VIRTUAL SCROLL -->
 <div id="scroll">
   <div id="spacer"></div>
   <div id="stage"></div>
@@ -451,8 +303,15 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
 <div id="adm-ov">
   <div id="adm-box">
     <div id="adm-title">ADMIN</div>
-    <div id="adm-sub">4-digit PIN • hidden as you type</div>
-    <!-- inputmode="numeric" + pattern="[0-9]*" forces numeric keyboard on iOS & Android -->
+    <div id="adm-sub">Unlock with fingerprint or PIN</div>
+
+    <!-- Biometric button — shown only if supported -->
+    <button id="adm-bio-btn" onclick="doBiometric()" class="hidden">
+      <span style="font-size:22px">👆</span>
+      <span>Use Fingerprint / Face ID</span>
+    </button>
+    <div id="adm-divider" class="hidden"><span>or enter PIN</span></div>
+
     <input id="adm-pw" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" placeholder="• • • •" autocomplete="off"
       oninput="onPwInput(this)" onkeydown="if(event.key==='Enter')doLogin()">
     <div id="dots">
@@ -467,14 +326,44 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   </div>
 </div>
 
-<!-- EDIT MODAL -->
-<div id="edit-ov">
-  <div id="edit-box">
-    <div id="edit-title">EDIT ITEM</div>
-    <div id="edit-fields"></div>
-    <div id="edit-btns">
-      <button id="edit-cancel" onclick="closeEdit()">Cancel</button>
-      <button id="edit-save" onclick="saveEdit()">💾 Save</button>
+<!-- IMAGE VIEWER MODAL -->
+<div id="img-ov">
+  <div id="img-box">
+    <div id="img-hdr">
+      <div id="img-title-wrap">
+        <div id="img-title">Product Images</div>
+        <div id="img-subtitle"></div>
+      </div>
+      <button id="img-close" onclick="closeImgViewer()">✕</button>
+    </div>
+    <div id="img-main">
+      <img id="img-el" src="" alt="Product" style="display:none" onerror="imgLoadError()" onload="imgLoaded()">
+      <div id="img-placeholder">
+        <div class="img-icon">🖼️</div>
+        <div class="img-msg" id="img-msg">No image available for this product yet.</div>
+      </div>
+    </div>
+    <div id="img-nav" style="display:none">
+      <button class="img-nav-btn" onclick="imgPrev()">‹</button>
+      <div id="img-counter">1 / 1</div>
+      <button class="img-nav-btn" onclick="imgNext()">›</button>
+    </div>
+    <div id="img-info"></div>
+  </div>
+</div>
+
+<!-- EXPORT IMAGE MODAL -->
+<div id="exp-ov">
+  <div id="exp-box">
+    <div id="exp-title">📲 Share Image</div>
+    <div id="exp-price-hint"></div>
+    <div id="exp-preview-wrap">
+      <canvas id="exp-canvas" width="540" height="560"></canvas>
+    </div>
+    <div id="exp-btns">
+      <button id="exp-wa" onclick="doExpWA()">Send on WhatsApp</button>
+      <button id="exp-save" onclick="doExpSave()">💾 Save Image</button>
+      <button id="exp-cancel" onclick="closeExp()">Cancel</button>
     </div>
   </div>
 </div>
@@ -510,21 +399,54 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
 <!-- TOAST -->
 <div id="toast"></div>
 
+<canvas id="gen-canvas" style="display:none" width="540" height="700"></canvas>
+
 <script>
 /* ═══════════════════════════════════════════
    CONFIG
 ═══════════════════════════════════════════ */
 const PASS  = "7865";
+const SHOP_NAME    = "SR FASHION";
+const SHOP_ADDRESS = "GN Azad College Road, Vasant Nagar, Pusad – 445 204";
+const SHOP_PHONE   = "7588756668";
+
+/*
+  IMAGE SOURCE CONFIG
+  ───────────────────
+  Set IMAGE_SOURCE to one of:
+    'local'      → images folder next to index.html  e.g. images/SR001.jpg
+    'cloudinary' → set IMAGE_BASE_URL to your Cloudinary delivery URL
+                   e.g. "https://res.cloudinary.com/YOUR_CLOUD/image/upload/products/"
+    'drive'      → set IMAGE_BASE_URL to a public Google Drive folder base URL
+                   e.g. "https://drive.google.com/uc?export=view&id=" (then use file IDs in items.json)
+
+  File naming: images should be named by item ALIAS  e.g.  SR001.jpg
+  Multiple images: add an "images" array to item in items.json  e.g.  "images":["SR001_1.jpg","SR001_2.jpg"]
+  If no "images" field, the app auto-tries  <alias>.jpg  and  <alias>.png
+*/
+const IMAGE_SOURCE   = 'local';
+const IMAGE_BASE_URL = 'images/';  // change for cloudinary / drive
+
+function getImageUrls(it){
+  if(it.images && it.images.length){
+    return it.images.map(f => IMAGE_BASE_URL + f);
+  }
+  const alias = (it.alias || '').replace(/[^a-zA-Z0-9_\-]/g,'');
+  if(!alias) return [];
+  return [
+    IMAGE_BASE_URL + alias + '.jpg',
+    IMAGE_BASE_URL + alias + '.png',
+    IMAGE_BASE_URL + alias + '.jpeg',
+    IMAGE_BASE_URL + alias + '.webp'
+  ];
+}
+
 const GAP   = 16;
-let CARD_COLLAPSED_H = 160; // updated dynamically after first measure
+let CARD_COLLAPSED_H = 160;
 const BUFFER = 4;
 const GRP_HDR_H = 26;
 const LOW_STOCK_THRESHOLD = 5;
 
-// Stores measured expanded height per raw-item index
-let expandedHeights = {};
-
-/* Measure real collapsed card height by probing the DOM */
 function measureCardHeight(){
   const probe = document.createElement('div');
   probe.style.cssText = 'position:fixed;top:-9999px;left:14px;right:14px;visibility:hidden;pointer-events:none;z-index:-1';
@@ -537,9 +459,8 @@ function measureCardHeight(){
   CARD_COLLAPSED_H = h + 2;
 }
 
-/* Read actual rendered height of an expanded card straight from the live DOM */
 function measureExpandedCard(ri){
-  const el = stage.querySelector('.c[onclick="toggleCard(' + ri + ')"]');
+  const el = stage.querySelector('.c[data-ri="' + ri + '"]');
   if(el) expandedHeights[ri] = el.offsetHeight + 4;
 }
 
@@ -555,16 +476,24 @@ let activeGroup = '';
 let pMin     = null;
 let pMax     = null;
 let query    = '';
-let editIdx  = -1;
 let activeSort = 'df';
-let activeStock = 'all'; // 'all' | 'in' | 'low' | 'out'
-let activeBrand = '';    // '' = all brands
+let activeStock = 'all';
+let activeBrand = '';
 let expanded = new Set();
+let expandedHeights = {};
 let vsStart  = 0;
 let vsEnd    = 0;
 let totalH   = 0;
-
 let scrollEl, spacer, stage;
+
+let expItem  = null;
+let expPrice = 'sale';
+
+/* image viewer state */
+let imgItem     = null;
+let imgUrls     = [];
+let imgCurIdx   = 0;
+let imgTryIdx   = 0;
 
 /* ═══════════════════════════════════════════
    LOAD DATA
@@ -577,13 +506,11 @@ async function loadData(){
     document.getElementById("badge").textContent = raw.length.toLocaleString()+" items";
     buildGroupChips();
     buildBrandChips();
-  }catch(e){
-    // Still show welcome — data may load on GitHub Pages
-  }
+  }catch(e){}
   showWelcome();
+  initBiometric();
 }
 
-/* ── REFRESH ── */
 async function refreshData(){
   const btn = document.getElementById("refresh-btn");
   btn.classList.add("spinning");
@@ -603,9 +530,6 @@ async function refreshData(){
   }
 }
 
-/* ═══════════════════════════════════════════
-   WELCOME SCREEN
-═══════════════════════════════════════════ */
 function showWelcome(){
   spacer.style.height = '0px';
   stage.innerHTML = `
@@ -627,22 +551,16 @@ function goHome(){
   document.querySelectorAll("#sort-row .chip").forEach(c=>c.classList.remove("on"));
   const defChip=document.querySelector("#sort-row .chip[data-sort='df']");
   if(defChip)defChip.classList.add("on");
-  // Reset stock chips
   document.querySelectorAll("#stock-row .stock-chip").forEach(c=>c.classList.remove("on"));
   document.querySelector("#stock-row .stock-chip[data-stock='all']").classList.add("on");
-  // Reset brand chips
-  // Reset brand button
   document.getElementById('brand-btn-label').textContent = 'All Brands';
   document.getElementById('brand-btn').classList.remove('active');
-  // Reset group button
   document.getElementById("grp-btn-label").textContent = "All Groups";
   document.getElementById("grp-btn").classList.remove("active");
   showWelcome();
 }
 
-/* ═══════════════════════════════════════════
-   STOCK FILTER CHIPS
-═══════════════════════════════════════════ */
+/* ═══ STOCK FILTER ═══ */
 document.getElementById("stock-row").addEventListener("click", function(e){
   const c = e.target.closest(".stock-chip[data-stock]");
   if(!c) return;
@@ -655,24 +573,18 @@ document.getElementById("stock-row").addEventListener("click", function(e){
 function stockMatches(it){
   if(activeStock === 'all') return true;
   const s = it.stock;
-  // Treat null/undefined/''/'-' as out of stock
   if(s === null || s === undefined || s === '' || s === '–' || s === '-'){
     return activeStock === 'out';
   }
   const n = parseFloat(String(s));
-  if(isNaN(n)){
-    return activeStock === 'out';
-  }
+  if(isNaN(n)) return activeStock === 'out';
   if(n <= 0)  return activeStock === 'out';
   if(n <= LOW_STOCK_THRESHOLD) return activeStock === 'low';
   return activeStock === 'in';
 }
 
-/* ═══════════════════════════════════════════
-   GROUP MODAL
-═══════════════════════════════════════════ */
+/* ═══ GROUP MODAL ═══ */
 let allGroups = [];
-
 function buildGroupChips(){
   const countMap = {};
   raw.forEach(it=>{ const g=it.group||''; countMap[g]=(countMap[g]||0)+1; });
@@ -680,7 +592,6 @@ function buildGroupChips(){
 }
 
 let allBrands = [];
-
 function buildBrandChips(){
   const brandSet = new Set();
   raw.forEach(it=>{
@@ -709,7 +620,6 @@ function renderBrandList(filter){
   });
   let brands = allBrands;
   if(f) brands = brands.filter(b=>b.toLowerCase().includes(f));
-
   let html = `<div class="brand-item${activeBrand===''?' selected':''}" onclick="selectBrand('')">
     <span>All Brands</span>
     <span style="display:flex;align-items:center;gap:6px">
@@ -717,7 +627,6 @@ function renderBrandList(filter){
       <span class="brand-tick">✓</span>
     </span>
   </div>`;
-
   if(!brands.length){
     html += `<div style="text-align:center;padding:30px;font-size:13px;color:var(--muted)">No brands found</div>`;
   } else {
@@ -772,10 +681,8 @@ function renderGrpList(filter){
   const f = filter.trim().toLowerCase();
   const countMap = {};
   raw.forEach(it=>{ const g=it.group||''; countMap[g]=(countMap[g]||0)+1; });
-
   let groups = allGroups;
   if(f) groups = groups.filter(g=>g.toLowerCase().includes(f));
-
   let html = `<div class="grp-item${activeGroup===''?' selected':''}" onclick="selectGroup('')">
     <span>All Groups</span>
     <span style="display:flex;align-items:center;gap:6px">
@@ -783,7 +690,6 @@ function renderGrpList(filter){
       <span class="grp-tick">✓</span>
     </span>
   </div>`;
-
   if(!groups.length){
     html += `<div style="text-align:center;padding:30px;font-size:13px;color:var(--muted)">No groups found</div>`;
   } else {
@@ -824,9 +730,7 @@ document.getElementById("grp-modal-bg").addEventListener("click", function(e){
   if(e.target===this) closeGrpModal();
 });
 
-/* ═══════════════════════════════════════════
-   SORT CHIPS
-═══════════════════════════════════════════ */
+/* ═══ SORT ═══ */
 document.getElementById("sort-row").addEventListener("click",function(e){
   const c=e.target.closest(".chip[data-sort]");
   if(!c) return;
@@ -836,16 +740,13 @@ document.getElementById("sort-row").addEventListener("click",function(e){
   applyAll();
 });
 
-/* ═══════════════════════════════════════════
-   FILTER + SORT
-═══════════════════════════════════════════ */
+/* ═══ FILTER + SORT ═══ */
 function pn(v){ return v==null||v===''?0:parseFloat(String(v).replace(/[^0-9.]/g,''))||0; }
 
 function applyAll(){
   const q = query.trim().toLowerCase();
   const hasFilter = q || pMin!==null || pMax!==null || activeGroup || activeSort!=='df' || activeStock!=='all' || activeBrand!=='';
   if(!hasFilter){ showWelcome(); return; }
-
   expanded.clear();
   expandedHeights = {};
   let out = [];
@@ -868,8 +769,6 @@ function applyAll(){
     }
     out.push(i);
   }
-
-  // Sort
   if(activeSort==='grp')  out.sort((a,b)=>((raw[a].group||'').localeCompare(raw[b].group||'')) || (raw[a].name||'').localeCompare(raw[b].name||''));
   else if(activeSort==='na') out.sort((a,b)=>(raw[a].name||'').localeCompare(raw[b].name||''));
   else if(activeSort==='sa') out.sort((a,b)=>pn(raw[a].sale)-pn(raw[b].sale));
@@ -892,9 +791,6 @@ function applyAll(){
   vsRender(true);
 }
 
-/* ═══════════════════════════════════════════
-   OFFSET TABLE
-═══════════════════════════════════════════ */
 function rebuildOffsets(){
   heights  = new Array(pool.length).fill(CARD_COLLAPSED_H);
   offsets  = new Array(pool.length);
@@ -914,27 +810,20 @@ function rebuildOffsets(){
   spacer.style.height = totalH + 'px';
 }
 
-/* ═══════════════════════════════════════════
-   VIRTUAL SCROLL RENDERER
-═══════════════════════════════════════════ */
 function vsRender(force){
   if(!pool.length){
     spacer.style.height='0px';
     stage.innerHTML='<div style="text-align:center;padding:50px 20px;font-size:14px;color:var(--muted)">No items found</div>';
     return;
   }
-
   const scrollTop = scrollEl.scrollTop;
   const viewH     = scrollEl.clientHeight;
-
   let first = bsearchFirst(scrollTop - BUFFER * CARD_COLLAPSED_H);
   let last  = bsearchLast(scrollTop + viewH + BUFFER * CARD_COLLAPSED_H);
   first = Math.max(0, first);
   last  = Math.min(pool.length-1, last);
-
   if(!force && first===vsStart && last===vsEnd) return;
   vsStart = first; vsEnd = last;
-
   const q = query.trim().toLowerCase();
   let html = '';
   for(let vi=first;vi<=last;vi++){
@@ -968,9 +857,7 @@ function bsearchLast(targetBottom){
   return lo;
 }
 
-/* ═══════════════════════════════════════════
-   CARD HTML
-═══════════════════════════════════════════ */
+/* ═══ CARD HTML ═══ */
 function fmt(v){
   if(v==null||v==='') return '–';
   const n=parseFloat(String(v).replace(/[^0-9.]/g,''));
@@ -1003,16 +890,26 @@ function cardHTML(it, ri, topPx, q){
       <div class="act">
         <button class="ab cp" onclick="copyItem(${ri},event)">📋 Copy</button>
         <button class="ab sh" onclick="shareItem(${ri},event)">📤 Share</button>
-        ${isAdmin?`<button class="ab ed" onclick="openEdit(${ri},event)">✏️ Edit</button>`:''}
+        <button class="ab ig" onclick="openImgViewer(${ri},event)">🖼️ Images</button>
       </div>
     </div>`:'';
-  return `<div class="c${exp?' exp':''}" style="top:${topPx}px" onclick="toggleCard(${ri})">
+
+  return `<div class="c${exp?' exp':''}" style="top:${topPx}px" data-ri="${ri}" onclick="toggleCard(${ri})">
     <div class="c-name">${hl(it.name||'',q)}</div>
-    <div class="c-alias">⌗ ${hl(it.alias||'',q)}</div>
+    ${it.alias?`<div class="c-alias" style="font-size:12px;color:var(--muted);margin-top:3px;font-variant-numeric:tabular-nums">${hl(it.alias||'',q)}</div>`:''}
+    ${it.group?`<div class="c-alias">🗂 ${hl(it.group||'',q)}</div>`:''}
     <div class="prices">
       <div class="pb m"><div class="pl">MRP</div><div class="pv">${fmt(it.mrp)}</div></div>
-      <div class="pb s"><div class="pl">Sale</div><div class="pv">${fmt(it.sale)}</div></div>
-      <div class="pb w"><div class="pl">Wholesale</div><div class="pv">${fmt(it.wholesale)}</div></div>
+      <div class="pb s shareable" onclick="openExp(${ri},'sale',event)" title="Tap to share Sale price image">
+        <span class="share-badge">📤</span>
+        <div class="pl">Sale Price</div>
+        <div class="pv">${fmt(it.sale)}</div>
+      </div>
+      <div class="pb w shareable" onclick="openExp(${ri},'wholesale',event)" title="Tap to share Wholesale price image">
+        <span class="share-badge">📤</span>
+        <div class="pl">Wholesale</div>
+        <div class="pv">${fmt(it.wholesale)}</div>
+      </div>
       <div class="pb k"><div class="pl">Stock</div><div class="pv">${it.stock??'–'}</div></div>
       ${purchBlock}
     </div>
@@ -1020,9 +917,7 @@ function cardHTML(it, ri, topPx, q){
   </div>`;
 }
 
-/* ═══════════════════════════════════════════
-   TOGGLE EXPAND
-═══════════════════════════════════════════ */
+/* ═══ TOGGLE EXPAND ═══ */
 function toggleCard(ri){
   const wasExpanded = expanded.has(ri);
   if(wasExpanded){
@@ -1033,12 +928,10 @@ function toggleCard(ri){
     vsRender(true);
   } else {
     expanded.add(ri);
-    // First render with a generous placeholder height so card is in DOM
     if(!expandedHeights[ri]) expandedHeights[ri] = CARD_COLLAPSED_H * 3;
     rebuildOffsets();
     spacer.style.height = totalH + 'px';
     vsRender(true);
-    // Now measure the real rendered height and rebuild offsets correctly
     measureExpandedCard(ri);
     rebuildOffsets();
     spacer.style.height = totalH + 'px';
@@ -1052,9 +945,6 @@ function toggleCard(ri){
   }
 }
 
-/* ═══════════════════════════════════════════
-   SCROLL
-═══════════════════════════════════════════ */
 let rafPending=false;
 function onScroll(){
   if(rafPending) return;
@@ -1062,9 +952,6 @@ function onScroll(){
   requestAnimationFrame(()=>{ vsRender(false); rafPending=false; });
 }
 
-/* ═══════════════════════════════════════════
-   SEARCH
-═══════════════════════════════════════════ */
 let searchTimer;
 document.getElementById("search").addEventListener("input",function(){
   query=this.value;
@@ -1072,9 +959,6 @@ document.getElementById("search").addEventListener("input",function(){
   searchTimer=setTimeout(applyAll,100);
 });
 
-/* ═══════════════════════════════════════════
-   PRICE FILTER
-═══════════════════════════════════════════ */
 function applyPF(){
   const mn=document.getElementById("pmin").value;
   const mx=document.getElementById("pmax").value;
@@ -1093,8 +977,330 @@ function clearPF(){
 });
 
 /* ═══════════════════════════════════════════
-   SCANNER
+   IMAGE VIEWER
 ═══════════════════════════════════════════ */
+function openImgViewer(ri, e){
+  e && e.stopPropagation();
+  imgItem   = raw[ri];
+  imgUrls   = getImageUrls(imgItem);
+  imgCurIdx = 0;
+  imgTryIdx = 0;
+
+  document.getElementById('img-title').textContent = imgItem.alias || imgItem.name || 'Product';
+  document.getElementById('img-subtitle').textContent = imgItem.name || '';
+  document.getElementById('img-info').textContent = '';
+
+  if(!imgUrls.length){
+    showImgPlaceholder('No image configured for this item.');
+  } else {
+    loadImgAt(0);
+  }
+  document.getElementById('img-ov').classList.add('show');
+}
+
+function closeImgViewer(){
+  document.getElementById('img-ov').classList.remove('show');
+  const el = document.getElementById('img-el');
+  el.src = '';
+  el.style.display = 'none';
+  imgItem = null; imgUrls = []; imgCurIdx = 0; imgTryIdx = 0;
+}
+
+function loadImgAt(idx){
+  if(idx >= imgUrls.length){
+    showImgPlaceholder('No image found for this product.\n\nTip: Add an image named "' + (imgItem.alias||'ALIAS') + '.jpg" to your images folder.');
+    return;
+  }
+  imgCurIdx = idx;
+  const el = document.getElementById('img-el');
+  const ph = document.getElementById('img-placeholder');
+  ph.style.display = 'none';
+  el.style.display = 'none';
+  el.src = imgUrls[idx];
+}
+
+function imgLoaded(){
+  const el = document.getElementById('img-el');
+  const ph = document.getElementById('img-placeholder');
+  el.style.display = 'block';
+  ph.style.display = 'none';
+  updateImgNav();
+  document.getElementById('img-info').textContent = IMAGE_SOURCE === 'local'
+    ? 'Image ' + (imgCurIdx+1) + ' of ' + imgUrls.length
+    : '';
+}
+
+function imgLoadError(){
+  /* try next candidate URL (jpg → png → jpeg → webp) */
+  imgTryIdx++;
+  if(imgTryIdx < imgUrls.length && !imgItem.images){
+    loadImgAt(imgTryIdx);
+  } else {
+    showImgPlaceholder('No image found for this product.\n\nTip: Add an image named "' + (imgItem?.alias||'ALIAS') + '.jpg" to your images folder.');
+  }
+}
+
+function showImgPlaceholder(msg){
+  const el = document.getElementById('img-el');
+  const ph = document.getElementById('img-placeholder');
+  el.style.display = 'none';
+  ph.style.display = 'flex';
+  document.getElementById('img-msg').textContent = msg;
+  document.getElementById('img-nav').style.display = 'none';
+}
+
+function updateImgNav(){
+  const nav = document.getElementById('img-nav');
+  const counter = document.getElementById('img-counter');
+  if(imgItem && imgItem.images && imgItem.images.length > 1){
+    nav.style.display = 'flex';
+    counter.textContent = (imgCurIdx+1) + ' / ' + imgItem.images.length;
+  } else {
+    nav.style.display = 'none';
+  }
+}
+
+function imgPrev(){
+  if(!imgItem || !imgItem.images) return;
+  const newIdx = (imgCurIdx - 1 + imgItem.images.length) % imgItem.images.length;
+  imgTryIdx = newIdx;
+  loadImgAt(newIdx);
+}
+function imgNext(){
+  if(!imgItem || !imgItem.images) return;
+  const newIdx = (imgCurIdx + 1) % imgItem.images.length;
+  imgTryIdx = newIdx;
+  loadImgAt(newIdx);
+}
+
+document.getElementById('img-ov').addEventListener('click', function(e){
+  if(e.target === this) closeImgViewer();
+});
+
+/* ═══════════════════════════════════════════
+   EXPORT IMAGE
+═══════════════════════════════════════════ */
+function openExp(ri, priceType, e){
+  e && e.stopPropagation();
+  expItem  = raw[ri];
+  expPrice = priceType;
+  const hint = document.getElementById('exp-price-hint');
+  hint.textContent = priceType === 'sale' ? '💚 Sharing Sale Price' : '💙 Sharing Wholesale Price';
+  hint.style.color = priceType === 'sale' ? '#22c55e' : '#60a5fa';
+  document.getElementById('exp-ov').classList.add('show');
+  drawExpCard(document.getElementById('exp-canvas'));
+}
+function closeExp(){
+  document.getElementById('exp-ov').classList.remove('show');
+  expItem = null;
+}
+
+function roundRect(ctx, x, y, w, h, r){
+  ctx.beginPath();
+  ctx.moveTo(x+r, y);
+  ctx.lineTo(x+w-r, y);
+  ctx.quadraticCurveTo(x+w, y, x+w, y+r);
+  ctx.lineTo(x+w, y+h-r);
+  ctx.quadraticCurveTo(x+w, y+h, x+w-r, y+h);
+  ctx.lineTo(x+r, y+h);
+  ctx.quadraticCurveTo(x, y+h, x, y+h-r);
+  ctx.lineTo(x, y+r);
+  ctx.quadraticCurveTo(x, y, x+r, y);
+  ctx.closePath();
+}
+function discountEmoji(pct){
+  if(pct >= 40) return '🤩';
+  if(pct >= 30) return '🔥';
+  if(pct >= 20) return '😍';
+  if(pct >= 10) return '😊';
+  return '🎉';
+}
+
+function drawExpCard(canvas){
+  if(!expItem) return;
+  const it  = expItem;
+  const W   = 540;
+  const PAD = 32;
+  const INNER = W - PAD * 2;
+  const FONT  = '-apple-system, BlinkMacSystemFont, Arial, sans-serif';
+  const fmtNum = v => {
+    if(v==null||v==='') return '–';
+    const n = parseFloat(String(v).replace(/[^0-9.]/g,''));
+    return isNaN(n) ? String(v) : '₹' + n.toLocaleString('en-IN');
+  };
+  canvas.width  = W;
+  canvas.height = 900;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#0d0d10';
+  ctx.fillRect(0, 0, W, canvas.height);
+  ctx.fillStyle = '#f5c542';
+  ctx.fillRect(0, 0, 6, canvas.height);
+  let y = 32;
+  ctx.textBaseline = 'top';
+  if(it.alias){
+    ctx.font = `bold 28px ${FONT}`;
+    ctx.fillStyle = '#f5c542';
+    ctx.fillText(it.alias, PAD, y);
+    y += 38;
+  }
+  if(it.group){
+    ctx.font = `500 14px ${FONT}`;
+    ctx.fillStyle = '#71717a';
+    ctx.fillText(it.group, PAD, y);
+    y += 24;
+  }
+  y += 10;
+  ctx.strokeStyle = 'rgba(255,255,255,0.07)';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
+  y += 20;
+  const mrpVal  = pn(it.mrp);
+  const priceVal = pn(it[expPrice]);
+  const discount = mrpVal > 0 && priceVal > 0 ? mrpVal - priceVal : 0;
+  const discPct  = mrpVal > 0 && discount > 0 ? (discount / mrpVal * 100) : 0;
+  ctx.font = `bold 11px ${FONT}`;
+  ctx.fillStyle = '#52525b';
+  ctx.fillText('MRP', PAD, y);
+  y += 18;
+  const mrpStr = fmtNum(it.mrp);
+  ctx.font = `500 20px ${FONT}`;
+  ctx.fillStyle = '#52525b';
+  ctx.fillText(mrpStr, PAD, y);
+  if(discount > 0){
+    const sw = ctx.measureText(mrpStr).width;
+    ctx.beginPath();
+    ctx.strokeStyle = '#52525b';
+    ctx.lineWidth = 1.5;
+    ctx.moveTo(PAD, y + 10);
+    ctx.lineTo(PAD + sw, y + 10);
+    ctx.stroke();
+  }
+  y += 32;
+  const priceLabel = expPrice === 'sale' ? 'SALE PRICE' : 'WHOLESALE PRICE';
+  const priceStr   = fmtNum(it[expPrice]);
+  const priceColor = expPrice === 'sale' ? '#22c55e' : '#60a5fa';
+  const priceBg    = expPrice === 'sale' ? 'rgba(34,197,94,0.10)' : 'rgba(96,165,250,0.10)';
+  const priceBord  = expPrice === 'sale' ? 'rgba(34,197,94,0.45)' : 'rgba(96,165,250,0.45)';
+  let priceFontSize = 56;
+  ctx.font = `bold ${priceFontSize}px ${FONT}`;
+  while(priceFontSize > 22 && ctx.measureText(priceStr).width > INNER - 48){
+    priceFontSize -= 2;
+    ctx.font = `bold ${priceFontSize}px ${FONT}`;
+  }
+  const boxH = 22 + priceFontSize + 22;
+  roundRect(ctx, PAD, y, INNER, boxH, 16);
+  ctx.fillStyle = priceBg; ctx.fill();
+  ctx.strokeStyle = priceBord; ctx.lineWidth = 1.5;
+  roundRect(ctx, PAD, y, INNER, boxH, 16); ctx.stroke();
+  ctx.font = `bold 11px ${FONT}`;
+  ctx.fillStyle = priceColor;
+  ctx.textBaseline = 'top';
+  ctx.fillText(priceLabel, PAD + 20, y + 14);
+  ctx.font = `bold ${priceFontSize}px ${FONT}`;
+  ctx.fillStyle = priceColor;
+  ctx.fillText(priceStr, PAD + 20, y + 22);
+  y += boxH + 18;
+  if(discount > 0){
+    const emoji = discountEmoji(discPct);
+    const discStr = `You save  ${fmtNum(discount)}  (${discPct.toFixed(2)}%)  ${emoji}`;
+    ctx.font = `bold 15px ${FONT}`;
+    const dW = ctx.measureText(discStr).width;
+    const dPillW = Math.min(dW + 32, INNER);
+    const dPillH = 32;
+    roundRect(ctx, PAD, y, dPillW, dPillH, 8);
+    ctx.fillStyle = 'rgba(34,197,94,0.08)'; ctx.fill();
+    ctx.strokeStyle = 'rgba(34,197,94,0.25)'; ctx.lineWidth = 1;
+    roundRect(ctx, PAD, y, dPillW, dPillH, 8); ctx.stroke();
+    ctx.fillStyle = '#22c55e';
+    ctx.fillText(discStr, PAD + 16, y + 8);
+    y += dPillH + 18;
+  }
+  y += 8;
+  ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(PAD, y); ctx.lineTo(W - PAD, y); ctx.stroke();
+  y += 20;
+  ctx.font = `bold 22px ${FONT}`;
+  ctx.fillStyle = '#f5c542';
+  ctx.textBaseline = 'top';
+  ctx.fillText(SHOP_NAME, PAD, y);
+  y += 30;
+  ctx.font = `14px ${FONT}`;
+  ctx.fillStyle = '#71717a';
+  ctx.fillText(SHOP_ADDRESS, PAD, y);
+  y += 22;
+  ctx.font = `14px ${FONT}`;
+  ctx.fillStyle = '#52525b';
+  ctx.fillText('\u{1F4DE} ' + SHOP_PHONE, PAD, y);
+  y += 24;
+  const finalH = y + 20;
+  const imgData = ctx.getImageData(0, 0, W, Math.min(finalH, canvas.height));
+  canvas.height = finalH;
+  canvas.width  = W;
+  ctx.fillStyle = '#0d0d10';
+  ctx.fillRect(0, 0, W, finalH);
+  ctx.fillStyle = '#f5c542';
+  ctx.fillRect(0, 0, 6, finalH);
+  ctx.putImageData(imgData, 0, 0);
+}
+
+async function getExpBlob(){
+  const offscreen = document.getElementById('gen-canvas');
+  drawExpCard(offscreen);
+  await new Promise(r => setTimeout(r, 80));
+  return new Promise(res => offscreen.toBlob(res, 'image/png', 0.95));
+}
+
+async function doExpWA(){
+  if(!expItem) return;
+  const it = expItem;
+  const priceLabel = expPrice === 'sale' ? 'Sale' : 'Wholesale';
+  const priceVal   = fmt(it[expPrice]);
+  const mrpVal = pn(it.mrp), saleVal = pn(it[expPrice]);
+  const disc = mrpVal > saleVal ? mrpVal - saleVal : 0;
+  const discPct = mrpVal > 0 && disc > 0 ? (disc/mrpVal*100).toFixed(2) : 0;
+  const emoji = disc > 0 ? discountEmoji(parseFloat(discPct)) : '';
+  const discLine = disc > 0 ? `\nDiscount: ₹${disc.toLocaleString('en-IN')}  (${discPct}%)  ${emoji}` : '';
+  const text = `*${SHOP_NAME}*\n${SHOP_ADDRESS}\n📞 ${SHOP_PHONE}\n\n*${it.name || ''}*\nCode: ${it.alias || '–'}${it.group ? '\nGroup: ' + it.group : ''}\n\nMRP: ${fmt(it.mrp)}\n💰 *${priceLabel}: ${priceVal}*${discLine}`;
+  if(navigator.share && navigator.canShare){
+    try{
+      const blob = await getExpBlob();
+      const file = new File([blob], (it.alias||'product')+'.png', {type:'image/png'});
+      if(navigator.canShare({files:[file]})){
+        await navigator.share({ files:[file], title: it.name, text });
+        closeExp(); return;
+      }
+    }catch(err){
+      if(err.name==='AbortError'){ closeExp(); return; }
+    }
+  }
+  const waUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
+  window.open(waUrl, '_blank');
+  toast("📲 Opened WhatsApp");
+  closeExp();
+}
+
+async function doExpSave(){
+  try{
+    const blob = await getExpBlob();
+    if(navigator.clipboard && window.ClipboardItem){
+      await navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
+      toast("📋 Image copied to clipboard!");
+    } else {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = (expItem?.alias || 'product') + '_' + expPrice + '.png';
+      a.click();
+      URL.revokeObjectURL(url);
+      toast("💾 Image saved!");
+    }
+  }catch(e){
+    toast("❌ Save failed: " + e.message);
+  }
+}
+
+/* ═══ SCANNER ═══ */
 let scanStream=null, scanLoop=null, codeReader=null, zxingReady=false;
 
 async function openScanner(){
@@ -1106,7 +1312,6 @@ async function openScanner(){
     scanStream=stream;
     const vid=document.getElementById("scan-vid");
     vid.srcObject=stream; await vid.play();
-
     if('BarcodeDetector' in window){
       const bd=new BarcodeDetector({formats:['qr_code','code_128','code_39','ean_13','ean_8','upc_a','upc_e','itf','data_matrix','pdf417']});
       const canvas=document.createElement('canvas');
@@ -1151,9 +1356,7 @@ function closeScanner(){
   if(v.srcObject){ v.srcObject.getTracks().forEach(t=>t.stop()); v.srcObject=null; }
 }
 
-/* ═══════════════════════════════════════════
-   COPY / SHARE
-═══════════════════════════════════════════ */
+/* ═══ COPY / SHARE ═══ */
 function copyItem(ri,e){
   e&&e.stopPropagation();
   const it=raw[ri];
@@ -1169,13 +1372,50 @@ function shareItem(ri,e){
 }
 
 /* ═══════════════════════════════════════════
-   ADMIN
+   ADMIN — BIOMETRIC + PIN
 ═══════════════════════════════════════════ */
-function openAdm(){ if(isAdmin){logout();return;} document.getElementById("adm-ov").classList.add("show"); setTimeout(()=>document.getElementById("adm-pw").focus(),150); }
-function closeAdm(){ document.getElementById("adm-ov").classList.remove("show"); resetPw(); }
-function resetPw(){ const p=document.getElementById("adm-pw"); p.value=''; p.className=''; document.getElementById("adm-msg").textContent=''; document.getElementById("adm-msg").className=''; [0,1,2,3].forEach(i=>dot(i,'')); }
-function onPwInput(el){ const v=el.value; [0,1,2,3].forEach(i=>dot(i,i<v.length?'f':'')); if(v.length===4)setTimeout(doLogin,100); }
-function dot(i,c){ const d=document.getElementById("d"+i); d.className='dot'; if(c)d.classList.add(c); }
+
+/* WebAuthn credential key stored in localStorage */
+const BIO_KEY = 'sr_adm_bio_cred';
+
+async function initBiometric(){
+  /* Check if platform authenticator (fingerprint/FaceID) is available */
+  if(!window.PublicKeyCredential) return;
+  try{
+    const available = await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable();
+    if(available){
+      document.getElementById('adm-bio-btn').classList.remove('hidden');
+      document.getElementById('adm-divider').classList.remove('hidden');
+    }
+  }catch(_){}
+}
+
+function openAdm(){
+  if(isAdmin){ logout(); return; }
+  document.getElementById("adm-ov").classList.add("show");
+  setTimeout(()=>document.getElementById("adm-pw").focus(), 150);
+}
+function closeAdm(){
+  document.getElementById("adm-ov").classList.remove("show");
+  resetPw();
+}
+function resetPw(){
+  const p=document.getElementById("adm-pw");
+  p.value=''; p.className='';
+  document.getElementById("adm-msg").textContent='';
+  document.getElementById("adm-msg").className='';
+  [0,1,2,3].forEach(i=>dot(i,''));
+}
+function onPwInput(el){
+  const v=el.value;
+  [0,1,2,3].forEach(i=>dot(i,i<v.length?'f':''));
+  if(v.length===4) setTimeout(doLogin,100);
+}
+function dot(i,c){
+  const d=document.getElementById("d"+i);
+  d.className='dot';
+  if(c) d.classList.add(c);
+}
 function doLogin(){
   const pw=document.getElementById("adm-pw");
   if(pw.value===PASS){
@@ -1189,44 +1429,108 @@ function doLogin(){
     setTimeout(()=>{ pw.value=''; pw.className=''; m.textContent=''; [0,1,2,3].forEach(i=>dot(i,'')); },900);
   }
 }
-function logout(){ isAdmin=false; document.getElementById("admin-btn").textContent='⚡ Admin'; document.getElementById("admin-btn").classList.remove("on"); vsRender(true); toast("🔒 Logged out"); }
-
-/* ═══════════════════════════════════════════
-   EDIT
-═══════════════════════════════════════════ */
-function openEdit(ri,e){
-  e&&e.stopPropagation(); if(!isAdmin) return;
-  editIdx=ri; const it=raw[ri];
-  const fields=[['name','Name'],['alias','Alias'],['mrp','MRP (₹)'],['sale','Sale (₹)'],['wholesale','Wholesale (₹)'],['stock','Stock'],['purchase','Purchase (₹)'],['group','Group'],['brand','Brand'],['barcode','Barcode']];
-  document.getElementById("edit-fields").innerHTML=fields.map(([k,l])=>`<div class="ef-wrap"><div class="ef-lbl">${l}</div><input class="ef-in" id="ef-${k}" value="${(it[k]||'').toString().replace(/"/g,'&quot;')}"></div>`).join('');
-  document.getElementById("edit-ov").classList.add("show");
-}
-function closeEdit(){ document.getElementById("edit-ov").classList.remove("show"); editIdx=-1; }
-function saveEdit(){
-  if(editIdx<0) return;
-  ['name','alias','mrp','sale','wholesale','stock','purchase','group','brand','barcode'].forEach(k=>{ const el=document.getElementById("ef-"+k); if(el) raw[editIdx][k]=el.value; });
-  closeEdit(); applyAll(); toast("✅ Saved (session)");
+function logout(){
+  isAdmin=false;
+  document.getElementById("admin-btn").textContent='⚡ Admin';
+  document.getElementById("admin-btn").classList.remove("on");
+  vsRender(true);
+  toast("🔒 Logged out");
 }
 
-/* ═══════════════════════════════════════════
-   TOAST
-═══════════════════════════════════════════ */
+/* ── BIOMETRIC via WebAuthn ── */
+async function doBiometric(){
+  const msg = document.getElementById('adm-msg');
+  msg.textContent = ''; msg.className = '';
+
+  try{
+    const savedCred = localStorage.getItem(BIO_KEY);
+
+    if(!savedCred){
+      /* First time: REGISTER a credential bound to this device */
+      msg.textContent = 'Setting up biometric…'; msg.className = '';
+      const challenge = crypto.getRandomValues(new Uint8Array(32));
+      const userId    = crypto.getRandomValues(new Uint8Array(16));
+
+      const credential = await navigator.credentials.create({
+        publicKey:{
+          challenge,
+          rp:{ name: SHOP_NAME, id: location.hostname || 'localhost' },
+          user:{ id: userId, name:'admin', displayName:'Admin' },
+          pubKeyCredParams:[
+            { type:'public-key', alg:-7  },
+            { type:'public-key', alg:-257}
+          ],
+          authenticatorSelection:{
+            authenticatorAttachment:'platform',
+            userVerification:'required'
+          },
+          timeout:60000
+        }
+      });
+
+      /* Save credential ID so we can assert later */
+      const credId = btoa(String.fromCharCode(...new Uint8Array(credential.rawId)));
+      localStorage.setItem(BIO_KEY, credId);
+      grantAdmin('👆 Biometric registered & unlocked');
+      return;
+    }
+
+    /* Subsequent times: ASSERT (verify fingerprint) */
+    msg.textContent = 'Waiting for fingerprint…'; msg.className = '';
+    const challenge  = crypto.getRandomValues(new Uint8Array(32));
+    const rawId      = Uint8Array.from(atob(savedCred), c=>c.charCodeAt(0));
+
+    await navigator.credentials.get({
+      publicKey:{
+        challenge,
+        allowCredentials:[{ type:'public-key', id: rawId }],
+        userVerification:'required',
+        timeout:60000
+      }
+    });
+
+    grantAdmin('👆 Fingerprint verified');
+
+  }catch(err){
+    if(err.name === 'NotAllowedError'){
+      msg.textContent = 'Biometric cancelled'; msg.className = 'e';
+    } else if(err.name === 'InvalidStateError'){
+      /* credential not found on this device — clear & retry */
+      localStorage.removeItem(BIO_KEY);
+      msg.textContent = 'Credential reset — tap again to re-register'; msg.className = 'e';
+    } else {
+      msg.textContent = 'Biometric error — use PIN'; msg.className = 'e';
+    }
+  }
+}
+
+function grantAdmin(toastMsg){
+  isAdmin = true;
+  const m = document.getElementById('adm-msg');
+  m.textContent = '✓ Granted'; m.className = 'g';
+  [0,1,2,3].forEach(i=>dot(i,'g'));
+  setTimeout(()=>{
+    closeAdm();
+    document.getElementById("admin-btn").textContent = '🔓 Logout';
+    document.getElementById("admin-btn").classList.add("on");
+    vsRender(true);
+    toast(toastMsg || "🔓 Admin on");
+  }, 500);
+}
+
+/* ═══ TOAST ═══ */
 let toastTm;
 function toast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.classList.add("show"); clearTimeout(toastTm); toastTm=setTimeout(()=>t.classList.remove("show"),2500); }
 
-/* ═══════════════════════════════════════════
-   KEYBOARD / DISMISS
-═══════════════════════════════════════════ */
+/* ═══ KEYBOARD ═══ */
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){ closeAdm(); closeEdit(); closeScanner(); closeGrpModal(); closeBrandModal(); }
+  if(e.key==="Escape"){ closeAdm(); closeScanner(); closeGrpModal(); closeBrandModal(); closeExp(); closeImgViewer(); }
   if((e.ctrlKey||e.metaKey)&&e.key==="f"){ e.preventDefault(); document.getElementById("search").focus(); }
 });
 document.getElementById("adm-ov").addEventListener("click",e=>{ if(e.target.id==="adm-ov")closeAdm(); });
-document.getElementById("edit-ov").addEventListener("click",e=>{ if(e.target.id==="edit-ov")closeEdit(); });
+document.getElementById("exp-ov").addEventListener("click",e=>{ if(e.target.id==="exp-ov")closeExp(); });
 
-/* ═══════════════════════════════════════════
-   BOOT
-═══════════════════════════════════════════ */
+/* ═══ BOOT ═══ */
 scrollEl = document.getElementById("scroll");
 spacer   = document.getElementById("spacer");
 stage    = document.getElementById("stage");
