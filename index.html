@@ -1,984 +1,650 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>StockFlow - Capture & Upload</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>SR Psd - Product Manager with Images</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#09090b;--surf:#111113;--card:#18181b;
+  --bord:rgba(255,255,255,0.08);
+  --gold:#f5c542;--green:#22c55e;--blue:#60a5fa;--purple:#c084fc;--red:#f87171;
+  --txt:#e4e4e7;--muted:#71717a;
+}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;display:flex;flex-direction:column}
+#hdr{flex-shrink:0;height:52px;padding:0 14px;display:flex;align-items:center;gap:10px;background:rgba(9,9,11,0.97);border-bottom:1px solid var(--bord);z-index:50}
+#logo{font-size:20px;font-weight:900;letter-spacing:2px;color:var(--gold);white-space:nowrap;cursor:pointer;user-select:none}
+#hdr-right{margin-left:auto;display:flex;gap:8px;align-items:center}
+#badge{font-size:11px;color:var(--muted);background:var(--surf);border:1px solid var(--bord);padding:2px 8px;border-radius:20px}
+#refresh-btn{width:34px;height:34px;border-radius:9px;background:var(--surf);border:1.5px solid var(--bord);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center}
+#refresh-btn.spinning svg{animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#admin-btn{font-size:12px;font-weight:700;background:transparent;color:var(--gold);border:1.5px solid var(--gold);padding:5px 12px;border-radius:7px;cursor:pointer}
+#admin-btn.on{background:var(--gold);color:#000}
+#ctrl{flex-shrink:0;padding:10px 14px 6px;display:flex;flex-direction:column;gap:7px}
+#search-row{display:flex;gap:8px;align-items:center}
+#search{flex:1;background:var(--surf);border:1.5px solid var(--bord);border-radius:10px;padding:10px 14px;font-size:15px;color:var(--txt);outline:none}
+#search:focus{border-color:var(--gold)}
+#scan-btn{width:42px;height:42px;border-radius:10px;background:var(--surf);border:1.5px solid var(--bord);color:var(--txt);cursor:pointer;display:flex;align-items:center;justify-content:center}
+#scan-btn.on{border-color:var(--gold);color:var(--gold)}
+.chip{font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;border:1.5px solid var(--bord);background:var(--surf);color:var(--muted);cursor:pointer}
+.chip.on{background:var(--gold);border-color:var(--gold);color:#000}
+#sort-row,#stock-row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+#sort-row::-webkit-scrollbar,#stock-row::-webkit-scrollbar{display:none}
+.stock-chip[data-stock="all"].on{background:var(--gold);border-color:var(--gold);color:#000}
+.stock-chip[data-stock="in"].on{background:rgba(34,197,94,0.18);border-color:var(--green);color:var(--green)}
+.stock-chip[data-stock="low"].on{background:rgba(245,197,66,0.18);border-color:var(--gold);color:var(--gold)}
+.stock-chip[data-stock="out"].on{background:rgba(248,113,113,0.18);border-color:var(--red);color:var(--red)}
+#grp-btn,#brand-btn{display:flex;align-items:center;gap:8px;background:var(--surf);border:1.5px solid var(--bord);border-radius:10px;padding:8px 14px;cursor:pointer;font-size:13px;font-weight:600;color:var(--muted);width:100%}
+#grp-btn.active,#brand-btn.active{border-color:var(--gold);color:var(--gold)}
+#pf{display:flex;align-items:center;gap:6px;flex-wrap:nowrap}
+#pf label{font-size:11px;color:var(--muted)}
+.pi{width:68px;background:var(--surf);border:1.5px solid var(--bord);border-radius:7px;padding:5px 8px;font-size:12px;color:var(--txt);outline:none}
+#pf-go,#pf-clr{padding:5px 10px;border-radius:7px;font-size:12px;font-weight:700;cursor:pointer}
+#pf-go{background:var(--gold);border:none;color:#000}
+#pf-clr{background:var(--surf);border:1px solid var(--bord);color:var(--muted)}
+#status{flex-shrink:0;padding:2px 14px 4px;font-size:11px;color:var(--muted)}
+#scroll{flex:1;overflow-y:auto;overflow-x:hidden;position:relative;-webkit-overflow-scrolling:touch}
+#scroll::-webkit-scrollbar{width:3px}
+#scroll::-webkit-scrollbar-thumb{background:var(--bord);border-radius:3px}
+#spacer{width:1px}
+#stage{position:absolute;top:0;left:0;right:0}
+.c{position:absolute;left:14px;right:14px;background:var(--card);border:1px solid var(--bord);border-radius:12px;padding:16px;cursor:pointer}
+.c.exp{border-color:rgba(245,197,66,0.3)}
+.c-name{font-size:17px;font-weight:700;color:var(--txt)}
+.c-alias{font-size:11px;color:var(--muted);margin-top:2px}
+.prices{margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pb{border-radius:8px;padding:7px 10px}
+.pb.m{background:rgba(245,197,66,0.1);border:1px solid rgba(245,197,66,0.22)}
+.pb.s{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.22)}
+.pb.w{background:rgba(96,165,250,0.1);border:1px solid rgba(96,165,250,0.22)}
+.pb.k{background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.18)}
+.pb.p{background:rgba(192,132,252,0.1);border:1px solid rgba(192,132,252,0.22)}
+.pl{font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;opacity:.65}
+.pb.m .pl{color:var(--gold)}.pb.s .pl{color:var(--green)}.pb.w .pl{color:var(--blue)}
+.pv{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:1px}
+.pb.m .pv{color:var(--gold)}.pb.s .pv{color:var(--green)}.pb.w .pv{color:var(--blue)}
+.det{display:none;border-top:1px solid var(--bord);margin-top:10px;padding-top:10px}
+.c.exp .det{display:block}
+.act{display:flex;gap:7px;margin-top:10px;flex-wrap:wrap}
+.ab{flex:1;min-width:60px;padding:7px 4px;border-radius:7px;font-size:12px;font-weight:600;border:none;cursor:pointer}
+.ab.cp{background:rgba(96,165,250,0.12);color:var(--blue);border:1px solid rgba(96,165,250,0.25)}
+.ab.sh{background:rgba(34,197,94,0.10);color:var(--green);border:1px solid rgba(34,197,94,0.20)}
+.ab.ig{background:rgba(192,132,252,0.12);color:var(--purple);border:1px solid rgba(192,132,252,0.25)}
+.ab.wa{background:rgba(37,211,102,0.12);color:#25d366;border:1px solid rgba(37,211,102,0.3)}
+.grp-hdr{position:absolute;left:14px;right:14px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);padding:4px 0 3px;border-bottom:1px solid rgba(245,197,66,0.2)}
+.empty-state{text-align:center;color:#bcc0c4;padding:24px;font-size:13px}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(70px);background:#27272a;border:1px solid var(--bord);border-radius:30px;padding:9px 18px;font-size:13px;z-index:300;transition:transform .25s;opacity:0;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: #f0f2f5;
-            padding: 12px;
-            color: #1a1a1a;
-        }
-
-        .container {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 16px;
-        }
-
-        .header h1 {
-            font-size: 1.6rem;
-            font-weight: 600;
-            background: linear-gradient(135deg, #075e54, #128C7E);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 16px;
-            margin-bottom: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-        }
-
-        .input-group {
-            margin-bottom: 12px;
-        }
-
-        .input-group input, .group-search-container {
-            width: 100%;
-            padding: 12px;
-            border: 1.5px solid #e4e6eb;
-            border-radius: 14px;
-            font-size: 15px;
-            font-family: inherit;
-            transition: all 0.2s;
-            background: white;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            border-color: #25D366;
-        }
-
-        .row-2 {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .row-2 .input-group {
-            flex: 1;
-            margin-bottom: 0;
-        }
-
-        .group-search-container {
-            position: relative;
-            padding: 0;
-        }
-
-        .group-search-container input {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 14px;
-            font-size: 15px;
-        }
-
-        .group-search-container input:focus {
-            outline: none;
-        }
-
-        .group-suggestions {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            border: 1px solid #e4e6eb;
-            border-radius: 12px;
-            max-height: 200px;
-            overflow-y: auto;
-            z-index: 100;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            display: none;
-        }
-
-        .group-suggestions.show {
-            display: block;
-        }
-
-        .suggestion-item {
-            padding: 10px 12px;
-            cursor: pointer;
-            font-size: 14px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .suggestion-item:hover {
-            background: #f0f2f5;
-        }
-
-        .camera-section {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .btn-camera, .btn-upload {
-            flex: 1;
-            padding: 10px;
-            border: none;
-            border-radius: 14px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .btn-camera {
-            background: #075e54;
-            color: white;
-        }
-
-        .btn-camera:hover {
-            background: #054a41;
-        }
-
-        .btn-upload {
-            background: #e4e6eb;
-            color: #1a1a1a;
-        }
-
-        .btn-upload:hover {
-            background: #d0d3d9;
-        }
-
-        .image-preview {
-            width: 60px;
-            height: 60px;
-            background: #f5f5f5;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 1px solid #e4e6eb;
-        }
-
-        .preview-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .preview-label {
-            font-size: 12px;
-            color: #65676b;
-        }
-
-        .btn-add {
-            width: 100%;
-            padding: 12px;
-            background: #25D366;
-            color: white;
-            border: none;
-            border-radius: 14px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .btn-add:hover {
-            background: #128C7E;
-        }
-
-        .items-list {
-            background: white;
-            border-radius: 20px;
-            padding: 16px;
-            margin-bottom: 16px;
-        }
-
-        .section-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: #65676b;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-        }
-
-        .stock-item {
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f2f5;
-            font-size: 14px;
-            font-weight: 500;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .stock-item:last-child {
-            border-bottom: none;
-        }
-
-        .item-name {
-            color: #1a1a1a;
-        }
-
-        .item-details {
-            color: #65676b;
-            font-weight: normal;
-            font-size: 12px;
-        }
-
-        .photo-items {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 8px;
-        }
-
-        .photo-card {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            padding: 8px;
-            background: #f8f9fa;
-            border-radius: 14px;
-        }
-
-        .photo-card-img {
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            object-fit: cover;
-            background: #e4e6eb;
-        }
-
-        .photo-card-info {
-            flex: 1;
-        }
-
-        .photo-card-info strong {
-            font-size: 14px;
-        }
-
-        .photo-card-info p {
-            font-size: 11px;
-            color: #65676b;
-            margin-top: 2px;
-        }
-
-        .remove-icon {
-            background: none;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-            color: #dc3545;
-            padding: 4px 8px;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .btn-whatsapp {
-            flex: 2;
-            padding: 12px;
-            background: #25D366;
-            color: white;
-            border: none;
-            border-radius: 14px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .btn-clear {
-            flex: 1;
-            padding: 12px;
-            background: #e4e6eb;
-            color: #dc3545;
-            border: none;
-            border-radius: 14px;
-            font-size: 15px;
-            font-weight: 500;
-            cursor: pointer;
-        }
-
-        .status {
-            text-align: center;
-            font-size: 12px;
-            padding: 10px;
-            border-radius: 12px;
-            margin-top: 10px;
-        }
-
-        .status.success {
-            background: #d4edda;
-            color: #155724;
-        }
-
-        .status.error {
-            background: #f8d7da;
-            color: #721c24;
-        }
-
-        .status.uploading {
-            background: #fff3cd;
-            color: #856404;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .empty-state {
-            text-align: center;
-            color: #bcc0c4;
-            padding: 24px;
-            font-size: 13px;
-        }
-
-        .camera-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-            z-index: 1000;
-            flex-direction: column;
-        }
-
-        .camera-modal.active {
-            display: flex;
-        }
-
-        .camera-video {
-            width: 100%;
-            height: auto;
-            max-height: 70vh;
-            background: black;
-            object-fit: cover;
-        }
-
-        .camera-controls {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            padding: 20px;
-            background: #1a1a1a;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-
-        .capture-btn, .close-cam-btn {
-            padding: 12px 24px;
-            font-size: 16px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .capture-btn {
-            background: #25D366;
-            color: white;
-            flex: 1;
-        }
-
-        .close-cam-btn {
-            background: #dc3545;
-            color: white;
-            flex: 1;
-        }
-
-        #fileInput {
-            display: none;
-        }
-
-        .found-badge {
-            display: inline-block;
-            background: #25D366;
-            color: white;
-            font-size: 10px;
-            padding: 2px 6px;
-            border-radius: 10px;
-            margin-left: 8px;
-        }
-    </style>
+/* Image Manager Modal */
+.img-manager-modal{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.95);display:none;flex-direction:column;align-items:center;justify-content:center}
+.img-manager-modal.show{display:flex}
+.img-manager-container{background:var(--card);border-radius:20px;width:95%;max-width:500px;max-height:85vh;display:flex;flex-direction:column;overflow:hidden}
+.img-manager-header{padding:16px;border-bottom:1px solid var(--bord);display:flex;justify-content:space-between;align-items:center}
+.img-manager-header h3{font-size:16px;color:var(--gold)}
+.img-manager-close{background:var(--surf);border:1px solid var(--bord);color:var(--muted);width:30px;height:30px;border-radius:50%;cursor:pointer}
+.img-gallery{padding:16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:12px;max-height:400px;overflow-y:auto}
+.img-gallery-item{position:relative;aspect-ratio:1;background:var(--surf);border-radius:12px;overflow:hidden;border:2px solid transparent}
+.img-gallery-item.selected{border-color:var(--gold)}
+.img-gallery-item img{width:100%;height:100%;object-fit:cover}
+.img-gallery-delete{position:absolute;top:4px;right:4px;background:rgba(0,0,0,0.7);border:none;color:var(--red);width:24px;height:24px;border-radius:50%;cursor:pointer;font-size:14px}
+.img-upload-area{padding:16px;border-top:1px solid var(--bord);display:flex;gap:10px;flex-wrap:wrap}
+.img-cam-btn,.img-upload-btn{flex:1;padding:10px;border-radius:10px;border:none;font-weight:600;cursor:pointer}
+.img-cam-btn{background:#075e54;color:white}
+.img-upload-btn{background:var(--surf);color:var(--txt);border:1px solid var(--bord)}
+.img-counter{font-size:11px;color:var(--muted);text-align:center;padding:8px}
+.camera-modal{position:fixed;inset:0;z-index:250;background:black;display:none;flex-direction:column}
+.camera-modal.active{display:flex}
+.camera-video{width:100%;height:auto;max-height:70vh;object-fit:cover}
+.camera-controls{display:flex;gap:16px;justify-content:center;padding:20px;background:#1a1a1a;position:absolute;bottom:0;left:0;right:0}
+.capture-btn,.close-cam-btn{padding:12px 24px;font-size:16px;border:none;border-radius:30px;cursor:pointer;font-weight:600}
+.capture-btn{background:#25D366;color:white;flex:1}
+.close-cam-btn{background:#dc3545;color:white;flex:1}
+</style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>📸 stockflow capture</h1>
+
+<div id="hdr">
+  <div id="logo" onclick="location.reload()">SR PSD</div>
+  <div id="hdr-right">
+    <div id="badge">—</div>
+    <button id="refresh-btn" onclick="refreshData()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="23 4 23 10 17 10"/>
+        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+      </svg>
+    </button>
+    <button id="admin-btn" onclick="openAdm()">⚡ Admin</button>
+  </div>
+</div>
+
+<div id="ctrl">
+  <div id="search-row">
+    <input id="search" type="search" placeholder="🔍 Search name, alias, barcode..." autocomplete="off">
+    <button id="scan-btn" onclick="openScanner()">📷</button>
+  </div>
+  <div id="sort-row">
+    <div class="chip on" data-sort="df">Default</div>
+    <div class="chip" data-sort="grp">By Group</div>
+    <div class="chip" data-sort="na">A – Z</div>
+    <div class="chip" data-sort="sa">Price ↑</div>
+    <div class="chip" data-sort="sd">Price ↓</div>
+  </div>
+  <div id="stock-row">
+    <div class="stock-chip on" data-stock="all">📦 All Stock</div>
+    <div class="stock-chip" data-stock="in">✅ In Stock</div>
+    <div class="stock-chip" data-stock="low">⚠️ Low Stock (≤5)</div>
+    <div class="stock-chip" data-stock="out">❌ Out of Stock</div>
+  </div>
+  <button id="grp-btn" onclick="openGrpModal()">🗂️ <span id="grp-btn-label">All Groups</span></button>
+  <button id="brand-btn" onclick="openBrandModal()">🏷️ <span id="brand-btn-label">All Brands</span></button>
+  <div id="pf">
+    <label>₹ Sale:</label>
+    <input class="pi" id="pmin" type="number" placeholder="Min">
+    <span style="color:var(--muted);font-size:12px">–</span>
+    <input class="pi" id="pmax" type="number" placeholder="Max">
+    <button id="pf-go" onclick="applyPF()">Go</button>
+    <button id="pf-clr" onclick="clearPF()">✕</button>
+  </div>
+</div>
+
+<div id="status"></div>
+<div id="scroll"><div id="spacer"></div><div id="stage"></div></div>
+<div id="toast" class="toast"></div>
+
+<!-- Image Manager Modal -->
+<div id="imgManagerModal" class="img-manager-modal">
+  <div class="img-manager-container">
+    <div class="img-manager-header">
+      <h3 id="imgManagerTitle">Product Images</h3>
+      <button class="img-manager-close" onclick="closeImageManager()">✕</button>
     </div>
-
-    <!-- Camera Modal -->
-    <div id="cameraModal" class="camera-modal">
-        <video id="cameraVideo" class="camera-video" autoplay playsinline></video>
-        <div class="camera-controls">
-            <button id="capturePhotoBtn" class="capture-btn">📸 capture</button>
-            <button id="closeCameraBtn" class="close-cam-btn">✕ close</button>
-        </div>
+    <div id="imgGallery" class="img-gallery"></div>
+    <div id="imgCounter" class="img-counter"></div>
+    <div class="img-upload-area">
+      <button class="img-cam-btn" onclick="openCameraForProduct()">📸 Capture Photo</button>
+      <button class="img-upload-btn" onclick="uploadPhotoForProduct()">🖼️ Upload Photo</button>
     </div>
+  </div>
+</div>
 
-    <!-- Add Item Card -->
-    <div class="card">
-        <div class="row-2">
-            <div class="input-group">
-                <input type="text" id="itemName" placeholder="item name" autocomplete="off" style="text-transform: uppercase;">
-            </div>
-            <div class="input-group">
-                <input type="number" id="qty" placeholder="qty" value="4">
-            </div>
-        </div>
-
-        <div class="input-group">
-            <input type="text" id="aliasInput" placeholder="product alias (for image naming)" autocomplete="off" style="text-transform: uppercase;">
-            <div id="aliasStatus" style="font-size: 11px; margin-top: 4px;"></div>
-        </div>
-
-        <div class="input-group">
-            <div class="group-search-container">
-                <input type="text" id="groupSearch" placeholder="search or type group" autocomplete="off" style="text-transform: uppercase;">
-                <div id="groupSuggestions" class="group-suggestions"></div>
-            </div>
-        </div>
-
-        <div class="preview-container">
-            <div class="image-preview" id="imagePreview">
-                <span style="font-size: 10px; color:#999;">no photo</span>
-            </div>
-            <div class="preview-label">photo (optional)</div>
-        </div>
-
-        <div class="camera-section">
-            <button id="openCameraBtn" class="btn-camera">📸 open camera</button>
-            <button id="uploadImageBtn" class="btn-upload">🖼️ upload</button>
-            <input type="file" id="fileInput" accept="image/*">
-        </div>
-
-        <button id="addItemBtn" class="btn-add">+ add item</button>
-    </div>
-
-    <!-- Items Display -->
-    <div class="items-list">
-        <div class="section-title">📋 stock list</div>
-        <div id="compactList">
-            <div class="empty-state">no items added</div>
-        </div>
-        
-        <div class="section-title" style="margin-top: 16px;">🖼️ with photos</div>
-        <div id="detailList">
-            <div class="empty-state">no photos</div>
-        </div>
-    </div>
-
-    <!-- Action Buttons -->
-    <div class="action-buttons">
-        <button id="submitBtn" class="btn-whatsapp">📤 whatsapp</button>
-        <button id="clearAllBtn" class="btn-clear">🗑️ clear</button>
-    </div>
-    <div id="statusMsg" class="status hidden"></div>
+<!-- Camera Modal -->
+<div id="cameraModal" class="camera-modal">
+  <video id="cameraVideo" class="camera-video" autoplay playsinline></video>
+  <div class="camera-controls">
+    <button id="captureBtn" class="capture-btn">📸 CAPTURE</button>
+    <button id="closeCamBtn" class="close-cam-btn">✕ CLOSE</button>
+  </div>
 </div>
 
 <script>
-    // ============ GITHUB CONFIGURATION ============
-    const GITHUB_USERNAME = "srfashoinned";
-    const GITHUB_REPO = "image-storage-psd";
-    const GITHUB_TOKEN = "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";
-    const GITHUB_BRANCH = "main";
-    const CDN_BASE = `https://cdn.jsdelivr.net/gh/${GITHUB_USERNAME}/${GITHUB_REPO}`;
-    
-    // Your product database URL
-    const PRODUCT_DB_URL = "https://srfashoinned.github.io/srpsdlist/items.json";
-    
-    // All groups
-    const allGroups = [
-        "BEATS PLZO", "BEATS SUIT", "BOTTOM WORK", "CATALOGUE SUIT", "COTTON", 
-        "COTTON DUPATTA", "COTTON SUIT", "CRUNCHY SUIT", "DUPATTA", "FARSHI", 
-        "FARSI", "FIRDOS SUIT", "FLUTE PLAZO", "FROCK", "GARARA", "GENERAL", 
-        "GENTS", "GOWN", "KAPDA", "LACHA", "MAKHNA", "NAYRA", "ORGANZA PLAZO", 
-        "ORGANZA SUIT", "ORGANZA TROUSER", "PAK SUIT", "PAPLON", "PLAZO", 
-        "READYMADE", "RUSSIAN PLAZO", "SHADED PLAZO", "SHARARA", "SS", "SUIT", 
-        "TROUSER", "VELVET SUIT"
-    ];
+// ============ GITHUB CONFIGURATION ============
+const GITHUB_USERNAME = "srfashoinned";
+const GITHUB_REPO = "image-storage-psd";
+const GITHUB_TOKEN = "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";
+const GITHUB_BRANCH = "main";
+const CDN_BASE = `https://cdn.jsdelivr.net/gh/${GITHUB_USERNAME}/${GITHUB_REPO}`;
 
-    let items = [];
-    let currentImageData = null;
-    let currentStream = null;
-    let selectedGroup = "GENERAL";
-    let productDatabase = [];
+// State
+let raw = [];
+let pool = [];
+let heights = [], offsets = [];
+let isAdmin = false;
+let activeGroup = '', activeBrand = '', activeSort = 'df', activeStock = 'all';
+let query = '', pMin = null, pMax = null;
+let expanded = new Set();
+let vsStart = 0, vsEnd = 0, totalH = 0;
+let scrollEl, spacer, stage;
 
-    // DOM elements
-    const itemNameInput = document.getElementById('itemName');
-    const aliasInput = document.getElementById('aliasInput');
-    const aliasStatus = document.getElementById('aliasStatus');
-    const qtyInput = document.getElementById('qty');
-    const groupSearch = document.getElementById('groupSearch');
-    const groupSuggestions = document.getElementById('groupSuggestions');
-    const imagePreviewDiv = document.getElementById('imagePreview');
-    const addItemBtn = document.getElementById('addItemBtn');
-    const submitBtn = document.getElementById('submitBtn');
-    const clearAllBtn = document.getElementById('clearAllBtn');
-    const compactListDiv = document.getElementById('compactList');
-    const detailListDiv = document.getElementById('detailList');
-    const statusMsg = document.getElementById('statusMsg');
-    
-    const cameraModal = document.getElementById('cameraModal');
-    const cameraVideo = document.getElementById('cameraVideo');
-    const openCameraBtn = document.getElementById('openCameraBtn');
-    const capturePhotoBtn = document.getElementById('capturePhotoBtn');
-    const closeCameraBtn = document.getElementById('closeCameraBtn');
-    const uploadImageBtn = document.getElementById('uploadImageBtn');
-    const fileInput = document.getElementById('fileInput');
+// Image Manager State
+let currentProduct = null;
+let currentProductImages = [];
+let currentUploadIndex = null;
 
-    // Load product database
-    async function loadProductDatabase() {
-        try {
-            const response = await fetch(PRODUCT_DB_URL + "?t=" + Date.now());
-            if (response.ok) {
-                productDatabase = await response.json();
-                console.log(`✅ Loaded ${productDatabase.length} products from database`);
-                showStatus(`📦 Connected to product database (${productDatabase.length} items)`, 'success');
-            } else {
-                console.log("Could not load product database");
-            }
-        } catch (e) {
-            console.log("Product database not available:", e);
-        }
-    }
-    
-    // Search for existing product
-    function searchProductByName(name) {
-        const upperName = name.trim().toUpperCase();
-        return productDatabase.find(p => 
-            (p.name || "").toUpperCase() === upperName || 
-            (p.alias || "").toUpperCase() === upperName
-        );
-    }
-    
-    // Auto-fill alias
-    itemNameInput.addEventListener('blur', async () => {
-        const name = itemNameInput.value.trim().toUpperCase();
-        if (name && name.length > 1) {
-            if (productDatabase.length === 0) {
-                await loadProductDatabase();
-            }
-            const existing = searchProductByName(name);
-            if (existing && existing.alias) {
-                aliasInput.value = existing.alias;
-                aliasStatus.innerHTML = `<span style="color: #22c55e;">✓ Found in database: ${existing.alias}</span>`;
-                showStatus(`✓ Found product in database`, 'success');
-            } else if (existing) {
-                aliasInput.value = name.replace(/[^A-Z0-9]/g, '_').substring(0, 20);
-                aliasStatus.innerHTML = `<span style="color: #f5c542;">⚠️ No alias in DB, using generated: ${aliasInput.value}</span>`;
-            } else {
-                aliasStatus.innerHTML = `<span style="color: #71717a;">ℹ️ New product - enter alias manually</span>`;
-            }
-        }
+// Camera State
+let currentStream = null;
+let pendingProductForCamera = null;
+
+const GAP = 16;
+let CARD_COLLAPSED_H = 160;
+const LOW_STOCK_THRESHOLD = 5;
+
+// ============ IMAGE MANAGEMENT FUNCTIONS ============
+
+// Load images for a product from GitHub
+async function loadProductImages(alias) {
+  if (!alias) return [];
+  const cleanAlias = alias.replace(/[^a-zA-Z0-9_\-]/g, '_');
+  const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/products`;
+  
+  try {
+    const response = await fetch(apiUrl, {
+      headers: { 'Authorization': `token ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
     });
-
-    // Upload to GitHub
-    async function uploadToGitHub(imageBase64, alias) {
-        const base64Data = imageBase64.split(',')[1];
-        const cleanAlias = alias.replace(/[^a-zA-Z0-9_\-]/g, '_');
-        const timestamp = Date.now();
-        const fileName = `${cleanAlias}_${timestamp}.jpg`;
-        const filePath = `products/${fileName}`;
-        
-        showStatus('☁️ uploading to cloud...', 'uploading');
-        
-        try {
-            let sha = null;
-            try {
-                const checkResponse = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${filePath}`, {
-                    headers: {
-                        'Authorization': `token ${GITHUB_TOKEN}`,
-                        'Accept': 'application/vnd.github.v3+json'
-                    }
-                });
-                if (checkResponse.ok) {
-                    const data = await checkResponse.json();
-                    sha = data.sha;
-                }
-            } catch (e) {}
-            
-            const response = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${filePath}`, {
-                method: 'PUT',
-                headers: {
-                    'Authorization': `token ${GITHUB_TOKEN}`,
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/vnd.github.v3+json'
-                },
-                body: JSON.stringify({
-                    message: `Upload image for ${cleanAlias}`,
-                    content: base64Data,
-                    branch: GITHUB_BRANCH,
-                    ...(sha && { sha: sha })
-                })
-            });
-            
-            if (!response.ok) {
-                throw new Error('Upload failed');
-            }
-            
-            const cdnUrl = `${CDN_BASE}@${GITHUB_BRANCH}/${filePath}`;
-            showStatus(`✅ image saved as ${fileName}`, 'success');
-            return cdnUrl;
-            
-        } catch (error) {
-            console.error('Upload error:', error);
-            showStatus('⚠️ upload failed', 'error');
-            return null;
-        }
-    }
-
-    // Compress image
-    function compressImage(base64, maxWidth = 800, quality = 0.7) {
-        return new Promise((resolve) => {
-            const img = new Image();
-            img.onload = () => {
-                const canvas = document.createElement('canvas');
-                let width = img.width;
-                let height = img.height;
-                if (width > maxWidth) {
-                    height = (height * maxWidth) / width;
-                    width = maxWidth;
-                }
-                canvas.width = width;
-                canvas.height = height;
-                const ctx = canvas.getContext('2d');
-                ctx.drawImage(img, 0, 0, width, height);
-                const compressed = canvas.toDataURL('image/jpeg', quality);
-                resolve(compressed);
-            };
-            img.src = base64;
-        });
-    }
-
-    // Group search
-    function searchGroups(query) {
-        if (!query || query.length === 0) return [];
-        const queryUpper = query.toUpperCase();
-        const scored = allGroups.map(group => {
-            let score = 0;
-            if (group === queryUpper) score = 100;
-            else if (group.startsWith(queryUpper)) score = 80;
-            else if (group.includes(queryUpper)) score = 60;
-            return { group, score };
-        });
-        return scored.filter(s => s.score > 0).sort((a,b) => b.score - a.score).slice(0, 6).map(s => s.group);
-    }
+    if (!response.ok) return [];
+    const files = await response.json();
+    const matchingFiles = files.filter(file => 
+      file.name.startsWith(cleanAlias) && 
+      (file.name.endsWith('.jpg') || file.name.endsWith('.png') || file.name.endsWith('.jpeg'))
+    ).sort((a,b) => a.name.localeCompare(b.name));
     
-    function updateSuggestions() {
-        const query = groupSearch.value;
-        const suggestions = searchGroups(query);
-        if (suggestions.length > 0 && query.length > 0) {
-            groupSuggestions.innerHTML = suggestions.map(g => 
-                `<div class="suggestion-item" onclick="selectGroup('${g.replace(/'/g, "\\'")}')">${g}</div>`
-            ).join('');
-            groupSuggestions.classList.add('show');
-        } else {
-            groupSuggestions.classList.remove('show');
-        }
-    }
+    return matchingFiles.map(file => ({
+      url: `${CDN_BASE}@${GITHUB_BRANCH}/products/${file.name}`,
+      name: file.name,
+      sha: file.sha
+    }));
+  } catch (e) {
+    console.log('Error loading images:', e);
+    return [];
+  }
+}
+
+// Upload image to GitHub
+async function uploadProductImage(imageBase64, alias, index) {
+  const base64Data = imageBase64.split(',')[1];
+  const cleanAlias = alias.replace(/[^a-zA-Z0-9_\-]/g, '_');
+  const timestamp = Date.now();
+  const randomId = Math.random().toString(36).substring(2, 6);
+  const fileName = `${cleanAlias}_${timestamp}_${randomId}.jpg`;
+  const filePath = `products/${fileName}`;
+  
+  showToast('☁️ Uploading...');
+  
+  try {
+    const response = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${filePath}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github.v3+json'
+      },
+      body: JSON.stringify({
+        message: `Upload image for ${cleanAlias}`,
+        content: base64Data,
+        branch: GITHUB_BRANCH
+      })
+    });
     
-    window.selectGroup = function(group) {
-        groupSearch.value = group;
-        selectedGroup = group;
-        groupSuggestions.classList.remove('show');
+    if (!response.ok) throw new Error('Upload failed');
+    
+    const cdnUrl = `${CDN_BASE}@${GITHUB_BRANCH}/${filePath}`;
+    showToast('✅ Image uploaded!');
+    return cdnUrl;
+  } catch (error) {
+    showToast('❌ Upload failed');
+    return null;
+  }
+}
+
+// Delete image from GitHub
+async function deleteProductImage(fileName, sha) {
+  if (!confirm('Delete this image?')) return false;
+  
+  try {
+    const response = await fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/products/${fileName}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `token ${GITHUB_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github.v3+json'
+      },
+      body: JSON.stringify({
+        message: `Delete image ${fileName}`,
+        sha: sha,
+        branch: GITHUB_BRANCH
+      })
+    });
+    
+    if (!response.ok) throw new Error('Delete failed');
+    showToast('🗑️ Image deleted');
+    return true;
+  } catch (error) {
+    showToast('❌ Delete failed');
+    return false;
+  }
+}
+
+// Open image manager for a product
+async function openImageManager(ri, e) {
+  e && e.stopPropagation();
+  currentProduct = raw[ri];
+  const alias = currentProduct.alias || currentProduct.name?.replace(/[^A-Z0-9]/g, '_');
+  
+  document.getElementById('imgManagerTitle').innerHTML = `📸 ${currentProduct.name || currentProduct.alias} (Max 5 images)`;
+  await refreshImageGallery(alias);
+  document.getElementById('imgManagerModal').classList.add('show');
+}
+
+async function refreshImageGallery(alias) {
+  currentProductImages = await loadProductImages(alias);
+  const gallery = document.getElementById('imgGallery');
+  const counter = document.getElementById('imgCounter');
+  
+  counter.textContent = `${currentProductImages.length} / 5 images`;
+  
+  if (currentProductImages.length === 0) {
+    gallery.innerHTML = '<div class="empty-state" style="grid-column:1/-1">No images yet. Capture or upload up to 5 photos.</div>';
+    return;
+  }
+  
+  gallery.innerHTML = currentProductImages.map((img, idx) => `
+    <div class="img-gallery-item">
+      <img src="${img.url}" alt="Product image ${idx+1}">
+      <button class="img-gallery-delete" onclick="deleteImageFromGallery('${img.name}', '${img.sha}', '${alias}')">✕</button>
+    </div>
+  `).join('');
+}
+
+async function deleteImageFromGallery(fileName, sha, alias) {
+  const success = await deleteProductImage(fileName, sha);
+  if (success) {
+    await refreshImageGallery(alias);
+  }
+}
+
+// Camera functions for product images
+function openCameraForProduct() {
+  if (!currentProduct) return;
+  const alias = currentProduct.alias || currentProduct.name?.replace(/[^A-Z0-9]/g, '_');
+  if (currentProductImages.length >= 5) {
+    showToast('⚠️ Maximum 5 images per product');
+    return;
+  }
+  pendingProductForCamera = currentProduct;
+  openCamera();
+}
+
+async function uploadPhotoForProduct() {
+  if (!currentProduct) return;
+  const alias = currentProduct.alias || currentProduct.name?.replace(/[^A-Z0-9]/g, '_');
+  if (currentProductImages.length >= 5) {
+    showToast('⚠️ Maximum 5 images per product');
+    return;
+  }
+  
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/*';
+  input.onchange = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    
+    const reader = new FileReader();
+    reader.onload = async (event) => {
+      const compressed = await compressImage(event.target.result);
+      const url = await uploadProductImage(compressed, alias, currentProductImages.length);
+      if (url) {
+        await refreshImageGallery(alias);
+        showToast('✅ Image added!');
+      }
     };
-    
-    groupSearch.addEventListener('input', () => {
-        updateSuggestions();
-        selectedGroup = groupSearch.value.toUpperCase() || "GENERAL";
-    });
-    
-    groupSearch.addEventListener('blur', () => {
-        setTimeout(() => groupSuggestions.classList.remove('show'), 200);
-        if (!groupSearch.value) {
-            groupSearch.value = "GENERAL";
-            selectedGroup = "GENERAL";
-        } else {
-            selectedGroup = groupSearch.value.toUpperCase();
-        }
-    });
+    reader.readAsDataURL(file);
+  };
+  input.click();
+}
 
-    // Camera functions
-    async function openCamera() {
-        try {
-            if (currentStream) {
-                currentStream.getTracks().forEach(track => track.stop());
-            }
-            try {
-                currentStream = await navigator.mediaDevices.getUserMedia({
-                    video: { facingMode: { exact: "environment" } }
-                });
-            } catch (err) {
-                currentStream = await navigator.mediaDevices.getUserMedia({ video: true });
-            }
-            cameraVideo.srcObject = currentStream;
-            cameraModal.classList.add('active');
-            showStatus('📷 camera ready', 'success');
-        } catch (err) {
-            showStatus('❌ camera access failed - use upload', 'error');
-            fileInput.click();
-        }
-    }
+// Camera functions
+async function openCamera() {
+  try {
+    if (currentStream) currentStream.getTracks().forEach(t => t.stop());
+    currentStream = await navigator.mediaDevices.getUserMedia({ 
+      video: { facingMode: { exact: "environment" } } 
+    });
+    const video = document.getElementById('cameraVideo');
+    video.srcObject = currentStream;
+    document.getElementById('cameraModal').classList.add('active');
+  } catch (err) {
+    showToast('❌ Camera access failed');
+  }
+}
 
-    async function capturePhoto() {
-        if (!cameraVideo.videoWidth) {
-            showStatus('⏳ waiting for camera...', 'error');
-            return;
-        }
-        
-        const canvas = document.createElement('canvas');
-        canvas.width = cameraVideo.videoWidth;
-        canvas.height = cameraVideo.videoHeight;
-        const context = canvas.getContext('2d');
-        context.drawImage(cameraVideo, 0, 0, canvas.width, canvas.height);
-        
-        const rawImage = canvas.toDataURL('image/jpeg', 1.0);
-        const compressedImage = await compressImage(rawImage, 800, 0.7);
-        
-        currentImageData = compressedImage;
-        imagePreviewDiv.innerHTML = `<img src="${compressedImage}" style="width:100%; height:100%; object-fit:cover;">`;
-        
-        closeCamera();
-        showStatus('📸 photo captured - ready to add', 'success');
+async function captureAndUpload() {
+  const video = document.getElementById('cameraVideo');
+  if (!video.videoWidth) return;
+  
+  const canvas = document.createElement('canvas');
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  canvas.getContext('2d').drawImage(video, 0, 0);
+  
+  const rawImage = canvas.toDataURL('image/jpeg', 1.0);
+  const compressed = await compressImage(rawImage);
+  
+  if (pendingProductForCamera) {
+    const alias = pendingProductForCamera.alias || pendingProductForCamera.name?.replace(/[^A-Z0-9]/g, '_');
+    const url = await uploadProductImage(compressed, alias, currentProductImages.length);
+    if (url) {
+      await refreshImageGallery(alias);
+      showToast('✅ Image captured and saved!');
     }
+    pendingProductForCamera = null;
+  }
+  
+  closeCamera();
+}
 
-    function closeCamera() {
-        cameraModal.classList.remove('active');
-        if (currentStream) {
-            currentStream.getTracks().forEach(track => track.stop());
-            currentStream = null;
-        }
-        cameraVideo.srcObject = null;
-    }
+function closeCamera() {
+  document.getElementById('cameraModal').classList.remove('active');
+  if (currentStream) {
+    currentStream.getTracks().forEach(t => t.stop());
+    currentStream = null;
+  }
+}
 
-    async function uploadImage() {
-        fileInput.click();
-    }
-    
-    async function handleFileSelect(event) {
-        const file = event.target.files[0];
-        if (!file) return;
-        
-        const reader = new FileReader();
-        reader.onload = async function(e) {
-            const compressed = await compressImage(e.target.result, 800, 0.7);
-            currentImageData = compressed;
-            imagePreviewDiv.innerHTML = `<img src="${compressed}" style="width:100%; height:100%; object-fit:cover;">`;
-            showStatus('📷 photo uploaded - ready to add', 'success');
-        };
-        reader.readAsDataURL(file);
-        fileInput.value = '';
-    }
+function closeImageManager() {
+  document.getElementById('imgManagerModal').classList.remove('show');
+  currentProduct = null;
+  currentProductImages = [];
+}
 
-    // Add item
-    async function addItem() {
-        let name = itemNameInput.value.trim().toUpperCase();
-        let alias = aliasInput.value.trim().toUpperCase();
-        const qty = parseInt(qtyInput.value);
-        let group = selectedGroup || "GENERAL";
-        
-        if (!name) {
-            showStatus('⚠️ enter item name', 'error');
-            return;
-        }
-        
-        if (!alias) {
-            alias = name.replace(/[^A-Z0-9]/g, '_').substring(0, 20);
-            aliasInput.value = alias;
-        }
-        
-        if (isNaN(qty) || qty <= 0) {
-            showStatus('⚠️ enter valid quantity', 'error');
-            return;
-        }
-        
-        let finalImageUrl = null;
-        
-        if (currentImageData) {
-            finalImageUrl = await uploadToGitHub(currentImageData, alias);
-        }
-        
-        const newItem = {
-            id: Date.now(),
-            name: name,
-            alias: alias,
-            qty: qty,
-            group: group.toUpperCase(),
-            image: finalImageUrl,
-            timestamp: new Date().toLocaleString()
-        };
-        
-        items.push(newItem);
-        renderLists();
-        
-        itemNameInput.value = '';
-        aliasInput.value = '';
-        aliasStatus.innerHTML = '';
-        qtyInput.value = '4';
-        currentImageData = null;
-        imagePreviewDiv.innerHTML = '<span style="font-size: 10px; color:#999;">no photo</span>';
-        itemNameInput.focus();
-        
-        if (finalImageUrl) {
-            showStatus(`✓ ${name} | ${qty} | ${group} + image saved as ${alias}`, 'success');
-        } else {
-            showStatus(`✓ ${name} | ${qty} | ${group}`, 'success');
-        }
+function compressImage(base64, maxWidth = 800, quality = 0.7) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      let w = img.width, h = img.height;
+      if (w > maxWidth) { h = (h * maxWidth) / w; w = maxWidth; }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      resolve(canvas.toDataURL('image/jpeg', quality));
+    };
+    img.src = base64;
+  });
+}
+
+// ============ EXISTING PRODUCT DISPLAY FUNCTIONS ============
+
+async function loadData() {
+  try {
+    const r = await fetch("items.json?t=" + Date.now());
+    raw = await r.json();
+    document.getElementById("badge").textContent = raw.length.toLocaleString() + " items";
+    buildGroupsAndBrands();
+    applyAll();
+  } catch(e) { showWelcome(); }
+}
+
+async function refreshData() {
+  const btn = document.getElementById("refresh-btn");
+  btn.classList.add("spinning");
+  await loadData();
+  setTimeout(() => btn.classList.remove("spinning"), 600);
+  showToast("🔄 Refreshed");
+}
+
+function buildGroupsAndBrands() {
+  const groups = new Set(), brands = new Set();
+  raw.forEach(it => {
+    if (it.group) groups.add(it.group);
+    const first = (it.name || '').trim().split(/\s+/)[0];
+    if (/^[A-Z]{2,6}$/.test(first)) brands.add(first);
+  });
+  window.allGroups = [...groups].sort();
+  window.allBrands = [...brands].sort();
+}
+
+function showWelcome() {
+  stage.innerHTML = `<div class="empty-state">✨ Search or scan a product above</div>`;
+}
+
+function applyAll() {
+  let out = raw.filter(it => {
+    if (activeGroup && it.group !== activeGroup) return false;
+    if (pMin !== null && pn(it.sale) < pMin) return false;
+    if (pMax !== null && pn(it.sale) > pMax) return false;
+    if (activeStock === 'in' && (it.stock <= 0 || it.stock > LOW_STOCK_THRESHOLD)) return false;
+    if (activeStock === 'low' && (it.stock > LOW_STOCK_THRESHOLD || it.stock <= 0)) return false;
+    if (activeStock === 'out' && it.stock > 0) return false;
+    if (activeBrand) {
+      const first = (it.name || '').trim().split(/\s+/)[0];
+      if (first !== activeBrand) return false;
     }
-    
-    function removeItem(id) {
-        items = items.filter(item => item.id !== id);
-        renderLists();
-        showStatus('🗑️ item removed', 'success');
+    if (query) {
+      const n = (it.name || '').toLowerCase(), a = (it.alias || '').toLowerCase(), b = (it.barcode || '').toLowerCase();
+      if (!n.includes(query) && !a.includes(query) && !b.includes(query)) return false;
     }
-    
-    function renderLists() {
-        if (items.length === 0) {
-            compactListDiv.innerHTML = '<div class="empty-state">no items added</div>';
-            detailListDiv.innerHTML = '<div class="empty-state">no photos</div>';
-            return;
-        }
-        
-        let compactHtml = '';
-        items.forEach((item, idx) => {
-            compactHtml += `
-                <div class="stock-item">
-                    <span><span class="item-name">${item.name}</span> <span class="item-details">| ${item.group} | ${item.qty}pcs</span></span>
-                    <button class="remove-icon" onclick="removeItem(${item.id})">✕</button>
-                </div>
-            `;
-        });
-        compactListDiv.innerHTML = compactHtml;
-        
-        const itemsWithPhotos = items.filter(i => i.image);
-        if (itemsWithPhotos.length === 0) {
-            detailListDiv.innerHTML = '<div class="empty-state">no photos</div>';
-        } else {
-            let detailHtml = '<div class="photo-items">';
-            itemsWithPhotos.forEach(item => {
-                detailHtml += `
-                    <div class="photo-card">
-                        <img class="photo-card-img" src="${item.image}" alt="product">
-                        <div class="photo-card-info">
-                            <strong>${item.name}</strong>
-                            <p>${item.group} | QTY: ${item.qty} | Alias: ${item.alias}</p>
-                        </div>
-                        <button class="remove-icon" onclick="removeItem(${item.id})">✕</button>
-                    </div>
-                `;
-            });
-            detailHtml += '</div>';
-            detailListDiv.innerHTML = detailHtml;
-        }
+    return true;
+  });
+  
+  if (activeSort === 'grp') out.sort((a,b) => (a.group||'').localeCompare(b.group||''));
+  else if (activeSort === 'na') out.sort((a,b) => (a.name||'').localeCompare(b.name||''));
+  else if (activeSort === 'sa') out.sort((a,b) => pn(a.sale) - pn(b.sale));
+  else if (activeSort === 'sd') out.sort((a,b) => pn(b.sale) - pn(a.sale));
+  
+  pool = out.map((_, idx) => idx);
+  measureCardHeight();
+  rebuildOffsets();
+  document.getElementById("status").textContent = `${out.length} of ${raw.length} items`;
+  scrollEl.scrollTop = 0;
+  vsRender(true);
+}
+
+function pn(v) { return v == null ? 0 : parseFloat(String(v).replace(/[^0-9.]/g, '')) || 0; }
+
+function measureCardHeight() {
+  const probe = document.createElement('div');
+  probe.style.cssText = 'position:fixed;top:-9999px;left:14px;right:14px';
+  probe.innerHTML = cardHTML({name:'Test',alias:'TST',mrp:100,sale:80,wholesale:70,stock:10}, -1, 0, '');
+  document.body.appendChild(probe);
+  CARD_COLLAPSED_H = (probe.firstChild?.offsetHeight || 160) + 2;
+  document.body.removeChild(probe);
+}
+
+function rebuildOffsets() {
+  heights = new Array(pool.length).fill(CARD_COLLAPSED_H);
+  offsets = new Array(pool.length);
+  let top = 18;
+  for (let i = 0; i < pool.length; i++) {
+    if (activeSort === 'grp') {
+      const grp = raw[pool[i]].group || '';
+      const prevGrp = i > 0 ? (raw[pool[i-1]].group || '') : '__NONE__';
+      if (grp !== prevGrp) top += 26;
     }
-    
-    function formatWhatsAppMessage() {
-        if (items.length === 0) return null;
-        let message = "📦 *STOCK REPORT* 📦\n\n";
-        items.forEach((item, idx) => {
-            message += `${idx+1}. ${item.name} | ${item.qty} | ${item.group}\n`;
-        });
-        message += `\n━━━━━━━━━━━━━━━━━━━━━\n`;
-        message += `TOTAL: ${items.length} items | ${items.reduce((sum, i) => sum + i.qty, 0)} pcs`;
-        message += `\n\n📸 Images saved with alias names for product database`;
-        return message;
+    offsets[i] = top;
+    top += heights[i] + GAP;
+  }
+  totalH = top + 60;
+  spacer.style.height = totalH + 'px';
+}
+
+function vsRender(force) {
+  if (!pool.length) { stage.innerHTML = '<div class="empty-state">No items found</div>'; return; }
+  const scrollTop = scrollEl.scrollTop, viewH = scrollEl.clientHeight;
+  let first = 0, last = pool.length - 1;
+  for (let i = 0; i < offsets.length; i++) {
+    if (offsets[i] + heights[i] > scrollTop) { first = i; break; }
+  }
+  for (let i = first; i < offsets.length; i++) {
+    if (offsets[i] > scrollTop + viewH) { last = i - 1; break; }
+  }
+  if (!force && first === vsStart && last === vsEnd) return;
+  vsStart = first; vsEnd = last;
+  let html = '';
+  for (let i = first; i <= last; i++) {
+    const idx = pool[i];
+    if (activeSort === 'grp') {
+      const grp = raw[idx].group || '';
+      const prevGrp = i > 0 ? (raw[pool[i-1]].group || '') : '__NONE__';
+      if (grp !== prevGrp) html += `<div class="grp-hdr" style="top:${offsets[i] - 26}px">${grp}</div>`;
     }
-    
-    function sendToWhatsApp() {
-        const message = formatWhatsAppMessage();
-        if (!message) {
-            showStatus('no items to send', 'error');
-            return;
-        }
-        const encodedMessage = encodeURIComponent(message);
-        window.open(`https://wa.me/7588756668?text=${encodedMessage}`, '_blank');
-        showStatus('📤 opening whatsapp...', 'success');
-        setTimeout(() => {
-            if (confirm('also send to group?')) {
-                window.open(`https://wa.me/?text=${encodedMessage}`, '_blank');
-            }
-        }, 500);
-    }
-    
-    function clearAll() {
-        if (items.length > 0 && confirm('delete all items?')) {
-            items = [];
-            renderLists();
-            showStatus('🗑️ all cleared', 'success');
-        }
-    }
-    
-    function showStatus(msg, type) {
-        statusMsg.textContent = msg;
-        statusMsg.className = `status ${type}`;
-        statusMsg.classList.remove('hidden');
-        setTimeout(() => statusMsg.classList.add('hidden'), 3000);
-    }
-    
-    // Event listeners
-    addItemBtn.addEventListener('click', addItem);
-    submitBtn.addEventListener('click', sendToWhatsApp);
-    clearAllBtn.addEventListener('click', clearAll);
-    openCameraBtn.addEventListener('click', openCamera);
-    capturePhotoBtn.addEventListener('click', capturePhoto);
-    closeCameraBtn.addEventListener('click', closeCamera);
-    uploadImageBtn.addEventListener('click', uploadImage);
-    fileInput.addEventListener('change', handleFileSelect);
-    
-    itemNameInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') addItem();
-    });
-    aliasInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') addItem();
-    });
-    qtyInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') addItem();
-    });
-    groupSearch.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') addItem();
-    });
-    
-    itemNameInput.addEventListener('input', function() {
-        this.value = this.value.toUpperCase();
-    });
-    aliasInput.addEventListener('input', function() {
-        this.value = this.value.toUpperCase();
-    });
-    groupSearch.addEventListener('input', function() {
-        this.value = this.value.toUpperCase();
-    });
-    
-    qtyInput.value = '4';
-    groupSearch.value = "GENERAL";
-    
-    // Load product database on startup
-    loadProductDatabase();
-    renderLists();
+    html += cardHTML(raw[idx], idx, offsets[i], query);
+  }
+  stage.innerHTML = html;
+}
+
+function fmt(v) {
+  if (v == null) return '–';
+  const n = parseFloat(String(v).replace(/[^0-9.]/g, ''));
+  return isNaN(n) ? '–' : '₹' + n.toLocaleString('en-IN');
+}
+
+function cardHTML(it, ri, topPx, q) {
+  const exp = expanded.has(ri);
+  const detHTML = exp ? `
+    <div class="det">
+      <div class="act">
+        <button class="ab cp" onclick="copyItem(${ri},event)">📋 Copy</button>
+        <button class="ab sh" onclick="shareItem(${ri},event)">📤 Share</button>
+        <button class="ab ig" onclick="openImageManager(${ri},event)">🖼️ Images (Max 5)</button>
+      </div>
+    </div>` : '';
+  
+  return `<div class="c${exp ? ' exp' : ''}" style="top:${topPx}px" onclick="toggleCard(${ri})">
+    <div class="c-name">${it.name || '–'}</div>
+    ${it.alias ? `<div class="c-alias">📦 ${it.alias}</div>` : ''}
+    ${it.group ? `<div class="c-alias">🗂️ ${it.group}</div>` : ''}
+    <div class="prices">
+      <div class="pb m"><div class="pl">MRP</div><div class="pv">${fmt(it.mrp)}</div></div>
+      <div class="pb s"><div class="pl">Sale</div><div class="pv">${fmt(it.sale)}</div></div>
+      <div class="pb w"><div class="pl">Wholesale</div><div class="pv">${fmt(it.wholesale)}</div></div>
+      <div class="pb k"><div class="pl">Stock</div><div class="pv">${it.stock ?? '–'}</div></div>
+    </div>
+    ${detHTML}
+  </div>`;
+}
+
+function toggleCard(ri) {
+  if (expanded.has(ri)) expanded.delete(ri);
+  else expanded.add(ri);
+  rebuildOffsets();
+  vsRender(true);
+}
+
+function copyItem(ri, e) { e.stopPropagation(); const it = raw[ri]; navigator.clipboard.writeText(`${it.name}\nMRP: ${fmt(it.mrp)}\nSale: ${fmt(it.sale)}\nWholesale: ${fmt(it.wholesale)}`); showToast("📋 Copied"); }
+function shareItem(ri, e) { e.stopPropagation(); const it = raw[ri]; navigator.share?.({title: it.name, text: `${it.name}\nSale: ${fmt(it.sale)}`}) || showToast("📤 Share failed"); }
+
+// Event listeners
+document.getElementById("search").addEventListener("input", e => { query = e.target.value.toLowerCase(); applyAll(); });
+document.getElementById("sort-row").addEventListener("click", e => { const c = e.target.closest(".chip[data-sort]"); if(c){ activeSort = c.dataset.sort; applyAll(); } });
+document.getElementById("stock-row").addEventListener("click", e => { const c = e.target.closest(".stock-chip[data-stock]"); if(c){ activeStock = c.dataset.stock; applyAll(); } });
+function applyPF() { pMin = document.getElementById("pmin").value ? parseFloat(document.getElementById("pmin").value) : null; pMax = document.getElementById("pmax").value ? parseFloat(document.getElementById("pmax").value) : null; applyAll(); }
+function clearPF() { document.getElementById("pmin").value = ''; document.getElementById("pmax").value = ''; pMin = pMax = null; applyAll(); }
+
+function openGrpModal() { /* simplified - would show group picker */ showToast("Group filter feature"); }
+function openBrandModal() { showToast("Brand filter feature"); }
+
+// Scanner
+async function openScanner() { showToast("Scanner feature - would open camera"); }
+function closeScanner() {}
+
+// Admin (simplified)
+function openAdm() { isAdmin = !isAdmin; document.getElementById("admin-btn").classList.toggle("on"); showToast(isAdmin ? "Admin mode ON" : "Admin mode OFF"); vsRender(true); }
+
+function showToast(msg) { const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show"); setTimeout(() => t.classList.remove("show"), 2500); }
+
+// Camera button listeners
+document.getElementById('captureBtn').addEventListener('click', captureAndUpload);
+document.getElementById('closeCamBtn').addEventListener('click', closeCamera);
+
+// Init
+scrollEl = document.getElementById("scroll");
+spacer = document.getElementById("spacer");
+stage = document.getElementById("stage");
+scrollEl.addEventListener("scroll", () => vsRender(false));
+loadData();
 </script>
 </body>
 </html>
