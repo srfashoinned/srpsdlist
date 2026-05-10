@@ -1,0 +1,8 @@
+{
+  "repo": "srfashoinned/image-storage-psd",
+  "branch": "main",
+  "dataFile": "data/images.json",
+  "uploadFolder": "uploads",
+  "maxImagesPerProduct": 5,
+  "adminPassword": "7865"
+}
