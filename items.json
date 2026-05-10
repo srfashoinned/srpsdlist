@@ -6507,7 +6507,7 @@
     "sale": 560,
     "purchase": 470,
     "wholesale": 510,
-    "stock": 4
+    "stock": 1
   },
   {
     "name": "JBT GOLD CITY",
@@ -10867,7 +10867,7 @@
     "sale": 2600,
     "purchase": 2250,
     "wholesale": 2350,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "KC FINGERPRINT",
@@ -17897,7 +17897,7 @@
     "sale": 1500,
     "purchase": 1275,
     "wholesale": 1360,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC THANDAI",
@@ -24557,7 +24557,7 @@
     "sale": 30,
     "purchase": 23.5,
     "wholesale": 26,
-    "stock": 2634.6
+    "stock": 2630.6
   },
   {
     "name": "Pasta MT",
@@ -28377,7 +28377,7 @@
     "sale": 360,
     "purchase": 335,
     "wholesale": 355,
-    "stock": 99
+    "stock": 97
   },
   {
     "name": "SHREE NOORI WHITE",
@@ -32547,7 +32547,7 @@
     "sale": 380,
     "purchase": 340,
     "wholesale": 355,
-    "stock": 108
+    "stock": 102
   },
   {
     "name": "SST zCTN SUITE",
@@ -34317,7 +34317,7 @@
     "sale": 1500,
     "purchase": 1265,
     "wholesale": 1400,
-    "stock": 21
+    "stock": 20
   },
   {
     "name": "VF LAST TIME",
@@ -34677,7 +34677,7 @@
     "sale": 370,
     "purchase": 320,
     "wholesale": 340,
-    "stock": 12
+    "stock": 9
   },
   {
     "name": "Watermelon SNT",

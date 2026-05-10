@@ -980,22 +980,27 @@ function clearPF(){
    IMAGE VIEWER
 ═══════════════════════════════════════════ */
 function openImgViewer(ri, e){
-  e && e.stopPropagation();
-  imgItem   = raw[ri];
-  imgUrls   = getImageUrls(imgItem);
-  imgCurIdx = 0;
-  imgTryIdx = 0;
+  if (e) e.stopPropagation();
 
-  document.getElementById('img-title').textContent = imgItem.alias || imgItem.name || 'Product';
-  document.getElementById('img-subtitle').textContent = imgItem.name || '';
-  document.getElementById('img-info').textContent = '';
-
-  if(!imgUrls.length){
-    showImgPlaceholder('No image configured for this item.');
-  } else {
-    loadImgAt(0);
+  const it = raw[ri];
+  if (!it) {
+    alert('Product not found.');
+    return;
   }
-  document.getElementById('img-ov').classList.add('show');
+
+  const alias = encodeURIComponent(
+    (it.alias || it.barcode || it.name || '').trim()
+  );
+
+  if (!alias) {
+    alert('No product alias found.');
+    return;
+  }
+
+  const url =
+    'https://srfashoinned.github.io/image-storage-psd/?alias=' + alias;
+
+  window.open(url, '_blank');
 }
 
 function closeImgViewer(){
