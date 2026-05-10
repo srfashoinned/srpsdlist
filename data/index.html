@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SR Fashion Image Storage</title>
+<style>
+body{
+  font-family:Arial,sans-serif;
+  background:#0f172a;
+  color:#fff;
+  margin:0;
+  padding:20px;
+}
+.container{
+  max-width:900px;
+  margin:auto;
+}
+h1{
+  text-align:center;
+  color:#facc15;
+}
+.card{
+  background:#1e293b;
+  padding:20px;
+  border-radius:14px;
+  margin-top:20px;
+}
+input{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  margin-bottom:10px;
+  font-size:16px;
+}
+button{
+  padding:12px 16px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+  margin:4px;
+}
+.primary{background:#22c55e;color:#fff;}
+.danger{background:#ef4444;color:#fff;}
+.secondary{background:#334155;color:#fff;}
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+  margin-top:20px;
+}
+.img-card{
+  background:#0f172a;
+  border:1px solid #334155;
+  border-radius:10px;
+  overflow:hidden;
+}
+.img-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  display:block;
+}
+.img-card .p{
+  padding:8px;
+}
+#log{
+  margin-top:10px;
+  color:#94a3b8;
+  font-size:14px;
+  white-space:pre-wrap;
+}
+.small{
+  font-size:13px;
+  color:#94a3b8;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>🖼️ SR Fashion Image Storage</h1>
+
+  <div class="card">
+    <label>Product Alias / Code</label>
+    <input id="alias" placeholder="Example: SR001">
+
+    <label>Select up to 5 Images</label>
+    <input id="files" type="file" accept="image/*" multiple capture="environment">
+
+    <div class="small">You can select from camera or gallery. Maximum 5 images.</div>
+
+    <div style="margin-top:12px;">
+      <button class="primary" onclick="uploadImages()">⬆️ Upload Images</button>
+      <button class="secondary" onclick="loadImages()">🔄 Refresh</button>
+      <button class="danger" onclick="adminDelete()">🗑️ Admin Delete All</button>
+    </div>
+
+    <div id="log"></div>
+  </div>
+
+  <div class="card">
+    <h3>📷 Uploaded Images</h3>
+    <div id="gallery" class="gallery"></div>
+  </div>
+</div>
+
+<script>
+const MAX_IMAGES = 5;
+const ADMIN_PASSWORD = "7865";
+
+/*
+NOTE:
+This page is a front-end manager.
+For now, it stores image previews in your browser.
+In the next step, we will connect it to GitHub storage.
+*/
+
+function log(msg){
+  document.getElementById('log').textContent = msg;
+}
+
+function getKey(){
+  const alias = document.getElementById('alias').value.trim().toUpperCase();
+  if(!alias){
+    alert("Please enter Product Alias.");
+    return null;
+  }
+  return "SR_IMAGES_" + alias;
+}
+
+function uploadImages(){
+  const key = getKey();
+  if(!key) return;
+
+  const input = document.getElementById('files');
+  const files = Array.from(input.files);
+
+  if(files.length === 0){
+    alert("Please select images.");
+    return;
+  }
+
+  if(files.length > MAX_IMAGES){
+    alert("Maximum 5 images allowed.");
+    return;
+  }
+
+  const readers = files.map(file => {
+    return new Promise(resolve => {
+      const fr = new FileReader();
+      fr.onload = () => resolve(fr.result);
+      fr.readAsDataURL(file);
+    });
+  });
+
+  Promise.all(readers).then(images => {
+    localStorage.setItem(key, JSON.stringify(images));
+    log("✅ " + images.length + " image(s) saved successfully.");
+    loadImages();
+    input.value = "";
+  });
+}
+
+function loadImages(){
+  const key = getKey();
+  if(!key) return;
+
+  const gallery = document.getElementById('gallery');
+  gallery.innerHTML = "";
+
+  const data = localStorage.getItem(key);
+  if(!data){
+    gallery.innerHTML = '<div class="small">No images found for this product.</div>';
+    return;
+  }
+
+  const images = JSON.parse(data);
+
+  images.forEach((src, index) => {
+    const div = document.createElement('div');
+    div.className = 'img-card';
+
+    div.innerHTML = `
+      <img src="${src}">
+      <div class="p">
+        <div class="small">Image ${index + 1}</div>
+      </div>
+    `;
+
+    gallery.appendChild(div);
+  });
+
+  log("📂 Loaded " + images.length + " image(s).");
+}
+
+function adminDelete(){
+  const key = getKey();
+  if(!key) return;
+
+  const pw = prompt("Enter Admin Password:");
+  if(pw !== ADMIN_PASSWORD){
+    alert("Wrong password.");
+    return;
+  }
+
+  if(!confirm("Delete all images for this product?")) return;
+
+  localStorage.removeItem(key);
+  document.getElementById('gallery').innerHTML = "";
+  log("🗑️ Images deleted successfully.");
+}
+</script>
+</body>
+</html>
