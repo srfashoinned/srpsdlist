@@ -635,8 +635,8 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
       <button id="pim-close" onclick="closePim()">✕</button>
     </div>
 
-    <!-- GitHub Token bar (hidden — token is hardcoded) -->
-    <div id="pim-token-bar" class="hidden">
+    <!-- GitHub Token bar -->
+    <div id="pim-token-bar">
       <span id="pim-token-label">🔑 GitHub Token:</span>
       <input id="pim-token-input" type="password" placeholder="ghp_… paste token here" autocomplete="off" spellcheck="false">
       <button id="pim-token-save" onclick="pimSaveToken()">Save</button>
@@ -696,7 +696,6 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
    CONFIG
 ═══════════════════════════════════════════ */
 const PASS  = "7865";
-const GH_TOKEN_DEFAULT = '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';
 const SHOP_NAME    = "SR FASHION";
 const SHOP_ADDRESS = "GN Azad College Road, Vasant Nagar, Pusad – 445 204";
 const SHOP_PHONE   = "7588756668";
@@ -1778,15 +1777,14 @@ document.getElementById("exp-ov").addEventListener("click",e=>{ if(e.target.id==
    Stores images at:  products/<ALIAS>/<N>.jpg  in GH_REPO
 ═══════════════════════════════════════════════════════ */
 
-/* ─── Token management ─── */
+/* ─── Token management (sessionStorage only) ─── */
 let pimToken = '';
 let pimCurrentItem = null;
 let pimImages = [];    /* [{name, url, sha}] loaded from GitHub */
 let pimFsIdx  = 0;
 
 function pimInitToken(){
-  /* Hardcoded token — always available, no UI needed */
-  const t = sessionStorage.getItem('sr_gh_token') || GH_TOKEN_DEFAULT;
+  const t = sessionStorage.getItem('sr_gh_token') || '';
   if(t){ pimToken = t; pimShowTokenStatus(true); }
 }
 function pimSaveToken(){
@@ -1830,8 +1828,9 @@ function openPim(ri, e){
   document.getElementById('pim-progress').classList.remove('show');
   document.getElementById('pim-footer-hint').textContent = '';
 
-  /* Token bar always hidden — token is hardcoded */
-  document.getElementById('pim-token-bar').classList.add('hidden');
+  /* Token bar: show if no token, hide otherwise */
+  const bar = document.getElementById('pim-token-bar');
+  bar.classList.toggle('hidden', !!pimToken);
 
   document.getElementById('pim-ov').classList.add('show');
   pimLoad();
@@ -1912,8 +1911,8 @@ function pimRenderGrid(){
     hint.textContent = '';
   }
 
-  /* token bar always hidden */
-  document.getElementById('pim-token-bar').classList.add('hidden');
+  /* token bar visibility */
+  document.getElementById('pim-token-bar').classList.toggle('hidden', !!pimToken);
 
   if(count === 0 && !hasToken){
     pimShowArea('empty');
