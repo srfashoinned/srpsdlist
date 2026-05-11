@@ -217,7 +217,7 @@
     "sale": 60,
     "purchase": 48,
     "wholesale": 50,
-    "stock": 481
+    "stock": 480
   },
   {
     "name": "Aatish",
@@ -1177,7 +1177,7 @@
     "sale": 30,
     "purchase": 21.5,
     "wholesale": 24,
-    "stock": 2929.15
+    "stock": 2801.65
   },
   {
     "name": "Bobby Jasoos",
@@ -2917,7 +2917,7 @@
     "sale": 570,
     "purchase": 465,
     "wholesale": 495,
-    "stock": 8
+    "stock": 7
   },
   {
     "name": "GF Gungun",
@@ -6577,7 +6577,7 @@
     "sale": 550,
     "purchase": 440,
     "wholesale": 490,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "JBT SELFIE",
@@ -7067,7 +7067,7 @@
     "sale": 400,
     "purchase": 312.67,
     "wholesale": 351.75,
-    "stock": 2
+    "stock": 0
   },
   {
     "name": "JMD Mapping",
@@ -8927,7 +8927,7 @@
     "sale": 2500,
     "purchase": 2080,
     "wholesale": 2200,
-    "stock": 3
+    "stock": 4
   },
   {
     "name": "Kc Blue Whale",
@@ -9117,7 +9117,7 @@
     "sale": 1600,
     "purchase": 1185,
     "wholesale": 1225,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC CARAMEL CRUNCH",
@@ -9517,7 +9517,7 @@
     "sale": 1550,
     "purchase": 1295,
     "wholesale": 1395,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC CLASSY TASHAN",
@@ -11437,7 +11437,7 @@
     "sale": 1500,
     "purchase": 1315,
     "wholesale": 1415,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC GIGGLE BOX",
@@ -11707,7 +11707,7 @@
     "sale": 2650,
     "purchase": 2345,
     "wholesale": 2550,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "Kc Gulbahar Grace",
@@ -15467,7 +15467,7 @@
     "sale": 1550,
     "purchase": 1325,
     "wholesale": 1500,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC RANG SATRANGI",
@@ -17507,7 +17507,7 @@
     "sale": 2450,
     "purchase": 2090,
     "wholesale": 2200,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC SWAD SANGAM",
@@ -20487,7 +20487,7 @@
     "sale": 400,
     "purchase": 340,
     "wholesale": 365,
-    "stock": 22
+    "stock": 20
   },
   {
     "name": "MC PUSHPA",
@@ -23007,7 +23007,7 @@
     "sale": 690,
     "purchase": 575,
     "wholesale": 625,
-    "stock": 8
+    "stock": 0
   },
   {
     "name": "Nyn Mamta",
@@ -23017,7 +23017,7 @@
     "sale": 700,
     "purchase": 585,
     "wholesale": 610,
-    "stock": -1
+    "stock": -2
   },
   {
     "name": "NYN NEHA",
@@ -24477,7 +24477,7 @@
     "sale": 1080,
     "purchase": 900,
     "wholesale": 950,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "OM ZAVERA",
@@ -24767,7 +24767,7 @@
     "sale": 470,
     "purchase": 385,
     "wholesale": 405,
-    "stock": 19
+    "stock": 18
   },
   {
     "name": "PC MANNAT",
@@ -24777,7 +24777,7 @@
     "sale": 550,
     "purchase": 460,
     "wholesale": 500,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "PC RAPIDO",
@@ -25647,7 +25647,7 @@
     "sale": 250,
     "purchase": 170,
     "wholesale": 191.25,
-    "stock": 295
+    "stock": 283
   },
   {
     "name": "Royal Punjabi Cut",
@@ -30457,7 +30457,7 @@
     "sale": 540,
     "purchase": 405,
     "wholesale": 475,
-    "stock": 32
+    "stock": 30
   },
   {
     "name": "SNT Singham",
@@ -31297,7 +31297,7 @@
     "sale": 2550,
     "purchase": 2245,
     "wholesale": 2350,
-    "stock": 4
+    "stock": 1
   },
   {
     "name": "Sony Burberry pant trouser",
@@ -33057,7 +33057,7 @@
     "sale": 50,
     "purchase": 40,
     "wholesale": 45,
-    "stock": 1296
+    "stock": 1295
   },
   {
     "name": "Suman Pari Fab",
@@ -33277,7 +33277,7 @@
     "sale": 250,
     "purchase": 200,
     "wholesale": 225,
-    "stock": -82
+    "stock": -85
   },
   {
     "name": "SVT PARIDHI",
@@ -35037,7 +35037,7 @@
     "sale": 600,
     "purchase": 545,
     "wholesale": 613.12,
-    "stock": 4
+    "stock": 2
   },
   {
     "name": "Welcome Hello Baby",
