@@ -583,8 +583,7 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
       <canvas id="exp-canvas" width="540" height="560"></canvas>
     </div>
     <div id="exp-btns">
-      <button id="exp-wa" onclick="doExpWA()">Send on WhatsApp</button>
-      <button id="exp-save" onclick="doExpSave()">💾 Save Image</button>
+      <button id="exp-wa" onclick="doExpWA()">📲 Send on WhatsApp</button>
       <button id="exp-cancel" onclick="closeExp()">Cancel</button>
     </div>
   </div>
@@ -681,7 +680,7 @@ mark{background:rgba(245,197,66,0.25);color:var(--gold);border-radius:2px;paddin
   <button id="pim-fs-next" onclick="pimFsNav(1)">›</button>
   <div id="pim-fs-counter">1 / 1</div>
   <button id="pim-fs-wa" onclick="pimFsShareWA()" title="Share on WhatsApp" style="position:absolute;bottom:20px;right:18px;background:rgba(37,211,102,0.18);border:1.5px solid rgba(37,211,102,0.5);color:#25d366;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2;">📲</button>
-  <div id="pim-fs-zoom-hint" style="position:absolute;top:60px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.55);border-radius:20px;padding:4px 14px;font-size:11px;color:rgba(255,255,255,0.6);pointer-events:none;opacity:1;transition:opacity 1s">Pinch to zoom · Double-tap to reset</div>
+  <div id="pim-fs-zoom-hint" style="position:absolute;top:60px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.55);border-radius:20px;padding:4px 14px;font-size:11px;color:rgba(255,255,255,0.6);pointer-events:none;opacity:1;transition:opacity 1.5s">Pinch to zoom · Double-tap to reset</div>
 </div>
 
 <!-- Hidden file inputs -->
@@ -1166,15 +1165,10 @@ function cardHTML(it, ri, topPx, q){
     ?`<div class="pb p"><div class="pl">Purchase</div><div class="pv">${fmt(it.purchase)}${marginStr(it)}</div></div>`:'';
   const detHTML = exp?`
     <div class="det">
-      <div class="drow"><span>Name</span><span>${it.name||'–'}</span></div>
-      <div class="drow"><span>Alias</span><span>${it.alias||'–'}</span></div>
       ${it.barcode?`<div class="drow"><span>Barcode</span><span>${it.barcode}</span></div>`:''}
-      ${it.group?`<div class="drow"><span>Group</span><span>${it.group}</span></div>`:''}
       ${it.brand?`<div class="drow"><span>Brand</span><span>${it.brand}</span></div>`:''}
       ${isAdmin&&it.purchase?`<div class="drow"><span>Purchase</span><span style="color:var(--purple)">${fmt(it.purchase)}</span></div>`:''}
       <div class="act">
-        <button class="ab cp" onclick="copyItem(${ri},event)">📋 Copy</button>
-        <button class="ab sh" onclick="shareItem(${ri},event)">📤 Share</button>
         <button class="ab ig" onclick="openPim(${ri},event)">🖼️ Images</button>
       </div>
     </div>`:'';
@@ -1349,10 +1343,89 @@ function openExp(ri, priceType, e){
   hint.style.color = priceType === 'sale' ? '#22c55e' : '#60a5fa';
   document.getElementById('exp-ov').classList.add('show');
   drawExpCard(document.getElementById('exp-canvas'));
+  /* Pre-load product images for this item in background */
+  expLoadImages(expItem);
 }
+
 function closeExp(){
   document.getElementById('exp-ov').classList.remove('show');
   expItem = null;
+  expLoadedImages = [];
+}
+
+let expLoadedImages = []; /* [{name, url, sha}] pre-fetched for current expItem */
+async function expLoadImages(it){
+  expLoadedImages = [];
+  const alias = (it.alias || it.barcode || it.name || '').trim();
+  if(!alias) return;
+  /* If pimCurrentItem matches, reuse already-loaded images */
+  if(pimCurrentItem && (pimCurrentItem.alias||pimCurrentItem.name||'').trim() === alias && pimImages.length){
+    expLoadedImages = pimImages;
+    return;
+  }
+  /* Otherwise fetch from GitHub */
+  const apiUrl = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/products/${encodeURIComponent(alias)}?ref=${GH_BRANCH}&t=${Date.now()}`;
+  try{
+    const headers = { 'Accept': 'application/vnd.github+json' };
+    if(pimToken) headers['Authorization'] = 'Bearer ' + pimToken;
+    const r = await fetch(apiUrl, { headers });
+    if(!r.ok) return;
+    const files = await r.json();
+    expLoadedImages = files
+      .filter(f => /\.(jpe?g|png|webp|gif)$/i.test(f.name))
+      .sort((a,b)=>a.name.localeCompare(b.name,undefined,{numeric:true}))
+      .map(f=>({name:f.name, url:f.download_url, sha:f.sha}));
+  }catch(_){}
+}
+
+async function doExpWA(){
+  if(!expItem) return;
+  const it = expItem;
+  const priceLabel = expPrice === 'sale' ? 'Sale' : 'Wholesale';
+  const priceVal   = fmt(it[expPrice]);
+  const mrpVal = pn(it.mrp), saleVal = pn(it[expPrice]);
+  const disc = mrpVal > saleVal ? mrpVal - saleVal : 0;
+  const discPct = mrpVal > 0 && disc > 0 ? (disc/mrpVal*100).toFixed(2) : 0;
+  const emoji = disc > 0 ? discountEmoji(parseFloat(discPct)) : '';
+  const discLine = disc > 0 ? `\nDiscount: ₹${disc.toLocaleString('en-IN')}  (${discPct}%)  ${emoji}` : '';
+  const text = `*${SHOP_NAME}*\n${SHOP_ADDRESS}\n📞 ${SHOP_PHONE}\n\n*${it.name || ''}*\nCode: ${it.alias || '–'}${it.group ? '\nGroup: ' + it.group : ''}\n\nMRP: ${fmt(it.mrp)}\n💰 *${priceLabel}: ${priceVal}*${discLine}`;
+
+  /* Ask if user wants to include product images */
+  const hasImages = expLoadedImages && expLoadedImages.length > 0;
+  let includeImages = false;
+  if(hasImages){
+    includeImages = confirm(`Include ${expLoadedImages.length} product image${expLoadedImages.length>1?'s':''} along with the price card?`);
+  }
+
+  if(navigator.share && navigator.canShare){
+    try{
+      const priceCardBlob = await getExpBlob();
+      const files = [new File([priceCardBlob], (it.alias||'product')+'_price.png', {type:'image/png'})];
+      if(includeImages){
+        for(const pi of expLoadedImages){
+          try{
+            const r = await fetch(pi.url);
+            const b = await r.blob();
+            files.push(new File([b], pi.name, {type: b.type||'image/jpeg'}));
+          }catch(_){}
+        }
+      }
+      if(navigator.canShare({files})){
+        await navigator.share({ files, title: it.name, text });
+        closeExp(); return;
+      }
+      if(navigator.canShare({files:[files[0]]})){
+        await navigator.share({ files:[files[0]], title: it.name, text });
+        closeExp(); return;
+      }
+    }catch(err){
+      if(err.name==='AbortError'){ closeExp(); return; }
+    }
+  }
+  const waUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
+  window.open(waUrl, '_blank');
+  toast("📲 Opened WhatsApp");
+  closeExp();
 }
 
 function roundRect(ctx, x, y, w, h, r){
@@ -1511,74 +1584,6 @@ async function getExpBlob(){
   return new Promise(res => offscreen.toBlob(res, 'image/png', 0.95));
 }
 
-async function doExpWA(){
-  if(!expItem) return;
-  const it = expItem;
-  const priceLabel = expPrice === 'sale' ? 'Sale' : 'Wholesale';
-  const priceVal   = fmt(it[expPrice]);
-  const mrpVal = pn(it.mrp), saleVal = pn(it[expPrice]);
-  const disc = mrpVal > saleVal ? mrpVal - saleVal : 0;
-  const discPct = mrpVal > 0 && disc > 0 ? (disc/mrpVal*100).toFixed(2) : 0;
-  const emoji = disc > 0 ? discountEmoji(parseFloat(discPct)) : '';
-  const discLine = disc > 0 ? `\nDiscount: ₹${disc.toLocaleString('en-IN')}  (${discPct}%)  ${emoji}` : '';
-  const text = `*${SHOP_NAME}*\n${SHOP_ADDRESS}\n📞 ${SHOP_PHONE}\n\n*${it.name || ''}*\nCode: ${it.alias || '–'}${it.group ? '\nGroup: ' + it.group : ''}\n\nMRP: ${fmt(it.mrp)}\n💰 *${priceLabel}: ${priceVal}*${discLine}`;
-  if(navigator.share && navigator.canShare){
-    try{
-      const priceCardBlob = await getExpBlob();
-      const files = [new File([priceCardBlob], (it.alias||'product')+'_price.png', {type:'image/png'})];
-      /* Try to attach product images too */
-      const alias = (it.alias || it.barcode || it.name || '').trim();
-      if(alias && pimImages && pimImages.length){
-        /* Use already-loaded pimImages if they match current product */
-        const imgItem = pimCurrentItem;
-        const sameProduct = imgItem && (imgItem.alias||imgItem.name||'').trim() === alias;
-        const imgs = sameProduct ? pimImages : [];
-        for(const pi of imgs){
-          try{
-            const r = await fetch(pi.url);
-            const b = await r.blob();
-            files.push(new File([b], pi.name, {type: b.type||'image/jpeg'}));
-          }catch(_){}
-        }
-      }
-      if(navigator.canShare({files})){
-        await navigator.share({ files, title: it.name, text });
-        closeExp(); return;
-      }
-      /* fallback: just share price card */
-      if(navigator.canShare({files:[files[0]]})){
-        await navigator.share({ files:[files[0]], title: it.name, text });
-        closeExp(); return;
-      }
-    }catch(err){
-      if(err.name==='AbortError'){ closeExp(); return; }
-    }
-  }
-  const waUrl = 'https://wa.me/?text=' + encodeURIComponent(text);
-  window.open(waUrl, '_blank');
-  toast("📲 Opened WhatsApp");
-  closeExp();
-}
-
-async function doExpSave(){
-  try{
-    const blob = await getExpBlob();
-    if(navigator.clipboard && window.ClipboardItem){
-      await navigator.clipboard.write([new ClipboardItem({'image/png': blob})]);
-      toast("📋 Image copied to clipboard!");
-    } else {
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = (expItem?.alias || 'product') + '_' + expPrice + '.png';
-      a.click();
-      URL.revokeObjectURL(url);
-      toast("💾 Image saved!");
-    }
-  }catch(e){
-    toast("❌ Save failed: " + e.message);
-  }
-}
 
 /* ═══ SCANNER ═══ */
 let scanStream=null, scanLoop=null, codeReader=null, zxingReady=false;
@@ -2155,15 +2160,19 @@ function pimFsShow(){
   if(!img) return;
   document.getElementById('pim-fs-img').src = img.url;
   document.getElementById('pim-fs-counter').textContent = (pimFsIdx+1) + ' / ' + pimImages.length;
-  /* hide nav arrows if single image */
   const single = pimImages.length <= 1;
   document.getElementById('pim-fs-prev').style.display = single ? 'none' : '';
   document.getElementById('pim-fs-next').style.display = single ? 'none' : '';
-  /* reset zoom whenever image changes */
   if(window._pimFsZoomReset) window._pimFsZoomReset();
-  if(window.showHint_fs) window.showHint_fs();
+  /* show hint briefly */
+  const hint = document.getElementById('pim-fs-zoom-hint');
+  if(hint){ hint.style.opacity='1'; clearTimeout(hint._tm); hint._tm=setTimeout(()=>hint.style.opacity='0',2000); }
 }
 
+function pimFsNav(dir){
+  pimFsIdx = (pimFsIdx + dir + pimImages.length) % pimImages.length;
+  pimFsShow();
+}
 async function pimFsShareWA(){
   const img = pimImages[pimFsIdx];
   if(!img){ toast('No image to share'); return; }
@@ -2172,8 +2181,7 @@ async function pimFsShareWA(){
   try{
     const resp = await fetch(img.url);
     const blob = await resp.blob();
-    const ext  = img.name.split('.').pop() || 'jpg';
-    const file = new File([blob], (item.alias||'product')+'_'+img.name, {type: blob.type || 'image/jpeg'});
+    const file = new File([blob], img.name, {type: blob.type || 'image/jpeg'});
     if(navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
       await navigator.share({ files:[file], title: item.name||'Product', text });
       return;
@@ -2181,30 +2189,23 @@ async function pimFsShareWA(){
   }catch(err){
     if(err.name === 'AbortError') return;
   }
-  /* fallback: open image URL + text via WhatsApp */
   const waUrl = 'https://wa.me/?text=' + encodeURIComponent(text + '\n\n' + img.url);
   window.open(waUrl, '_blank');
   toast('📲 Opened WhatsApp');
-}
-function pimFsNav(dir){
-  pimFsIdx = (pimFsIdx + dir + pimImages.length) % pimImages.length;
-  pimFsShow();
 }
 
 /* ── Pinch-to-zoom + swipe on fullscreen ── */
 (function(){
   const fsOv  = document.getElementById('pim-fs-ov');
   const fsImg = document.getElementById('pim-fs-img');
-  const hint  = document.getElementById('pim-fs-zoom-hint');
 
-  let scale = 1, minScale = 1, maxScale = 5;
-  let originX = 0, originY = 0;      // translate offset
+  let scale = 1, maxScale = 5;
+  let originX = 0, originY = 0;
   let startDist = 0, startScale = 1;
   let startMidX = 0, startMidY = 0;
   let startOriginX = 0, startOriginY = 0;
   let swipeStartX = 0, swipeStartY = 0;
   let isPinching = false;
-  let hintTm;
   let lastTapTime = 0;
 
   function applyTransform(){
@@ -2216,11 +2217,8 @@ function pimFsNav(dir){
     applyTransform();
     setTimeout(()=>{ fsImg.style.transition = 'transform 0.05s linear'; }, 220);
   }
-  function showHint(){
-    hint.style.opacity = '1';
-    clearTimeout(hintTm);
-    hintTm = setTimeout(()=>{ hint.style.opacity = '0'; }, 2000);
-  }
+  window._pimFsZoomReset = resetZoom;
+
   function dist(t){ return Math.hypot(t[0].clientX-t[1].clientX, t[0].clientY-t[1].clientY); }
   function mid(t){ return { x:(t[0].clientX+t[1].clientX)/2, y:(t[0].clientY+t[1].clientY)/2 }; }
 
@@ -2236,7 +2234,7 @@ function pimFsNav(dir){
       isPinching = false;
       swipeStartX = e.touches[0].clientX;
       swipeStartY = e.touches[0].clientY;
-      /* double-tap to reset */
+      startOriginX = originX; startOriginY = originY;
       const now = Date.now();
       if(now - lastTapTime < 300){ resetZoom(); }
       lastTapTime = now;
@@ -2247,19 +2245,16 @@ function pimFsNav(dir){
     if(e.touches.length === 2 && isPinching){
       e.preventDefault();
       const newDist  = dist(e.touches);
-      const newScale = Math.min(maxScale, Math.max(minScale, startScale * (newDist / startDist)));
+      const newScale = Math.min(maxScale, Math.max(1, startScale * (newDist / startDist)));
       const m = mid(e.touches);
-      /* pan + scale around pinch midpoint */
       originX = startOriginX + (m.x - startMidX);
       originY = startOriginY + (m.y - startMidY);
       scale = newScale;
       applyTransform();
     } else if(e.touches.length === 1 && scale > 1){
       e.preventDefault();
-      const dx = e.touches[0].clientX - swipeStartX;
-      const dy = e.touches[0].clientY - swipeStartY;
-      originX = startOriginX + dx;
-      originY = startOriginY + dy;
+      originX = startOriginX + (e.touches[0].clientX - swipeStartX);
+      originY = startOriginY + (e.touches[0].clientY - swipeStartY);
       applyTransform();
     }
   }, {passive:false});
@@ -2267,24 +2262,15 @@ function pimFsNav(dir){
   fsOv.addEventListener('touchend', e => {
     if(isPinching && e.touches.length < 2){
       isPinching = false;
-      /* snap back if under-zoomed */
-      if(scale <= 1.05){ resetZoom(); } else { showHint(); }
+      if(scale <= 1.05) resetZoom();
       startOriginX = originX; startOriginY = originY;
       return;
     }
-    if(scale > 1) return; /* don't swipe when zoomed in */
+    if(scale > 1) return;
     const dx = e.changedTouches[0].clientX - swipeStartX;
     if(Math.abs(dx) >= 40){ pimFsNav(dx < 0 ? 1 : -1); }
   }, {passive:true});
-
-  /* Reset zoom whenever a new image is shown */
-  const _orig = window.pimFsShow;
-  window._pimFsZoomReset = resetZoom;
 })();
-showHint_fs = function(){
-  const hint = document.getElementById('pim-fs-zoom-hint');
-  if(hint){ hint.style.opacity='1'; setTimeout(()=>hint.style.opacity='0',2000); }
-};
 
 /* ═══ BOOT ═══ */
 scrollEl = document.getElementById("scroll");
