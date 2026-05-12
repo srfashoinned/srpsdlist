@@ -1388,7 +1388,7 @@ async function doExpWA(){
   const discPct = mrpVal > 0 && disc > 0 ? (disc/mrpVal*100).toFixed(2) : 0;
   const emoji = disc > 0 ? discountEmoji(parseFloat(discPct)) : '';
   const discLine = disc > 0 ? `\nDiscount: ₹${disc.toLocaleString('en-IN')}  (${discPct}%)  ${emoji}` : '';
-  const text = `*${SHOP_NAME}*\n${SHOP_ADDRESS}\n📞 ${SHOP_PHONE}\n\n*${it.name || ''}*\nCode: ${it.alias || '–'}${it.group ? '\nGroup: ' + it.group : ''}\n\nMRP: ${fmt(it.mrp)}\n💰 *${priceLabel}: ${priceVal}*${discLine}`;
+  const text = `${it.alias || '–'}${it.group ? '\n' + it.group : ''}\n\n💰 *${priceLabel}: ${priceVal}*${discLine}`;
 
   /* Ask if user wants to include product images */
   const hasImages = expLoadedImages && expLoadedImages.length > 0;
