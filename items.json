@@ -257,7 +257,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 3867
+    "stock": 3859
   },
   {
     "name": "AF DURANDHAR",
@@ -447,7 +447,7 @@
     "sale": 40,
     "purchase": 31.5,
     "wholesale": 36,
-    "stock": 653
+    "stock": 613
   },
   {
     "name": "Airtel Pari Fab",
@@ -917,7 +917,7 @@
     "sale": 500,
     "purchase": 385,
     "wholesale": 425,
-    "stock": 19
+    "stock": 23
   },
   {
     "name": "Bhagya Laxmi Alfino",
@@ -1590,6 +1590,16 @@
     "stock": 0
   },
   {
+    "name": "DEEPAK DRESSES",
+    "alias": "0003583",
+    "group": "PLAZO",
+    "mrp": 1012.5,
+    "sale": 949,
+    "purchase": 675,
+    "wholesale": 780,
+    "stock": 20
+  },
+  {
     "name": "Deepak Sona Chandi",
     "alias": "002248",
     "group": "SUIT",
@@ -2157,7 +2167,7 @@
     "sale": 250,
     "purchase": 175,
     "wholesale": 205,
-    "stock": 96
+    "stock": 95
   },
   {
     "name": "GARARA",
@@ -5430,6 +5440,16 @@
     "stock": 4
   },
   {
+    "name": "GNA HIRAL",
+    "alias": "0003577",
+    "group": "TROSUER",
+    "mrp": 877.5,
+    "sale": 800,
+    "purchase": 585,
+    "wholesale": 640,
+    "stock": 8
+  },
+  {
     "name": "GNA Jaam",
     "alias": "000314",
     "group": "SUIT",
@@ -6517,7 +6537,7 @@
     "sale": 560,
     "purchase": 470,
     "wholesale": 510,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "JBT GOLD CITY",
@@ -7116,8 +7136,8 @@
     "mrp": 415,
     "sale": 400,
     "purchase": 313,
-    "wholesale": 335,
-    "stock": -15
+    "wholesale": 370,
+    "stock": 176
   },
   {
     "name": "JMD MIX SUIT STAR",
@@ -9907,7 +9927,7 @@
     "sale": 1650,
     "purchase": 1421,
     "wholesale": 1550,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "KC DEAR COMRADE",
@@ -14437,7 +14457,7 @@
     "sale": 2150,
     "purchase": 1780,
     "wholesale": 1880,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC NINE COLORS",
@@ -17547,7 +17567,7 @@
     "sale": 2400,
     "purchase": 1950,
     "wholesale": 2150,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC SWAGSTER",
@@ -18887,7 +18907,7 @@
     "sale": 80,
     "purchase": 60,
     "wholesale": 67.5,
-    "stock": 49
+    "stock": 45
   },
   {
     "name": "KK Kohinoor",
@@ -20817,7 +20837,7 @@
     "sale": 680,
     "purchase": 565,
     "wholesale": 620,
-    "stock": 4
+    "stock": 0
   },
   {
     "name": "MF GALA KHATLI HEAVY",
@@ -23367,7 +23387,7 @@
     "sale": 600,
     "purchase": 525,
     "wholesale": 587.5,
-    "stock": 81
+    "stock": 80
   },
   {
     "name": "OM DARLING",
@@ -23447,7 +23467,7 @@
     "sale": 550,
     "purchase": 438,
     "wholesale": 470,
-    "stock": 28
+    "stock": 27
   },
   {
     "name": "OM FREE HAND",
@@ -23820,6 +23840,16 @@
     "stock": -2
   },
   {
+    "name": "Om Mumtaj",
+    "alias": "0003576",
+    "group": "SUIT",
+    "mrp": 757.5,
+    "sale": 600,
+    "purchase": 505,
+    "wholesale": 540,
+    "stock": 8
+  },
+  {
     "name": "OM MUSKAN",
     "alias": "0003463",
     "group": "COTTON SUIT",
@@ -24107,7 +24137,7 @@
     "sale": 540,
     "purchase": 450,
     "wholesale": 490,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "Om Sakira",
@@ -24667,7 +24697,7 @@
     "sale": 30,
     "purchase": 23.5,
     "wholesale": 26,
-    "stock": 2630.6
+    "stock": 2628.6
   },
   {
     "name": "Pasta MT",
@@ -24987,7 +25017,7 @@
     "sale": 1750,
     "purchase": 1715,
     "wholesale": 1750,
-    "stock": -3
+    "stock": -4
   },
   {
     "name": "PLAZO PRINT DFILL TAIL PAPLON",
@@ -25138,6 +25168,26 @@
     "purchase": 520,
     "wholesale": 550,
     "stock": 5
+  },
+  {
+    "name": "PT LADLI BAHEN",
+    "alias": "0003580",
+    "group": "SUIT",
+    "mrp": 780,
+    "sale": 620,
+    "purchase": 520,
+    "wholesale": 550,
+    "stock": 4
+  },
+  {
+    "name": "PT NESTLE",
+    "alias": "0003582",
+    "group": "SUIT",
+    "mrp": 780,
+    "sale": 620,
+    "purchase": 520,
+    "wholesale": 560,
+    "stock": 4
   },
   {
     "name": "PUBLIC DEMAND",
@@ -25327,7 +25377,7 @@
     "sale": 1450,
     "purchase": 1230,
     "wholesale": 1330,
-    "stock": 11
+    "stock": 10
   },
   {
     "name": "Readymade 273",
@@ -26484,7 +26534,7 @@
     "alias": "0002941",
     "group": "SUIT",
     "mrp": 1792.5,
-    "sale": 1600,
+    "sale": 1400,
     "purchase": 1195,
     "wholesale": 1300,
     "stock": 9
@@ -27067,7 +27117,7 @@
     "sale": 460,
     "purchase": 360,
     "wholesale": 390,
-    "stock": 1
+    "stock": 9
   },
   {
     "name": "Sadhna Jalebi Bai",
@@ -28487,7 +28537,7 @@
     "sale": 360,
     "purchase": 335,
     "wholesale": 355,
-    "stock": 97
+    "stock": 96
   },
   {
     "name": "SHREE NOORI WHITE",
@@ -28527,7 +28577,7 @@
     "sale": 30,
     "purchase": 23.5,
     "wholesale": 26.4375,
-    "stock": -8
+    "stock": -17
   },
   {
     "name": "Siya Scarf",
@@ -28607,7 +28657,7 @@
     "sale": 220,
     "purchase": 175,
     "wholesale": 195,
-    "stock": 299
+    "stock": 296
   },
   {
     "name": "SNT 3 Patti",
@@ -29047,7 +29097,7 @@
     "sale": 550,
     "purchase": 405,
     "wholesale": 490,
-    "stock": 46
+    "stock": 45
   },
   {
     "name": "SNT COPPER DUSKI",
@@ -29570,6 +29620,16 @@
     "stock": 1
   },
   {
+    "name": "SNT KARISMA",
+    "alias": "0003584",
+    "group": "SUIT",
+    "mrp": 855,
+    "sale": 680,
+    "purchase": 570,
+    "wholesale": 610,
+    "stock": 8
+  },
+  {
     "name": "SNT KASTURI",
     "alias": "001571",
     "group": "SUIT",
@@ -29758,6 +29818,16 @@
     "purchase": 400,
     "wholesale": 450,
     "stock": 0
+  },
+  {
+    "name": "SNT MAAZA",
+    "alias": "0003578",
+    "group": "RUSSIAN PLAZO",
+    "mrp": 1687.5,
+    "sale": 1350,
+    "purchase": 1125,
+    "wholesale": 1200,
+    "stock": 4
   },
   {
     "name": "SNT MADHAVI",
@@ -29988,6 +30058,16 @@
     "purchase": 650,
     "wholesale": 731.25,
     "stock": 0
+  },
+  {
+    "name": "SNT NAVYA",
+    "alias": "0003579",
+    "group": "RUSSIAN PLAZO",
+    "mrp": 1687.5,
+    "sale": 1350,
+    "purchase": 1125,
+    "wholesale": 1225,
+    "stock": 4
   },
   {
     "name": "SNT Neha",
@@ -32307,7 +32387,7 @@
     "sale": 1400,
     "purchase": 1175,
     "wholesale": 1300,
-    "stock": -5
+    "stock": -6
   },
   {
     "name": "Spari 4148B",
@@ -32397,7 +32477,7 @@
     "sale": 400,
     "purchase": 300,
     "wholesale": 330,
-    "stock": 14
+    "stock": 13
   },
   {
     "name": "Spice Garara",
@@ -32657,7 +32737,7 @@
     "sale": 380,
     "purchase": 340,
     "wholesale": 355,
-    "stock": 102
+    "stock": 101
   },
   {
     "name": "SST zCTN SUITE",
@@ -33917,7 +33997,7 @@
     "sale": 650,
     "purchase": 575,
     "wholesale": 646.88,
-    "stock": 6
+    "stock": 5
   },
   {
     "name": "VAS Mirzapur",
@@ -34477,7 +34557,7 @@
     "sale": 1700,
     "purchase": 1425,
     "wholesale": 1525,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "VF SILLY SILLY",
@@ -34648,6 +34728,16 @@
     "purchase": 1185.333333,
     "wholesale": 1333.5,
     "stock": 0
+  },
+  {
+    "name": "VLC MEHBOOBA FARSHI SHALWAR",
+    "alias": "0003581",
+    "group": "PLAZO",
+    "mrp": 1357.5,
+    "sale": 1200,
+    "purchase": 905,
+    "wholesale": 1010,
+    "stock": 4
   },
   {
     "name": "VLC RAINBOW",
@@ -34967,7 +35057,7 @@
     "sale": 670,
     "purchase": 555,
     "wholesale": 590,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "Welcome Ganga Jamuna",
