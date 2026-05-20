@@ -5677,7 +5677,7 @@
     "sale": 700,
     "purchase": 540,
     "wholesale": 600,
-    "stock": 0
+    "stock": -8
   },
   {
     "name": "GNA ORGANZA 7 STAR",
@@ -6617,7 +6617,7 @@
     "sale": 600,
     "purchase": 470,
     "wholesale": 495,
-    "stock": 4
+    "stock": 0
   },
   {
     "name": "JBT JAM JAM",
@@ -19457,7 +19457,7 @@
     "sale": 850,
     "purchase": 650,
     "wholesale": 700,
-    "stock": 22
+    "stock": 18
   },
   {
     "name": "Krushna Pushpa Rajwadi",
@@ -20477,7 +20477,7 @@
     "sale": 700,
     "purchase": 600,
     "wholesale": 630,
-    "stock": 0
+    "stock": -4
   },
   {
     "name": "MAS DHAMAKA",
@@ -35657,7 +35657,7 @@
     "sale": 550,
     "purchase": 425,
     "wholesale": 480,
-    "stock": 12
+    "stock": 8
   },
   {
     "name": "WELCOME SAJNI",
