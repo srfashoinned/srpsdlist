@@ -9134,7 +9134,7 @@
     "alias": "0002569",
     "group": "SUIT",
     "mrp": 2242.5,
-    "sale": 1750,
+    "sale": 1650,
     "purchase": 1495,
     "wholesale": 1580,
     "stock": 3
@@ -14670,11 +14670,11 @@
     "stock": 0
   },
   {
-    "name": "KC NOOR E GuLAAB",
+    "name": "KC NOOR E GULAAB",
     "alias": "0002444",
-    "group": "ORGANZA SUIT",
+    "group": "SUIT",
     "mrp": 2317.5,
-    "sale": 1800,
+    "sale": 1680,
     "purchase": 1545,
     "wholesale": 1625,
     "stock": 3
