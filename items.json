@@ -267,7 +267,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 3835
+    "stock": 3829
   },
   {
     "name": "AF DURANDHAR",
@@ -5677,7 +5677,7 @@
     "sale": 700,
     "purchase": 540,
     "wholesale": 600,
-    "stock": -13
+    "stock": -14
   },
   {
     "name": "GNA ORGANZA 7 STAR",
@@ -20727,7 +20727,7 @@
     "sale": 550,
     "purchase": 0,
     "wholesale": 0,
-    "stock": -7
+    "stock": -8
   },
   {
     "name": "MC PUSHPA",
