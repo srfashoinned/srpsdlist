@@ -5677,7 +5677,7 @@
     "sale": 700,
     "purchase": 540,
     "wholesale": 600,
-    "stock": -8
+    "stock": -9
   },
   {
     "name": "GNA ORGANZA 7 STAR",
@@ -6677,7 +6677,7 @@
     "sale": 560,
     "purchase": 470,
     "wholesale": 510,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "JBT THAR",
