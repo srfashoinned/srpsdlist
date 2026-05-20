@@ -11070,16 +11070,6 @@
     "stock": 0
   },
   {
-    "name": "KC FIRE PATIYAL",
-    "alias": "0002870",
-    "group": "SUIT",
-    "mrp": 2325,
-    "sale": 2000,
-    "purchase": 1550,
-    "wholesale": 1740,
-    "stock": 4
-  },
-  {
     "name": "KC FIRE QUEEN",
     "alias": "0002834",
     "group": "TROSUER",
@@ -12304,7 +12294,7 @@
     "alias": "0002879",
     "group": "SUIT",
     "mrp": 2032.5,
-    "sale": 1800,
+    "sale": 1550,
     "purchase": 1355,
     "wholesale": 1470,
     "stock": 4
@@ -15010,6 +15000,16 @@
     "stock": 4
   },
   {
+    "name": "KC PATIYALA FIRE",
+    "alias": "0002870",
+    "group": "SUIT",
+    "mrp": 2325,
+    "sale": 1750,
+    "purchase": 1550,
+    "wholesale": 1650,
+    "stock": 4
+  },
+  {
     "name": "KC PATIYALA QUEEN FARSI",
     "alias": "0002842",
     "group": "FARSI",
@@ -16844,7 +16844,7 @@
     "alias": "0003571",
     "group": "SUIT",
     "mrp": 2182.5,
-    "sale": 1750,
+    "sale": 1650,
     "purchase": 1455,
     "wholesale": 1560,
     "stock": 4
