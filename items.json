@@ -5677,7 +5677,7 @@
     "sale": 700,
     "purchase": 540,
     "wholesale": 600,
-    "stock": -11
+    "stock": -13
   },
   {
     "name": "GNA ORGANZA 7 STAR",
@@ -10097,7 +10097,7 @@
     "sale": 700,
     "purchase": 595,
     "wholesale": 630,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "KC DESERT STAR",
@@ -13247,7 +13247,7 @@
     "sale": 1300,
     "purchase": 1095,
     "wholesale": 1195,
-    "stock": 5
+    "stock": 4
   },
   {
     "name": "KC Lime Juice",
@@ -25077,7 +25077,7 @@
     "sale": 520,
     "purchase": 435,
     "wholesale": 455,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "PC RAPIDO",
