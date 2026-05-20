@@ -14104,7 +14104,7 @@
     "alias": "0002880",
     "group": "SUIT",
     "mrp": 2325,
-    "sale": 1750,
+    "sale": 1650,
     "purchase": 1550,
     "wholesale": 1650,
     "stock": 4
@@ -33917,7 +33917,7 @@
     "sale": 25,
     "purchase": 18,
     "wholesale": 20,
-    "stock": 249
+    "stock": 248
   },
   {
     "name": "Towel Winner",
@@ -34607,7 +34607,7 @@
     "sale": 400,
     "purchase": 305,
     "wholesale": 335,
-    "stock": -1
+    "stock": -2
   },
   {
     "name": "VC SAMARIYA",
