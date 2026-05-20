@@ -13747,7 +13747,7 @@
     "sale": 1000,
     "purchase": 600,
     "wholesale": 700,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "KC Mashq",
