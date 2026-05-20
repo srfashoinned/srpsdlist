@@ -9440,6 +9440,16 @@
     "stock": 3
   },
   {
+    "name": "KC CHILL AND THRIL",
+    "alias": "0003110",
+    "group": "SUIT",
+    "mrp": 2377.5,
+    "sale": 1700,
+    "purchase": 1585,
+    "wholesale": 1800,
+    "stock": 4
+  },
+  {
     "name": "Kc Chill Beat",
     "alias": "0002499",
     "group": "TROSUER",
@@ -9497,16 +9507,6 @@
     "sale": 1750,
     "purchase": 1545,
     "wholesale": 1650,
-    "stock": 4
-  },
-  {
-    "name": "KC CHLL AND THRIL",
-    "alias": "0003110",
-    "group": "SUIT",
-    "mrp": 2377.5,
-    "sale": 1900,
-    "purchase": 1585,
-    "wholesale": 1800,
     "stock": 4
   },
   {
