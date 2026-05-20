@@ -24977,7 +24977,7 @@
     "sale": 650,
     "purchase": 540,
     "wholesale": 575,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "PAWNI JACKPOT",
@@ -25077,7 +25077,7 @@
     "sale": 520,
     "purchase": 435,
     "wholesale": 455,
-    "stock": -1
+    "stock": -2
   },
   {
     "name": "PC RAPIDO",
@@ -29407,7 +29407,7 @@
     "sale": 550,
     "purchase": 405,
     "wholesale": 490,
-    "stock": 44
+    "stock": 43
   },
   {
     "name": "SNT COPPER DUSKI",
