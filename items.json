@@ -19387,7 +19387,7 @@
     "sale": 300,
     "purchase": 245,
     "wholesale": 270,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "KKC WORLD CURRENCY",
@@ -20567,7 +20567,7 @@
     "sale": 500,
     "purchase": 455,
     "wholesale": 470,
-    "stock": 38
+    "stock": 37
   },
   {
     "name": "MASTI AJRAKH",
