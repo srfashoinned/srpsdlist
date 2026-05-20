@@ -10654,7 +10654,7 @@
     "alias": "0002829",
     "group": "SUIT",
     "mrp": 2257.5,
-    "sale": 2000,
+    "sale": 1800,
     "purchase": 1505,
     "wholesale": 1650,
     "stock": 3
@@ -17004,7 +17004,7 @@
     "alias": "0002433",
     "group": "SUIT",
     "mrp": 2467.5,
-    "sale": 1900,
+    "sale": 1750,
     "purchase": 1645,
     "wholesale": 1740,
     "stock": 4
