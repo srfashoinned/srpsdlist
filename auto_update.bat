@@ -65,7 +65,7 @@ echo ===================================
 echo   ✅ UPDATE COMPLETED SUCCESSFULLY
 echo ===================================
 
-echo Waiting 110 seconds...
-timeout /t 110 >nul
+echo Waiting 45 seconds...
+timeout /t 45 >nul
 
 goto loop
