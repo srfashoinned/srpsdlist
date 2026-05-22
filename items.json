@@ -1357,7 +1357,7 @@
     "sale": 30,
     "purchase": 0,
     "wholesale": 0,
-    "stock": -46.25
+    "stock": -47.25
   },
   {
     "name": "Chikni Chameli",
@@ -6027,7 +6027,7 @@
     "sale": 1580,
     "purchase": 1315,
     "wholesale": 1450,
-    "stock": 3
+    "stock": 1
   },
   {
     "name": "HH 1501",
@@ -8497,7 +8497,7 @@
     "sale": 1600,
     "purchase": 1370,
     "wholesale": 1470,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC Band Baaja",
@@ -11297,7 +11297,7 @@
     "sale": 1850,
     "purchase": 1645,
     "wholesale": 1750,
-    "stock": 3
+    "stock": 1
   },
   {
     "name": "KC FOODY MOODY",
@@ -22347,7 +22347,7 @@
     "sale": 550,
     "purchase": 484.67,
     "wholesale": 545.25,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "MT Skena",
@@ -24507,7 +24507,7 @@
     "sale": 500,
     "purchase": 375,
     "wholesale": 415,
-    "stock": 21
+    "stock": 20
   },
   {
     "name": "OM sofiya",
@@ -35527,7 +35527,7 @@
     "sale": 550,
     "purchase": 425,
     "wholesale": 480,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "Welcome Lotus",
