@@ -8737,7 +8737,7 @@
     "sale": 1900,
     "purchase": 1695,
     "wholesale": 1795,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "KC BEST VOICE",
@@ -9467,7 +9467,7 @@
     "sale": 1550,
     "purchase": 1420,
     "wholesale": 1500,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC CHILL BERRY SUITE",
