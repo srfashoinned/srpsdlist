@@ -23707,7 +23707,7 @@
     "sale": 570,
     "purchase": 470,
     "wholesale": 500,
-    "stock": 4
+    "stock": 0
   },
   {
     "name": "OM Fuwara",
@@ -23777,7 +23777,7 @@
     "sale": 570,
     "purchase": 470,
     "wholesale": 500,
-    "stock": 4
+    "stock": 0
   },
   {
     "name": "OM Happy",
@@ -35237,7 +35237,7 @@
     "sale": 550,
     "purchase": 445,
     "wholesale": 495,
-    "stock": 13
+    "stock": 12
   },
   {
     "name": "WELCOME BAZIGAR",
@@ -35497,7 +35497,7 @@
     "sale": 600,
     "purchase": 495,
     "wholesale": 540,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "Welcome Khajoor",
