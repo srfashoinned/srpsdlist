@@ -187,7 +187,7 @@
     "sale": 1180,
     "purchase": 985,
     "wholesale": 1050,
-    "stock": 3
+    "stock": 4
   },
   {
     "name": "AARJU BHUMI",
@@ -217,7 +217,7 @@
     "sale": 60,
     "purchase": 48,
     "wholesale": 50,
-    "stock": 479
+    "stock": 476
   },
   {
     "name": "Aatish",
@@ -427,7 +427,7 @@
     "sale": 450,
     "purchase": 328,
     "wholesale": 370,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "AHD PC COTTON",
@@ -437,7 +437,7 @@
     "sale": 250,
     "purchase": 205,
     "wholesale": 225,
-    "stock": 84
+    "stock": 80
   },
   {
     "name": "Ahd Reyon Dupatta",
@@ -747,7 +747,7 @@
     "sale": 1500,
     "purchase": 1355,
     "wholesale": 1430,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "Arnima 1383",
@@ -927,7 +927,7 @@
     "sale": 500,
     "purchase": 385,
     "wholesale": 425,
-    "stock": 21
+    "stock": 20
   },
   {
     "name": "Bhagya Laxmi Alfino",
@@ -2177,7 +2177,7 @@
     "sale": 250,
     "purchase": 175,
     "wholesale": 205,
-    "stock": 92
+    "stock": 90
   },
   {
     "name": "GARARA",
@@ -3647,7 +3647,7 @@
     "sale": 550,
     "purchase": 450,
     "wholesale": 490,
-    "stock": 12
+    "stock": 11
   },
   {
     "name": "GF SEJAL",
@@ -4477,7 +4477,7 @@
     "sale": 999,
     "purchase": 675,
     "wholesale": 780,
-    "stock": 5
+    "stock": 1
   },
   {
     "name": "GK JET AIRWAYS",
@@ -5677,7 +5677,7 @@
     "sale": 700,
     "purchase": 540,
     "wholesale": 600,
-    "stock": 137
+    "stock": 130
   },
   {
     "name": "GNA ORGANZA 7 STAR",
@@ -5837,7 +5837,7 @@
     "sale": 80,
     "purchase": 63,
     "wholesale": 70,
-    "stock": 831
+    "stock": 830
   },
   {
     "name": "GT Noorie",
@@ -6267,7 +6267,7 @@
     "sale": 660,
     "purchase": 560,
     "wholesale": 600,
-    "stock": 5
+    "stock": 4
   },
   {
     "name": "INNAYA GOOGLEPAY",
@@ -7197,7 +7197,7 @@
     "sale": 400,
     "purchase": 313,
     "wholesale": 370,
-    "stock": 146
+    "stock": 142
   },
   {
     "name": "JMD MIX SUIT STAR",
@@ -8587,7 +8587,7 @@
     "sale": 2250,
     "purchase": 1875,
     "wholesale": 2000,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "KC BEAT BLAST",
@@ -9197,7 +9197,7 @@
     "sale": 1700,
     "purchase": 1445,
     "wholesale": 1550,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "KC CAFE DILWALE",
@@ -9347,7 +9347,7 @@
     "sale": 1590,
     "purchase": 1325,
     "wholesale": 1425,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC CHANCHAL",
@@ -9927,7 +9927,7 @@
     "sale": 1820,
     "purchase": 1515,
     "wholesale": 1620,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "KC CRUNCHELLA",
@@ -14707,7 +14707,7 @@
     "sale": 1500,
     "purchase": 1200,
     "wholesale": 1300,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC NOOR WEDDING",
@@ -16227,7 +16227,7 @@
     "sale": 1450,
     "purchase": 1240,
     "wholesale": 1360,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC Rutba",
@@ -17277,7 +17277,7 @@
     "sale": 1800,
     "purchase": 1580,
     "wholesale": 1700,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC SPICE PALACE",
@@ -19257,7 +19257,7 @@
     "sale": 350,
     "purchase": 265,
     "wholesale": 290,
-    "stock": 155
+    "stock": 146
   },
   {
     "name": "KKC MEMSAB",
@@ -19297,7 +19297,7 @@
     "sale": 350,
     "purchase": 255,
     "wholesale": 265,
-    "stock": 7
+    "stock": 6
   },
   {
     "name": "Kkc Panchi",
@@ -19337,7 +19337,7 @@
     "sale": 330,
     "purchase": 245,
     "wholesale": 270,
-    "stock": -8
+    "stock": -7
   },
   {
     "name": "Kkc Rehana NX",
@@ -19387,7 +19387,7 @@
     "sale": 300,
     "purchase": 245,
     "wholesale": 270,
-    "stock": 23
+    "stock": 19
   },
   {
     "name": "KKC WORLD CURRENCY",
@@ -20297,7 +20297,7 @@
     "sale": 200,
     "purchase": 148,
     "wholesale": 175,
-    "stock": 46
+    "stock": 45
   },
   {
     "name": "MALAI COTTON",
@@ -20567,7 +20567,7 @@
     "sale": 500,
     "purchase": 455,
     "wholesale": 470,
-    "stock": 37
+    "stock": 26
   },
   {
     "name": "MASTI AJRAKH",
@@ -20717,7 +20717,7 @@
     "sale": 400,
     "purchase": 340,
     "wholesale": 365,
-    "stock": 17
+    "stock": 8
   },
   {
     "name": "MASTI ZAREEN",
@@ -23537,7 +23537,7 @@
     "sale": 1050,
     "purchase": 833.3333333,
     "wholesale": 937.5,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "Om Black Out",
@@ -23607,7 +23607,7 @@
     "sale": 600,
     "purchase": 525,
     "wholesale": 587.5,
-    "stock": 66
+    "stock": 65
   },
   {
     "name": "OM DARLING",
@@ -23687,7 +23687,7 @@
     "sale": 550,
     "purchase": 438,
     "wholesale": 470,
-    "stock": 26
+    "stock": 24
   },
   {
     "name": "OM FREE HAND",
@@ -23837,7 +23837,7 @@
     "sale": 570,
     "purchase": 470,
     "wholesale": 500,
-    "stock": 4
+    "stock": 0
   },
   {
     "name": "OM Jenny",
@@ -24507,7 +24507,7 @@
     "sale": 500,
     "purchase": 375,
     "wholesale": 415,
-    "stock": 20
+    "stock": 17
   },
   {
     "name": "OM sofiya",
@@ -24947,7 +24947,7 @@
     "sale": 30,
     "purchase": 23.5,
     "wholesale": 26,
-    "stock": 2598.6
+    "stock": 2589.6
   },
   {
     "name": "Pasta MT",
@@ -25077,7 +25077,7 @@
     "sale": 520,
     "purchase": 435,
     "wholesale": 455,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "PC RAPIDO",
@@ -25297,7 +25297,7 @@
     "sale": 1750,
     "purchase": 1715,
     "wholesale": 1750,
-    "stock": -6
+    "stock": -7
   },
   {
     "name": "PLAZO PRINT DFILL TAIL PAPLON",
@@ -25927,7 +25927,7 @@
     "sale": 250,
     "purchase": 175,
     "wholesale": 200,
-    "stock": -38
+    "stock": -50
   },
   {
     "name": "ROYAL BRAND QUEEN",
@@ -25977,7 +25977,7 @@
     "sale": 250,
     "purchase": 170,
     "wholesale": 191.25,
-    "stock": 251
+    "stock": 249
   },
   {
     "name": "Royal Punjabi Cut",
@@ -26427,7 +26427,7 @@
     "sale": 300,
     "purchase": 237,
     "wholesale": 270,
-    "stock": 27
+    "stock": 25
   },
   {
     "name": "RR Organic",
@@ -26477,7 +26477,7 @@
     "sale": 300,
     "purchase": 220,
     "wholesale": 255,
-    "stock": 18
+    "stock": 17
   },
   {
     "name": "RR RAFTAR",
@@ -26804,7 +26804,7 @@
     "alias": "0002940",
     "group": "SUIT",
     "mrp": 1570,
-    "sale": 1550,
+    "sale": 1450,
     "purchase": 1150,
     "wholesale": 1250,
     "stock": 16
@@ -26837,7 +26837,7 @@
     "sale": 1550,
     "purchase": 1310,
     "wholesale": 1450,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "RS 1450 GLASS",
@@ -26854,7 +26854,7 @@
     "alias": "0002944",
     "group": "SUIT",
     "mrp": 2175,
-    "sale": 1950,
+    "sale": 1700,
     "purchase": 1450,
     "wholesale": 1570,
     "stock": 4
@@ -27167,7 +27167,7 @@
     "sale": 20,
     "purchase": 16,
     "wholesale": 20,
-    "stock": 60
+    "stock": 48
   },
   {
     "name": "Rup ki Rani firdous 1'st",
@@ -28847,7 +28847,7 @@
     "sale": 360,
     "purchase": 335,
     "wholesale": 355,
-    "stock": 77
+    "stock": 74
   },
   {
     "name": "SHREE NOORI WHITE",
@@ -29867,7 +29867,7 @@
     "sale": 500,
     "purchase": 345,
     "wholesale": 400,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "SNT Jupiter",
@@ -30157,7 +30157,7 @@
     "sale": 750,
     "purchase": 625,
     "wholesale": 675,
-    "stock": -2
+    "stock": -7
   },
   {
     "name": "SNT Madhuri dusky",
@@ -30357,7 +30357,7 @@
     "sale": 550,
     "purchase": 475,
     "wholesale": 515,
-    "stock": 5
+    "stock": 3
   },
   {
     "name": "SNT NAMRATA",
@@ -32517,7 +32517,7 @@
     "sale": 1700,
     "purchase": 1540,
     "wholesale": 1650,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "Sony s 130",
@@ -32557,7 +32557,7 @@
     "sale": 1650,
     "purchase": 1490,
     "wholesale": 1580,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "SONY S 30",
@@ -33047,7 +33047,7 @@
     "sale": 380,
     "purchase": 340,
     "wholesale": 355,
-    "stock": 68
+    "stock": 62
   },
   {
     "name": "SST zCTN SUITE",
@@ -33447,7 +33447,7 @@
     "sale": 50,
     "purchase": 40,
     "wholesale": 45,
-    "stock": 1588
+    "stock": 1515
   },
   {
     "name": "Suman Pari Fab",
@@ -33467,7 +33467,7 @@
     "sale": 500,
     "purchase": 355,
     "wholesale": 400,
-    "stock": 9
+    "stock": 8
   },
   {
     "name": "SUPER DUPER SVT",
@@ -33917,7 +33917,7 @@
     "sale": 25,
     "purchase": 18,
     "wholesale": 20,
-    "stock": 248
+    "stock": 247
   },
   {
     "name": "Towel Winner",
@@ -35427,7 +35427,7 @@
     "sale": 600,
     "purchase": 515,
     "wholesale": 579.38,
-    "stock": -6
+    "stock": -7
   },
   {
     "name": "Welcome Gulshan",
@@ -35667,7 +35667,7 @@
     "sale": 540,
     "purchase": 445,
     "wholesale": 485,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "Welcome Sandaar",
