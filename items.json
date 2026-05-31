@@ -24627,7 +24627,7 @@
     "sale": 600,
     "purchase": 435,
     "wholesale": 489.375,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "OM Verna",
@@ -34577,7 +34577,7 @@
     "sale": 400,
     "purchase": 304.67,
     "wholesale": 342.75,
-    "stock": 15
+    "stock": 14
   },
   {
     "name": "Vc Playstore",
