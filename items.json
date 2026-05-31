@@ -25077,7 +25077,7 @@
     "sale": 520,
     "purchase": 435,
     "wholesale": 455,
-    "stock": -2
+    "stock": -3
   },
   {
     "name": "PC RAPIDO",
@@ -34307,7 +34307,7 @@
     "sale": 650,
     "purchase": 575,
     "wholesale": 646.88,
-    "stock": 5
+    "stock": 4
   },
   {
     "name": "VAS Mirzapur",
@@ -35237,7 +35237,7 @@
     "sale": 550,
     "purchase": 445,
     "wholesale": 495,
-    "stock": 6
+    "stock": 5
   },
   {
     "name": "WELCOME BAZIGAR",
