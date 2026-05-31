@@ -637,7 +637,7 @@
     "sale": 200,
     "purchase": 175,
     "wholesale": 195,
-    "stock": -26
+    "stock": -32
   },
   {
     "name": "Anamika GK",
@@ -20727,7 +20727,7 @@
     "sale": 550,
     "purchase": 0,
     "wholesale": 490,
-    "stock": 68
+    "stock": 63
   },
   {
     "name": "MC PUSHPA",
@@ -24947,7 +24947,7 @@
     "sale": 30,
     "purchase": 23.5,
     "wholesale": 26,
-    "stock": 2490.1
+    "stock": 2430.1
   },
   {
     "name": "Pasta MT",
@@ -33047,7 +33047,7 @@
     "sale": 380,
     "purchase": 340,
     "wholesale": 355,
-    "stock": 49
+    "stock": 36
   },
   {
     "name": "SST zCTN SUITE",
