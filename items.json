@@ -267,7 +267,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 3798
+    "stock": 3794
   },
   {
     "name": "AF DURANDHAR",
@@ -637,7 +637,7 @@
     "sale": 200,
     "purchase": 175,
     "wholesale": 195,
-    "stock": -32
+    "stock": -33
   },
   {
     "name": "Anamika GK",
@@ -9347,7 +9347,7 @@
     "sale": 1590,
     "purchase": 1325,
     "wholesale": 1425,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "KC CHANCHAL",
@@ -17117,7 +17117,7 @@
     "sale": 1650,
     "purchase": 1410,
     "wholesale": 1500,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "KC SNAP AURA",
@@ -33667,7 +33667,7 @@
     "sale": 250,
     "purchase": 200,
     "wholesale": 225,
-    "stock": -104
+    "stock": -116
   },
   {
     "name": "SVT PARIDHI",
@@ -33917,7 +33917,7 @@
     "sale": 25,
     "purchase": 18,
     "wholesale": 20,
-    "stock": 181
+    "stock": 169
   },
   {
     "name": "Towel Winner",
