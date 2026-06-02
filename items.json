@@ -13737,7 +13737,7 @@
     "sale": 1000,
     "purchase": 600,
     "wholesale": 700,
-    "stock": 36
+    "stock": 35
   },
   {
     "name": "KC Mashq",
@@ -20577,7 +20577,7 @@
     "sale": 430,
     "purchase": 365,
     "wholesale": 385,
-    "stock": 12
+    "stock": 11
   },
   {
     "name": "Masti Bulbul",
@@ -20617,7 +20617,7 @@
     "sale": 400,
     "purchase": 340,
     "wholesale": 365,
-    "stock": 19
+    "stock": 18
   },
   {
     "name": "Masti Kalki",
