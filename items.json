@@ -8927,7 +8927,7 @@
     "sale": 2500,
     "purchase": 2080,
     "wholesale": 2200,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC BlackBerry",
@@ -21037,7 +21037,7 @@
     "sale": 590,
     "purchase": 495,
     "wholesale": 530,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "MF DAMAN BORING",
@@ -28407,7 +28407,7 @@
     "sale": 1250,
     "purchase": 1025,
     "wholesale": 1100,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "Sg lazy lamhe",
