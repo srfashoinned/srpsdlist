@@ -1097,7 +1097,7 @@
     "sale": 3300,
     "purchase": 2485,
     "wholesale": 2650,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "BL MASTANI",
@@ -24407,7 +24407,7 @@
     "sale": 500,
     "purchase": 380,
     "wholesale": 425,
-    "stock": 7
+    "stock": 6
   },
   {
     "name": "OM SANGAM",
@@ -25007,7 +25007,7 @@
     "sale": 500,
     "purchase": 405,
     "wholesale": 435,
-    "stock": 50
+    "stock": 49
   },
   {
     "name": "PC FARIDA",
@@ -30157,7 +30157,7 @@
     "sale": 750,
     "purchase": 625,
     "wholesale": 675,
-    "stock": -11
+    "stock": -12
   },
   {
     "name": "SNT Madhuri dusky",
@@ -30637,7 +30637,7 @@
     "sale": 550,
     "purchase": 495,
     "wholesale": 485,
-    "stock": 5
+    "stock": 3
   },
   {
     "name": "SNT Rose",
@@ -31037,7 +31037,7 @@
     "sale": 720,
     "purchase": 674.67,
     "wholesale": 759,
-    "stock": 2
+    "stock": 0
   },
   {
     "name": "SNT watermelon",
@@ -35217,7 +35217,7 @@
     "sale": 600,
     "purchase": 535,
     "wholesale": 601.88,
-    "stock": -3
+    "stock": -5
   },
   {
     "name": "Welcome Ajgar",
