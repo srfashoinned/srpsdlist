@@ -453,10 +453,10 @@
     "name": "Aheri Dupatta",
     "alias": "000342",
     "group": "Dupatta",
-    "mrp": 42.52,
+    "mrp": 51,
     "sale": 40,
-    "purchase": 31.5,
-    "wholesale": 36,
+    "purchase": 34,
+    "wholesale": 40,
     "stock": 435
   },
   {
