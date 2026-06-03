@@ -457,7 +457,7 @@
     "sale": 40,
     "purchase": 34,
     "wholesale": 40,
-    "stock": 435
+    "stock": 1035
   },
   {
     "name": "Airtel Pari Fab",
@@ -20725,7 +20725,7 @@
     "group": "COTTON SUIT",
     "mrp": 667.5,
     "sale": 550,
-    "purchase": 0,
+    "purchase": 445,
     "wholesale": 490,
     "stock": 61
   },
@@ -23707,7 +23707,7 @@
     "sale": 570,
     "purchase": 470,
     "wholesale": 500,
-    "stock": 0
+    "stock": 8
   },
   {
     "name": "OM Fuwara",
@@ -23777,7 +23777,7 @@
     "sale": 570,
     "purchase": 470,
     "wholesale": 500,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "OM Happy",
@@ -23837,7 +23837,7 @@
     "sale": 570,
     "purchase": 470,
     "wholesale": 500,
-    "stock": -12
+    "stock": 8
   },
   {
     "name": "OM Jenny",
@@ -25077,7 +25077,7 @@
     "sale": 520,
     "purchase": 435,
     "wholesale": 455,
-    "stock": -3
+    "stock": 9
   },
   {
     "name": "PC RAPIDO",
@@ -25097,7 +25097,7 @@
     "sale": 550,
     "purchase": 450,
     "wholesale": 480,
-    "stock": 1
+    "stock": 17
   },
   {
     "name": "PC ROMANCE",
@@ -35485,9 +35485,9 @@
     "group": "SUIT",
     "mrp": 780,
     "sale": 620,
-    "purchase": 510,
+    "purchase": 525,
     "wholesale": 550,
-    "stock": 5
+    "stock": 9
   },
   {
     "name": "Welcome Kachi Keri",
@@ -35557,7 +35557,7 @@
     "sale": 500,
     "purchase": 425,
     "wholesale": 475,
-    "stock": 8
+    "stock": 12
   },
   {
     "name": "WELCOME MANISHA",
