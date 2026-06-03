@@ -8587,7 +8587,7 @@
     "sale": 2250,
     "purchase": 1875,
     "wholesale": 2000,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC BEAT BLAST",
@@ -24685,7 +24685,7 @@
     "group": "SUIT",
     "mrp": 742.5,
     "sale": 590,
-    "purchase": 490,
+    "purchase": 480,
     "wholesale": 525,
     "stock": 11
   },
