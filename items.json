@@ -20717,7 +20717,7 @@
     "sale": 400,
     "purchase": 340,
     "wholesale": 365,
-    "stock": 5
+    "stock": -7
   },
   {
     "name": "MASTI ZAREEN",
@@ -20727,7 +20727,7 @@
     "sale": 550,
     "purchase": 445,
     "wholesale": 490,
-    "stock": 61
+    "stock": 57
   },
   {
     "name": "MC PUSHPA",
@@ -23607,7 +23607,7 @@
     "sale": 600,
     "purchase": 525,
     "wholesale": 587.5,
-    "stock": 58
+    "stock": 54
   },
   {
     "name": "OM DARLING",
@@ -24947,7 +24947,7 @@
     "sale": 30,
     "purchase": 23.5,
     "wholesale": 26,
-    "stock": 2316.1
+    "stock": 2276.1
   },
   {
     "name": "Pasta MT",
@@ -25977,7 +25977,7 @@
     "sale": 250,
     "purchase": 170,
     "wholesale": 191.25,
-    "stock": 188
+    "stock": 164
   },
   {
     "name": "Royal Punjabi Cut",
@@ -33667,7 +33667,7 @@
     "sale": 250,
     "purchase": 200,
     "wholesale": 225,
-    "stock": -116
+    "stock": -124
   },
   {
     "name": "SVT PARIDHI",
