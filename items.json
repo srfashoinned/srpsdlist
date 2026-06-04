@@ -3647,7 +3647,7 @@
     "sale": 550,
     "purchase": 450,
     "wholesale": 490,
-    "stock": 11
+    "stock": 10
   },
   {
     "name": "GF SEJAL",
@@ -10057,7 +10057,7 @@
     "sale": 700,
     "purchase": 525,
     "wholesale": 570,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "Kc Dear Medam",
@@ -12017,7 +12017,7 @@
     "sale": 1850,
     "purchase": 1645,
     "wholesale": 1750,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "KC HAPPY LIFE",
