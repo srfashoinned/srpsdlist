@@ -2177,7 +2177,7 @@
     "sale": 250,
     "purchase": 175,
     "wholesale": 205,
-    "stock": 82
+    "stock": 58
   },
   {
     "name": "GARARA",
@@ -24947,7 +24947,7 @@
     "sale": 30,
     "purchase": 23.5,
     "wholesale": 26,
-    "stock": 2276.1
+    "stock": 2199.85
   },
   {
     "name": "Pasta MT",
@@ -26167,7 +26167,7 @@
     "sale": 300,
     "purchase": 226,
     "wholesale": 275,
-    "stock": 26
+    "stock": 22
   },
   {
     "name": "RR DONALT",
@@ -33667,7 +33667,7 @@
     "sale": 250,
     "purchase": 200,
     "wholesale": 225,
-    "stock": -124
+    "stock": -136
   },
   {
     "name": "SVT PARIDHI",
