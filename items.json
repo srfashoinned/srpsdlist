@@ -1477,7 +1477,7 @@
     "sale": 0,
     "purchase": 0,
     "wholesale": 0,
-    "stock": 0
+    "stock": -4
   },
   {
     "name": "Crazy Bite",
@@ -19257,7 +19257,7 @@
     "sale": 350,
     "purchase": 265,
     "wholesale": 290,
-    "stock": 131
+    "stock": 130
   },
   {
     "name": "KKC MEMSAB",
@@ -19317,7 +19317,7 @@
     "sale": 300,
     "purchase": 245,
     "wholesale": 265,
-    "stock": 13
+    "stock": 12
   },
   {
     "name": "Kkc Qayamat NX",
@@ -20567,7 +20567,7 @@
     "sale": 500,
     "purchase": 455,
     "wholesale": 470,
-    "stock": 20
+    "stock": 15
   },
   {
     "name": "MASTI AJRAKH",
@@ -20717,7 +20717,7 @@
     "sale": 400,
     "purchase": 340,
     "wholesale": 365,
-    "stock": -7
+    "stock": -8
   },
   {
     "name": "MASTI ZAREEN",
@@ -33047,7 +33047,7 @@
     "sale": 400,
     "purchase": 365,
     "wholesale": 385,
-    "stock": 10
+    "stock": -10
   },
   {
     "name": "SST zCTN SUITE",
@@ -33667,7 +33667,7 @@
     "sale": 250,
     "purchase": 200,
     "wholesale": 225,
-    "stock": -137
+    "stock": -142
   },
   {
     "name": "SVT PARIDHI",
