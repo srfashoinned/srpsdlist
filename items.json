@@ -31910,16 +31910,6 @@
     "stock": 3
   },
   {
-    "name": "SONY FENDY 2",
-    "alias": "0003619",
-    "group": "PLAZO",
-    "mrp": 2452.5,
-    "sale": 1850,
-    "purchase": 1635,
-    "wholesale": 1740,
-    "stock": 4
-  },
-  {
     "name": "SONY FENDY 3",
     "alias": "0003620",
     "group": "PLAZO",
@@ -32698,6 +32688,16 @@
     "purchase": 1524.67,
     "wholesale": 1715.25,
     "stock": 0
+  },
+  {
+    "name": "SONY STAR 77 FENDY 2",
+    "alias": "0003619",
+    "group": "BEATS PLZO",
+    "mrp": 2452.5,
+    "sale": 1900,
+    "purchase": 1635,
+    "wholesale": 1740,
+    "stock": 4
   },
   {
     "name": "Sony Suit Jorjet",
