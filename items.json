@@ -31910,16 +31910,6 @@
     "stock": 3
   },
   {
-    "name": "SONY FENDY 3",
-    "alias": "0003620",
-    "group": "PLAZO",
-    "mrp": 2835,
-    "sale": 2250,
-    "purchase": 1890,
-    "wholesale": 2000,
-    "stock": 8
-  },
-  {
     "name": "SONY GANESH 01",
     "alias": "0002770",
     "group": "TROSUER",
@@ -32248,6 +32238,16 @@
     "purchase": 2255,
     "wholesale": 2360,
     "stock": 4
+  },
+  {
+    "name": "SONY JK A-  FENDY 3",
+    "alias": "0003620",
+    "group": "BEATS PLZO",
+    "mrp": 2835,
+    "sale": 2250,
+    "purchase": 1890,
+    "wholesale": 2000,
+    "stock": 8
   },
   {
     "name": "SONY JK A 43 FENDY 4",
