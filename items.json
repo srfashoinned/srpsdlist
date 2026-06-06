@@ -7427,7 +7427,7 @@
     "sale": 680,
     "purchase": 560,
     "wholesale": 600,
-    "stock": 0
+    "stock": 5
   },
   {
     "name": "JT Allever",
@@ -7437,7 +7437,7 @@
     "sale": 630,
     "purchase": 525,
     "wholesale": 550,
-    "stock": 0
+    "stock": 10
   },
   {
     "name": "JT ANGLE",
@@ -7447,7 +7447,7 @@
     "sale": 670,
     "purchase": 560,
     "wholesale": 600,
-    "stock": 0
+    "stock": 5
   },
   {
     "name": "JT ANKITA",
@@ -7497,7 +7497,7 @@
     "sale": 640,
     "purchase": 525,
     "wholesale": 560,
-    "stock": 0
+    "stock": 5
   },
   {
     "name": "JT BROWN BEAUTY",
@@ -7517,7 +7517,7 @@
     "sale": 600,
     "purchase": 525,
     "wholesale": 575,
-    "stock": 0
+    "stock": 5
   },
   {
     "name": "JT EVERSIGN",
@@ -7527,7 +7527,7 @@
     "sale": 640,
     "purchase": 525,
     "wholesale": 645,
-    "stock": 0
+    "stock": 5
   },
   {
     "name": "JT Gulmohar",
@@ -7577,7 +7577,7 @@
     "sale": 550,
     "purchase": 462,
     "wholesale": 490,
-    "stock": -1
+    "stock": 4
   },
   {
     "name": "JT NIGAR",
@@ -7615,9 +7615,9 @@
     "group": "COTTON",
     "mrp": 502.4,
     "sale": 400,
-    "purchase": 335,
+    "purchase": 300,
     "wholesale": 370,
-    "stock": 0
+    "stock": 10
   },
   {
     "name": "JT SUI DHAGA",
@@ -7627,7 +7627,7 @@
     "sale": 850,
     "purchase": 700,
     "wholesale": 750,
-    "stock": 0
+    "stock": 5
   },
   {
     "name": "JT Titli",
@@ -23517,7 +23517,7 @@
     "sale": 750,
     "purchase": 465,
     "wholesale": 670,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "Om Avni",
@@ -24607,7 +24607,7 @@
     "sale": 570,
     "purchase": 465,
     "wholesale": 490,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "OM Swiggy",
@@ -25515,9 +25515,9 @@
     "group": "SUIT",
     "mrp": 780,
     "sale": 620,
-    "purchase": 520,
+    "purchase": 500,
     "wholesale": 560,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "PUBLIC DEMAND",
@@ -31907,7 +31907,7 @@
     "sale": 1900,
     "purchase": 1650,
     "wholesale": 1750,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "SONY FENDY 2",
@@ -31917,7 +31917,7 @@
     "sale": 1850,
     "purchase": 1635,
     "wholesale": 1740,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "SONY FENDY 3",
@@ -31927,7 +31927,7 @@
     "sale": 2250,
     "purchase": 1890,
     "wholesale": 2000,
-    "stock": 0
+    "stock": 8
   },
   {
     "name": "SONY FENDY 4",
@@ -31937,7 +31937,7 @@
     "sale": 2050,
     "purchase": 1700,
     "wholesale": 1800,
-    "stock": 0
+    "stock": 4
   },
   {
     "name": "SONY GANESH 01",
