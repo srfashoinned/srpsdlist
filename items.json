@@ -7500,6 +7500,16 @@
     "stock": 0
   },
   {
+    "name": "JT EVERSIGN",
+    "alias": "0003622",
+    "group": "CATALOGUE SUIT",
+    "mrp": 787.5,
+    "sale": 640,
+    "purchase": 525,
+    "wholesale": 645,
+    "stock": 0
+  },
+  {
     "name": "JT Gulmohar",
     "alias": "002110",
     "group": "COTTON",
