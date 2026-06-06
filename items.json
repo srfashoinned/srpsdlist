@@ -7600,6 +7600,16 @@
     "stock": 0
   },
   {
+    "name": "JT SUI DHAGA",
+    "alias": "0003623",
+    "group": "CATALOGUE SUIT",
+    "mrp": 1050,
+    "sale": 850,
+    "purchase": 700,
+    "wholesale": 750,
+    "stock": 0
+  },
+  {
     "name": "JT Titli",
     "alias": "002113",
     "group": "COTTON",
