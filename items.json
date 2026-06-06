@@ -24600,6 +24600,16 @@
     "stock": 0
   },
   {
+    "name": "OM SWAPNA SUNDARI",
+    "alias": "0003626",
+    "group": "SUIT",
+    "mrp": 697.5,
+    "sale": 570,
+    "purchase": 465,
+    "wholesale": 490,
+    "stock": 0
+  },
+  {
     "name": "OM Swiggy",
     "alias": "002125",
     "group": "SUIT",
