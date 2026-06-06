@@ -7420,6 +7420,16 @@
     "stock": 0
   },
   {
+    "name": "JT ALINA",
+    "alias": "0003624",
+    "group": "CATALOGUE SUIT",
+    "mrp": 840,
+    "sale": 680,
+    "purchase": 560,
+    "wholesale": 600,
+    "stock": 0
+  },
+  {
     "name": "JT Allever",
     "alias": "002108",
     "group": "COTTON",
