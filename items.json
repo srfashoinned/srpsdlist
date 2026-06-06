@@ -31320,6 +31320,16 @@
     "stock": 0
   },
   {
+    "name": "SONY 1 BRAHMANI 130",
+    "alias": "0003618",
+    "group": "RUSSIAN PLAZO",
+    "mrp": 2475,
+    "sale": 1900,
+    "purchase": 1650,
+    "wholesale": 1750,
+    "stock": 4
+  },
+  {
     "name": "SONY 101 READYMADE",
     "alias": "001296",
     "group": "TROSUER",
@@ -31898,16 +31908,6 @@
     "purchase": 1890,
     "wholesale": 2000,
     "stock": 3
-  },
-  {
-    "name": "SONY FENDY 1",
-    "alias": "0003618",
-    "group": "PLAZO",
-    "mrp": 2475,
-    "sale": 1900,
-    "purchase": 1650,
-    "wholesale": 1750,
-    "stock": 4
   },
   {
     "name": "SONY FENDY 2",
