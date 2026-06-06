@@ -31870,6 +31870,26 @@
     "stock": 0
   },
   {
+    "name": "SONY FENDY 3",
+    "alias": "0003620",
+    "group": "PLAZO",
+    "mrp": 2835,
+    "sale": 2250,
+    "purchase": 1890,
+    "wholesale": 2000,
+    "stock": 0
+  },
+  {
+    "name": "SONY FENDY 4",
+    "alias": "0003621",
+    "group": "PLAZO",
+    "mrp": 2550,
+    "sale": 2050,
+    "purchase": 1700,
+    "wholesale": 1800,
+    "stock": 0
+  },
+  {
     "name": "SONY GANESH 01",
     "alias": "0002770",
     "group": "TROSUER",
