@@ -7490,6 +7490,16 @@
     "stock": 0
   },
   {
+    "name": "JT BLACK MANGO",
+    "alias": "0003625",
+    "group": "CATALOGUE SUIT",
+    "mrp": 787.5,
+    "sale": 640,
+    "purchase": 525,
+    "wholesale": 560,
+    "stock": 0
+  },
+  {
     "name": "JT BROWN BEAUTY",
     "alias": "002140",
     "group": "COTTON SUIT",
@@ -7603,10 +7613,10 @@
     "name": "JT Shabana",
     "alias": "002112",
     "group": "COTTON",
-    "mrp": 450,
+    "mrp": 502.4,
     "sale": 400,
-    "purchase": 300,
-    "wholesale": 337.5,
+    "purchase": 335,
+    "wholesale": 370,
     "stock": 0
   },
   {
