@@ -1287,7 +1287,7 @@
     "sale": 650,
     "purchase": 275,
     "wholesale": 305,
-    "stock": -37
+    "stock": -39
   },
   {
     "name": "Chahat Jaam Mix 02",
@@ -1297,7 +1297,7 @@
     "sale": 550,
     "purchase": 275,
     "wholesale": 305,
-    "stock": -26
+    "stock": -27
   },
   {
     "name": "Chahat Jaam Mix 03",
@@ -26027,7 +26027,7 @@
     "sale": 250,
     "purchase": 170,
     "wholesale": 191.25,
-    "stock": 150
+    "stock": 144
   },
   {
     "name": "Royal Punjabi Cut",
@@ -26607,7 +26607,7 @@
     "sale": 300,
     "purchase": 231,
     "wholesale": 280,
-    "stock": 32
+    "stock": 31
   },
   {
     "name": "RR SNEHA",
