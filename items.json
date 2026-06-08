@@ -347,7 +347,7 @@
     "sale": 450,
     "purchase": 375,
     "wholesale": 410,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "AF ROOP RANI",
@@ -16127,7 +16127,7 @@
     "sale": 2190,
     "purchase": 1750,
     "wholesale": 2100,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "KC ROYAL ATLANTA",
@@ -22347,7 +22347,7 @@
     "sale": 530,
     "purchase": 390,
     "wholesale": 440,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "MT SATRANGI",
