@@ -267,7 +267,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 3766
+    "stock": 3750
   },
   {
     "name": "AF DURANDHAR",
@@ -447,7 +447,7 @@
     "sale": 550,
     "purchase": 395,
     "wholesale": 430,
-    "stock": -12
+    "stock": -13
   },
   {
     "name": "Aheri Dupatta",
@@ -20607,7 +20607,7 @@
     "sale": 500,
     "purchase": 455,
     "wholesale": 470,
-    "stock": 14
+    "stock": 13
   },
   {
     "name": "MASTI AJRAKH",
@@ -20757,7 +20757,7 @@
     "sale": 400,
     "purchase": 340,
     "wholesale": 365,
-    "stock": -13
+    "stock": -14
   },
   {
     "name": "MASTI ZAREEN",
@@ -20767,7 +20767,7 @@
     "sale": 550,
     "purchase": 445,
     "wholesale": 490,
-    "stock": 57
+    "stock": 56
   },
   {
     "name": "MC PUSHPA",
