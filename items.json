@@ -23620,6 +23620,16 @@
     "stock": 0
   },
   {
+    "name": "OM BLOCK BUSTER",
+    "alias": "0003633",
+    "group": "SUIT",
+    "mrp": 705,
+    "sale": 600,
+    "purchase": 470,
+    "wholesale": 500,
+    "stock": 0
+  },
+  {
     "name": "OM Boss",
     "alias": "001982",
     "group": "SUIT",
