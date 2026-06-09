@@ -28767,7 +28767,7 @@
     "sale": 750,
     "purchase": 710,
     "wholesale": 740,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "SG Zara",
