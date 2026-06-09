@@ -4700,6 +4700,16 @@
     "stock": 0
   },
   {
+    "name": "GK MORISH",
+    "alias": "0003634",
+    "group": "TROSUER",
+    "mrp": 1110,
+    "sale": 900,
+    "purchase": 740,
+    "wholesale": 780,
+    "stock": 0
+  },
+  {
     "name": "Gk Mountain",
     "alias": "0003252",
     "group": "SUIT",
