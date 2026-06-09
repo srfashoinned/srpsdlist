@@ -4707,7 +4707,7 @@
     "sale": 900,
     "purchase": 740,
     "wholesale": 780,
-    "stock": 0
+    "stock": 3
   },
   {
     "name": "Gk Mountain",
@@ -5877,7 +5877,7 @@
     "sale": 1200,
     "purchase": 985,
     "wholesale": 1040,
-    "stock": 0
+    "stock": 14
   },
   {
     "name": "Gulzar Rayon",
@@ -19077,7 +19077,7 @@
     "sale": 600,
     "purchase": 470,
     "wholesale": 0,
-    "stock": 0
+    "stock": 8
   },
   {
     "name": "KF RAYON TOP",
@@ -20687,7 +20687,7 @@
     "sale": 400,
     "purchase": 340,
     "wholesale": 365,
-    "stock": 63
+    "stock": 99
   },
   {
     "name": "Masti Kalki",
@@ -20787,7 +20787,7 @@
     "sale": 400,
     "purchase": 340,
     "wholesale": 0,
-    "stock": 0
+    "stock": 30
   },
   {
     "name": "Masti Zara",
@@ -20797,7 +20797,7 @@
     "sale": 400,
     "purchase": 340,
     "wholesale": 365,
-    "stock": 22
+    "stock": 56
   },
   {
     "name": "MASTI ZAREEN",
@@ -22497,7 +22497,7 @@
     "sale": 590,
     "purchase": 485,
     "wholesale": 500,
-    "stock": 0
+    "stock": 8
   },
   {
     "name": "MT ZHIL MIL",
@@ -23377,7 +23377,7 @@
     "sale": 550,
     "purchase": 440,
     "wholesale": 480,
-    "stock": 0
+    "stock": 8
   },
   {
     "name": "NYN SRIVALLI",
@@ -23657,7 +23657,7 @@
     "sale": 600,
     "purchase": 470,
     "wholesale": 500,
-    "stock": 0
+    "stock": 8
   },
   {
     "name": "OM Boss",
@@ -24617,7 +24617,7 @@
     "sale": 600,
     "purchase": 500,
     "wholesale": 535,
-    "stock": 0
+    "stock": 12
   },
   {
     "name": "OM SINGAPORE AIRLINES",
@@ -24667,7 +24667,7 @@
     "sale": 570,
     "purchase": 470,
     "wholesale": 505,
-    "stock": 0
+    "stock": 8
   },
   {
     "name": "Om Sonam CRUNCHY",
@@ -35737,7 +35737,7 @@
     "sale": 530,
     "purchase": 425,
     "wholesale": 450,
-    "stock": 0
+    "stock": 8
   },
   {
     "name": "WELCOME MANGO DOLLY",
