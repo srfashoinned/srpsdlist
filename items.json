@@ -20605,9 +20605,9 @@
     "group": "CATALOGUE SUIT",
     "mrp": 682.5,
     "sale": 500,
-    "purchase": 455,
+    "purchase": 450,
     "wholesale": 470,
-    "stock": 13
+    "stock": 33
   },
   {
     "name": "MASTI AJRAKH",
@@ -20657,7 +20657,7 @@
     "sale": 400,
     "purchase": 340,
     "wholesale": 365,
-    "stock": 15
+    "stock": 63
   },
   {
     "name": "Masti Kalki",
@@ -20757,7 +20757,7 @@
     "sale": 400,
     "purchase": 340,
     "wholesale": 365,
-    "stock": -14
+    "stock": 22
   },
   {
     "name": "MASTI ZAREEN",
