@@ -19050,6 +19050,16 @@
     "stock": 0
   },
   {
+    "name": "KF AFREEN",
+    "alias": "0003632",
+    "group": "SUIT",
+    "mrp": 705,
+    "sale": 600,
+    "purchase": 470,
+    "wholesale": 0,
+    "stock": 0
+  },
+  {
     "name": "KF RAYON TOP",
     "alias": "0002532",
     "group": "COTTON SUIT",
