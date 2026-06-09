@@ -24560,6 +24560,16 @@
     "stock": 0
   },
   {
+    "name": "OM SILK STORY",
+    "alias": "0003630",
+    "group": "SUIT",
+    "mrp": 750,
+    "sale": 600,
+    "purchase": 500,
+    "wholesale": 535,
+    "stock": 0
+  },
+  {
     "name": "OM SINGAPORE AIRLINES",
     "alias": "0003528",
     "group": "SUIT",
