@@ -24600,6 +24600,16 @@
     "stock": 4
   },
   {
+    "name": "OM SONA MOHAR",
+    "alias": "0003629",
+    "group": "SUIT",
+    "mrp": 705,
+    "sale": 570,
+    "purchase": 470,
+    "wholesale": 505,
+    "stock": 0
+  },
+  {
     "name": "Om Sonam CRUNCHY",
     "alias": "0003257",
     "group": "SUIT",
