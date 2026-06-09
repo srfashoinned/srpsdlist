@@ -20750,6 +20750,16 @@
     "stock": 11
   },
   {
+    "name": "MASTI SANA",
+    "alias": "0003627",
+    "group": "CATALOGUE SUIT",
+    "mrp": 612,
+    "sale": 400,
+    "purchase": 340,
+    "wholesale": 0,
+    "stock": 0
+  },
+  {
     "name": "Masti Zara",
     "alias": "000817",
     "group": "CATALOGUE SUIT",
