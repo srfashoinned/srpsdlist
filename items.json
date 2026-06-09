@@ -35680,6 +35680,16 @@
     "stock": 0
   },
   {
+    "name": "WELCOME MAKHAN MALAI",
+    "alias": "0003631",
+    "group": "SUIT",
+    "mrp": 637.5,
+    "sale": 530,
+    "purchase": 425,
+    "wholesale": 450,
+    "stock": 0
+  },
+  {
     "name": "WELCOME MANGO DOLLY",
     "alias": "0003530",
     "group": "SUIT",
