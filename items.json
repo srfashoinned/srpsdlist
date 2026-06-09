@@ -22490,6 +22490,16 @@
     "stock": 0
   },
   {
+    "name": "MT ZARINA",
+    "alias": "0003636",
+    "group": "SUIT",
+    "mrp": 727.5,
+    "sale": 590,
+    "purchase": 485,
+    "wholesale": 500,
+    "stock": 0
+  },
+  {
     "name": "MT ZHIL MIL",
     "alias": "000873",
     "group": "SUIT",
