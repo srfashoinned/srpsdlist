@@ -1887,7 +1887,7 @@
     "sale": 60,
     "purchase": 46.67,
     "wholesale": 52.5,
-    "stock": -152
+    "stock": -153
   },
   {
     "name": "Durga",
@@ -26117,7 +26117,7 @@
     "sale": 250,
     "purchase": 170,
     "wholesale": 191.25,
-    "stock": 141
+    "stock": 140
   },
   {
     "name": "Royal Punjabi Cut",
@@ -27507,7 +27507,7 @@
     "sale": 250,
     "purchase": 208.6666667,
     "wholesale": 234.75,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "RV SPARK",
