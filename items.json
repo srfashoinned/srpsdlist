@@ -3797,7 +3797,7 @@
     "sale": 900,
     "purchase": 685,
     "wholesale": 735,
-    "stock": -1
+    "stock": 2
   },
   {
     "name": "GF Sujata",
@@ -9077,7 +9077,7 @@
     "sale": 1500,
     "purchase": 1240,
     "wholesale": 1340,
-    "stock": 1
+    "stock": 2
   },
   {
     "name": "KC Blue City",
@@ -11437,7 +11437,7 @@
     "sale": 1530,
     "purchase": 1220,
     "wholesale": 1470,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC Fulzar",
@@ -13437,7 +13437,7 @@
     "sale": 1200,
     "purchase": 890,
     "wholesale": 950,
-    "stock": 2
+    "stock": 4
   },
   {
     "name": "KC LUKY CHARM",
@@ -14237,7 +14237,7 @@
     "sale": 1500,
     "purchase": 1250,
     "wholesale": 1350,
-    "stock": 4
+    "stock": 2
   },
   {
     "name": "KC Mitwa",
@@ -18937,7 +18937,7 @@
     "sale": 1550,
     "purchase": 1220,
     "wholesale": 1350,
-    "stock": 2
+    "stock": 6
   },
   {
     "name": "KC ZOYA GLAM",
