@@ -3457,7 +3457,7 @@
     "sale": 830,
     "purchase": 740,
     "wholesale": 780,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "GF RAJ DHANI",
@@ -3477,7 +3477,7 @@
     "sale": 500,
     "purchase": 395,
     "wholesale": 425,
-    "stock": 11
+    "stock": 10
   },
   {
     "name": "GF RAMBO",
@@ -33627,7 +33627,7 @@
     "sale": 50,
     "purchase": 40,
     "wholesale": 45,
-    "stock": 1486
+    "stock": 1485
   },
   {
     "name": "Suman Pari Fab",
