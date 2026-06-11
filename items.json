@@ -2617,7 +2617,7 @@
     "sale": 800,
     "purchase": 685,
     "wholesale": 765,
-    "stock": 1
+    "stock": 2
   },
   {
     "name": "Gf Babli",
@@ -3097,7 +3097,7 @@
     "sale": 950,
     "purchase": 795,
     "wholesale": 830,
-    "stock": 2
+    "stock": 4
   },
   {
     "name": "GF JILANI",
@@ -9637,7 +9637,7 @@
     "sale": 1350,
     "purchase": 1125,
     "wholesale": 1225,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC Chunnari Chamke",
@@ -9997,7 +9997,7 @@
     "sale": 900,
     "purchase": 765,
     "wholesale": 850,
-    "stock": 2
+    "stock": 4
   },
   {
     "name": "KC CRUNCY MUNCHY",
@@ -10357,7 +10357,7 @@
     "sale": 900,
     "purchase": 755,
     "wholesale": 855,
-    "stock": 1
+    "stock": 2
   },
   {
     "name": "KC DIL DHADAKNE DO",
@@ -12787,7 +12787,7 @@
     "sale": 1500,
     "purchase": 1250,
     "wholesale": 1350,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC Jazari",
@@ -14107,7 +14107,7 @@
     "sale": 900,
     "purchase": 844.67,
     "wholesale": 950.25,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC MILKY WAY",
@@ -16157,7 +16157,7 @@
     "sale": 1600,
     "purchase": 1355,
     "wholesale": 1470,
-    "stock": 1
+    "stock": 2
   },
   {
     "name": "KC ROYAL CHANDNI",
@@ -17237,7 +17237,7 @@
     "sale": 1100,
     "purchase": 825,
     "wholesale": 875,
-    "stock": 1
+    "stock": 2
   },
   {
     "name": "KC SOFT SHINE",
@@ -18937,7 +18937,7 @@
     "sale": 1550,
     "purchase": 1220,
     "wholesale": 1350,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC ZOYA GLAM",
@@ -18997,7 +18997,7 @@
     "sale": 900,
     "purchase": 755,
     "wholesale": 855,
-    "stock": 1
+    "stock": 2
   },
   {
     "name": "KC ZYPPER (PURSE)",
@@ -24327,7 +24327,7 @@
     "sale": 1050,
     "purchase": 875,
     "wholesale": 950,
-    "stock": 1
+    "stock": 2
   },
   {
     "name": "OM Paytm",
@@ -35357,7 +35357,7 @@
     "sale": 850,
     "purchase": 650,
     "wholesale": 731.25,
-    "stock": -3
+    "stock": 2
   },
   {
     "name": "VV Eid Mubarak",
