@@ -3107,7 +3107,7 @@
     "sale": 900,
     "purchase": 685,
     "wholesale": 765,
-    "stock": 4
+    "stock": 2
   },
   {
     "name": "GF Joker",
@@ -9237,7 +9237,7 @@
     "sale": 1160,
     "purchase": 925,
     "wholesale": 1050,
-    "stock": 1
+    "stock": 2
   },
   {
     "name": "KC BULLET TRAIN",
@@ -9947,7 +9947,7 @@
     "sale": 1600,
     "purchase": 1355,
     "wholesale": 1455,
-    "stock": 2
+    "stock": 4
   },
   {
     "name": "Kc Crispy Corner",
@@ -10337,7 +10337,7 @@
     "sale": 900,
     "purchase": 755,
     "wholesale": 855,
-    "stock": 1
+    "stock": 2
   },
   {
     "name": "KC Dil Befikre",
@@ -10887,7 +10887,7 @@
     "sale": 1300,
     "purchase": 995,
     "wholesale": 1100,
-    "stock": 1
+    "stock": 2
   },
   {
     "name": "KC Face Time",
@@ -13787,7 +13787,7 @@
     "sale": 1400,
     "purchase": 1260,
     "wholesale": 1350,
-    "stock": 1
+    "stock": 2
   },
   {
     "name": "KC MASHMOOL",
@@ -14767,7 +14767,7 @@
     "sale": 1500,
     "purchase": 1200,
     "wholesale": 1300,
-    "stock": 2
+    "stock": 4
   },
   {
     "name": "KC NOOR WEDDING",
@@ -15597,7 +15597,7 @@
     "sale": 920,
     "purchase": 765,
     "wholesale": 850,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "Kc Rafee",
@@ -17177,7 +17177,7 @@
     "sale": 1650,
     "purchase": 1410,
     "wholesale": 1500,
-    "stock": 2
+    "stock": 4
   },
   {
     "name": "KC SNAP AURA",
@@ -17637,7 +17637,7 @@
     "sale": 1500,
     "purchase": 1125,
     "wholesale": 1300,
-    "stock": 1
+    "stock": 2
   },
   {
     "name": "KC SUNSHINE SMILE",
@@ -18197,7 +18197,7 @@
     "sale": 1500,
     "purchase": 1275,
     "wholesale": 1360,
-    "stock": 1
+    "stock": 2
   },
   {
     "name": "KC THANDAI",
@@ -18927,7 +18927,7 @@
     "sale": 1650,
     "purchase": 1421,
     "wholesale": 1550,
-    "stock": 2
+    "stock": 6
   },
   {
     "name": "KC ZOYA BEGUM",
@@ -26947,7 +26947,7 @@
     "sale": 1450,
     "purchase": 1150,
     "wholesale": 1250,
-    "stock": 2
+    "stock": 16
   },
   {
     "name": "RS 1295 MOSS",
