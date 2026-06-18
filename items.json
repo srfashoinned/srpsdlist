@@ -267,7 +267,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 3583
+    "stock": 3581
   },
   {
     "name": "AF DURANDHAR",
@@ -18607,7 +18607,7 @@
     "sale": 950,
     "purchase": 730,
     "wholesale": 800,
-    "stock": 0
+    "stock": -1
   },
   {
     "name": "KC Zaafir",
