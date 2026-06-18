@@ -267,7 +267,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 3645
+    "stock": 3583
   },
   {
     "name": "AF DURANDHAR",
@@ -5687,7 +5687,7 @@
     "sale": 700,
     "purchase": 540,
     "wholesale": 600,
-    "stock": 71
+    "stock": 68
   },
   {
     "name": "GNA ORGANZA 7 STAR",
@@ -23317,7 +23317,7 @@
     "sale": 700,
     "purchase": 540,
     "wholesale": 580,
-    "stock": -1
+    "stock": -8
   },
   {
     "name": "NYN JAM ESHITA JAM",
@@ -30307,7 +30307,7 @@
     "sale": 750,
     "purchase": 625,
     "wholesale": 675,
-    "stock": -13
+    "stock": -17
   },
   {
     "name": "SNT Madhuri dusky",
