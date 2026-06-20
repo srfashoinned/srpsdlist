@@ -267,7 +267,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 3561
+    "stock": 3549
   },
   {
     "name": "AF DURANDHAR",
@@ -447,7 +447,7 @@
     "sale": 550,
     "purchase": 395,
     "wholesale": 430,
-    "stock": -14
+    "stock": -17
   },
   {
     "name": "Aheri Dupatta",
@@ -20357,7 +20357,7 @@
     "sale": 199,
     "purchase": 154,
     "wholesale": 180,
-    "stock": -13
+    "stock": -14
   },
   {
     "name": "MALAI ANOTHER 2 PC",
@@ -26807,7 +26807,7 @@
     "sale": 350,
     "purchase": 250,
     "wholesale": 280,
-    "stock": 240
+    "stock": 239
   },
   {
     "name": "Rrt High",
@@ -33237,7 +33237,7 @@
     "sale": 400,
     "purchase": 365,
     "wholesale": 385,
-    "stock": 251
+    "stock": 247
   },
   {
     "name": "SST zCTN SUITE",
