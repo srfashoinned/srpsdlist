@@ -447,7 +447,7 @@
     "sale": 550,
     "purchase": 395,
     "wholesale": 430,
-    "stock": -13
+    "stock": -14
   },
   {
     "name": "Aheri Dupatta",
@@ -787,7 +787,7 @@
     "sale": 450,
     "purchase": 390,
     "wholesale": 450,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "AUDI CLOTH",
