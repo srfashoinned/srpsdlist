@@ -7457,7 +7457,7 @@
     "sale": 630,
     "purchase": 525,
     "wholesale": 550,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "JT ANGLE",
@@ -7467,7 +7467,7 @@
     "sale": 650,
     "purchase": 560,
     "wholesale": 600,
-    "stock": 5
+    "stock": 0
   },
   {
     "name": "JT ANKITA",
@@ -23317,7 +23317,7 @@
     "sale": 700,
     "purchase": 540,
     "wholesale": 580,
-    "stock": -10
+    "stock": -18
   },
   {
     "name": "NYN JAM ESHITA JAM",
@@ -23387,7 +23387,7 @@
     "sale": 550,
     "purchase": 440,
     "wholesale": 480,
-    "stock": 6
+    "stock": 2
   },
   {
     "name": "NYN SRIVALLI",
