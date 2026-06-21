@@ -267,7 +267,7 @@
     "sale": 25,
     "purchase": 20,
     "wholesale": 23.5,
-    "stock": 3549
+    "stock": 3545
   },
   {
     "name": "AF DURANDHAR",
@@ -5877,7 +5877,7 @@
     "sale": 1200,
     "purchase": 985,
     "wholesale": 1040,
-    "stock": 14
+    "stock": 13
   },
   {
     "name": "Gulzar Rayon",
@@ -20357,7 +20357,7 @@
     "sale": 199,
     "purchase": 154,
     "wholesale": 180,
-    "stock": -14
+    "stock": -15
   },
   {
     "name": "MALAI ANOTHER 2 PC",
@@ -33277,7 +33277,7 @@
     "sale": 0,
     "purchase": 0,
     "wholesale": 0,
-    "stock": -394
+    "stock": -395
   },
   {
     "name": "Suite Disha IPL",
