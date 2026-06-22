@@ -1057,7 +1057,7 @@
     "sale": 600,
     "purchase": 455,
     "wholesale": 511.875,
-    "stock": 2
+    "stock": 1
   },
   {
     "name": "Bhumi Sweet Look",
@@ -14667,7 +14667,7 @@
     "sale": 1790,
     "purchase": 1495,
     "wholesale": 1595,
-    "stock": 3
+    "stock": 2
   },
   {
     "name": "KC Nizaal",
@@ -20787,7 +20787,7 @@
     "sale": 400,
     "purchase": 340,
     "wholesale": 0,
-    "stock": 30
+    "stock": 29
   },
   {
     "name": "Masti Zara",
@@ -23817,7 +23817,7 @@
     "sale": 530,
     "purchase": 440,
     "wholesale": 480,
-    "stock": 4
+    "stock": 3
   },
   {
     "name": "OM FULJADI",
