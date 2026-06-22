@@ -7517,7 +7517,7 @@
     "sale": 640,
     "purchase": 525,
     "wholesale": 560,
-    "stock": 1
+    "stock": 0
   },
   {
     "name": "JT BROWN BEAUTY",
@@ -33237,7 +33237,7 @@
     "sale": 400,
     "purchase": 365,
     "wholesale": 385,
-    "stock": 241
+    "stock": 240
   },
   {
     "name": "SST zCTN SUITE",
