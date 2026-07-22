@@ -1,71 +1,114 @@
 @echo off
-
-:loop
-echo ===================================
-echo   SR STOCK AUTO UPDATE STARTED
-echo ===================================
+setlocal
 
 cd /d C:\Users\SR\Desktop\demmo
 
-:: 🔥 STEP 0 — REMOVE GIT LOCK IF EXISTS
-IF EXIST .git\index.lock (
-    echo ⚠ Removing old Git lock...
-    del /f /q .git\index.lock
+:loop
+echo.
+echo ==========================================
+echo   SR FASHION - RETAIL DADDY AUTO UPDATE
+echo ==========================================
+echo.
+
+REM Remove stale Git lock if one exists
+IF EXIST ".git\index.lock" (
+    echo Removing old Git lock...
+    del /f /q ".git\index.lock"
 )
 
+echo [%date% %time%] Exporting live stock from Retail Daddy...
 echo.
-echo Exporting stock from Busy...
 
-sqlcmd -S DESKTOP-U5GLEE7 -U SA -P busy@123 -i query.sql -o stock.csv -s "," -W -h -1
+node export-stock.js
 
-IF %ERRORLEVEL% NEQ 0 (
-    echo ❌ SQL ERROR
-    timeout /t 30 >nul
+IF ERRORLEVEL 1 (
+    echo.
+    echo ==========================================
+    echo   EXPORT FAILED - NOTHING WILL BE PUSHED
+    echo ==========================================
+    echo Retrying in 30 seconds...
+    timeout /t 30 /nobreak >nul
     goto loop
 )
 
 echo.
-echo Converting CSV to JSON...
+echo Export completed successfully.
+echo Checking whether items.json changed...
+echo.
 
-node convert.js
+REM Stage ONLY items.json.
+REM Never use "git add ." here.
+git add items.json
 
-IF %ERRORLEVEL% NEQ 0 (
-    echo ❌ CONVERSION FAILED
-    timeout /t 30 >nul
+REM Check whether staged items.json actually changed
+git diff --cached --quiet -- items.json
+
+IF %ERRORLEVEL% EQU 0 (
+    echo No stock changes detected.
+    echo Nothing to commit or push.
+    echo.
+    echo Waiting 90 seconds...
+    timeout /t 90 /nobreak >nul
+    goto loop
+)
+
+echo Stock change detected.
+echo Creating Git commit...
+echo.
+
+git commit -m "Auto Retail Daddy stock update"
+
+IF ERRORLEVEL 1 (
+    echo.
+    echo GIT COMMIT FAILED.
+    echo Retrying in 30 seconds...
+    timeout /t 30 /nobreak >nul
     goto loop
 )
 
 echo.
-echo Syncing with GitHub...
+echo Syncing latest GitHub changes...
+echo.
 
-:: STEP 1: COMMIT FIRST
-git add .
-git commit -m "Auto stock update"
-
-:: STEP 2: PULL
+REM Local branch is currently master, while GitHub branch is main.
+REM Rebase this local branch onto origin/main.
 git pull origin main --rebase
 
-IF %ERRORLEVEL% NEQ 0 (
-    echo ❌ GIT PULL FAILED
-    timeout /t 30 >nul
-    goto loop
-)
-
-:: STEP 3: PUSH
-git push origin main
-
-IF %ERRORLEVEL% NEQ 0 (
-    echo ❌ GIT PUSH FAILED
-    timeout /t 30 >nul
+IF ERRORLEVEL 1 (
+    echo.
+    echo ==========================================
+    echo   GIT PULL / REBASE FAILED
+    echo ==========================================
+    echo Auto push stopped to protect repository.
+    echo Retrying in 30 seconds...
+    timeout /t 30 /nobreak >nul
     goto loop
 )
 
 echo.
-echo ===================================
-echo   ✅ UPDATE COMPLETED SUCCESSFULLY
-echo ===================================
+echo Pushing updated items.json to GitHub main...
+echo.
 
-echo Waiting 45 seconds...
-timeout /t 45 >nul
+git push origin HEAD:main
+
+IF ERRORLEVEL 1 (
+    echo.
+    echo ==========================================
+    echo   GIT PUSH FAILED
+    echo ==========================================
+    echo Retrying in 30 seconds...
+    timeout /t 30 /nobreak >nul
+    goto loop
+)
+
+echo.
+echo ==========================================
+echo   UPDATE COMPLETED SUCCESSFULLY
+echo ==========================================
+echo [%date% %time%]
+echo.
+echo Waiting 90 seconds before next update...
+
+timeout /t 90 /nobreak >nul
 
 goto loop
